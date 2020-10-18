@@ -21,6 +21,9 @@ SET time_zone = "+00:00";
 --
 -- Database: `ta_listing`
 --
+DROP DATABASE IF EXISTS ta_listing;
+CREATE DATABASE ta_listing;
+USE ta_listing;
 
 -- --------------------------------------------------------
 
