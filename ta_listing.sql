@@ -21,8 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `ta_listing`
 --
-DROP DATABASE IF EXISTS ta_listing;
-CREATE DATABASE ta_listing;
+DROP DATABASE IF EXISTS `ta_listing`;
+CREATE DATABASE IF NOT EXISTS `ta_listing`;
 USE ta_listing;
 
 -- --------------------------------------------------------
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `account` (
   `PASSWORD` varchar(18) NOT NULL,
   `EMAIL` varchar(32) NOT NULL,
   PRIMARY KEY (`USER_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `applications` (
   KEY `APPLICANT_ID` (`APPLICANT_ID`),
   KEY `PROFESSOR_NAME` (`PROFESSOR_NAME`),
   KEY `PROFESSOR_ID` (`PROFESSOR_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `modules` (
   `PROFESSOR_ID` varchar(12) NOT NULL,
   PRIMARY KEY (`MOD_ID`),
   KEY `PROFESSOR_ID` (`PROFESSOR_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -92,7 +92,7 @@ CREATE TABLE IF NOT EXISTS `payments` (
   `PAYMENT_DETAILS` varchar(99) NOT NULL,
   `PAYMENT_DATE` datetime NOT NULL,
   PRIMARY KEY (`PAYMENT_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -106,7 +106,7 @@ CREATE TABLE IF NOT EXISTS `professors` (
   `USER_ID` varchar(12) NOT NULL,
   PRIMARY KEY (`PROFESSORS_NAME`,`USER_ID`),
   KEY `USER_ID` (`USER_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -123,7 +123,7 @@ CREATE TABLE IF NOT EXISTS `students` (
   `CURRENT_YEAR` int(11) NOT NULL,
   PRIMARY KEY (`STUDENT_NAME`,`USER_ID`),
   KEY `USER_ID` (`USER_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -137,7 +137,7 @@ CREATE TABLE IF NOT EXISTS `student_experience` (
   `STUDENT_NAME` varchar(30) NOT NULL,
   `EXPERIENCE` text NOT NULL,
   PRIMARY KEY (`STUDENT_ID`,`STUDENT_NAME`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Constraints for dumped tables
