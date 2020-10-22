@@ -14,6 +14,10 @@
 	<link rel="stylesheet" type="text/css" href="css/demo.css" />
 	<link rel="stylesheet" type="text/css" href="css/component.css" />
 	<script src="js/modernizr-custom.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.slim.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.css">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.js"></script>
+	<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.js"></script>
 </head>
 
 <body>
@@ -21,8 +25,8 @@
 	<nav class="pages-nav">
 		<div class="pages-nav__item"><a class="link link--page" href="#page-home">Home</a></div>
 		<div class="pages-nav__item"><a class="link link--page" href="#page-docu">Documents</a></div>
-		<div class="pages-nav__item"><a class="link link--page" href="#page-manuals">Openings</a></div>
-		<div class="pages-nav__item"><a class="link link--page" href="#page-software">Account Settings</a></div>
+		<div class="pages-nav__item"><a class="link link--page" href="#page-opening">Openings</a></div>
+		<div class="pages-nav__item"><a class="link link--page" href="#page-setting">Account Settings</a></div>
 		</div>
 	</nav>
 	<!-- /navigation-->
@@ -30,19 +34,203 @@
 	<div class="pages-stack">
 		<!-- page -->
 		<div class="page" id="page-home">
-			<!-- Blueprint header -->
-			<header class="bp-header cf">
-				<span class="bp-header__present">Blueprint <span class="bp-tooltip bp-icon bp-icon--about" data-content="The Blueprints are a collection of basic and minimal website concepts, components, plugins and layouts with minimal style for easy adaption and usage, or simply for inspiration."></span></span>
-				<h1 class="bp-header__title">Page Stack Navigation</h1>
-				<p class="bp-header__desc">Based on Ilya Kostin's Dribbble shot <a href="https://dribbble.com/shots/2286042-Stacked-navigation">Stacked navigation</a></p>
-				<nav class="bp-nav">
-					<a class="bp-nav__item bp-icon bp-icon--prev" href="http://tympanus.net/Blueprints/ZoomSlider/" data-info="previous Blueprint"><span>Previous Blueprint</span></a>
-					<!--a class="bp-nav__item bp-icon bp-icon--next" href="" data-info="next Blueprint"><span>Next Blueprint</span></a-->
-					<a class="bp-nav__item bp-icon bp-icon--drop" href="http://tympanus.net/codrops/?p=25311" data-info="back to the Codrops article"><span>back to the Codrops article</span></a>
-					<a class="bp-nav__item bp-icon bp-icon--archive" href="http://tympanus.net/codrops/category/blueprints/" data-info="Blueprints archive"><span>Go to the archive</span></a>
-				</nav>
-			</header>
-			<img class="poster" src="images/1.jpg" alt="img01" />
+			<!--Header-->
+			<h1 class="text-center mb-3">Latest Openings</h1>
+			<!--Header-->
+			
+			<!--Carousel Wrapper-->
+			<div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+
+				<!--Controls-->
+				<div class="controls-top">
+				<a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
+				<a class="btn-floating" href="#multi-item-example" data-slide="next"><i
+					class="fas fa-chevron-right"></i></a>
+				</div>
+				<!--/.Controls-->
+			
+				<!--Indicators-->
+				<ol class="carousel-indicators">
+				<li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
+				<li data-target="#multi-item-example" data-slide-to="1"></li>
+				
+				</ol>
+				<!--/.Indicators-->
+			
+				<!--Slides-->
+				<div class="carousel-inner" role="listbox">
+			
+				<!--First slide-->
+				<div class="carousel-item active">
+			
+					<div class="col-sm-3" style="float:left">
+					<div class="card mb-2">
+						<div class="card-body">
+						<h4 class="card-title">COR1305: Spreadsheet Modeling and Analytics (G5)</h4>
+						<p class="card-text"> 
+							Start Date: 17 Aug 2020<br>
+
+							End Date: 04 Dec 2020<br>
+							
+							Day: Every Tuesday<br>
+							
+							Time: 12:00 PM - 03:15 PM<br>
+							
+							Venue: SIS Seminar Rm 3.2</p>
+						<a class="btn btn-primary">Button</a>
+						</div>
+					</div>
+					</div>
+			
+					<div class="col-sm-3" style="float:left">
+						<div class="card mb-2">
+							<div class="card-body">
+							<h4 class="card-title">COR2204: Science and Technology Studies: Where Science meets Society (G2)</h4>
+							<p class="card-text"> 
+								Start Date: 17 Aug 2020<br>
+	
+								End Date: 04 Dec 2020<br>
+								
+								Day: Every Tuesday<br>
+								
+								Time: 03:30 PM - 06:45 PM<br>
+								
+								Venue: SOE/SOSS Seminar Rm 2-7</p>
+							<a class="btn btn-primary">Button</a>
+							</div>
+					</div>
+					</div>
+
+					<div class="col-sm-3" style="float:left">
+						<div class="card mb-2">
+							<div class="card-body">
+							<h4 class="card-title">IS210: Business Process Analysis & Solutioning (G5)</h4>
+							<p class="card-text"> 
+								Start Date: 17 Aug 2020<br>
+	
+								End Date: 04 Dec 2020<br>
+								
+								Day: Every Thursday<br>
+								
+								Time: 08:15 AM - 11:30 AM<br>
+								
+								Venue: SIS Seminar Rm 2.1</p>
+							<a class="btn btn-primary">Button</a>
+							</div>
+					</div>
+					</div>
+
+					<div class="col-sm-3" style="float:left">
+						<div class="card mb-2">
+							<div class="card-body">
+							<h4 class="card-title">IS211: Interaction Design and Prototyping (G10)</h4>
+							<p class="card-text"> 
+								Start Date: 17 Aug 2020<br>
+	
+								End Date: 04 Dec 2020<br>
+								
+								Day: Every Thursday<br>
+								
+								Time: 12:00 PM - 03:15 PM<br>
+								
+								Venue: SIS Seminar Rm 3.4</p>
+							<a class="btn btn-primary">Button</a>
+							</div>
+					</div>
+					</div>
+			
+				</div>
+				<!--/.First slide-->
+			
+				<!--Second slide-->
+				<div class="carousel-item">
+					<div class="col-sm-3" style="float:left">
+						<div class="card mb-2">
+							<div class="card-body">
+							<h4 class="card-title">IS216: Web Application Development II (G3)</h4>
+							<p class="card-text"> 
+								Start Date: 17 Aug 2020<br>
+	
+								End Date: 04 Dec 2020<br>
+								
+								Day: Every Wednesday<br>
+								
+								Time: 08:15 AM - 11:30 AM<br>
+								
+								Venue: SIS Seminar Rm B1-1</p>
+							<a class="btn btn-primary">Button</a>
+							</div>
+					</div>
+					</div>
+
+					<div class="col-sm-3" style="float:left">
+						<div class="card mb-2">
+							<div class="card-body">
+							<h4 class="card-title">IS210: Business Process Analysis & Solutioning (G5)</h4>
+							<p class="card-text"> 
+								Start Date: 17 Aug 2020<br>
+	
+								End Date: 04 Dec 2020<br>
+								
+								Day: Every Thursday<br>
+								
+								Time: 08:15 AM - 11:30 AM<br>
+								
+								Venue: SIS Seminar Rm 2.1</p>
+							<a class="btn btn-primary">Button</a>
+							</div>
+					</div>
+					</div>
+
+					<div class="col-sm-3" style="float:left">
+						<div class="card mb-2">
+							<div class="card-body">
+							<h4 class="card-title">IS210: Business Process Analysis & Solutioning (G5)</h4>
+							<p class="card-text"> 
+								Start Date: 17 Aug 2020<br>
+	
+								End Date: 04 Dec 2020<br>
+								
+								Day: Every Thursday<br>
+								
+								Time: 08:15 AM - 11:30 AM<br>
+								
+								Venue: SIS Seminar Rm 2.1</p>
+							<a class="btn btn-primary">Button</a>
+							</div>
+					</div>
+					</div>
+
+					<div class="col-sm-3" style="float:left">
+						<div class="card mb-2">
+							<div class="card-body">
+							<h4 class="card-title">IS210: Business Process Analysis & Solutioning (G5)</h4>
+							<p class="card-text"> 
+								Start Date: 17 Aug 2020<br>
+	
+								End Date: 04 Dec 2020<br>
+								
+								Day: Every Thursday<br>
+								
+								Time: 08:15 AM - 11:30 AM<br>
+								
+								Venue: SIS Seminar Rm 2.1</p>
+							<a class="btn btn-primary">Button</a>
+							</div>
+					</div>
+					</div>
+			
+				</div>
+				<!--/.Second slide-->
+			
+				
+			
+				</div>
+				<!--/.Slides-->
+			
+			</div>
+			<!--/.Carousel Wrapper-->
+			
 		</div>
 		<!-- /page -->
 		<div class="page" id="page-docu">
@@ -55,7 +243,7 @@
 			</header>
 			<img class="poster" src="images/6.jpg" alt="img06" />
 		</div>
-		<div class="page" id="page-manuals">
+		<div class="page" id="page-opening">
 			<header class="bp-header cf">
 				<h1 class="bp-header__title">Manuals</h1>
 				<p class="bp-header__desc">Based on Ilya Kostin's Dribbble shot <a href="https://dribbble.com/shots/2286042-Stacked-navigation">Stacked navigation</a></p>
@@ -65,7 +253,7 @@
 			</header>
 			<img class="poster" src="images/2.jpg" alt="img02" />
 		</div>
-		<div class="page" id="page-software">
+		<div class="page" id="page-setting">
 			<header class="bp-header cf">
 				<h1 class="bp-header__title">Software &amp; Downloads</h1>
 				<p class="bp-header__desc">Based on Ilya Kostin's Dribbble shot <a href="https://dribbble.com/shots/2286042-Stacked-navigation">Stacked navigation</a></p>
