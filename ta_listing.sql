@@ -16,12 +16,12 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES  utf8 */;
 
 --
 -- Database: `ta_listing`
 --
-CREATE DATABASE IF NOT EXISTS `ta_listing` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci
+CREATE DATABASE IF NOT EXISTS `ta_listing` DEFAULT CHARACTER SET  utf8 COLLATE utf8_general_ci;
 USE `ta_listing`;
 
 -- --------------------------------------------------------
@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `applications` (
   `APPLICATION_NO` int(11) NOT NULL AUTO_INCREMENT,
   `STATUS` tinyint(3) NOT NULL,
   `MOD_ID` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `PROFESSOR_NAME` varchar(20) NOT NULL,
+  `PROFESSOR_NAME` varchar(30) NOT NULL,
   `PROFESSOR_ID` varchar(12) NOT NULL,
   PRIMARY KEY (`APPLICATION_NO`),
   KEY `APPLICANT_NAME` (`STUDENT_NAME`),
@@ -117,7 +117,7 @@ CREATE TABLE IF NOT EXISTS `faculty` (
   `MOD_NAME` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `FACULTY` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`MOD_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET= utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `faculty`
@@ -153,6 +153,8 @@ DROP TABLE IF EXISTS `modules`;
 CREATE TABLE IF NOT EXISTS `modules` (
   `MOD_ID` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `MOD_NAME` varchar(30) NOT NULL,
+  `MOD_DESCR` varchar(99) NOT NULL,
+  `MOD_LEVEL` varchar(99) NOT NULL,
   `POSITIONS_AVAILABLE` int(2) NOT NULL,
   `JOB_SCOPE` varchar(99) NOT NULL,
   `PROFESSOR_NAME` varchar(30) NOT NULL,
@@ -166,25 +168,25 @@ CREATE TABLE IF NOT EXISTS `modules` (
 -- Dumping data for table `modules`
 --
 
-INSERT INTO `modules` (`MOD_ID`, `MOD_NAME`, `POSITIONS_AVAILABLE`, `JOB_SCOPE`, `PROFESSOR_NAME`, `PROFESSOR_ID`) VALUES
-('ACCT101_2020_1_G1', 'Financial Accounting', 2, 'TA', 'LEE Yun', 'ylee'),
-('CS301_2020_1_G1', 'IT Solution Architecture', 1, 'TA', 'OUH Eng Lieh', 'elouh'),
-('ECON111_2020_1_G1', 'Microeconomics 1', 2, 'TA', 'Iona Hyojung Lee', 'hyojunglee'),
-('IS105_2020_1_G1', 'Business Data Management', 4, 'TA', 'Subhajit DATTA', 'subhajitd'),
-('IS113_2020_1_G1', 'Web Application Development I', 3, 'TA', 'David LO', 'davidlo'),
-('IS210_2020_1_G1', 'Business Process Analysis and ', 2, 'TA', 'Rafael J. BARROS', 'rafaelbarros'),
-('IS210_2020_1_G2', 'Business Process Analysis and ', 3, 'TA', 'Swapna GOTTIPATI', 'swapnag'),
-('IS211_2020_1_G1', 'Interaction Design & Prototypi', 2, 'TA', 'OUH Eng Lieh', 'elouh'),
-('IS212_2019_2_G1', 'Software Project Management', 1, 'TA', 'Rajesh Krishna BALAN', 'rajesh'),
-('IS213_2020_1_G1', 'Enterprise Solution Developmen', 3, 'TA', 'JIANG Lingxiao', 'lxjiang'),
-('IS216_2020_1_G1', 'Web Application Development 2', 2, 'TA', 'Chris POSKITT', 'cposkitt'),
-('IS216_2020_1_G2', 'Web Application Development 2', 2, 'TA', 'Kyong Jin SHIM', 'kjshim'),
-('IS216_2020_1_G3', 'Web Application Development 2', 2, 'TA', 'SUN Jun', 'junsun'),
-('IS216_2020_1_G4', 'Web Application Development 2', 2, 'TA', 'SHAR Lwin Khin', 'lkshar'),
-('IS442_2019_2_G1', 'Object Oriented Programming', 1, 'TA', 'LEE Yeow Leong', 'yllee'),
-('LAW101_2020_1_G1', 'Contract Law 1', 2, 'TA', 'THAM Chee Ho', 'chtham'),
-('MGMT310_2020_1_G1', 'Leading New Ventures to Growth', 2, 'TA', 'Abhijith G. ACHARYA', 'agacharya'),
-('SOCG201_2020_1_G1', 'Social Stratification and Ineq', 3, 'TA', 'Yasmin ORTIGA', 'yasmino');
+INSERT INTO `modules` (`MOD_ID`, `MOD_NAME`, `MOD_DESCR`, `MOD_LEVEL`, `POSITIONS_AVAILABLE`, `JOB_SCOPE`, `PROFESSOR_NAME`, `PROFESSOR_ID`) VALUES
+('ACCT101_2020_1_G1', 'Financial Accounting', '', '', 2, 'TA', 'LEE Yun', 'ylee'),
+('CS301_2020_1_G1', 'IT Solution Architecture', '', '', 1, 'TA', 'OUH Eng Lieh', 'elouh'),
+('ECON111_2020_1_G1', 'Microeconomics 1', '', '', 2, 'TA', 'Iona Hyojung Lee', 'hyojunglee'),
+('IS105_2020_1_G1', 'Business Data Management', '', '', 4, 'TA', 'Subhajit DATTA', 'subhajitd'),
+('IS113_2020_1_G1', 'Web Application Development I', '', '', 3, 'TA', 'David LO', 'davidlo'),
+('IS210_2020_1_G1', 'Business Process Analysis and ', '', '', 2, 'TA', 'Rafael J. BARROS', 'rafaelbarros'),
+('IS210_2020_1_G2', 'Business Process Analysis and ', '', '', 3, 'TA', 'Swapna GOTTIPATI', 'swapnag'),
+('IS211_2020_1_G1', 'Interaction Design & Prototypi', '', '', 2, 'TA', 'OUH Eng Lieh', 'elouh'),
+('IS212_2019_2_G1', 'Software Project Management', '', '', 1, 'TA', 'Rajesh Krishna BALAN', 'rajesh'),
+('IS213_2020_1_G1', 'Enterprise Solution Developmen', '', '', 3, 'TA', 'JIANG Lingxiao', 'lxjiang'),
+('IS216_2020_1_G1', 'Web Application Development 2', '', '', 2, 'TA', 'Chris POSKITT', 'cposkitt'),
+('IS216_2020_1_G2', 'Web Application Development 2', '', '', 2, 'TA', 'Kyong Jin SHIM', 'kjshim'),
+('IS216_2020_1_G3', 'Web Application Development 2', '', '', 2, 'TA', 'SUN Jun', 'junsun'),
+('IS216_2020_1_G4', 'Web Application Development 2', '', '', 2, 'TA', 'SHAR Lwin Khin', 'lkshar'),
+('IS442_2019_2_G1', 'Object Oriented Programming', '', '', 1, 'TA', 'LEE Yeow Leong', 'yllee'),
+('LAW101_2020_1_G1', 'Contract Law 1', '', '', 2, 'TA', 'THAM Chee Ho', 'chtham'),
+('MGMT310_2020_1_G1', 'Leading New Ventures to Growth', '', '', 2, 'TA', 'Abhijith G. ACHARYA', 'agacharya'),
+('SOCG201_2020_1_G1', 'Social Stratification and Ineq', '', '', 3, 'TA', 'Yasmin ORTIGA', 'yasmino');
 
 -- --------------------------------------------------------
 
@@ -223,9 +225,9 @@ INSERT INTO `payments` (`PAYMENT_ID`, `PAYMENT_AMT`, `PAYMENT_DETAILS`, `PAYMENT
 
 DROP TABLE IF EXISTS `professors`;
 CREATE TABLE IF NOT EXISTS `professors` (
-  `PROFESSORS_NAME` varchar(30) NOT NULL,
+  `PROFESSOR_NAME` varchar(30) NOT NULL,
   `PROFESSOR_ID` varchar(12) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  PRIMARY KEY (`PROFESSORS_NAME`,`PROFESSOR_ID`),
+  PRIMARY KEY (`PROFESSOR_NAME`,`PROFESSOR_ID`),
   KEY `USER_ID` (`PROFESSOR_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -233,7 +235,7 @@ CREATE TABLE IF NOT EXISTS `professors` (
 -- Dumping data for table `professors`
 --
 
-INSERT INTO `professors` (`PROFESSORS_NAME`, `PROFESSOR_ID`) VALUES
+INSERT INTO `professors` (`PROFESSOR_NAME`, `PROFESSOR_ID`) VALUES
 ('Abhijith G. ACHARYA', 'agacharya'),
 ('THAM Chee Ho', 'chtham'),
 ('Chris POSKITT', 'cposkitt'),
@@ -325,7 +327,7 @@ ALTER TABLE `applications`
 -- Constraints for table `modules`
 --
 ALTER TABLE `modules`
-  ADD CONSTRAINT `modules_ibfk_1` FOREIGN KEY (`PROFESSOR_NAME`) REFERENCES `professors` (`PROFESSORS_NAME`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `modules_ibfk_1` FOREIGN KEY (`PROFESSOR_NAME`) REFERENCES `professors` (`PROFESSOR_NAME`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   ADD CONSTRAINT `modules_ibfk_2` FOREIGN KEY (`PROFESSOR_ID`) REFERENCES `professors` (`PROFESSOR_ID`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
