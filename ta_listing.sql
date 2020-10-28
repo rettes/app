@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `account` (
   `EMAIL` varchar(32) NOT NULL,
   `USER_TYPE` varchar(9) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`USER_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `account`
@@ -84,7 +84,7 @@ CREATE TABLE IF NOT EXISTS `applications` (
   KEY `APPLICANT_ID` (`STUDENT_ID`),
   KEY `PROFESSOR_NAME` (`PROFESSOR_NAME`),
   KEY `PROFESSOR_ID` (`PROFESSOR_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `applications`
@@ -117,7 +117,7 @@ CREATE TABLE IF NOT EXISTS `modules` (
   PRIMARY KEY (`MOD_ID`),
   KEY `PROFESSOR_ID` (`PROFESSOR_ID`),
   KEY `PROFESSOR_NAME` (`PROFESSOR_NAME`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `modules`
@@ -157,7 +157,7 @@ CREATE TABLE IF NOT EXISTS `payments` (
   KEY `payments_ibfk_1` (`PROFESSOR_ID`),
   KEY `STUDENT_ID` (`STUDENT_ID`),
   KEY `MOD_ID` (`MOD_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `payments`
@@ -179,7 +179,7 @@ CREATE TABLE IF NOT EXISTS `professors` (
   `PROFESSOR_ID` varchar(12) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`PROFESSORS_NAME`,`PROFESSOR_ID`),
   KEY `USER_ID` (`PROFESSOR_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `professors`
@@ -215,7 +215,7 @@ CREATE TABLE IF NOT EXISTS `students` (
   `FACULTY` varchar(4) NOT NULL,
   PRIMARY KEY (`STUDENT_NAME`,`STUDENT_ID`),
   KEY `USER_ID` (`STUDENT_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `students`
@@ -241,7 +241,7 @@ CREATE TABLE IF NOT EXISTS `student_experience` (
   `EXPERIENCE` text NOT NULL,
   PRIMARY KEY (`STUDENT_ID`,`STUDENT_NAME`),
   KEY `student_experience_ibfk_2` (`STUDENT_NAME`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `student_experience`
