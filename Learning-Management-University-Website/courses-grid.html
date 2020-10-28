@@ -806,7 +806,19 @@
 
 
     <script>
-        
+        function addfunction(){
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+
+                if (xhttp.readyState == 4 && xhttp.status == 200) {
+                    var item = JSON.parse(xhttp.responseText);
+                    console.log(item)
+                }
+            }
+
+            xhttp.open("GET", "http://localhost:5012/get_all", true);
+            xhttp.send();
+        }
     </script>
 
   </body>
