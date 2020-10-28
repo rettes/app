@@ -244,18 +244,6 @@
                                 <p>Find your course here:</p>
                                 <form>
                                     <ul>
-                                        <li>
-                                            <div class="wm-radio">
-                                                <div class="wm-radio-partition">
-                                                    <input id="male" type="radio" name="gender" value="male">
-                                                    <label for="male">by ID</label>
-                                                </div>
-                                                <div class="wm-radio-partition">
-                                                    <input id="female" type="radio" name="gender" value="female">
-                                                    <label for="female">by name</label>
-                                                </div>
-                                            </div>
-                                        </li>
                                         <li> <input type="text" value="Course Name" onblur="if(this.value == '') { this.value ='Course Name'; }" onfocus="if(this.value =='Course Name') { this.value = ''; }"> <i class="wmicon-search"></i> </li>
                                         <li>
                                             <div class="wm-apply-select">
@@ -369,53 +357,8 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="widget widget_check-box">
-                                <h5>Search By Price</h5>
-                                <div class="wm-range-slider">
-                                    <div id="slider-range" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">
-                                        <div class="ui-slider-range ui-widget-header ui-corner-all" style="left: 0%; width: 60%;"></div>
-                                        <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 0%;"></span>
-                                        <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 60%;"></span>
-                                    </div>
-                                    <form>
-                                          <input id="amount" type="text" readonly="" value="$59">
-                                          <input type="submit" value="Clear Filters">
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="widget widget_check-box">
-                                    <h5>Search By Availability</h5>
-                                <ul>    
-                                    <li>
-                                        <input id="avail1" type="checkbox">
-                                        <label for="avail1">
-                                            <span></span>
-                                            Current
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <input id="avail2" type="checkbox">
-                                        <label for="avail2">
-                                            <span></span>
-                                            Upcoming
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <input id="avail3" type="checkbox">
-                                        <label for="avail3">
-                                            <span></span>
-                                            Self-Placed
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <input id="avail4" type="checkbox">
-                                        <label for="avail4">
-                                            <span></span>
-                                            Arhived
-                                        </label>
-                                    </li>
-                                </ul>
-                            </div>
+                            
+            
                             <div class="widget widget_check-box">
                                     <h5>Search By Level</h5>
                                 <ul>
@@ -457,135 +400,6 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="widget widget_check-box widget_scroll-box">
-                                    <h5>Search By Language</h5>
-                                <ul>    
-                                    <li>
-                                        <input id="land1" type="checkbox">
-                                        <label for="land1">
-                                            <span></span>
-                                            Chinese / Mandarin
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <input id="land2" type="checkbox">
-                                        <label for="land2">
-                                            <span></span>
-                                            Spanish
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <input id="land3" type="checkbox">
-                                        <label for="land3">
-                                            <span></span>
-                                            English / U.S Spoken
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <input id="land4" type="checkbox">
-                                        <label for="land4">
-                                            <span></span>
-                                            Italian
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <input id="land5" type="checkbox">
-                                        <label for="land5">
-                                            <span></span>
-                                            French
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <input id="land6" type="checkbox">
-                                        <label for="land6">
-                                            <span></span>
-                                            German
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <input id="land7" type="checkbox">
-                                        <label for="land7">
-                                            <span></span>
-                                            Russian
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <input id="land8" type="checkbox">
-                                        <label for="land8">
-                                            <span></span>
-                                            Arabic / Egyptian Spoken
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <input id="land9" type="checkbox">
-                                        <label for="land9">
-                                            <span></span>
-                                            Italian
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <input id="land10" type="checkbox">
-                                        <label for="land10">
-                                            <span></span>
-                                            French
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <input id="land11" type="checkbox">
-                                        <label for="land11">
-                                            <span></span>
-                                            German
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <input id="land12" type="checkbox">
-                                        <label for="land12">
-                                            <span></span>
-                                            Russian
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <input id="land13" type="checkbox">
-                                        <label for="land13">
-                                            <span></span>
-                                            Arabic / Egyptian Spoken
-                                        </label>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="widget widget_check-box">
-                                    <h5>Search By Duration</h5>
-                                <ul>    
-                                    <li>
-                                        <input id="duration1" type="checkbox">
-                                        <label for="duration1">
-                                            <span></span>
-                                            Under 1 hr
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <input id="duration2" type="checkbox">
-                                        <label for="duration2">
-                                            <span></span>
-                                            1hr - 1hr 30mins
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <input id="duration3" type="checkbox">
-                                        <label for="duration3">
-                                            <span></span>
-                                            2 hrs
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <input id="duration4" type="checkbox">
-                                        <label for="duration4">
-                                            <span></span>
-                                            2 hrs - 3hrs
-                                        </label>
-                                    </li>
-                                </ul>
-                            </div>
                         </aside>
                         
                         <div class="col-md-9">
@@ -606,13 +420,9 @@
                                         <option>Search By</option>
                                     </select>
                                 </div>
-                                <div class="wm-normal-btn">
-                                    <a href="#" class="active">Free</a>
-                                    <a href="#">Paid</a>
-                                </div>
+                                
                                 <div class="wm-view-btn">
                                     <a href="#" class="wmicon-squares active"></a>
-                                    <a href="#" class="wmicon-signs"></a>
                                 </div>
                             </div>
                             <div class="wm-courses wm-courses-popular">
