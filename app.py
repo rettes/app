@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
+from flask_mysqldb import MySQL
 from flask_cors import CORS
 
 import hashlib, binascii, os
@@ -12,11 +13,16 @@ app.secret_key = "Secret Key"
 CORS(app)
 
 # SqlAlchemy Database Configuration With Mysql
-# app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+mysqlconnector://root:root@localhost:3306/"
+# app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+mysqlconnector://root:@localhost:3306/"
 # app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-# db = SQLAlchemy(app)
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'root'
+app.config['MYSQL_PASSWORD'] = ''
+app.config['MYSQL_DB'] = 'ta_listing'
 
+db = SQLAlchemy(app)
+mysql = MySQL(app)
 
 # #Creating model table for our CRUD database
 # class Data(db.Model):
@@ -39,14 +45,29 @@ CORS(app)
 @app.route('/')
 def Index():
     # all_data = Data.query.all()
-    listings = [
-        {'id':1, 'description': "TA for IS111", "professor": "Prof Shar"},
-        {'id':2, 'description': "TA for IS111", "professor": "Prof YL"},
-        {'id':3, 'description': "TA for IS111", "professor": "Prof Kyung"}
-    ]
-    
+    cur = mysql.connection.cursor()
+    cur.execute('''SELECT * FROM modules''')
+    rv = cur.fetchall()
+    listings = []
+    for row in rv:
+        listings.append(
+            {'moduleCode':row[0], 'moduleName':row[1],
+        'Positions':row[2], 'Description':row[3], 'Professor':row[4]}
+        )
+
+    print(listings[0])
 
     return render_template("index.html", listings=listings)
+
+
+    # listings = [
+    #     {'id':1, 'description': "TA for IS111", "professor": "Prof Shar"},
+    #     {'id':2, 'description': "TA for IS111", "professor": "Prof YL"},
+    #     {'id':3, 'description': "TA for IS111", "professor": "Prof Kyung"}
+    # ]
+    
+
+    # return render_template("index.html", listings=listings)
 
 
 
