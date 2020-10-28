@@ -30,7 +30,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body>
+  <body onload = "loadCourses()">
 	
     <!--// Main Wrapper \\-->
     <div class="wm-main-wrapper">
@@ -806,7 +806,7 @@
 
 
     <script>
-        function addfunction(){
+        function loadCourses(){
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
 
