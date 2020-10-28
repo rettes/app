@@ -15,36 +15,34 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 CORS(app)
 
-class Applications(db.Model):
+class Modules(db.Model):
 
     __tablename__ = 'modules'
-    mod_id = db.Column(db.String(30), nullable=False)
-    mod_name = db.Column(db.String(15), nullable=False)
-    application_no = db.Column(db.Integer, primary_key = True, nullable=False)
-    status = db.Column(db.Integer, nullable=False)
-    mod_id = db.Column(db.String(30), nullable=False)
-    professor_name = db.Column(db.String(20), nullable=False)
+    mod_id = db.Column(db.Integer, primary_key = True, nullable=False)
+    mod_name = db.Column(db.String(30), nullable=False)
+    positions_available = db.Column(db.Integer, nullable=False)
+    job_scope = db.Column(db.String(99), nullable=False)
+    professor_name = db.Column(db.String(30), nullable=False)
     professor_id = db.Column(db.String(12), nullable=False)
 
 
-    def __init__(self, student_name, student_id, application_no, status, mod_id, professor_name, professor_id):
+    def __init__(self, mod_id, mod_name, positions_available , job_scope ,professor_name, professor_id):
 
-        self.student_name = student_name
-        self.student_id = student_id
-        self.application_no = application_no
-        self.status = status
         self.mod_id = mod_id
+        self.mod_name= mod_name
+        self.positions_available = positions_available
+        self.job_scope = job_scope
         self.professor_name = professor_name
         self.professor_id = professor_id
 
     def json(self):
-        return {"student_name": self.student_name, "student_id": self.student_id, 
-        "application_no": self.application_no, "status": self.status, "mod_id": self.mod_id, 
+        return {"mod_id": self.mod_id , "mod_name": self.mod_name, 
+        "positions_available": self.positions_available, "job_scope": self.job_scope, 
         "professsor_name": self.professor_name, "professor_id": self.professor_id}
 
 @app.route('/get_all')
 def get_all():
-	return jsonify({"applications": [application.json() for application in Applications.query.all()]})
+	return jsonify({"modules": [module.json() for module in Modules.query.all()]})
 
 
 
@@ -57,4 +55,4 @@ def get_all():
 # students = 5015
 # student_experience = 5016
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5011, debug=True)
+    app.run(host='0.0.0.0', port=5012, debug=True)
