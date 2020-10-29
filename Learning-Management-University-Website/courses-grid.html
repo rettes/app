@@ -523,8 +523,8 @@
                     
                     for(let i = 0; i < schools.length; i++){
                         itemToAdd += `<li>
-                                        <input id="type1" type="checkbox" onclick=${loadAccordingToSchool(item, schools[i])}>
-                                        <label for="type1">
+                                        <input id="type${i+2}" type="checkbox" onclick=${loadAccordingToSchool(item, schools[i])}>
+                                        <label for="type${i+2}">
                                             <span></span>
                                             ${schools[i]}
                                         </label>
@@ -532,7 +532,6 @@
                     }
                     
                 }
-                console.log(itemToAdd)
                 document.getElementById("schoolType").innerHTML = itemToAdd;
             }
             xhttp.open("GET", "http://localhost:5012/get_all", true);
@@ -563,7 +562,6 @@
 
                             
                     }
-                    console.log(itemToAdd)
                     document.getElementById("courseList").innerHTML = itemToAdd;
         }
 
