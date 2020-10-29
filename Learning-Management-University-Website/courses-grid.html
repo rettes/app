@@ -30,7 +30,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body onload = "loadCourses()">
+  <body onload = "loadCourses();populateSchoolFilter()">
 	
     <!--// Main Wrapper \\-->
     <div class="wm-main-wrapper">
@@ -168,100 +168,8 @@
                             </div>
                             <div class="widget widget_check-box widget_scroll-box">
                                 <h5>Search By Type</h5>
-                                <ul>
-                                    <li>
-                                        <input id="type1" type="checkbox">
-                                        <label for="type1">
-                                            <span></span>
-                                            All Courses
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <input id="type2" type="checkbox">
-                                        <label for="type2">
-                                            <span></span>
-                                            Chemistry
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <input id="type3" type="checkbox">
-                                        <label for="type3">
-                                            <span></span>
-                                            Classical Archaeology asdasdsdasdasdasdasdas
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <input id="type4" type="checkbox">
-                                        <label for="type4">
-                                            <span></span>
-                                            Classics & English
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <input id="type5" type="checkbox">
-                                        <label for="type5">
-                                            <span></span>
-                                            Materials Science
-
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <input id="type6" type="checkbox">
-                                        <label for="type6">
-                                            <span></span>
-                                            Mathematics
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <input id="type7" type="checkbox">
-                                        <label for="type7">
-                                            <span></span>
-                                            Physics & Philosophy
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <input id="type8" type="checkbox">
-                                        <label for="type8">
-                                            <span></span>
-                                            Theology & Religion
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <input id="type9" type="checkbox">
-                                        <label for="type9">
-                                            <span></span>
-                                            Classics & English
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <input id="type10" type="checkbox">
-                                        <label for="type10">
-                                            <span></span>
-                                            Materials Science
-
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <input id="type11" type="checkbox">
-                                        <label for="type11">
-                                            <span></span>
-                                            Mathematics
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <input id="type12" type="checkbox">
-                                        <label for="type12">
-                                            <span></span>
-                                            Physics & Philosophy
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <input id="type13" type="checkbox">
-                                        <label for="type13">
-                                            <span></span>
-                                            Theology & Religion
-                                        </label>
-                                    </li>
+                                <ul id = "schoolType">
+                                    
                                 </ul>
                             </div>
                             
@@ -585,6 +493,45 @@
                 }
             }
 
+            xhttp.open("GET", "http://localhost:5012/get_all", true);
+            xhttp.send();
+        }
+
+        function populateSchoolFilter(){
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+
+                if (xhttp.readyState == 4 && xhttp.status == 200) {
+                    var item = JSON.parse(xhttp.responseText);
+                    console.log(item)
+                    var schools = {}
+                    for (let i = 1; i<= item['modules'].length; i++){
+                        if(!schools.includes(item['modules'][i]['school'])){
+                            schools.push(item['modules'][i]['school']);
+                        }
+                    }
+                    var itemToAdd = `<li>
+                                        <input id="type1" type="checkbox">
+                                        <label for="type1">
+                                            <span></span>
+                                            All Courses
+                                        </label>
+                                    </li>`
+                    
+                    for(let i = 0; i < schools.length; i++){
+                        itemToAdd += `<li>
+                                        <input id="type1" type="checkbox">
+                                        <label for="type1">
+                                            <span></span>
+                                            ${schools[i]}
+                                        </label>
+                                    </li>`;
+                    }
+                    
+                }
+                console.log(itemToAdd)
+                document.getElementById("schoolType").innerHTML = itemToAdd;
+            }
             xhttp.open("GET", "http://localhost:5012/get_all", true);
             xhttp.send();
         }
