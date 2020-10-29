@@ -1,22 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Oct 29, 2020 at 12:37 PM
+-- Host: localhost:3306
+-- Generation Time: Oct 29, 2020 at 02:08 PM
 -- Server version: 5.7.26
--- PHP Version: 7.2.18
+-- PHP Version: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `ta_listing`
@@ -28,13 +20,11 @@ SET time_zone = "+00:00";
 -- Table structure for table `account`
 --
 
-DROP TABLE IF EXISTS `account`;
-CREATE TABLE IF NOT EXISTS `account` (
+CREATE TABLE `account` (
   `USER_ID` varchar(15) NOT NULL,
   `HASHED_PASSWORD` varchar(256) NOT NULL,
   `EMAIL` varchar(32) NOT NULL,
-  `USER_TYPE` varchar(9) NOT NULL,
-  PRIMARY KEY (`USER_ID`)
+  `USER_TYPE` varchar(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -67,22 +57,15 @@ INSERT INTO `account` (`USER_ID`, `HASHED_PASSWORD`, `EMAIL`, `USER_TYPE`) VALUE
 -- Table structure for table `applications`
 --
 
-DROP TABLE IF EXISTS `applications`;
-CREATE TABLE IF NOT EXISTS `applications` (
+CREATE TABLE `applications` (
   `STUDENT_NAME` varchar(30) NOT NULL,
   `STUDENT_ID` varchar(15) NOT NULL,
-  `APPLICATION_NO` int(11) NOT NULL AUTO_INCREMENT,
+  `APPLICATION_NO` int(11) NOT NULL,
   `STATUS` tinyint(3) NOT NULL,
   `MOD_ID` varchar(30) NOT NULL,
   `PROFESSOR_NAME` varchar(20) NOT NULL,
-  `PROFESSOR_ID` varchar(12) NOT NULL,
-  PRIMARY KEY (`APPLICATION_NO`),
-  KEY `APPLICANT_NAME` (`STUDENT_NAME`),
-  KEY `MOD_ID` (`MOD_ID`),
-  KEY `APPLICANT_ID` (`STUDENT_ID`),
-  KEY `PROFESSOR_NAME` (`PROFESSOR_NAME`),
-  KEY `PROFESSOR_ID` (`PROFESSOR_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+  `PROFESSOR_ID` varchar(12) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `applications`
@@ -104,8 +87,7 @@ INSERT INTO `applications` (`STUDENT_NAME`, `STUDENT_ID`, `APPLICATION_NO`, `STA
 -- Table structure for table `modules`
 --
 
-DROP TABLE IF EXISTS `modules`;
-CREATE TABLE IF NOT EXISTS `modules` (
+CREATE TABLE `modules` (
   `MOD_ID` varchar(30) NOT NULL,
   `MOD_NAME` varchar(30) NOT NULL,
   `POSITIONS_AVAILABLE` int(2) NOT NULL,
@@ -114,10 +96,7 @@ CREATE TABLE IF NOT EXISTS `modules` (
   `PROFESSOR_ID` varchar(12) NOT NULL,
   `school` varchar(1000) NOT NULL,
   `level` varchar(100) NOT NULL,
-  `Description` varchar(10000) NOT NULL,
-  PRIMARY KEY (`MOD_ID`),
-  KEY `PROFESSOR_ID` (`PROFESSOR_ID`),
-  KEY `PROFESSOR_NAME` (`PROFESSOR_NAME`)
+  `Description` varchar(10000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -125,19 +104,25 @@ CREATE TABLE IF NOT EXISTS `modules` (
 --
 
 INSERT INTO `modules` (`MOD_ID`, `MOD_NAME`, `POSITIONS_AVAILABLE`, `JOB_SCOPE`, `PROFESSOR_NAME`, `PROFESSOR_ID`, `school`, `level`, `Description`) VALUES
-('CS301_2020_1_G1', 'InfoTech Solution Architecture', 1, 'TA', 'OUH Eng Lieh', 'elouh', 'School of Information Systems', 'Advanced', ''),
-('IS105_2020_1_G1', 'Business Data Management', 4, 'TA', 'Subhajit DATTA', 'subhajitd', 'School of Information Systems', 'Introductory', ''),
-('IS113_2020_1_G1', 'Web Application Development I', 3, 'TA', 'David LO', 'davidlo', 'School of Information Systems', 'Introductory', ''),
-('IS210_2020_1_G1', 'Business Analysis ', 2, 'TA', 'Rafael J. BARROS', 'rafaelbarros', 'School of Information Systems', 'Introductory', ''),
-('IS210_2020_1_G2', 'Business Analysis ', 3, 'TA', 'Swapna GOTTIPATI', 'swapnag', 'School of Information Systems', 'Intermediate', ''),
-('IS211_2020_1_G1', 'Interaction Design & Prototype', 2, 'TA', 'OUH Eng Lieh', 'elouh', 'School of Information Systems', 'Intermediate', ''),
-('IS212_2019_2_G1', 'Software Management', 1, 'TA', 'Rajesh Krishna BALAN', 'rajesh', 'School of Information Systems', 'Intermediate', ''),
-('IS213_2020_1_G1', 'Enterprise Solution Dev', 3, 'TA', 'JIANG Lingxiao', 'lxjiang', 'School of Information Systems', 'Intermediate', ''),
-('IS216_2020_1_G1', 'Web Application Development 2', 2, 'TA', 'Chris POSKITT', 'cposkitt', 'School of Information Systems', 'Intermediate', ''),
-('IS216_2020_1_G2', 'Web Application Development 2', 2, 'TA', 'Kyong Jin SHIM', 'kjshim', 'School of Information Systems', 'Intermediate', ''),
-('IS216_2020_1_G3', 'Web Application Development 2', 2, 'TA', 'SUN Jun', 'junsun', 'School of Information Systems', 'Advanced', ''),
-('IS216_2020_1_G4', 'Web Application Development 2', 2, 'TA', 'SHAR Lwin Khin', 'lkshar', 'School of Information Systems', 'Advanced', ''),
-('IS442_2019_2_G1', 'Object Oriented Programming', 1, 'TA', 'LEE Yeow Leong', 'yllee', 'School of Information Systems', 'Advanced', '');
+('ACCT101_2020_1_G1', 'Financial Accounting', 3, 'TA', 'Charles CHEN', 'charlescsy', 'School of Accountancy', 'Introductory', 'This course provides the student with a basic understanding of accounting as \"the language of business\". It introduces students to the basic concepts, principles, procedures and approaches underlying the accounting process. This basic understanding facilitates the interpretation of financial information, which is necessary for making business decisions.'),
+('ACCT102_2020_1_G1', 'Management Accounting', 1, 'TA', 'An Ping LIN', 'aplin', 'School of Accountancy', 'Introductory', 'This course introduces cost and management accounting topics to enable students to understand how accounting information is used to manage an organisation. It focuses on the factors that differentiate one company from another. The course will look at various functional areas within the firm, ranging from manufacturing to marketing, and from accounting to human relations. In addition, the concept of management, how senior managers plan, implement and control those plans through people will be briefly discussed. The course will enhance students\' personal skills in preparation for more advanced courses at the university in the following ways: working in groups, analysing cases, writing reports, and making presentations.'),
+('ACCT221_2020_1_G1', 'Accounting Information Systems', 3, 'TA', 'SEOW Poh Sun', 'psseow', 'School of Accountancy', 'Advanced', 'The role of this course is to provide a specialised in-depth accounting course that addresses these key notions: role of information systems within accounting; documentation of accounting information systems including data flow diagrams and flowcharts; database management, processes and modeling; exposures and risks associated with accounting information systems; evaluation of information technology internal controls and impact on internal control; impact of information technology on the audit process; relationship of accounting information systems to major processes of the business cycle; and development, design and analysis of accounting information systems.'),
+('COMM1304_2020_1_G1', 'Management Communication', 1, 'TA', 'Tracy LOH', 'tracyloh', 'School of Business', 'Introductory', 'Management Communication equips students with strategies that will enable them to successfully communicate their solutions to organizational problems.  Since the course emphasizes the importance of effective written and spoken communication within a business setting, students will be exposed to strategies that will enable them to communicate their ideas and values in a clear, persuasive and memorable way.  Students will, therefore, learn the art of producing impactful business documents and delivering engaging presentations in various business contexts.  By the end of the course, students will be able to function as proficient communicators who are ready to embrace the communicative challenges inherent in today’s dynamic business environment.'),
+('COMM1304_2020_1_G2', 'Management Communication', 1, 'TA', 'Tracy LOH', 'tracyloh', 'School of Business', 'Introductory', 'Management Communication equips students with strategies that will enable them to successfully communicate their solutions to organizational problems.  Since the course emphasizes the importance of effective written and spoken communication within a business setting, students will be exposed to strategies that will enable them to communicate their ideas and values in a clear, persuasive and memorable way.  Students will, therefore, learn the art of producing impactful business documents and delivering engaging presentations in various business contexts.  By the end of the course, students will be able to function as proficient communicators who are ready to embrace the communicative challenges inherent in today’s dynamic business environment.'),
+('CS301_2020_1_G1', 'InfoTech Solution Architecture', 1, 'TA', 'OUH Eng Lieh', 'elouh', 'School of Information Systems', 'Advanced', 'The IT Solution Architecture course integrates design concepts and methods to develop IT solutions from both the software and system-level perspectives.  It focuses on the analysis, design and implementation of an IT solution through which business requirements, software qualities and solution elements are transformed into implementable artefacts.  By combining critical analysis with hands-on design and development, the course prepares students to participate effectively in the architecture design and development stages of a software-intensive IT solution project.It is highly recommended that students are also proficient in IS442 Object Oriented Programming prior to reading this course.'),
+('IS105_2020_1_G1', 'Business Data Management', 4, 'TA', 'Subhajit DATTA', 'subhajitd', 'School of Information Systems', 'Introductory', 'This course will cover fundamentals of relational database theory, important data management concepts such as data modelling, database design, database implementation in current business information systems, and some basic concepts related to unstructured data.\r\nA series of in-class exercises, tests, pop quizzes and a course project will help students understand the covered topics. Students are expected to apply knowledge learned in the classroom to solve many problems based on real-life business scenarios, while gaining hands-on experience in designing, implementing, and managing database systems. Students are also expected to understand the differences between structured data and unstructured data.'),
+('IS113_2020_1_G1', 'Web Application Development I', 3, 'TA', 'David LO', 'davidlo', 'School of Information Systems', 'Introductory', 'In this course, students be equipped with the knowledge and skill to develop a database-driven web application. PHP will be used as the vehicle of exploration. Other related topics like HTTP, HTML, CSS, Javascript will be covered as well. Students will learn the concepts gradually in the 13 weeks of the semester while building a web application of medium complexity.'),
+('IS210_2020_1_G1', 'Business Analysis ', 2, 'TA', 'Rafael J. BARROS', 'rafaelbarros', 'School of Information Systems', 'Introductory', 'In practice, a management decision to invest in business process modelling is often motivated by the need to document requirements for an information technology project. So this course aims to help students:\r\n- Understand and apply BPM  project needs and life-cycle stages\r\n- Gain knowledge of business process and its role in an industry.\r\n- Understand business models and create models for the as-is business process.\r\n- Understand analysis techniques static and dynamic and  analyse the business process\r\n- Apply dynamic analysis techniques using tools and analyse the simulation results\r\n- Identify business needs in the process and convert them to the IT needs\r\n- Understand techniques for solutioning and design solution models for the to-be process\r\n- Understand enterprises and they are implemented in an organization.\r\n- Gain understanding of the process innovation and identify the needs for process innovation.\r\n- Analyze and review innovated business processes in industry cases where digital transformation is applied.'),
+('IS210_2020_1_G2', 'Business Analysis ', 3, 'TA', 'Swapna GOTTIPATI', 'swapnag', 'School of Information Systems', 'Intermediate', 'In practice, a management decision to invest in business process modelling is often motivated by the need to document requirements for an information technology project. So this course aims to help students:\r\n- Understand and apply BPM  project needs and life-cycle stages\r\n- Gain knowledge of business process and its role in an industry.\r\n- Understand business models and create models for the as-is business process.\r\n- Understand analysis techniques static and dynamic and  analyse the business process\r\n- Apply dynamic analysis techniques using tools and analyse the simulation results\r\n- Identify business needs in the process and convert them to the IT needs\r\n- Understand techniques for solutioning and design solution models for the to-be process\r\n- Understand enterprises and they are implemented in an organization.\r\n- Gain understanding of the process innovation and identify the needs for process innovation.\r\n- Analyze and review innovated business processes in industry cases where digital transformation is applied.'),
+('IS211_2020_1_G1', 'Interaction Design & Prototype', 2, 'TA', 'OUH Eng Lieh', 'elouh', 'School of Information Systems', 'Intermediate', 'This course introduces fundamental human-computer interaction principles and techniques for designing usable interactive systems. Topics include common methods for gathering user requirements, basic UI and graphics programming techniques, and common evaluation techniques. Hands-on experience with UI prototyping tools will be provided and students will complete a UI design and prototyping project as part of this course.'),
+('IS212_2019_2_G1', 'Software Management', 1, 'TA', 'Rajesh Krishna BALAN', 'rajesh', 'School of Information Systems', 'Intermediate', 'This course is geared to teach students project and people management skills in the context of a software project. This is done in a very hands-on manner where students are formed into teams and given a semester long project on day 1. This project will require them to work together to build a fully working web application prototype, that is deployed on a commercial cloud service, from scratch in a team of 5.'),
+('IS213_2020_1_G1', 'Enterprise Solution Dev', 3, 'TA', 'JIANG Lingxiao', 'lxjiang', 'School of Information Systems', 'Intermediate', 'With the emergence of new technologies and evolution of existing ones, organizations are changing the way they build enterprise solutions. Rather than build monolithic applications, the current emphasis is on building solutions by leveraging existing functionality exposed as services (a.k.a API). This approach to composing solutions using services follows the Service Oriented Architecture (SOA) paradigm, where applications are structured as a collection of loosely coupled services. In this course students will learn how to design and implement enterprise solutions using SOA using enterprise tools. The course will cover topics such as cloud computing, SOA, Enterprise Service Bus (ESB), XML, web services and micro-services architecture.'),
+('IS216_2020_1_G1', 'Web Application Development 2', 2, 'TA', 'Chris POSKITT', 'cposkitt', 'School of Information Systems', 'Intermediate', 'This course is designed to equip students with knowledge and skills to develop well-styled and responsive web applications that provide rich user experiences. Combining with the skills learnt in IS113 course, which focuses on developing database-driven web applications with basic web designs, after this course, the students will be equipped with full stack web development skills, who can build both front-end and back-end software.   In the introductory weeks of the course, the students will revisit HTML and server-side programming (PHP) concepts learnt in IS113. Then, the students will learn the concept of “Styling” the web pages. The students will learn a style sheet language called cascading style sheets (CSS) and learn how to separate the content and presentation of web pages, how to control web page layout, colors and fonts, how to bring multiple styles into a web page, how to control the layout of multiple web pages efficiently, etc. Next, the students will learn the concept of adding responsive behaviors to web pages to enhance the user experience. The students will learn a client-side programming language called JavaScript to make ordinary web elements like input boxes, buttons, forms, tables, menus interactive and animated. Furthermore, they will learn how to connect to API gateways and process data from external sources like RESTful web services so that they can build practical applications. In the latter weeks of the course, the students will be introduced to programming with frameworks. The students will learn how to use frameworks to build complex web applications in an efficient, scalable manner. More specifically, the students will be introduced to Bootstrap, a popular CSS framework for developing responsive website and introduced to Vue, a progressive JavaScript framework for building rich user interfaces.'),
+('IS216_2020_1_G2', 'Web Application Development 2', 2, 'TA', 'Kyong Jin SHIM', 'kjshim', 'School of Information Systems', 'Intermediate', 'This course is designed to equip students with knowledge and skills to develop well-styled and responsive web applications that provide rich user experiences. Combining with the skills learnt in IS113 course, which focuses on developing database-driven web applications with basic web designs, after this course, the students will be equipped with full stack web development skills, who can build both front-end and back-end software.   In the introductory weeks of the course, the students will revisit HTML and server-side programming (PHP) concepts learnt in IS113. Then, the students will learn the concept of “Styling” the web pages. The students will learn a style sheet language called cascading style sheets (CSS) and learn how to separate the content and presentation of web pages, how to control web page layout, colors and fonts, how to bring multiple styles into a web page, how to control the layout of multiple web pages efficiently, etc. Next, the students will learn the concept of adding responsive behaviors to web pages to enhance the user experience. The students will learn a client-side programming language called JavaScript to make ordinary web elements like input boxes, buttons, forms, tables, menus interactive and animated. Furthermore, they will learn how to connect to API gateways and process data from external sources like RESTful web services so that they can build practical applications. In the latter weeks of the course, the students will be introduced to programming with frameworks. The students will learn how to use frameworks to build complex web applications in an efficient, scalable manner. More specifically, the students will be introduced to Bootstrap, a popular CSS framework for developing responsive website and introduced to Vue, a progressive JavaScript framework for building rich user interfaces.'),
+('IS216_2020_1_G3', 'Web Application Development 2', 2, 'TA', 'SUN Jun', 'junsun', 'School of Information Systems', 'Advanced', 'This course is designed to equip students with knowledge and skills to develop well-styled and responsive web applications that provide rich user experiences. Combining with the skills learnt in IS113 course, which focuses on developing database-driven web applications with basic web designs, after this course, the students will be equipped with full stack web development skills, who can build both front-end and back-end software.   In the introductory weeks of the course, the students will revisit HTML and server-side programming (PHP) concepts learnt in IS113. Then, the students will learn the concept of “Styling” the web pages. The students will learn a style sheet language called cascading style sheets (CSS) and learn how to separate the content and presentation of web pages, how to control web page layout, colors and fonts, how to bring multiple styles into a web page, how to control the layout of multiple web pages efficiently, etc. Next, the students will learn the concept of adding responsive behaviors to web pages to enhance the user experience. The students will learn a client-side programming language called JavaScript to make ordinary web elements like input boxes, buttons, forms, tables, menus interactive and animated. Furthermore, they will learn how to connect to API gateways and process data from external sources like RESTful web services so that they can build practical applications. In the latter weeks of the course, the students will be introduced to programming with frameworks. The students will learn how to use frameworks to build complex web applications in an efficient, scalable manner. More specifically, the students will be introduced to Bootstrap, a popular CSS framework for developing responsive website and introduced to Vue, a progressive JavaScript framework for building rich user interfaces.'),
+('IS216_2020_1_G4', 'Web Application Development 2', 2, 'TA', 'SHAR Lwin Khin', 'lkshar', 'School of Information Systems', 'Advanced', 'This course is designed to equip students with knowledge and skills to develop well-styled and responsive web applications that provide rich user experiences. Combining with the skills learnt in IS113 course, which focuses on developing database-driven web applications with basic web designs, after this course, the students will be equipped with full stack web development skills, who can build both front-end and back-end software.   In the introductory weeks of the course, the students will revisit HTML and server-side programming (PHP) concepts learnt in IS113. Then, the students will learn the concept of “Styling” the web pages. The students will learn a style sheet language called cascading style sheets (CSS) and learn how to separate the content and presentation of web pages, how to control web page layout, colors and fonts, how to bring multiple styles into a web page, how to control the layout of multiple web pages efficiently, etc. Next, the students will learn the concept of adding responsive behaviors to web pages to enhance the user experience. The students will learn a client-side programming language called JavaScript to make ordinary web elements like input boxes, buttons, forms, tables, menus interactive and animated. Furthermore, they will learn how to connect to API gateways and process data from external sources like RESTful web services so that they can build practical applications. In the latter weeks of the course, the students will be introduced to programming with frameworks. The students will learn how to use frameworks to build complex web applications in an efficient, scalable manner. More specifically, the students will be introduced to Bootstrap, a popular CSS framework for developing responsive website and introduced to Vue, a progressive JavaScript framework for building rich user interfaces.'),
+('IS442_2019_2_G1', 'Object Oriented Programming', 1, 'TA', 'LEE Yeow Leong', 'yllee', 'School of Information Systems', 'Advanced', 'This course focuses on fundamental concepts of developing programs using an object orientated approach. There will be an emphasis on writing clean and efficient code, and the ability to use an appropriate data structure or algorithm to solve problems. The Java programming language will be taught in depth. Students are expected to have a strong foundation in programming.\r\n\r\nThis is a compulsory course for IS (Software Development Track) for 2017 intake and onwards.\r\n\r\nUpon completion of the course, students will be able to: \r\n1. Practice problem solving skills \r\n2. Read UML sequence and class diagrams\r\n3. Apply basic concepts of Object Orientation to a given scenario/context \r\n4. Apply good programming practices and design concepts to develop software\r\n5. Appreciate the role of algorithms and in problem solving'),
+('OPIM101_2020_1_G1', 'Decision Analysis', 1, 'TA', 'FENG Guiyun', 'gyfeng', 'School of Business', 'Introductory', 'The objective of this course is to introduce students to decision analysis, which is the application of the scientific method to managerial and personal decision-making. Selected decision analysis tools will be introduced to help making decisions in certain and uncertain environments, such as linear and integer programming and decision trees. The usefulness of these tools will be illustrated through examples drawn from all functional areas of business. These example applications include capacity and inventory management, portfolio management, supply chain management and project scheduling.');
 
 -- --------------------------------------------------------
 
@@ -145,20 +130,15 @@ INSERT INTO `modules` (`MOD_ID`, `MOD_NAME`, `POSITIONS_AVAILABLE`, `JOB_SCOPE`,
 -- Table structure for table `payments`
 --
 
-DROP TABLE IF EXISTS `payments`;
-CREATE TABLE IF NOT EXISTS `payments` (
-  `PAYMENT_ID` int(4) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `payments` (
+  `PAYMENT_ID` int(4) NOT NULL,
   `PAYMENT_AMT` int(3) NOT NULL,
   `PAYMENT_DETAILS` varchar(99) NOT NULL,
   `PAYMENT_DATE` datetime NOT NULL,
   `MOD_ID` varchar(30) NOT NULL,
   `STUDENT_ID` varchar(15) NOT NULL,
-  `PROFESSOR_ID` varchar(15) NOT NULL,
-  PRIMARY KEY (`PAYMENT_ID`,`MOD_ID`,`STUDENT_ID`,`PROFESSOR_ID`),
-  KEY `payments_ibfk_1` (`PROFESSOR_ID`),
-  KEY `STUDENT_ID` (`STUDENT_ID`),
-  KEY `MOD_ID` (`MOD_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `PROFESSOR_ID` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `payments`
@@ -174,12 +154,9 @@ INSERT INTO `payments` (`PAYMENT_ID`, `PAYMENT_AMT`, `PAYMENT_DETAILS`, `PAYMENT
 -- Table structure for table `professors`
 --
 
-DROP TABLE IF EXISTS `professors`;
-CREATE TABLE IF NOT EXISTS `professors` (
+CREATE TABLE `professors` (
   `PROFESSORS_NAME` varchar(30) NOT NULL,
-  `PROFESSOR_ID` varchar(12) NOT NULL,
-  PRIMARY KEY (`PROFESSORS_NAME`,`PROFESSOR_ID`),
-  KEY `USER_ID` (`PROFESSOR_ID`)
+  `PROFESSOR_ID` varchar(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -206,16 +183,13 @@ INSERT INTO `professors` (`PROFESSORS_NAME`, `PROFESSOR_ID`) VALUES
 -- Table structure for table `students`
 --
 
-DROP TABLE IF EXISTS `students`;
-CREATE TABLE IF NOT EXISTS `students` (
+CREATE TABLE `students` (
   `STUDENT_NAME` varchar(30) NOT NULL,
   `STUDENT_ID` varchar(12) NOT NULL,
   `RESUME` varchar(99) NOT NULL,
   `RATING` float NOT NULL,
   `CURRENT_YEAR` int(11) NOT NULL,
-  `FACULTY` varchar(4) NOT NULL,
-  PRIMARY KEY (`STUDENT_NAME`,`STUDENT_ID`),
-  KEY `USER_ID` (`STUDENT_ID`)
+  `FACULTY` varchar(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -235,13 +209,10 @@ INSERT INTO `students` (`STUDENT_NAME`, `STUDENT_ID`, `RESUME`, `RATING`, `CURRE
 -- Table structure for table `student_experience`
 --
 
-DROP TABLE IF EXISTS `student_experience`;
-CREATE TABLE IF NOT EXISTS `student_experience` (
+CREATE TABLE `student_experience` (
   `STUDENT_ID` varchar(15) NOT NULL,
   `STUDENT_NAME` varchar(30) NOT NULL,
-  `EXPERIENCE` text NOT NULL,
-  PRIMARY KEY (`STUDENT_ID`,`STUDENT_NAME`),
-  KEY `student_experience_ibfk_2` (`STUDENT_NAME`)
+  `EXPERIENCE` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -256,54 +227,76 @@ INSERT INTO `student_experience` (`STUDENT_ID`, `STUDENT_NAME`, `EXPERIENCE`) VA
 ('xiaoli.2018', 'Xiao Li', 'Experience of Xiao li');
 
 --
--- Constraints for dumped tables
+-- Indexes for dumped tables
 --
 
 --
--- Constraints for table `applications`
+-- Indexes for table `account`
+--
+ALTER TABLE `account`
+  ADD PRIMARY KEY (`USER_ID`);
+
+--
+-- Indexes for table `applications`
 --
 ALTER TABLE `applications`
-  ADD CONSTRAINT `applications_ibfk_1` FOREIGN KEY (`STUDENT_NAME`) REFERENCES `students` (`STUDENT_NAME`),
-  ADD CONSTRAINT `applications_ibfk_3` FOREIGN KEY (`MOD_ID`) REFERENCES `modules` (`MOD_ID`),
-  ADD CONSTRAINT `applications_ibfk_4` FOREIGN KEY (`STUDENT_ID`) REFERENCES `students` (`STUDENT_ID`),
-  ADD CONSTRAINT `applications_ibfk_5` FOREIGN KEY (`PROFESSOR_NAME`) REFERENCES `modules` (`PROFESSOR_NAME`),
-  ADD CONSTRAINT `applications_ibfk_6` FOREIGN KEY (`PROFESSOR_ID`) REFERENCES `modules` (`PROFESSOR_ID`);
+  ADD PRIMARY KEY (`APPLICATION_NO`),
+  ADD KEY `APPLICANT_NAME` (`STUDENT_NAME`),
+  ADD KEY `MOD_ID` (`MOD_ID`),
+  ADD KEY `APPLICANT_ID` (`STUDENT_ID`),
+  ADD KEY `PROFESSOR_NAME` (`PROFESSOR_NAME`),
+  ADD KEY `PROFESSOR_ID` (`PROFESSOR_ID`);
 
 --
--- Constraints for table `modules`
+-- Indexes for table `modules`
 --
 ALTER TABLE `modules`
-  ADD CONSTRAINT `modules_ibfk_1` FOREIGN KEY (`PROFESSOR_NAME`) REFERENCES `professors` (`PROFESSORS_NAME`),
-  ADD CONSTRAINT `modules_ibfk_2` FOREIGN KEY (`PROFESSOR_ID`) REFERENCES `professors` (`PROFESSOR_ID`);
+  ADD PRIMARY KEY (`MOD_ID`),
+  ADD KEY `PROFESSOR_ID` (`PROFESSOR_ID`),
+  ADD KEY `PROFESSOR_NAME` (`PROFESSOR_NAME`);
 
 --
--- Constraints for table `payments`
+-- Indexes for table `payments`
 --
 ALTER TABLE `payments`
-  ADD CONSTRAINT `payments_ibfk_1` FOREIGN KEY (`PROFESSOR_ID`) REFERENCES `applications` (`PROFESSOR_ID`),
-  ADD CONSTRAINT `payments_ibfk_2` FOREIGN KEY (`STUDENT_ID`) REFERENCES `applications` (`STUDENT_ID`),
-  ADD CONSTRAINT `payments_ibfk_3` FOREIGN KEY (`MOD_ID`) REFERENCES `applications` (`MOD_ID`);
+  ADD PRIMARY KEY (`PAYMENT_ID`,`MOD_ID`,`STUDENT_ID`,`PROFESSOR_ID`),
+  ADD KEY `payments_ibfk_1` (`PROFESSOR_ID`),
+  ADD KEY `STUDENT_ID` (`STUDENT_ID`),
+  ADD KEY `MOD_ID` (`MOD_ID`);
 
 --
--- Constraints for table `professors`
+-- Indexes for table `professors`
 --
 ALTER TABLE `professors`
-  ADD CONSTRAINT `professors_ibfk_1` FOREIGN KEY (`PROFESSOR_ID`) REFERENCES `account` (`USER_ID`);
+  ADD PRIMARY KEY (`PROFESSORS_NAME`,`PROFESSOR_ID`),
+  ADD KEY `USER_ID` (`PROFESSOR_ID`);
 
 --
--- Constraints for table `students`
+-- Indexes for table `students`
 --
 ALTER TABLE `students`
-  ADD CONSTRAINT `students_ibfk_1` FOREIGN KEY (`STUDENT_ID`) REFERENCES `account` (`USER_ID`);
+  ADD PRIMARY KEY (`STUDENT_NAME`,`STUDENT_ID`),
+  ADD KEY `USER_ID` (`STUDENT_ID`);
 
 --
--- Constraints for table `student_experience`
+-- Indexes for table `student_experience`
 --
 ALTER TABLE `student_experience`
-  ADD CONSTRAINT `student_experience_ibfk_1` FOREIGN KEY (`STUDENT_ID`) REFERENCES `students` (`STUDENT_ID`),
-  ADD CONSTRAINT `student_experience_ibfk_2` FOREIGN KEY (`STUDENT_NAME`) REFERENCES `students` (`STUDENT_NAME`);
-COMMIT;
+  ADD PRIMARY KEY (`STUDENT_ID`,`STUDENT_NAME`),
+  ADD KEY `student_experience_ibfk_2` (`STUDENT_NAME`);
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `applications`
+--
+ALTER TABLE `applications`
+  MODIFY `APPLICATION_NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `payments`
+--
+ALTER TABLE `payments`
+  MODIFY `PAYMENT_ID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
