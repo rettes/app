@@ -122,7 +122,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="wm-mini-title">
-                            <h1>Our Courses</h1> 
+                            <h1>Available Courses to TA for</h1> 
                         </div>
                         <div class="wm-breadcrumb">
                             <ul>
@@ -333,7 +333,7 @@
                                 </div>
                             </div>
                             <div class="wm-courses wm-courses-popular">
-                                <ul class="row courseList">
+                                <ul class="row" id = "courseList">
                                     <li class="col-md-4">
                                         <div class="wm-courses-popular-wrap">
                                             <figure> <a href="#"><img src="extra-images/papular-courses-1.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
@@ -573,41 +573,29 @@
 
                 if (xhttp.readyState == 4 && xhttp.status == 200) {
                     var item = JSON.parse(xhttp.responseText);
-                    var itemToAdd = `<li class="col-md-4">
+                    console.log(item)
+                    var itemToAdd = ``
+                    for(let i = 1; i <= item['modules'].length; i++){
+                        itemToAdd += `<li class="col-md-4">
                                         <div class="wm-courses-popular-wrap">
-                                            <figure> <a href="#"><img src="extra-images/papular-courses-1.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
+                                            <figure> <a href="#"><img src="extra-images/papular-courses-${i}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
                                                 <figcaption>
-                                                    <img src="extra-images/papular-courses-thumb-1.jpg" alt="">
-                                                    <h6><a href="#">Shelly T. Forrester</a></h6>
+                                                    <img src="extra-images/papular-courses-thumb-6.jpg" alt="">
+                                                    <h6><a href="#">${item['modules'][i-1]['professsor_name']}</a></h6>
                                                 </figcaption>
                                             </figure>
                                             <div class="wm-popular-courses-text">
-                                                <h6><a href="#">Advanced Architectural Research</a></h6>
+                                                <h6><a href="#">${item['modules'][i-1]['mod_name']}</a></h6>
+                                                <div class="wm-courses-price"> <span></span> </div>
                                                 
                                             </div>
                                         </div>
-                                    </li>`
-                    for(let i = 1; i <= item.length(); i++){
-                        itemtoAdd += `<li class="col-md-4">
-                                        <div class="wm-courses-popular-wrap">
-                                            <figure> <a href="#"><img src="extra-images/papular-courses-` + i + `.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
-                                                <figcaption>
-                                                    <img src="extra-images/papular-courses-thumb-` + i + `.jpg" alt="">
-                                                    <h6><a href="#">Shelly T. Forrester</a></h6>
-                                                </figcaption>
-                                            </figure>
-                                            <div class="wm-popular-courses-text">
-                                                <h6><a href="#">`+ item['modules'][i-1]['professor_name'] + `</a></h6>
-                                                </figcaption>
-                                            </figure>
-                                            <div class="wm-popular-courses-text">
-                                                <h6><a href="#">` + item['modules'][i-1]['mod_name'] + `</a></h6>
-                                                
-                                            </div>
-                                        </div>
-                                    </li>`
+                                    </li>`;
+
+                            
                     }
-                    document.getElementsByClassName("courseList").innerHTML = itemtoAdd;
+                    console.log(itemToAdd)
+                    document.getElementById("courseList").innerHTML = itemToAdd;
                     
                 }
             }
@@ -615,6 +603,8 @@
             xhttp.open("GET", "http://localhost:5012/get_all", true);
             xhttp.send();
         }
+
+      
     </script>
 
   </body>
