@@ -511,7 +511,7 @@
                         }
                     }
                     var itemToAdd = `<li>
-                                        <input id="type1" type="checkbox">
+                                        <input id="type1" type="checkbox" onclick=${loadCourses()}>
                                         <label for="type1">
                                             <span></span>
                                             All Courses
@@ -520,7 +520,7 @@
                     
                     for(let i = 0; i < schools.length; i++){
                         itemToAdd += `<li>
-                                        <input id="type1" type="checkbox">
+                                        <input id="type1" type="checkbox" onclick=${loadAccordingToSchool(item, schools[i])}>
                                         <label for="type1">
                                             <span></span>
                                             ${schools[i]}
@@ -534,6 +534,34 @@
             }
             xhttp.open("GET", "http://localhost:5012/get_all", true);
             xhttp.send();
+        }
+
+        function loadAccordingToSchool(item, school){
+            var itemToAdd = ``
+                    for(let i = 1; i <= item['modules'].length; i++){
+                        if(item['modules'][i-1]['school'] == school){
+                            itemToAdd += `<li class="col-md-4">
+                                        <div class="wm-courses-popular-wrap">
+                                            <figure> <a href="#"><img src="extra-images/papular-courses-${i}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
+                                                <figcaption>
+                                                    <img src="extra-images/papular-courses-thumb-6.jpg" alt="">
+                                                    <h6><a href="#">${item['modules'][i-1]['professsor_name']}</a></h6>
+                                                </figcaption>
+                                            </figure>
+                                            <div class="wm-popular-courses-text">
+                                                <h6><a href="#">${item['modules'][i-1]['mod_name']}</a></h6>
+                                                <div class="wm-courses-price"> <span></span> </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </li>`;
+                        }
+                        
+
+                            
+                    }
+                    console.log(itemToAdd)
+                    document.getElementById("courseList").innerHTML = itemToAdd;
         }
 
       
