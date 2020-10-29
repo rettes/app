@@ -487,7 +487,7 @@
 
                             
                     }
-                    console.log(itemToAdd)
+                    
                     document.getElementById("courseList").innerHTML = itemToAdd;
                     
                 }
@@ -504,12 +504,15 @@
                 if (xhttp.readyState == 4 && xhttp.status == 200) {
                     var item = JSON.parse(xhttp.responseText);
                     console.log(item)
-                    var schools = {}
-                    for (let i = 1; i<= item['modules'].length; i++){
+                    var schools = []
+                    
+                    for (let i = 0; i< item['modules'].length; i++){
+                        console.log(item['modules'][i]['school'])
                         if(!schools.includes(item['modules'][i]['school'])){
                             schools.push(item['modules'][i]['school']);
                         }
                     }
+                    console.log(schools)
                     var itemToAdd = `<li>
                                         <input id="type1" type="checkbox">
                                         <label for="type1">
@@ -520,8 +523,8 @@
                     
                     for(let i = 0; i < schools.length; i++){
                         itemToAdd += `<li>
-                                        <input id="type1" type="checkbox">
-                                        <label for="type1">
+                                        <input id="type${i+2}" type="checkbox">
+                                        <label for="type${i+2}">
                                             <span></span>
                                             ${schools[i]}
                                         </label>
