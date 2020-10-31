@@ -460,6 +460,9 @@
 
 
     <script>
+        sessionStorage.setItem("schools", ['SIS'])
+        console.log(sessionStorage.get("schools"))
+
         function loadCourses(){
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
@@ -563,6 +566,69 @@
                             
                     }
                     document.getElementById("courseList").innerHTML = itemToAdd;
+        }
+
+
+
+
+
+
+
+
+        function createSessionSchools(school){
+            if( typeof Storage != "undefined"){
+                if(sessionStorage.get('schools') == null){
+                    var schools = [school];
+                    sessionStorage.setItem("schools", schools);
+                }
+                else{
+                    sessionStorage.get("schools").push(school);
+                }
+
+                let schools = sessionStorage.get("schools");
+                loadAccordingToSchool(schools);
+            }
+            else{
+                console.error("There has been an issue with the session storage.")
+            }
+        }
+
+
+        function loadAccordingToLevel(level){
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+
+                if (xhttp.readyState == 4 && xhttp.status == 200) {
+                    var item = JSON.parse(xhttp.responseText);
+                    console.log(item)
+                    var itemToAdd = ``
+                    for(let i = 1; i <= item['modules'].length; i++){
+                        itemToAdd += `<li class="col-md-4">
+                                        <div class="wm-courses-popular-wrap">
+                                            <figure> <a href="#"><img src="extra-images/papular-courses-${i}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
+                                                <figcaption>
+                                                    <img src="extra-images/papular-courses-thumb-6.jpg" alt="">
+                                                    <h6><a href="#">${item['modules'][i-1]['professsor_name']}</a></h6>
+                                                </figcaption>
+                                            </figure>
+                                            <div class="wm-popular-courses-text">
+                                                <h6><a href="#">${item['modules'][i-1]['mod_name']}</a></h6>
+                                                <div class="wm-courses-price"> <span></span> </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </li>`;
+
+                            
+                    }
+                    
+                    document.getElementById("courseList").innerHTML = itemToAdd;
+                    
+                }
+            }
+
+            xhttp.open("GET", "http://localhost:5012/get_all", true);
+            xhttp.send();
         }
 
       
