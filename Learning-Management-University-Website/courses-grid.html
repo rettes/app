@@ -562,7 +562,7 @@
                     
                     var itemToAdd = ``
                     for(let i = 1; i <= item['modules'].length; i++){
-                        if(item['modules'][i-1]['school'] == school){
+                        if(schools.includes(item['modules'][i-1]['school'])){
                             var x = ``;
                             if(item['modules'][i-1]['positions_available'] == 1){
                                 x = `style = 'color:red'`
@@ -618,7 +618,8 @@
                 }
 
                 let schools = sessionStorage.get("schools");
-                loadAccordingToSchool(schools);
+                var items = $("input:text");
+                console.log(items)
             }
             else{
                 console.error("There has been an issue with the session storage.")
@@ -662,6 +663,8 @@
             xhttp.open("GET", "http://localhost:5012/get_all", true);
             xhttp.send();
         }
+
+        
 
       
     </script>
