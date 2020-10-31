@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="paypal-button" style="margin-left: 64%;"><button onclick = "generateButton()">Click here!</button></div>
+
+    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+	<script>
+
+		async function generateButton(cost){
+			//PayPal API
+			paypal.Button.render({
+				// Configure environment
+				env: 'sandbox',
+				client: {
+				sandbox: 'AUeZaD56BGfH4-z8TGcUA2H6Bqgg80VIowCG5WM3qSZAEGBkacCgoMUq5TCPa6BoS0VTqNzTCl6IlEze',
+				production: 'demo_production_client_id'
+				},
+				// Customize button (optional)
+				locale: 'en_US',
+				style: {
+				size: 'small',
+				color: 'gold',
+				shape: 'pill',
+				},
+
+				// Enable Pay Now checkout flow (optional)
+				commit: true,
+
+				// Set up a payment
+				payment: function(data, actions) {
+				return actions.payment.create({
+					transactions: [{
+					amount: {
+						total: 20,
+						currency: 'SGD'
+					}
+					}]
+				});
+				},
+
+				// Execute the payment
+				onAuthorize: function(data, actions) {
+				return actions.payment.execute().then(function() {
+					// Show a confirmation message to the buyer
+					PaymentMade();
+					window.location.replace("index.html");
+				});
+				}
+			}, '#paypal-button');
+        }
+    </script>
+</body>
+</html>
