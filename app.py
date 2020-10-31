@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
-from flask_mysqldb import MySQL
 from flask_cors import CORS
 
 import hashlib, binascii, os
@@ -13,30 +12,26 @@ app.secret_key = "Secret Key"
 CORS(app)
 
 # SqlAlchemy Database Configuration With Mysql
-# app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+mysqlconnector://root:@localhost:3306/"
-# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+mysqlconnector://root:@localhost:3306/"
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = ''
-app.config['MYSQL_DB'] = 'ta_listing'
 
 db = SQLAlchemy(app)
-mysql = MySQL(app)
-
-# #Creating model table for our CRUD database
-# class Data(db.Model):
-#     id = db.Column(db.Integer, primary_key = True)
-#     name = db.Column(db.String(100))
-#     email = db.Column(db.String(100))
-#     phone = db.Column(db.String(100))
 
 
-#     def __init__(self, name, email, phone):
+#Creating model table for our CRUD database
+class Data(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    name = db.Column(db.String(100))
+    email = db.Column(db.String(100))
+    phone = db.Column(db.String(100))
 
-#         self.name = name
-#         self.email = email
-#         self.phone = phone
+
+    def __init__(self, name, email, phone):
+
+        self.name = name
+        self.email = email
+        self.phone = phone
 
 
 

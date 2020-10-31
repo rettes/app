@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, flash, jso
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 
+
 app = Flask(__name__)
 app.secret_key = "Secret Key"
 
@@ -15,7 +16,7 @@ CORS(app)
 class Account(db.Model):
 
     __tablename__ = 'account'
-    user_id = db.Column(db.String(15), nullable=False, primary_key = True)
+    user_id = db.Column(db.String(15), nullable=False, primary_key=True)
     hashed_password = db.Column(db.String(256), nullable=False)
     email = db.Column(db.String(32), nullable=False)
     user_type = db.Column(db.String(9), nullable=False)
@@ -35,6 +36,19 @@ class Account(db.Model):
 @app.route('/get_all')
 def get_all():
 	return jsonify({"accounts": [account.json() for account in Account.query.all()]})
+
+@app.route('/get_account_by_email/<string:email>')
+def get_account_by_email(email):
+    account = Account.query.filter_by(email=email).first()
+    if account != None:
+        return jsonify(account.json())
+    else:
+        print('error')
+        return jsonify({"message": 'error' })
+
+
+
+
 
 
 
