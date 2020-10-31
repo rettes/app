@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 29, 2020 at 02:39 PM
+-- Generation Time: Oct 31, 2020 at 07:38 AM
 -- Server version: 5.7.26
 -- PHP Version: 7.4.1
 
@@ -22,7 +22,6 @@ USE `ta_listing`;
 --
 -- Table structure for table `account`
 --
-
 DROP TABLE IF EXISTS `account`;
 CREATE TABLE `account` (
   `USER_ID` varchar(15) NOT NULL,
@@ -53,7 +52,7 @@ INSERT INTO `account` (`USER_ID`, `HASHED_PASSWORD`, `EMAIL`, `USER_TYPE`) VALUE
 ('tom.2017', '16d89caa318c2b9b028cf81366d227a4fb77c02f3ec20bc27f24c64ebfc3a7b230be6a2e6e37c4b171df115ccc6a01294dae073c2c586f4057c319b4af371b003d8d27e69f37547f90e4f68c07718a422f9af24ab00ca086a594e19a169ea51d', 'tom.2017@sis.smu.edu.sg', 'student'),
 ('xiaohua.2017', '0132459b8c839ec5acdb534f70d4969dff5bcf791770eb87c4907e8c7ee96e7db2942087f19f9f341e48a0e47cddc9ce8b4c0da7b2f2835b52a15a3438fb24f9cc30950521a385dc98c6881375ffe2f87646d02bd6d0e7e8e8be8431aac89340', 'xiaohua.2017@soe.smu.edu.sg', 'student'),
 ('xiaoli.2018', '5749ace379ba5565d6f46de5f78f2e3b3578b9846cb54668275c79e67d60a98c1ca2b7af5dc2e1b46d1e0fd728638b3ff34d60b19d227129cb12f3266270084562730453115330b1b800c20fd68cce4076d80ec8ae344f2b914bd7f0abad3c77', 'xiaoli.2018@soe.smu.edu.sg', 'student'),
-('yllee', '59df546881c02be09c1f5b495c0ce5c1eeb276534d04c8ebca287d54aa8a504e9976c44f5cdbc2d56c2d511de0f1ebc93982829e2d8495e5b357fd50307df817b6f20549c6d2a7007abbdc1f362ceb8b4da4acb510e9fe5c05fd7b5d4d7450f7', 'yllee@smu.edu.sg', 'professor'),
+('yllee', '59df546881c02be09c1f5b495c0ce5c1eeb276534d04c8ebca287d54aa8a504e9976c44f5cdbc2d56c2d511de0f1ebc93982829e2d8495e5b357fd50307df817b6f20549c6d2a7007abbdc1f362ceb8b4da4acb510e9fe5c05fd7b5d4d7450f7', 'yllee@smu.edu.sg', 'professor');
 ('aplin', 'c3774c557faad6634459e3fc3edbf7c317985b5b9163222d12d9f5642954a83a9b4d7dc8e3508267883b9072f22ddd30f62928936326a5cb6e3533fa2646bdd2c76aa00ba3ea8288cc30960d50b8b004a5d7118e8749a8d6f1189c9feb3fce8b', 'aplin@smu.edu.sg', 'professor'),
 ('benjaminjong', '0bbfd1009481e3d30dbbb760a11b319ab804aa0a1a0e58f923e58df6d5ace9ccad65a00f93b1d25ac3fc2c4143d901e92134bea25eb3d1c5f03af89835f4beebd9e0394e2166a0b115461d74affea9aae3ca65a68e39460862337477943eafb7', 'benjaminjong@smu.edu.sg', 'professor'),
 ('bthuynh', '296cf3d0b7cedf4041e14e6336bbdf92a4d20526d57f484c47231d4c0a33574286408dbcddd212086032ca5c86e792004109ad44e42cf13661d0d20a314de10a7f414845cbffced9a3b1630c728e415bb2f99201c44149dfc6f925cd5d3830fd', 'bthuynh@smu.edu.sg', 'professor'),
@@ -69,7 +68,6 @@ INSERT INTO `account` (`USER_ID`, `HASHED_PASSWORD`, `EMAIL`, `USER_TYPE`) VALUE
 --
 -- Table structure for table `applications`
 --
-
 DROP TABLE IF EXISTS `applications`;
 CREATE TABLE `applications` (
   `STUDENT_NAME` varchar(30) NOT NULL,
@@ -148,7 +146,6 @@ INSERT INTO `modules` (`MOD_ID`, `MOD_NAME`, `POSITIONS_AVAILABLE`, `JOB_SCOPE`,
 --
 -- Table structure for table `payments`
 --
-
 DROP TABLE IF EXISTS `payments`;
 CREATE TABLE `payments` (
   `PAYMENT_ID` int(4) NOT NULL,
@@ -176,7 +173,7 @@ INSERT INTO `payments` (`PAYMENT_ID`, `PAYMENT_AMT`, `PAYMENT_DETAILS`, `PAYMENT
 
 DROP TABLE IF EXISTS `professors`;
 CREATE TABLE `professors` (
-  `PROFESSORS_NAME` varchar(30) NOT NULL,
+  `PROFESSOR_NAME` varchar(30) NOT NULL,
   `PROFESSOR_ID` varchar(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -184,7 +181,7 @@ CREATE TABLE `professors` (
 -- Dumping data for table `professors`
 --
 
-INSERT INTO `professors` (`PROFESSORS_NAME`, `PROFESSOR_ID`) VALUES
+INSERT INTO `professors` (`PROFESSOR_NAME`, `PROFESSOR_ID`) VALUES
 ('Chris POSKITT', 'cposkitt'),
 ('David LO', 'davidlo'),
 ('OUH Eng Lieh', 'elouh'),
@@ -196,7 +193,7 @@ INSERT INTO `professors` (`PROFESSORS_NAME`, `PROFESSOR_ID`) VALUES
 ('Rajesh Krishna BALAN', 'rajesh'),
 ('Subhajit DATTA', 'subhajitd'),
 ('Swapna GOTTIPATI', 'swapnag'),
-('LEE Yeow Leong', 'yllee'),
+('LEE Yeow Leong', 'yllee');
 ('An Ping LIN', 'aplin'),
 ('Benjamin Ong', 'benjaminjong'),
 ('HUYNH Bao Tan', 'bthuynh'),
@@ -244,7 +241,7 @@ DROP TABLE IF EXISTS `student_experience`;
 CREATE TABLE `student_experience` (
   `STUDENT_ID` varchar(15) NOT NULL,
   `STUDENT_NAME` varchar(30) NOT NULL,
-  `EXPERIENCE` text NOT NULL
+  `EXPERIENCE` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -272,50 +269,37 @@ ALTER TABLE `account`
 -- Indexes for table `applications`
 --
 ALTER TABLE `applications`
-  ADD PRIMARY KEY (`APPLICATION_NO`),
-  ADD KEY `APPLICANT_NAME` (`STUDENT_NAME`),
-  ADD KEY `MOD_ID` (`MOD_ID`),
-  ADD KEY `APPLICANT_ID` (`STUDENT_ID`),
-  ADD KEY `PROFESSOR_NAME` (`PROFESSOR_NAME`),
-  ADD KEY `PROFESSOR_ID` (`PROFESSOR_ID`);
+  ADD PRIMARY KEY (`APPLICATION_NO`);
 
 --
 -- Indexes for table `modules`
 --
 ALTER TABLE `modules`
-  ADD PRIMARY KEY (`MOD_ID`),
-  ADD KEY `PROFESSOR_ID` (`PROFESSOR_ID`),
-  ADD KEY `PROFESSOR_NAME` (`PROFESSOR_NAME`);
+  ADD PRIMARY KEY (`MOD_ID`);
 
 --
 -- Indexes for table `payments`
 --
 ALTER TABLE `payments`
-  ADD PRIMARY KEY (`PAYMENT_ID`,`MOD_ID`,`STUDENT_ID`,`PROFESSOR_ID`),
-  ADD KEY `payments_ibfk_1` (`PROFESSOR_ID`),
-  ADD KEY `STUDENT_ID` (`STUDENT_ID`),
-  ADD KEY `MOD_ID` (`MOD_ID`);
+  ADD PRIMARY KEY (`PAYMENT_ID`) USING BTREE;
 
 --
 -- Indexes for table `professors`
 --
 ALTER TABLE `professors`
-  ADD PRIMARY KEY (`PROFESSORS_NAME`,`PROFESSOR_ID`),
-  ADD KEY `USER_ID` (`PROFESSOR_ID`);
+  ADD PRIMARY KEY (`PROFESSOR_ID`) USING BTREE;
 
 --
 -- Indexes for table `students`
 --
 ALTER TABLE `students`
-  ADD PRIMARY KEY (`STUDENT_NAME`,`STUDENT_ID`),
-  ADD KEY `USER_ID` (`STUDENT_ID`);
+  ADD PRIMARY KEY (`STUDENT_ID`) USING BTREE;
 
 --
 -- Indexes for table `student_experience`
 --
 ALTER TABLE `student_experience`
-  ADD PRIMARY KEY (`STUDENT_ID`,`STUDENT_NAME`),
-  ADD KEY `student_experience_ibfk_2` (`STUDENT_NAME`);
+  ADD PRIMARY KEY (`STUDENT_ID`) USING BTREE;
 
 --
 -- AUTO_INCREMENT for dumped tables

@@ -26,24 +26,28 @@ class Modules(db.Model):
     professor_id = db.Column(db.String(12), nullable=False)
     school = db.Column(db.String(1000), nullable=False)
     level = db.Column(db.String(100), nullable=False)
+    description = db.Column(db.String(10000), nullable=False)
 
 
-
-    def __init__(self, mod_id, mod_name, positions_available , job_scope ,professor_name, professor_id, school, level):
+    def __init__(self, mod_id, mod_name, positions_available , job_scope ,professor_name, professor_id, school, level, description):
 
         self.mod_id = mod_id
-        self.mod_name= mod_name
+        self.mod_name = mod_name
         self.positions_available = positions_available
         self.job_scope = job_scope
         self.professor_name = professor_name
         self.professor_id = professor_id
         self.school = school
         self.level = level
+        self.description = description
 
     def json(self):
-        return {"mod_id": self.mod_id , "mod_name": self.mod_name, 
-        "positions_available": self.positions_available, "job_scope": self.job_scope, 
-        "professsor_name": self.professor_name, "professor_id": self.professor_id, "school":self.school, "level":self.level}
+        return {
+            "mod_id": self.mod_id , "mod_name": self.mod_name, 
+            "positions_available": self.positions_available, "job_scope": self.job_scope, 
+            "professsor_name": self.professor_name, "professor_id": self.professor_id, "school":self.school, "level":self.level,
+            "description": self.description
+        }
 
 @app.route('/get_all')
 def get_all():
