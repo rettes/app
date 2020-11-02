@@ -175,46 +175,47 @@
                             
             
                             <div class="widget widget_check-box">
-                                    <h5>Search By Level</h5>
-                                <ul>
-                                    <li>
-                                        <div class="wm-level-checkbox">
-                                            <input id="level1" type="checkbox">
-                                            <label for="level1">
-                                                <span></span>
-                                                Introductory
-                                            </label>
-                                        </div>
-                                        <div class="wm-levelrating">
-                                            <span class="rating-box" style="width:30%"></span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="wm-level-checkbox">
-                                            <input id="level2" type="checkbox">
-                                            <label for="level2">
-                                                <span></span>
-                                                Intermediate
-                                            </label>
-                                        </div>    
-                                        <div class="wm-levelrating">
-                                            <span class="rating-box" style="width:65%"></span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="wm-level-checkbox">
-                                            <input id="level3" type="checkbox">
-                                            <label for="level3">
-                                                <span></span>
-                                                Advanced
-                                            </label>
-                                        </div>    
-                                        <div class="wm-levelrating">
-                                            <span class="rating-box" style="width:100%"></span>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
+                                <h5>Search By Level</h5>
+                            <ul>
+                                <li>
+                                    <div class="wm-level-checkbox ifChecked">
+                                        <input id="level1" type="checkbox" value = "Introductory" onclick = "filters()">
+                                        <label for="level1">
+                                            <span></span>
+                                            Introductory
+                                        </label>
+                                    </div>
+                                    <div class="wm-levelrating">
+                                        <span class="rating-box" style="width:40%"></span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="wm-level-checkbox ifChecked">
+                                        <input id="level2" type="checkbox" value = "Intermediate" onclick = "filters()">
+                                        <label for="level2">
+                                            <span></span>
+                                            Intermediate
+                                        </label>
+                                    </div>    
+                                    <div class="wm-levelrating">
+                                        <span class="rating-box" style="width:80%"></span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="wm-level-checkbox ifChecked">
+                                        <input id="level3" type="checkbox" value = "Advanced" onclick = "filters()">
+                                        <label for="level3">
+                                            <span></span>
+                                            Advanced
+                                        </label>
+                                    </div>    
+                                    <div class="wm-levelrating">
+                                        <span class="rating-box" style="width:120%"></span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        
                         </aside>
                         
                         <div class="col-md-9">
@@ -461,8 +462,15 @@
 
         
     <script>
-        sessionStorage.setItem("schools", ['SIS'])
-        console.log(sessionStorage.get("schools"))
+        function showChanges(){
+            var selected = [];
+        $('.ifChecked input:checked').each(function() {
+            selected.push($(this).attr('value'));
+        });
+        console.log(selected)
+        }
+
+        //-------------------------------------------------------------------------------------------------------------//
 
         function loadCourses(){
             var xhttp = new XMLHttpRequest();
@@ -508,6 +516,8 @@
             xhttp.send();
         }
 
+        //-------------------------------------------------------------------------------------------------------------//
+
         function populateSchoolFilter(){
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
@@ -524,35 +534,34 @@
                         }
                     }
                     
-                    var itemToAdd = `<li>
-                                        <div class="wm-level-checkbox">
-                                            <input id="level1" type="checkbox" onclick="loadCourses()">
-                                            <label for="level1">
+                    var itemToAdd = `<li class = "ifChecked">
+                                            <input id="land1" type="checkbox" onclick="filters()" value = "All Courses">
+                                            <label for="land1">
                                                 <span></span>
                                                 All Courses
                                             </label>
-                                        </div> </li>`
+                                        </li>`
                     
                     for(let i = 0; i < schools.length; i++){
-                        itemToAdd += `<li>
-                                        <div class="wm-level-checkbox">
-                                            <input id="level${i+2}" type="checkbox" onclick="loadAccordingToSchool('${schools[i]}')">
-                                            <label for="level${i+2}">
+                        itemToAdd += `<li class = "ifChecked">
+                                            <input id="land${i+2}" type="checkbox" onclick="filters()" value = "${schools[i]}">
+                                            <label for="land${i+2}">
                                                 <span></span>
                                                 ${schools[i]}
                                             </label>
-                                        </div> </li>`;
+                                        </li>`;
                     }
                     
                 }
-                console.log(itemToAdd)
                 document.getElementById("schoolType").innerHTML = itemToAdd;
             }
             xhttp.open("GET", "http://localhost:5012/get_all", true);
             xhttp.send();
         }
 
-        function loadAccordingToSchool(schools){
+        //-------------------------------------------------------------------------------------------------------------//
+
+        function loadAccordingToFilters(schools, levels){
 
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
@@ -561,8 +570,40 @@
                     var item = JSON.parse(xhttp.responseText);
                     
                     var itemToAdd = ``
+                    if(schools.includes("All Courses")){
+                        console.log("All courses is present in the array")
+                        loadCourses()
+                        return true;
+                    }
+                    
                     for(let i = 1; i <= item['modules'].length; i++){
-                        if(schools.includes(item['modules'][i-1]['school'])){
+                        if(levels.length != 0){
+                                if(levels.includes(item['modules'][i-1]['level']) && schools.includes(item['modules'][i-1]['school']) ){
+                                    var x = ``;
+                                    if(item['modules'][i-1]['positions_available'] == 1){
+                                        x = `style = 'color:red'`
+                                    }
+                                    else{
+                                        x = `style = 'color:#90ee90'`
+                                    }        
+                                    itemToAdd += `<li class="col-md-4">
+                                                    <div class="wm-courses-popular-wrap">
+                                                        <figure> <a href="#"><img src="extra-images/papular-courses-${i}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
+                                                            <figcaption>
+                                                                <img src="extra-images/papular-courses-thumb-6.jpg" alt="">
+                                                                <h6><a href="#">${item['modules'][i-1]['professsor_name']}</a></h6>
+                                                            </figcaption>
+                                                        </figure>
+                                                        <div class="wm-popular-courses-text">
+                                                            <h6><a href="#">${item['modules'][i-1]['mod_name']}</a></h6>
+                                                            <div class="wm-courses-price"><span ${x}>${item['modules'][i-1]['positions_available']} position(s) left</span> </div>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </li>`;
+                                    }
+                            }
+                        else if(schools.includes(item['modules'][i-1]['school']) ){
                             var x = ``;
                             if(item['modules'][i-1]['positions_available'] == 1){
                                 x = `style = 'color:red'`
@@ -586,6 +627,7 @@
                                             </div>
                                         </li>`;
                             }
+                            
                         
 
                             
@@ -600,72 +642,22 @@
             xhttp.send();
         }
 
+        //-------------------------------------------------------------------------------------------------------------//
 
-
-
-
-
-
-
-        function createSessionSchools(school){
-            if( typeof Storage != "undefined"){
-                if(sessionStorage.get('schools') == null){
-                    var schools = [school];
-                    sessionStorage.setItem("schools", schools);
+        function filters(){
+            var schools= [];
+            var levels = []
+            $('.ifChecked input:checked').each(function() {
+                let filter = $(this).attr('value');
+                if(filter == "Introductory" || filter == "Intermediate" || filter == "Advanced"){
+                    levels.push(filter)
                 }
                 else{
-                    sessionStorage.get("schools").push(school);
+                    schools.push(filter);
                 }
-
-                let schools = sessionStorage.get("schools");
-                var items = $("input:text");
-                console.log(items)
-            }
-            else{
-                console.error("There has been an issue with the session storage.")
-            }
+            });
+            loadAccordingToFilters(schools, levels);
         }
-
-
-        function loadAccordingToLevel(level){
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-
-                if (xhttp.readyState == 4 && xhttp.status == 200) {
-                    var item = JSON.parse(xhttp.responseText);
-                    console.log(item)
-                    var itemToAdd = ``
-                    for(let i = 1; i <= item['modules'].length; i++){
-                        itemToAdd += `<li class="col-md-4">
-                                        <div class="wm-courses-popular-wrap">
-                                            <figure> <a href="#"><img src="extra-images/papular-courses-${i}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
-                                                <figcaption>
-                                                    <img src="extra-images/papular-courses-thumb-6.jpg" alt="">
-                                                    <h6><a href="#">${item['modules'][i-1]['professsor_name']}</a></h6>
-                                                </figcaption>
-                                            </figure>
-                                            <div class="wm-popular-courses-text">
-                                                <h6><a href="#">${item['modules'][i-1]['mod_name']}</a></h6>
-                                                <div class="wm-courses-price"> <span></span> </div>
-                                                
-                                            </div>
-                                        </div>
-                                    </li>`;
-
-                            
-                    }
-                    
-                    document.getElementById("courseList").innerHTML = itemToAdd;
-                    
-                }
-            }
-
-            xhttp.open("GET", "http://localhost:5012/get_all", true);
-            xhttp.send();
-        }
-
-        
-
       
     </script>
 
