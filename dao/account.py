@@ -33,6 +33,18 @@ class Account(db.Model):
             "email": self.email, "user_type": self.user_type
         }
 
+@app.route('/get_logged_in')
+def get_logged_in():
+    if session.get('email'):
+        return_value = session['email']
+        return jsonify(return_value)
+    else:
+        return "Happpy"
+@app.route('/get_name')
+def get_name():
+    if session.get('given_name'):
+        
+        return jsonify(session['given_name'])
 @app.route('/get_all')
 def get_all():
 	return jsonify({"accounts": [account.json() for account in Account.query.all()]})

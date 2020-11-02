@@ -53,6 +53,22 @@ class Modules(db.Model):
 def get_all():
 	return jsonify({"modules": [module.json() for module in Modules.query.all()]})
 
+@app.route('/add_course/<string:course>')
+def add_course(course):
+    module = []
+    course = course.split("&")
+    for param in course:
+        temp = param.split("=")
+        module.append(temp[1])
+
+    try:
+        me = Modules(module[0], module[1], module[2], module[3], module[4], module[5], module[6], module[7], module[8])
+        db.session.add(me)
+        db.session.commit()
+        return jsonify("Module added")
+    except:
+        return jsonify("Module exists")
+
 
 
 # ! port numbers
