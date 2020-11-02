@@ -1,4 +1,4 @@
-authlib
+authlib==0.11
 flask
 google-api-python-client
 google-auth
