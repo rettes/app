@@ -30,7 +30,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body onload="professorName()">
+  <body onload="loadCourses()">
 	
     <!--// Main Wrapper \\-->
     <div class="wm-main-wrapper">
@@ -47,9 +47,6 @@
                             <ul class="wm-adminuser-section">
                                 <li>
                                     <a>Hi, John Teo Tjia Ern.</a>
-                                </li>
-                                <li>
-                                
                                 </li>
                                 <li>
                                     <a href="#" class="wm-search-btn" data-toggle="modal" data-target="#ModalSearch"><i class="wmicon-search"></i></a>
@@ -121,8 +118,8 @@
                         <div class="col-md-12">
                             <div class="wm-fancy-title"> <h2>Popular <span>Openings</span></h2> </div>
                             <div class="wm-courses wm-courses-popular">
-                                <ul class="row">
-                                    <li class="col-md-3">
+                                <ul class="row" id="courseList">
+                                    <!-- <li class="col-md-3">
                                         <div class="wm-courses-popular-wrap">
                                             <figure> <a href="#"><img src="extra-images/papular-courses-1.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
                                                 <figcaption>
@@ -193,7 +190,7 @@
                                                 </ul>
                                             </div>
                                         </div>
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </div>
                         </div>
@@ -308,20 +305,82 @@
 
 
     <script>
-            function professorName(){
-                var xhttp = new XMLHttpRequest();
-                xhttp.onreadystatechange = function() {
+        function loadCourses(){
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
 
-                    if (xhttp.readyState == 4 && xhttp.status == 200) {
-                        var item = JSON.parse(xhttp.responseText);
-                        console.log(item)
-                        
-                    }
+            if (xhttp.readyState == 4 && xhttp.status == 200) {
+                var item = JSON.parse(xhttp.responseText);
+                console.log(item);
+                console.log(item.modules[0].professsor_name); //professor name (why got triple sss jesus christ)
+                console.log(item.modules[0].professor_id); //professor id
+                console.log(item.modules[0].positions_available); //positions available
+
+                var positions_arr = [];
+
+                item.modules.sort((a, b) => (a.positions_available > b.positions_available) ? -1 : 1);
+                console.log(item.modules);
+
+                var maxNumber;
+                var itemToAdd = ``
+
+                if (item.modules.length <= 4) {
+                    maxNumber = item.modules.length;
+                }
+                else {
+                    maxNumber = 4;
                 }
 
-                xhttp.open("GET", "http://localhost:5014/get_all", true);
-                xhttp.send();
+                for(let i = 1; i <= maxNumber; i++){
+                    var x = ``;
+                    if(item['modules'][i-1]['positions_available'] == 1){
+                        x = `style = 'color:red'`
+                    }
+                    else{
+                        x = `style = 'color:#90ee90'`
+                    }   
+
+                    // if (i%4===1) {
+                    //     itemToAdd += `<div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+                    //                     <div class="controls-top">
+                    //                         <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
+                    //                         <a class="btn-floating" href="#multi-item-example" data-slide="next"><i
+                    //                             class="fas fa-chevron-right"></i></a>
+                    //                     </div>
+                    //                     <div class="carousel-item active">`;                                   
+                    // }    
+
+                    itemToAdd += `<li class="col-md-3">
+                                    <div class="wm-courses-popular-wrap">
+                                        <figure> <a href="#"><img src="extra-images/papular-courses-${i}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
+                                            <figcaption>
+                                                <img src="extra-images/papular-courses-thumb-6.jpg" alt="">
+                                                <h6><a href="#">${item['modules'][i-1]['professsor_name']}</a></h6>
+                                            </figcaption>
+                                        </figure>
+                                        <div class="wm-popular-courses-text">
+                                            <h6><a href="#">${item['modules'][i-1]['mod_name']}</a></h6>
+                                            <div class="wm-courses-price"><span ${x}>${item['modules'][i-1]['positions_available']} position(s) left</span> </div>
+                                            
+                                        </div>
+                                    </div>
+                                </li>`;
+                    
+                    // if (i%4===0) {
+                    //     itemToAdd += `</div></div>`;
+                    // }
+                        
+                }
+                
+                document.getElementById("courseList").innerHTML = itemToAdd;
+                
+            }
         }
+
+        xhttp.open("GET", "http://localhost:5012/get_all", true);
+        xhttp.send();
+    }
+
 
 
     </script>
