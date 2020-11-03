@@ -45,7 +45,7 @@ class Modules(db.Model):
         return {
             "mod_id": self.mod_id , "mod_name": self.mod_name, 
             "positions_available": self.positions_available, "job_scope": self.job_scope, 
-            "professsor_name": self.professor_name, "professor_id": self.professor_id, "school":self.school, "level":self.level,
+            "professor_name": self.professor_name, "professor_id": self.professor_id, "school":self.school, "level":self.level,
             "description": self.description
         }
 
