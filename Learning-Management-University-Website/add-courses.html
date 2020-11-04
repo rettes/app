@@ -142,7 +142,7 @@
             </div>
         </div>
         <!--// Mini Header \\-->
-        
+
         <!--// Main Content \\-->
         <div class="wm-main-content mx-auto">
             <h3 style="display:none; text-align:center;" id="message"></h3>
@@ -443,15 +443,20 @@
             validateForm()
         });
 
-        const queryString = window.location.search.substring(1);
+        if (localStorage.getItem("email") == null) {
+            var professorEmail = window.location.search.substring(1);
+            localStorage.setItem("email", professorEmail);
+            console.log(professorEmail)
+        } else if (professorEmail == null) {
+            professorEmail = localStorage.getItem("email")
+        }
 
-        //console.log(queryString);
+        //sessionStorage.setItem("email", queryString)
 
-        sessionStorage.setItem("email", queryString)
-
-        console.log(sessionStorage.getItem("email"))
+        //console.log(sessionStorage.getItem("email"))
 
         // console.log(sessionStorage.get("schools"))
+
         var professorID = '';
         var professorName = '';
 
@@ -467,13 +472,14 @@
                         document.getElementById("addOpening").href = "add-courses.html"
                         professorID = item['user_id']
                         sessionStorage.setItem("professorID", professorID)
+                        document.getElementById("welcome").innerHTML = "Hi, " + professorID;
                         loadProfessorName(professorID)
                     }
 
                 }
             }
 
-            url = "http://localhost:5010/get_account_by_email/" + queryString
+            url = "http://localhost:5010/get_account_by_email/" + professorEmail
             xhttp.open("GET", url, true);
             xhttp.send();
         }
@@ -487,7 +493,6 @@
                     // console.log(item)
                     professorName = item['professors_name'];
                     sessionStorage.setItem("professorName", professorName)
-                    document.getElementById("welcome").innerHTML = "Hi, " + professorName;
                 }
             }
             url = "http://localhost:5014/get_name_by_id/" + professorID
@@ -502,21 +507,19 @@
             var course = {}
 
             for (let items of form) {
-                if (items.id == "positions" && isNaN(items.value)){
+                if (items.id == "positions" && isNaN(items.value)) {
                     error = true
                     document.getElementById("positions").value = "";
                     document.getElementById("positions").placeholder = "Please enter a number for positions";
-                }
-                else if (items.value == "") {
+                } else if (items.value == "") {
                     error = true
                     let exist_text = document.getElementById(items.id).placeholder;
                     document.getElementById(items.id).placeholder = "Please enter the " + exist_text;
-                }
-                else{
+                } else {
 
-                    if(items.id != "submit"){
+                    if (items.id != "submit") {
                         course[items.id] = items.value;
-                        if(items.id == "scope"){
+                        if (items.id == "scope") {
                             course[items.id] = items.value;
                             course["name"] = professorName;
                             course["id"] = professorID;
@@ -525,7 +528,7 @@
                 }
             }
 
-            if (error != true){
+            if (error != true) {
 
                 var xhttp = new XMLHttpRequest();
                 xhttp.onreadystatechange = function () {
@@ -535,15 +538,14 @@
                         document.getElementById("message").innerHTML = item;
                         document.getElementById("message").style.display = "block";
 
-                        if(item == "Module exists"){
+                        if (item == "Module exists") {
                             document.getElementById("message").style.color = "red";
 
-                        }
-                        else if(item == "Module added"){
+                        } else if (item == "Module added") {
                             document.getElementById("message").style.color = "green";
                             document.getElementById("addCourse").reset();
                         }
-                        
+
                     }
                 }
 
