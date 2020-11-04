@@ -32,7 +32,7 @@ def get_all():
     if google_auth.is_logged_in():
         user_info = google_auth.get_user_info()
         session['email'] = user_info['email']
-        return redirect("http://localhost/Learning-Management-University-Website/add-courses.html?" + str(session['email']), code=302)
+        return redirect("../Learning-Management-University-Website/add-courses.html?" + str(session['email']), code=302)
     return 'You are not currently logged in.'
 
 

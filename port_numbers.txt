@@ -1,0 +1,11 @@
+# ! port numbers
+
+# login (google) = 5000
+# index (normal login) = 5001
+# account = 5010
+# applications = 5011
+# modules = 5012
+# payments = 5013
+# professors = 5014
+# students = 5015
+# student_experience = 5016
