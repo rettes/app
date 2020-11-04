@@ -27,7 +27,7 @@ class Professors(db.Model):
 
     def json(self):
         return {
-            "professors_name": self.professor_name , "professor_id": self.professor_id
+            "professor_name": self.professor_name , "professor_id": self.professor_id
         }
 
 @app.route('/get_all')

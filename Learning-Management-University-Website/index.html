@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,7 +21,7 @@
     <link href="css/color-three.css" rel="stylesheet">
     <link href="css/color-four.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -29,27 +29,29 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
-  <body onload="loadCourses();loadUserInfo()">
-	
+</head>
+
+<body onload="loadCourses();loadUserInfo()">
+
     <!--// Main Wrapper \\-->
     <div class="wm-main-wrapper">
-        
+
         <!--// Header \\-->
-		<header id="wm-header" class="wm-header-one">
+        <header id="wm-header" class="wm-header-one">
 
             <!--// TopStrip \\-->
             <div class="wm-topstrip">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            
+
                             <ul class="wm-adminuser-section">
                                 <li>
-                                    <a>Hi, John Teo Tjia Ern.</a>
+                                    <a id="welcome">Hi, John Teo Tjia Ern.</a>
                                 </li>
                                 <li>
-                                    <a href="#" class="wm-search-btn" data-toggle="modal" data-target="#ModalSearch"><i class="wmicon-search"></i></a>
+                                    <a href="#" class="wm-search-btn" data-toggle="modal" data-target="#ModalSearch"><i
+                                            class="wmicon-search"></i></a>
                                 </li>
                             </ul>
                         </div>
@@ -62,43 +64,45 @@
             <div class="wm-main-header">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-3"><a href="index-2.html" class="wm-logo"> <img src="images/smulogo.png" width="112px" height="50px"></a></div>
+                        <div class="col-md-3"><a href="index-2.html" class="wm-logo"> <img src="images/smulogo.png"
+                                    width="112px" height="50px"></a></div>
                         <div class="col-md-9">
                             <!--// Navigation \\-->
                             <nav class="navbar navbar-default">
                                 <div class="navbar-header">
-                                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="true">
-                                    <span class="sr-only">Toggle navigation</span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                  </button>
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                        data-target="#navbar-collapse-1" aria-expanded="true">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
                                 </div>
                                 <div class="collapse navbar-collapse" id="navbar-collapse-1">
-                                  <ul class="nav navbar-nav">
-                                    <li class="active">
-                                        <a href="index.html">Home</a>
-                                    </li>
+                                    <ul class="nav navbar-nav">
+                                        <li class="active">
+                                            <a href="index.html">Home</a>
+                                        </li>
 
-                                    <li><a href="#">Course Openings</a>
-                                        <ul class="wm-dropdown-menu">
-                                            <li><a href="courses-grid.html">Courses Grid</a></li>
-                                            <li><a href="courses-detail.html">Courses Detail</a></li>
-                                        </ul>
-                                    </li>
+                                        <li><a href="#">Course Openings</a>
+                                            <ul class="wm-dropdown-menu">
+                                                <li><a href="courses-grid.html">Courses Grid</a></li>
+                                                <li><a href="courses-detail.html">Courses Detail</a></li>
+                                            </ul>
+                                        </li>
 
-                                    <li>
-                                        <a href="student-profile.html">Profile</a>
-                                    </li>
+                                        <li>
+                                            <a href="student-profile.html">Profile</a>
+                                        </li>
 
-                                    <li >
-                                        <a href="student-payment.html">Payment</a>
-                                    </li>
+                                        <li>
+                                            <a href="student-payment.html">Payment</a>
+                                        </li>
 
-                                    <li class="wm-megamenu-li">
-                                        <a href="../login/login.html">Logout</a>
-                                    </li>
-                                  </ul>
+                                        <li class="wm-megamenu-li">
+                                            <a href="../login/login.html">Logout</a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </nav>
                         </div>
@@ -107,19 +111,21 @@
             </div>
             <!--// MainHeader \\-->
 
-		</header>
-		<!--// Header \\-->
+        </header>
+        <!--// Header \\-->
 
-            <!--// Main Section \\-->
-            <div class="wm-main-section wm-courses-popular-full">
-                <div class="container">
-                    <div class="row">
-                        
-                        <div class="col-md-12">
-                            <div class="wm-fancy-title"> <h2>Popular <span>Openings</span></h2> </div>
-                            <div class="wm-courses wm-courses-popular">
-                                <ul class="row" id="courseList">
-                                    <!-- <li class="col-md-3">
+        <!--// Main Section \\-->
+        <div class="wm-main-section wm-courses-popular-full">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="wm-fancy-title">
+                            <h2>Popular <span>Openings</span></h2>
+                        </div>
+                        <div class="wm-courses wm-courses-popular">
+                            <ul class="row" id="courseList">
+                                <!-- <li class="col-md-3">
                                         <div class="wm-courses-popular-wrap">
                                             <figure> <a href="#"><img src="extra-images/papular-courses-1.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
                                                 <figcaption>
@@ -191,25 +197,25 @@
                                             </div>
                                         </div>
                                     </li> -->
-                                </ul>
-                            </div>
+                            </ul>
                         </div>
-
                     </div>
+
                 </div>
             </div>
+        </div>
+        <!--// Main Section \\-->
+
+        <!--// Main Content \\-->
+        <div class="wm-main-content">
+
             <!--// Main Section \\-->
+            <div class="wm-main-section">
+                <div class="container">
+                    <div class="row">
 
-		<!--// Main Content \\-->
-		<div class="wm-main-content">
-
-			<!--// Main Section \\-->
-			<div class="wm-main-section">
-				<div class="container">
-					<div class="row">
-						
-						<div class="col-md-4">
-							<div class="wm-search-course">
+                        <div class="col-md-4">
+                            <div class="wm-search-course">
                                 <h3 class="wm-short-title wm-color">Find Your Course</h3>
                                 <p>Fill in the form below to find your course:</p>
                                 <form>
@@ -226,7 +232,10 @@
                                                 </div>
                                             </div>
                                         </li>
-                                        <li> <input type="text" value="Course Name" onblur="if(this.value == '') { this.value ='Course Name'; }" onfocus="if(this.value =='Course Name') { this.value = ''; }"> <i class="wmicon-search"></i> </li>
+                                        <li> <input type="text" value="Course Name"
+                                                onblur="if(this.value == '') { this.value ='Course Name'; }"
+                                                onfocus="if(this.value =='Course Name') { this.value = ''; }"> <i
+                                                class="wmicon-search"></i> </li>
                                         <li>
                                             <div class="wm-apply-select">
                                                 <select>
@@ -241,7 +250,7 @@
                                     </ul>
                                 </form>
                             </div>
-						</div>
+                        </div>
                         <div class="col-md-8">
                             <div class="wm-service wm-box-service">
                                 <ul>
@@ -298,64 +307,71 @@
                             </div>
                         </div>
 
-					</div>
-				</div>
-			</div>
-			<!--// Main Section \\-->
+                    </div>
+                </div>
+            </div>
+            <!--// Main Section \\-->
 
 
-    <script>
-        function loadCourses(){
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-
-            if (xhttp.readyState == 4 && xhttp.status == 200) {
-                var item = JSON.parse(xhttp.responseText);
-                console.log(item);
-                console.log(item.modules[0].professsor_name); //professor name (why got triple sss jesus christ)
-                console.log(item.modules[0].professor_id); //professor id
-                console.log(item.modules[0].positions_available); //positions available
-
-                var positions_arr = [];
-
-                item.modules.sort((a, b) => (a.positions_available > b.positions_available) ? -1 : 1);
-                console.log(item.modules);
-
-                var maxNumber;
-                var itemToAdd = ``
-
-                if (item.modules.length <= 4) {
-                    maxNumber = item.modules.length;
-                }
-                else {
-                    maxNumber = 4;
+            <script>
+                //load id
+                if (localStorage.getItem("email") == null) {
+                    var userEmail = window.location.search.substring(1);
+                    localStorage.setItem("email", userEmail);
+                    console.log(userEmail)
+                } else if (userEmail == null) {
+                    userEmail = localStorage.getItem("email")
                 }
 
-                for(let i = 1; i <= maxNumber; i++){
-                    var x = ``;
-                    if(item['modules'][i-1]['positions_available'] == 1){
-                        x = `style = 'color:red'`
-                    }
-                    else{
-                        x = `style = 'color:#90ee90'`
-                    }   
+                function loadCourses() {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
 
-                    // if (i%4===1) {
-                    //     itemToAdd += `<div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
-                    //                     <div class="controls-top">
-                    //                         <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
-                    //                         <a class="btn-floating" href="#multi-item-example" data-slide="next"><i
-                    //                             class="fas fa-chevron-right"></i></a>
-                    //                     </div>
-                    //                     <div class="carousel-item active">`;                                   
-                    // }    
+                        if (xhttp.readyState == 4 && xhttp.status == 200) {
+                            var item = JSON.parse(xhttp.responseText);
+                            console.log(item);
+                            console.log(item.modules[0].professor_name); //professor name
+                            console.log(item.modules[0].professor_id); //professor id
+                            console.log(item.modules[0].positions_available); //positions available
 
-                    itemToAdd += `<li class="col-md-3">
+                            var positions_arr = [];
+
+                            item.modules.sort((a, b) => (a.positions_available > b.positions_available) ? -1 : 1);
+                            console.log(item.modules);
+
+                            var maxNumber;
+                            var itemToAdd = ``
+
+                            if (item.modules.length <= 4) {
+                                maxNumber = item.modules.length;
+                            } else {
+                                maxNumber = 4;
+                            }
+
+                            for (let i = 1; i <= maxNumber; i++) {
+                                var x = ``;
+                                if (item['modules'][i - 1]['positions_available'] == 1) {
+                                    x = `style = 'color:red'`
+                                } else {
+                                    x = `style = 'color:#90ee90'`
+                                }
+
+                                // if (i%4===1) {
+                                //     itemToAdd += `<div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+                                //                     <div class="controls-top">
+                                //                         <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
+                                //                         <a class="btn-floating" href="#multi-item-example" data-slide="next"><i
+                                //                             class="fas fa-chevron-right"></i></a>
+                                //                     </div>
+                                //                     <div class="carousel-item active">`;                                   
+                                // }    
+
+                                itemToAdd += `<li class="col-md-3">
                                     <div class="wm-courses-popular-wrap">
                                         <figure> <a href="#"><img src="extra-images/papular-courses-${i}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
                                             <figcaption>
                                                 <img src="extra-images/papular-courses-thumb-6.jpg" alt="">
-                                                <h6><a href="#">${item['modules'][i-1]['professsor_name']}</a></h6>
+                                                <h6><a href="#">${item['modules'][i-1]['professor_name']}</a></h6>
                                             </figcaption>
                                         </figure>
                                         <div class="wm-popular-courses-text">
@@ -365,43 +381,104 @@
                                         </div>
                                     </div>
                                 </li>`;
-                    
-                    // if (i%4===0) {
-                    //     itemToAdd += `</div></div>`;
-                    // }
-                        
+
+                                // if (i%4===0) {
+                                //     itemToAdd += `</div></div>`;
+                                // }
+
+                            }
+
+                            document.getElementById("courseList").innerHTML = itemToAdd;
+
+                        }
+                    }
+
+                    xhttp.open("GET", "http://localhost:5012/get_all", true);
+                    xhttp.send();
                 }
-                
-                document.getElementById("courseList").innerHTML = itemToAdd;
-                
-            }
-        }
+                var userID = '';
+                var userName = '';
+                var userType = '';
 
-        xhttp.open("GET", "http://localhost:5012/get_all", true);
-        xhttp.send();
-    }
+                function loadUserInfo() {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+                        if (xhttp.readyState == 4 && xhttp.status == 200) {
+                            var item = JSON.parse(xhttp.responseText);
+                            userType = item['user_type'];
+                            userID = item['user_id'];
+                            localStorage.setItem("userType", userType);
+                            localStorage.setItem("userID", userID);
+
+                            document.getElementById("welcome").innerHTML = "Hi, " + userID;
+                            if (userType == "professor") {
+                                document.getElementById("payment").id = "addOpening"
+                                document.getElementById("addOpening").innerHTML = "Add TA Opening"
+                                document.getElementById("addOpening").href = "add-courses.html"
+                                loadProfessorName(userID)
+                            } else if (userType == "student") {
+                                loadStudentName(userID)
+                            }
+
+                        }
+                    }
+
+                    url = "http://localhost:5010/get_account_by_email/" + userEmail
+                    xhttp.open("GET", url, true);
+                    xhttp.send();
+                }
+
+                function loadProfessorName(userID) {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+
+                        if (xhttp.readyState == 4 && xhttp.status == 200) {
+                            var item = JSON.parse(xhttp.responseText);
+                            // console.log(item)
+                            userName = item['professor_name'];
+                            sessionStorage.setItem("userName", userName)
+                        }
+                    }
+                    url = "http://localhost:5014/get_name_by_id/" + userID
+                    xhttp.open("GET", url, true);
+                    xhttp.send();
+                }
+
+                function loadStudentName(userID) {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+
+                        if (xhttp.readyState == 4 && xhttp.status == 200) {
+                            var item = JSON.parse(xhttp.responseText);
+                            // console.log(item)
+                            userName = item['student_name'];
+                            sessionStorage.setItem("userName", userName)
+                        }
+                    }
+                    url = "http://localhost:5014/get_name_by_id/" + userID
+                    xhttp.open("GET", url, true);
+                    xhttp.send();
+                }
+            </script>
+
+            <!-- jQuery (necessary for JavaScript plugins) -->
+            <script type="text/javascript" src="script/jquery.js"></script>
+            <script type="text/javascript" src="script/modernizr.js"></script>
+            <script type="text/javascript" src="script/bootstrap.min.js"></script>
+            <script type="text/javascript" src="script/jquery.prettyphoto.js"></script>
+            <script type="text/javascript" src="script/jquery.countdown.min.js"></script>
+            <script type="text/javascript" src="script/fitvideo.js"></script>
+            <script type="text/javascript" src="script/skills.js"></script>
+            <script type="text/javascript" src="script/slick.slider.min.js"></script>
+            <script type="text/javascript" src="script/waypoints-min.js"></script>
+            <script type="text/javascript" src="build/mediaelement-and-player.min.js"></script>
+            <script type="text/javascript" src="script/isotope.min.js"></script>
+            <script type="text/javascript" src="script/jquery.nicescroll.min.js"></script>
+            <script type="text/javascript" src="script/functions.js"></script>
 
 
-
-    </script>
-
-	<!-- jQuery (necessary for JavaScript plugins) -->
-	<script type="text/javascript" src="script/jquery.js"></script>
-	<script type="text/javascript" src="script/modernizr.js"></script>
-    <script type="text/javascript" src="script/bootstrap.min.js"></script>
-    <script type="text/javascript" src="script/jquery.prettyphoto.js"></script>
-    <script type="text/javascript" src="script/jquery.countdown.min.js"></script>
-    <script type="text/javascript" src="script/fitvideo.js"></script>
-    <script type="text/javascript" src="script/skills.js"></script>
-    <script type="text/javascript" src="script/slick.slider.min.js"></script>
-    <script type="text/javascript" src="script/waypoints-min.js"></script>
-    <script type="text/javascript" src="build/mediaelement-and-player.min.js"></script>
-    <script type="text/javascript" src="script/isotope.min.js"></script>
-    <script type="text/javascript" src="script/jquery.nicescroll.min.js"></script>
-    <script type="text/javascript" src="script/functions.js"></script>
-
-
-  </body>
+</body>
 
 <!--  15:20  -->
+
 </html>
