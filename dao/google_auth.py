@@ -13,7 +13,7 @@ AUTHORIZATION_URL = 'https://accounts.google.com/o/oauth2/v2/auth?access_type=of
 AUTHORIZATION_SCOPE ='openid email profile https://www.googleapis.com/auth/drive.file'
 
 AUTH_REDIRECT_URI = 'http://localhost:5000/google/auth'
-BASE_URI ="./app/Learning-Management-University-Website/index.html"
+BASE_URI ="http://localhost/app/Learning-Management-University-Website/index.html"
 CLIENT_ID = '342517456610-fm6190djlcjf6kjihs7blnqc9omb2h3h.apps.googleusercontent.com'
 CLIENT_SECRET = 'Ihy27Hq6JnqtnNfUsBy7lAUV'
 
