@@ -30,7 +30,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body onload = "loadCourses();populateSchoolFilter()">
+  <body onload = "loadCourses();populateSchoolFilter();loadPage()">
 	
     <!--// Main Wrapper \\-->
     <div class="wm-main-wrapper">
@@ -46,7 +46,7 @@
                             
                             <ul class="wm-adminuser-section">
                                 <li>
-                                    <a>Hi, John Teo Tjia Ern.</a>
+                                    <a id="welcome">Hi, John Teo Tjia Ern.</a>
                                 </li>
                                 <li>
                                 
@@ -94,8 +94,8 @@
                                           <a href="student-profile.html">Profile</a>
                                       </li>
   
-                                      <li >
-                                          <a href="student-payment.html">Payment</a>
+                                      <li>
+                                          <a href="student-payment.html" id="payment">Payment</a>
                                       </li>
   
                                       <li class="wm-megamenu-li">
@@ -470,6 +470,25 @@
 
         //-------------------------------------------------------------------------------------------------------------//
 
+        if (userEmail == null && localStorage.getItem("email") != null ) {
+            var userEmail = localStorage.getItem("userEmail")
+        }
+        if (userID == null && localStorage.getItem("userID") != null) {
+            var userID = localStorage.getItem("userID")
+        }
+        if (userName == null && localStorage.getItem("userName") != null) {
+            var userName = localStorage.getItem("userName")
+        }
+        if (userType == null && localStorage.getItem("userType") != null) {
+            var userType = localStorage.getItem("userType")
+        }
+        // if (localStorage.getItem("email") == null ){
+        //     window.location = "http://localhost/app/login/";
+        //     Redirect();
+        // }
+
+        //-------------------------------------------------------------------------------------------------------------//
+
         function loadCourses(){
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
@@ -491,12 +510,12 @@
                                             <figure> <a href="#"><img src="extra-images/papular-courses-${i}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
                                                 <figcaption>
                                                     <img src="extra-images/papular-courses-thumb-6.jpg" alt="">
-                                                    <h6><a href="#">${item['modules'][i-1]['professsor_name']}</a></h6>
+                                                    <h6><a href="#">${item['modules'][i-1]['professor_name']}</a></h6>
                                                 </figcaption>
                                             </figure>
                                             <div class="wm-popular-courses-text">
                                                 <h6><a href="#">${item['modules'][i-1]['mod_name']}</a></h6>
-                                                <div class="wm-courses-price"><span ${x}>${item['modules'][i-1]['positions_available']} position(s) left</span> </div>
+                                                <div class="wm-courses-price" style="text-align: center"><span ${x}>${item['modules'][i-1]['positions_available']} position(s) left</span> </div>
                                                 
                                             </div>
                                         </div>
@@ -589,7 +608,7 @@
                                                         <figure> <a href="#"><img src="extra-images/papular-courses-${i}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
                                                             <figcaption>
                                                                 <img src="extra-images/papular-courses-thumb-6.jpg" alt="">
-                                                                <h6><a href="#">${item['modules'][i-1]['professsor_name']}</a></h6>
+                                                                <h6><a href="#">${item['modules'][i-1]['professor_name']}</a></h6>
                                                             </figcaption>
                                                         </figure>
                                                         <div class="wm-popular-courses-text">
@@ -614,7 +633,7 @@
                                                 <figure> <a href="#"><img src="extra-images/papular-courses-${i}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
                                                     <figcaption>
                                                         <img src="extra-images/papular-courses-thumb-6.jpg" alt="">
-                                                        <h6><a href="#">${item['modules'][i-1]['professsor_name']}</a></h6>
+                                                        <h6><a href="#">${item['modules'][i-1]['professor_name']}</a></h6>
                                                     </figcaption>
                                                 </figure>
                                                 <div class="wm-popular-courses-text">
@@ -655,6 +674,18 @@
                 }
             });
             loadAccordingToFilters(schools, levels);
+        }
+
+        //-------------------------------------------------------------------------------------------------------------//
+
+        function loadPage() {
+            document.getElementById("welcome").innerHTML = "Hi, " + userID;
+            if (userType == "professor") {
+                document.getElementById("payment").id = "addOpening"
+                document.getElementById("addOpening").innerHTML = "Add TA Opening"
+                document.getElementById("addOpening").href = "add-courses.html"
+                document.getElementById("welcome").innerHTML = "Hi, " + userID;
+            }
         }
       
     </script>
