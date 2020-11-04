@@ -81,7 +81,7 @@
                                     </button>
                                 </div>
                                 <div class="collapse navbar-collapse" id="navbar-collapse-1">
-                                    <ul class="nav navbar-nav">
+                                    <ul class="nav navbar-nav" id="topNav">
                                         <li class="active">
                                             <a href="index.html">Home</a>
                                         </li>
@@ -101,8 +101,8 @@
                                             <a href="student-payment.html" id="payment">Payment</a>
                                         </li>
 
-                                        <li class="wm-megamenu-li">
-                                            <a href="../login/login.html">Logout</a>
+                                        <li class="wm-megamenu-li" id="logout">
+                                            <a href="logout.html">Logout</a>
                                         </li>
 
                                         <li>
@@ -470,6 +470,18 @@
                 document.getElementById("addOpening").innerHTML = "Add TA Opening"
                 document.getElementById("addOpening").href = "add-courses.html"
                 document.getElementById("welcome").innerHTML = "Hi, " + userID;
+            }
+            else if (userType == "admin") {
+                var newLi = document.createElement("LI");
+                var linkNode = document.createElement("A");
+                linkNode.id = "addOpening";
+                linkNode.innerHTML = "Add TA Opening";
+                linkNode.href = "add-courses.html";
+                newLi.appendChild(linkNode);
+                //console.log(newLi)
+
+                var topNav = document.getElementById("topNav");
+                topNav.insertBefore(newLi, document.getElementById("logout"));
             }
         }
 

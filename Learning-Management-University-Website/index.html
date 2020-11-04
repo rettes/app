@@ -79,7 +79,7 @@
                                     </button>
                                 </div>
                                 <div class="collapse navbar-collapse" id="navbar-collapse-1">
-                                    <ul class="nav navbar-nav">
+                                    <ul class="nav navbar-nav" id="topNav">
                                         <li class="active">
                                             <a href="index.html">Home</a>
                                         </li>
@@ -99,8 +99,8 @@
                                             <a href="student-payment.html" id="payment">Payment</a>
                                         </li>
 
-                                        <li class="wm-megamenu-li">
-                                            <a href="../login/login.html">Logout</a>
+                                        <li class="wm-megamenu-li" id="logout">
+                                            <a href="logout.html">Logout</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -320,15 +320,15 @@
                     localStorage.setItem("email", userEmail);
                     window.history.pushState({}, document.title, window.location.pathname);
                     //console.log(userEmail)
-                } else if (userEmail == null && localStorage.getItem("email") != null ) {
+                } else if (userEmail == null && localStorage.getItem("email") != null) {
                     userEmail = localStorage.getItem("email");
                 }
                 // else if (localStorage.getItem("email") == null ){
                 //     window.location = "http://localhost/app/login/";
                 //     Redirect();
                 // }
-                
-                if (window.location.search.substring().includes("smu.edu.sg")){
+
+                if (window.location.search.substring().includes("smu.edu.sg")) {
                     window.history.pushState({}, document.title, window.location.pathname);
                 }
 
@@ -425,14 +425,24 @@
 
                             document.getElementById("welcome").innerHTML = "Hi, " + userID;
                             if (userType == "professor") {
-                                document.getElementById("payment").id = "addOpening"
-                                document.getElementById("addOpening").innerHTML = "Add TA Opening"
-                                document.getElementById("addOpening").href = "add-courses.html"
-                                loadProfessorName(userID)
+                                document.getElementById("payment").id = "addOpening";
+                                document.getElementById("addOpening").innerHTML = "Add TA Opening";
+                                document.getElementById("addOpening").href = "add-courses.html";
+                                loadProfessorName(userID);
                             } else if (userType == "student") {
-                                loadStudentName(userID)
-                            }
+                                loadStudentName(userID);
+                            } else if (userType == "admin") {
+                                var newLi = document.createElement("LI");
+                                var linkNode = document.createElement("A");
+                                linkNode.id = "addOpening";
+                                linkNode.innerHTML = "Add TA Opening";
+                                linkNode.href = "add-courses.html";
+                                newLi.appendChild(linkNode);
+                                console.log(newLi)
 
+                                var topNav = document.getElementById("topNav");
+                                topNav.insertBefore(newLi, document.getElementById("logout"));
+                            }
                         }
                     }
 
