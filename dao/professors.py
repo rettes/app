@@ -27,14 +27,21 @@ class Professors(db.Model):
 
     def json(self):
         return {
-            "professors_name": self.professor_name , "professor_id": self.professor_id
+            "professor_name": self.professor_name , "professor_id": self.professor_id
         }
 
 @app.route('/get_all')
 def get_all():
 	return jsonify({"professors": [professor.json() for professor in Professors.query.all()]})
 
-
+@app.route('/get_name_by_id/<string:professor_id>')
+def get_name_by_id(professor_id):
+    name = Professors.query.filter_by(professor_id=professor_id).first()
+    if name != None:
+        return jsonify(name.json())
+    else:
+        print('error')
+        return jsonify({"message": 'error' })
 
 # ! port numbers
 # account = 5010

@@ -7,7 +7,7 @@ app.secret_key = "Secret Key"
 
 
 # SqlAlchemy Database Configuration With Mysql
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+mysqlconnector://root:root@localhost:3306/ta_listing"
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+mysqlconnector://root@localhost:3306/ta_listing"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 
@@ -45,13 +45,29 @@ class Modules(db.Model):
         return {
             "mod_id": self.mod_id , "mod_name": self.mod_name, 
             "positions_available": self.positions_available, "job_scope": self.job_scope, 
-            "professsor_name": self.professor_name, "professor_id": self.professor_id, "school":self.school, "level":self.level,
+            "professor_name": self.professor_name, "professor_id": self.professor_id, "school":self.school, "level":self.level,
             "description": self.description
         }
 
 @app.route('/get_all')
 def get_all():
 	return jsonify({"modules": [module.json() for module in Modules.query.all()]})
+
+@app.route('/add_course/<string:course>')
+def add_course(course):
+    module = []
+    course = course.split("&")
+    for param in course:
+        temp = param.split("=")
+        module.append(temp[1])
+
+    try:
+        me = Modules(module[0], module[1], module[2], module[3], module[4], module[5], module[6], module[7], module[8])
+        db.session.add(me)
+        db.session.commit()
+        return jsonify("Module added")
+    except:
+        return jsonify("Module exists")
 
 
 

@@ -21,7 +21,7 @@
     <link href="css/responsive.css" rel="stylesheet">
     
   </head>
-  <body onload = "loadCourses();populateSchoolFilter()">
+  <body onload = "loadCourses();populateSchoolFilter();loadPage()">
 	
     <!--// Main Wrapper \\-->
     <div class="wm-main-wrapper">
@@ -30,17 +30,17 @@
 		<header id="wm-header" class="wm-header-one">
 
             <!--// TopStrip \\-->
-   <div class="wm-topstrip">
+            <div class="wm-topstrip">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
                             
                             <ul class="wm-adminuser-section">
                                 <li>
-                                    <a>Hi, John Teo Tjia Ern.</a>
+                                    <a id="welcome">Hi, John Teo Tjia Ern.</a>
                                 </li>
                                 <li>
-                                   
+                                
                                 </li>
                                 <li>
                                     <a href="#" class="wm-search-btn" data-toggle="modal" data-target="#ModalSearch"><i class="wmicon-search"></i></a>
@@ -50,6 +50,8 @@
                     </div>
                 </div>
             </div>
+            <!--// TopStrip \\-->
+
             <!--// MainHeader \\-->
             <div class="wm-main-header">
                 <div class="container">
@@ -67,7 +69,7 @@
                                   </button>
                                 </div>
                                 <div class="collapse navbar-collapse" id="navbar-collapse-1">
-                                    <ul class="nav navbar-nav">
+                                    <ul class="nav navbar-nav" id="topNav">
                                       <li class="active">
                                           <a href="index.html">Home</a>
                                       </li>
@@ -83,16 +85,12 @@
                                           <a href="student-profile.html">Profile</a>
                                       </li>
   
-                                      <li >
-                                          <a href="student-payment.html">Payment</a>
-                                      </li>
-  
-                                      <li class="wm-megamenu-li">
-                                          <a href="../login/login.html">Logout</a>
-                                      </li>
-  
                                       <li>
-                                          <a href="#" class="wm-search-btn" data-toggle="modal" data-target="#ModalSearch"><i class="wmicon-search"></i></a>
+                                          <a href="student-payment.html" id="payment">Payment</a>
+                                      </li>
+  
+                                      <li class="wm-megamenu-li" id="logout">
+                                          <a href="logout.html">Logout</a>
                                       </li>
                                     </ul>
                                   </div>
@@ -443,6 +441,25 @@
         });
         console.log(selected)
         }
+
+        //-------------------------------------------------------------------------------------------------------------//
+
+        if (userEmail == null && localStorage.getItem("email") != null ) {
+            var userEmail = localStorage.getItem("userEmail")
+        }
+        if (userID == null && localStorage.getItem("userID") != null) {
+            var userID = localStorage.getItem("userID")
+        }
+        if (userName == null && localStorage.getItem("userName") != null) {
+            var userName = localStorage.getItem("userName")
+        }
+        if (userType == null && localStorage.getItem("userType") != null) {
+            var userType = localStorage.getItem("userType")
+        }
+        // if (localStorage.getItem("email") == null ){
+        //     window.location = "http://localhost/app/login/";
+        //     Redirect();
+        // }
 
         //-------------------------------------------------------------------------------------------------------------//
 

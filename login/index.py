@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
 from flask_cors import CORS
+
 import hashlib, binascii, os
 import basehash
 import json
@@ -33,17 +34,15 @@ def verify_password(stored_password, provided_password):
 
 
 # ! password verification
-@app.route('/login')
-def login():
+@app.route('/login/<string:my_url>')
+def login(my_url):
     '''
     Function authenticates the user's login
     '''
-    print("IS THIS RUNNING!!!!!!!!!!!!!")
-    info = request.get_json()
-    print(info)
     try:
-        email = request.args.get['email']
-        password = request.args.get['password']
+        my_lst = my_url.split('&')
+        email = my_lst[0].split('=')[1] # get email from url through string manipulation
+        password = my_lst[1].split('=')[1] # get password from url through string manipulation
     except:
         email = 0
         password = 0
@@ -51,18 +50,20 @@ def login():
     r = requests.get("http://localhost:5010/get_account_by_email/" + str(email))
     if r.status_code == 200:
         account = json.loads(r.text)
-        stored_password = account['hashed_password']
-        print(stored_password)
-        print(password)
+        try: 
+            stored_password = account['hashed_password']
+        except:
+            stored_password = account['message']
+
 
         # password verification
         if email != 0 and verify_password(stored_password, password):
-            return jsonify({"verify_password": True })
+            return jsonify({"verify_password": True, 'message': 'success'})
         else:
-            return jsonify({"verify_password": False })
+            return jsonify({"verify_password": False, 'message': 'error' })
     
     else:
-        return jsonify({"message": 'error' })
+        return jsonify({"message": 'error, unable to retrieve account by email from database' })
 
     
 
