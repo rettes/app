@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,31 +20,33 @@
     <link href="css/color-three.css" rel="stylesheet">
     <link href="css/color-four.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
-    
-  </head>
-  <body onload = "loadCourses();populateSchoolFilter();loadPage()">
-	
+
+</head>
+
+<body onload="loadCourses();populateSchoolFilter();loadPage()">
+
     <!--// Main Wrapper \\-->
     <div class="wm-main-wrapper">
-        
+
         <!--// Header \\-->
-		<header id="wm-header" class="wm-header-one">
+        <header id="wm-header" class="wm-header-one">
 
             <!--// TopStrip \\-->
             <div class="wm-topstrip">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            
+
                             <ul class="wm-adminuser-section">
                                 <li>
                                     <a id="welcome">Hi, John Teo Tjia Ern.</a>
                                 </li>
                                 <li>
-                                
+
                                 </li>
                                 <li>
-                                    <a href="#" class="wm-search-btn" data-toggle="modal" data-target="#ModalSearch"><i class="wmicon-search"></i></a>
+                                    <a href="#" class="wm-search-btn" data-toggle="modal" data-target="#ModalSearch"><i
+                                            class="wmicon-search"></i></a>
                                 </li>
                             </ul>
                         </div>
@@ -56,62 +59,64 @@
             <div class="wm-main-header">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-3"><a href="index-2.html" class="wm-logo"><img src="images/smulogo.png" width="130px" height="50px"></a></div>
+                        <div class="col-md-3"><a href="index-2.html" class="wm-logo"><img src="images/smulogo.png"
+                                    width="130px" height="50px"></a></div>
                         <div class="col-md-9">
                             <!--// Navigation \\-->
                             <nav class="navbar navbar-default">
                                 <div class="navbar-header">
-                                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="true">
-                                    <span class="sr-only">Toggle navigation</span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                  </button>
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                        data-target="#navbar-collapse-1" aria-expanded="true">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
                                 </div>
                                 <div class="collapse navbar-collapse" id="navbar-collapse-1">
                                     <ul class="nav navbar-nav" id="topNav">
-                                      <li class="active">
-                                          <a href="index.html">Home</a>
-                                      </li>
-  
-                                      <li><a href="#">Course Openings</a>
-                                          <ul class="wm-dropdown-menu">
-                                              <li class="active"><a href="courses-grid.html">Courses Grid</a></li>
-                                              <li><a href="courses-detail.html">Courses Detail</a></li>
-                                          </ul>
-                                      </li>
-  
-                                      <li>
-                                          <a href="student-profile.html">Profile</a>
-                                      </li>
-  
-                                      <li>
-                                          <a href="student-payment.html" id="payment">Payment</a>
-                                      </li>
-  
-                                      <li class="wm-megamenu-li" id="logout">
-                                          <a href="logout.html">Logout</a>
-                                      </li>
+                                        <li class="active">
+                                            <a href="index.html">Home</a>
+                                        </li>
+
+                                        <li><a href="#">Course Openings</a>
+                                            <ul class="wm-dropdown-menu">
+                                                <li class="active"><a href="courses-grid.html">Courses Grid</a></li>
+                                                <li><a href="courses-detail.html">Courses Detail</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li>
+                                            <a href="student-profile.html">Profile</a>
+                                        </li>
+
+                                        <li>
+                                            <a href="student-payment.html" id="payment">Payment</a>
+                                        </li>
+
+                                        <li class="wm-megamenu-li" id="logout">
+                                            <a href="logout.html">Logout</a>
+                                        </li>
                                     </ul>
-                                  </div>
-                              </nav>
-                          </div>
-                      </div>
-                  </div>
-              </div>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!--// MainHeader \\-->
 
-		</header>
-		<!--// Header \\-->
-        
+        </header>
+        <!--// Header \\-->
+
         <!--// Mini Header \\-->
         <div class="wm-mini-header">
             <span class="wm-blue-transparent"></span>
-             <div class="container">
+            <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="wm-mini-title">
-                            <h1>Available Courses to TA for</h1> 
+                            <h1>Available Courses to TA for</h1>
                         </div>
                         <div class="wm-breadcrumb">
                             <ul>
@@ -119,107 +124,112 @@
                                 <li><a href="index-2.html">Courses</a></li>
                                 <li>Grid</li>
                             </ul>
-                        </div>      
+                        </div>
                     </div>
                 </div>
-            </div>    
+            </div>
         </div>
         <!--// Mini Header \\-->
 
-		<!--// Main Content \\-->
-		<div class="wm-main-content">
+        <!--// Main Content \\-->
+        <div class="wm-main-content">
 
             <!--// Main Section \\-->
             <div class="wm-main-section">
                 <div class="container">
                     <div class="row">
-                        
+
                         <aside class="col-md-3">
                             <div class="widget wm-search-course">
                                 <h3 class="wm-short-title wm-color">Find Your Course</h3>
                                 <p>Find your course here:</p>
                                 <form>
                                     <ul>
-                                        <li> <input type="text" value="Course Name" id = "filterCourseName" oninput= "filterAccordingToCourseName()" onblur="if(this.value == '') { this.value ='Course Name'; }" onfocus="if(this.value =='Course Name') { this.value = ''; }"> <i class="wmicon-search"></i> </li>
+                                        <li> <input type="text" value="Course Name" id="filterCourseName"
+                                                oninput="filterAccordingToCourseName()"
+                                                onblur="if(this.value == '') { this.value ='Course Name'; }"
+                                                onfocus="if(this.value =='Course Name') { this.value = ''; }"> <i
+                                                class="wmicon-search"></i> </li>
                                         <li> <input type="submit" value="Search course"> </li>
                                     </ul>
                                 </form>
                             </div>
                             <div class="widget widget_check-box">
                                 <h5>Search By Type</h5>
-                                <ul id = "schoolType">
-                                    
+                                <ul id="schoolType">
+
                                 </ul>
                             </div>
-                            
-            
+
+
                             <div class="widget widget_check-box">
                                 <h5>Search By Level</h5>
-                            <ul>
-                                <li>
-                                    <div class="wm-level-checkbox ifChecked">
-                                        <input id="level1" type="checkbox" value = "Introductory" onclick = "filters()">
-                                        <label for="level1">
-                                            <span></span>
-                                            Introductory
-                                        </label>
-                                    </div>
-                                    <div class="wm-levelrating">
-                                        <span class="rating-box" style="width:40%"></span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="wm-level-checkbox ifChecked">
-                                        <input id="level2" type="checkbox" value = "Intermediate" onclick = "filters()">
-                                        <label for="level2">
-                                            <span></span>
-                                            Intermediate
-                                        </label>
-                                    </div>    
-                                    <div class="wm-levelrating">
-                                        <span class="rating-box" style="width:80%"></span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="wm-level-checkbox ifChecked">
-                                        <input id="level3" type="checkbox" value = "Advanced" onclick = "filters()">
-                                        <label for="level3">
-                                            <span></span>
-                                            Advanced
-                                        </label>
-                                    </div>    
-                                    <div class="wm-levelrating">
-                                        <span class="rating-box" style="width:120%"></span>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        
+                                <ul>
+                                    <li>
+                                        <div class="wm-level-checkbox ifChecked">
+                                            <input id="level1" type="checkbox" value="Introductory" onclick="filters()">
+                                            <label for="level1">
+                                                <span></span>
+                                                Introductory
+                                            </label>
+                                        </div>
+                                        <div class="wm-levelrating">
+                                            <span class="rating-box" style="width:40%"></span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="wm-level-checkbox ifChecked">
+                                            <input id="level2" type="checkbox" value="Intermediate" onclick="filters()">
+                                            <label for="level2">
+                                                <span></span>
+                                                Intermediate
+                                            </label>
+                                        </div>
+                                        <div class="wm-levelrating">
+                                            <span class="rating-box" style="width:80%"></span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="wm-level-checkbox ifChecked">
+                                            <input id="level3" type="checkbox" value="Advanced" onclick="filters()">
+                                            <label for="level3">
+                                                <span></span>
+                                                Advanced
+                                            </label>
+                                        </div>
+                                        <div class="wm-levelrating">
+                                            <span class="rating-box" style="width:120%"></span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
                         </aside>
-                        
+
                         <div class="col-md-9">
                             <div class="wm-filter-box">
                                 <div class="wm-apply-select">
-                                    <select id = "positionList">
-                                        <option value = "1">1 Position</option>
-                                        <option value = "2">2 Positions</option>
-                                        <option value = "3">3 Positions</option>
-                                        <option value = "4">4 Positions</option>
+                                    <select id="positionList">
+                                        <option value="1">1 Position</option>
+                                        <option value="2">2 Positions</option>
+                                        <option value="3">3 Positions</option>
+                                        <option value="4">4 Positions</option>
                                     </select>
-                                </div>            
-                                
+                                </div>
+
                                 <div class="wm-view-btn">
                                     <a href="#" class="wmicon-squares active"></a>
                                 </div>
                             </div>
                             <div class="wm-courses wm-courses-popular">
-                                <table id = "courseList" class = "row"></table>
-                                    
+                                <table id="courseList" class="row"></table>
+
                                 </table>
                             </div>
                             <div class="wm-pagination">
                                 <ul>
-                                    <li><a href="#" aria-label="Previous"> <i class="wmicon-arrows4"></i> Previous</a></li>
+                                    <li><a href="#" aria-label="Previous"> <i class="wmicon-arrows4"></i> Previous</a>
+                                    </li>
                                     <li class="active"><a href="#">1</a></li>
                                     <li><a href="#">2</a></li>
                                     <li><a href="#">3</a></li>
@@ -235,12 +245,12 @@
             </div>
             <!--// Main Section \\-->
 
-		</div>
-		<!--// Main Content \\-->
+        </div>
+        <!--// Main Content \\-->
 
-		<!--// Footer \\-->
-		<footer id="wm-footer" class="wm-footer-one">
-			
+        <!--// Footer \\-->
+        <footer id="wm-footer" class="wm-footer-one">
+
             <!--// FooterNewsLatter \\-->
             <div class="wm-footer-newslatter">
                 <div class="container">
@@ -248,7 +258,9 @@
                         <div class="col-md-12">
                             <form>
                                 <i class="wmicon-interface2"></i>
-                                <input type="text" value="Enter your e-mail address" onblur="if(this.value == '') { this.value ='Enter your e-mail address'; }" onfocus="if(this.value =='Enter your e-mail address') { this.value = ''; }">
+                                <input type="text" value="Enter your e-mail address"
+                                    onblur="if(this.value == '') { this.value ='Enter your e-mail address'; }"
+                                    onfocus="if(this.value =='Enter your e-mail address') { this.value = ''; }">
                                 <input type="submit" value="Subscribe to our newsletter">
                             </form>
                         </div>
@@ -266,7 +278,9 @@
                             <ul>
                                 <li><i class="wm-color wmicon-pin"></i> 195 Cooks Mine Road Espanola, NM 87532</li>
                                 <li><i class="wm-color wmicon-phone"></i> +1 505-753-5656 <br> +1 505-753-4437</li>
-                                <li><i class="wm-color wmicon-letter"></i> <a href="mailto:name@email.com">info@university.com</a> <a href="mailto:name@email.com">support@university.com</a></li>
+                                <li><i class="wm-color wmicon-letter"></i> <a
+                                        href="mailto:name@email.com">info@university.com</a> <a
+                                        href="mailto:name@email.com">support@university.com</a></li>
                             </ul>
                             <div class="wm-footer-icons">
                                 <a href="#" class="wmicon-social5"></a>
@@ -276,7 +290,9 @@
                             </div>
                         </aside>
                         <aside class="widget widget_archive col-md-2">
-                            <div class="wm-footer-widget-title"> <h5>Quick Links</h5> </div>
+                            <div class="wm-footer-widget-title">
+                                <h5>Quick Links</h5>
+                            </div>
                             <ul>
                                 <li><a href="#">Our Latest Events</a></li>
                                 <li><a href="#">Our Courses</a></li>
@@ -288,34 +304,59 @@
                             </ul>
                         </aside>
                         <aside class="widget widget_twitter col-md-4">
-                            <div class="wm-footer-widget-title"> <h5><i class="wmicon-social2"></i> @enrollcampus</h5> </div>
+                            <div class="wm-footer-widget-title">
+                                <h5><i class="wmicon-social2"></i> @enrollcampus</h5>
+                            </div>
                             <ul>
                                 <li>
-                                    <p>Check Youniverse - Multipurpose PSD Template @ThemeForest: <a href="#">pic.twitter.com/xcVlqJySjq</a></p>
+                                    <p>Check Youniverse - Multipurpose PSD Template @ThemeForest: <a
+                                            href="#">pic.twitter.com/xcVlqJySjq</a></p>
                                     <time datetime="2008-02-14 20:00" class="wm-color">2 hrs ago</time>
                                 </li>
                                 <li>
-                                    <p>Check out my New PSD:  FashionPlus - Fashion eCommerce: <a href="#">pic.twitter.com/xc445Ghyt</a></p>
+                                    <p>Check out my New PSD: FashionPlus - Fashion eCommerce: <a
+                                            href="#">pic.twitter.com/xc445Ghyt</a></p>
                                     <time datetime="2008-02-14 20:00" class="wm-color">4 hrs ago</time>
                                 </li>
                                 <li>
-                                    <p>MedicAid - Medical Template @ThemeForest: <a href="#">pic.twitter.com/xcVlq542wfER</a></p>
+                                    <p>MedicAid - Medical Template @ThemeForest: <a
+                                            href="#">pic.twitter.com/xcVlq542wfER</a></p>
                                     <time datetime="2008-02-14 20:00" class="wm-color">1 day ago</time>
                                 </li>
                             </ul>
                         </aside>
                         <aside class="widget widget_gallery col-md-3">
-                            <div class="wm-footer-widget-title"> <h5>Our Instructors</h5> </div>
+                            <div class="wm-footer-widget-title">
+                                <h5>Our Instructors</h5>
+                            </div>
                             <ul class="gallery">
-                                <li><a title="" data-rel="prettyPhoto[gallery1]" href="extra-images/widget-galleryfull-1.jpg"><img src="extra-images/widget-gallery-1.jpg" alt=""></a></li>
-                                <li><a title="" data-rel="prettyPhoto[gallery1]" href="extra-images/widget-galleryfull-2.jpg"><img src="extra-images/widget-gallery-2.jpg" alt=""></a></li>
-                                <li><a title="" data-rel="prettyPhoto[gallery1]" href="extra-images/widget-galleryfull-3.jpg"><img src="extra-images/widget-gallery-3.jpg" alt=""></a></li>
-                                <li><a title="" data-rel="prettyPhoto[gallery1]" href="extra-images/widget-galleryfull-4.jpg"><img src="extra-images/widget-gallery-4.jpg" alt=""></a></li>
-                                <li><a title="" data-rel="prettyPhoto[gallery1]" href="extra-images/widget-galleryfull-5.jpg"><img src="extra-images/widget-gallery-5.jpg" alt=""></a></li>
-                                <li><a title="" data-rel="prettyPhoto[gallery1]" href="extra-images/widget-galleryfull-6.jpg"><img src="extra-images/widget-gallery-6.jpg" alt=""></a></li>
-                                <li><a title="" data-rel="prettyPhoto[gallery1]" href="extra-images/widget-galleryfull-7.jpg"><img src="extra-images/widget-gallery-7.jpg" alt=""></a></li>
-                                <li><a title="" data-rel="prettyPhoto[gallery1]" href="extra-images/widget-galleryfull-8.jpg"><img src="extra-images/widget-gallery-8.jpg" alt=""></a></li>
-                                <li><a title="" data-rel="prettyPhoto[gallery1]" href="extra-images/widget-galleryfull-9.jpg"><img src="extra-images/widget-gallery-9.jpg" alt=""></a></li>
+                                <li><a title="" data-rel="prettyPhoto[gallery1]"
+                                        href="extra-images/widget-galleryfull-1.jpg"><img
+                                            src="extra-images/widget-gallery-1.jpg" alt=""></a></li>
+                                <li><a title="" data-rel="prettyPhoto[gallery1]"
+                                        href="extra-images/widget-galleryfull-2.jpg"><img
+                                            src="extra-images/widget-gallery-2.jpg" alt=""></a></li>
+                                <li><a title="" data-rel="prettyPhoto[gallery1]"
+                                        href="extra-images/widget-galleryfull-3.jpg"><img
+                                            src="extra-images/widget-gallery-3.jpg" alt=""></a></li>
+                                <li><a title="" data-rel="prettyPhoto[gallery1]"
+                                        href="extra-images/widget-galleryfull-4.jpg"><img
+                                            src="extra-images/widget-gallery-4.jpg" alt=""></a></li>
+                                <li><a title="" data-rel="prettyPhoto[gallery1]"
+                                        href="extra-images/widget-galleryfull-5.jpg"><img
+                                            src="extra-images/widget-gallery-5.jpg" alt=""></a></li>
+                                <li><a title="" data-rel="prettyPhoto[gallery1]"
+                                        href="extra-images/widget-galleryfull-6.jpg"><img
+                                            src="extra-images/widget-gallery-6.jpg" alt=""></a></li>
+                                <li><a title="" data-rel="prettyPhoto[gallery1]"
+                                        href="extra-images/widget-galleryfull-7.jpg"><img
+                                            src="extra-images/widget-gallery-7.jpg" alt=""></a></li>
+                                <li><a title="" data-rel="prettyPhoto[gallery1]"
+                                        href="extra-images/widget-galleryfull-8.jpg"><img
+                                            src="extra-images/widget-gallery-8.jpg" alt=""></a></li>
+                                <li><a title="" data-rel="prettyPhoto[gallery1]"
+                                        href="extra-images/widget-galleryfull-9.jpg"><img
+                                            src="extra-images/widget-gallery-9.jpg" alt=""></a></li>
                             </ul>
                         </aside>
                     </div>
@@ -327,172 +368,194 @@
             <div class="wm-copyright">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-6"> <span><i class="wmicon-nature"></i> Barcelona, Spain 2°F / -17°C</span> </div>
-                        <div class="col-md-6"> <p><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></p> </div>
+                        <div class="col-md-6"> <span><i class="wmicon-nature"></i> Barcelona, Spain 2°F / -17°C</span>
+                        </div>
+                        <div class="col-md-6">
+                            <p><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></p>
+                        </div>
                     </div>
                 </div>
             </div>
             <!--// FooterCopyRight \\-->
 
-		</footer>
-		<!--// Footer \\-->
+        </footer>
+        <!--// Footer \\-->
 
-	<div class="clearfix"></div>
+        <div class="clearfix"></div>
     </div>
     <!--// Main Wrapper \\-->
 
     <!-- ModalLogin Box -->
     <div class="modal fade" id="ModalLogin" tabindex="-1" role="dialog">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-body">
-            
-            <div class="wm-modallogin-form wm-login-popup">
-                <span class="wm-color">Login to Your Account</span>
-                <form>
-                    <ul>
-                        <li> <input type="text" value="Your Username" onblur="if(this.value == '') { this.value ='Your Username'; }" onfocus="if(this.value =='Your Username') { this.value = ''; }"> </li>
-                        <li> <input type="password" value="password" onblur="if(this.value == '') { this.value ='password'; }" onfocus="if(this.value =='password') { this.value = ''; }"> </li>
-                        <li> <a href="#" class="wm-forgot-btn">Forgot Password?</a> </li>
-                        <li> <input type="submit" value="Sign In"> </li>
-                    </ul>
-                </form>
-                <span class="wm-color" >or try our socials</span>
-                <ul class="wm-login-social-media">
-                    <li><a href="#"><i class="wmicon-social5"></i> Facebook</a></li>
-                    <li class="wm-twitter-color"><a href="#"><i class="wmicon-social4"></i> twitter</a></li>
-                    <li class="wm-googleplus-color"><a href="#"><i class="fa fa-google-plus-square"></i> Google+</a></li>
-                </ul>
-                <p>Not a member yet? <a href="#">Sign-up Now!</a></p>
-            </div>
-            <div class="wm-modallogin-form wm-register-popup">
-                <span class="wm-color">create Your Account today</span>
-                <form>
-                    <ul>
-                        <li> <input type="text" value="Your Username" onblur="if(this.value == '') { this.value ='Your Username'; }" onfocus="if(this.value =='Your Username') { this.value = ''; }"> </li>
-                        <li> <input type="text" value="Your E-mail" onblur="if(this.value == '') { this.value ='Your E-mail'; }" onfocus="if(this.value =='Your E-mail') { this.value = ''; }"> </li>
-                        <li> <input type="password" value="password" onblur="if(this.value == '') { this.value ='password'; }" onfocus="if(this.value =='password') { this.value = ''; }"> </li>
-                        <li> <input type="text" value="Confirm Password" onblur="if(this.value == '') { this.value ='Confirm Password'; }" onfocus="if(this.value =='Confirm Password') { this.value = ''; }"> </li>
-                        <li> <input type="submit" value="Create Account"> </li>
-                    </ul>
-                </form>
-                <span class="wm-color">or signup with your socials:</span>
-                <ul class="wm-login-social-media">
-                    <li><a href="#"><i class="wmicon-social5"></i> Facebook</a></li>
-                    <li class="wm-twitter-color"><a href="#"><i class="wmicon-social4"></i> twitter</a></li>
-                    <li class="wm-googleplus-color"><a href="#"><i class="fa fa-google-plus-square"></i> Google+</a></li>
-                </ul>
-                <p>Already a member? <a href="#">Sign-in Here!</a></p>
-            </div>
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
 
-          </div>
+                    <div class="wm-modallogin-form wm-login-popup">
+                        <span class="wm-color">Login to Your Account</span>
+                        <form>
+                            <ul>
+                                <li> <input type="text" value="Your Username"
+                                        onblur="if(this.value == '') { this.value ='Your Username'; }"
+                                        onfocus="if(this.value =='Your Username') { this.value = ''; }"> </li>
+                                <li> <input type="password" value="password"
+                                        onblur="if(this.value == '') { this.value ='password'; }"
+                                        onfocus="if(this.value =='password') { this.value = ''; }"> </li>
+                                <li> <a href="#" class="wm-forgot-btn">Forgot Password?</a> </li>
+                                <li> <input type="submit" value="Sign In"> </li>
+                            </ul>
+                        </form>
+                        <span class="wm-color">or try our socials</span>
+                        <ul class="wm-login-social-media">
+                            <li><a href="#"><i class="wmicon-social5"></i> Facebook</a></li>
+                            <li class="wm-twitter-color"><a href="#"><i class="wmicon-social4"></i> twitter</a></li>
+                            <li class="wm-googleplus-color"><a href="#"><i class="fa fa-google-plus-square"></i>
+                                    Google+</a></li>
+                        </ul>
+                        <p>Not a member yet? <a href="#">Sign-up Now!</a></p>
+                    </div>
+                    <div class="wm-modallogin-form wm-register-popup">
+                        <span class="wm-color">create Your Account today</span>
+                        <form>
+                            <ul>
+                                <li> <input type="text" value="Your Username"
+                                        onblur="if(this.value == '') { this.value ='Your Username'; }"
+                                        onfocus="if(this.value =='Your Username') { this.value = ''; }"> </li>
+                                <li> <input type="text" value="Your E-mail"
+                                        onblur="if(this.value == '') { this.value ='Your E-mail'; }"
+                                        onfocus="if(this.value =='Your E-mail') { this.value = ''; }"> </li>
+                                <li> <input type="password" value="password"
+                                        onblur="if(this.value == '') { this.value ='password'; }"
+                                        onfocus="if(this.value =='password') { this.value = ''; }"> </li>
+                                <li> <input type="text" value="Confirm Password"
+                                        onblur="if(this.value == '') { this.value ='Confirm Password'; }"
+                                        onfocus="if(this.value =='Confirm Password') { this.value = ''; }"> </li>
+                                <li> <input type="submit" value="Create Account"> </li>
+                            </ul>
+                        </form>
+                        <span class="wm-color">or signup with your socials:</span>
+                        <ul class="wm-login-social-media">
+                            <li><a href="#"><i class="wmicon-social5"></i> Facebook</a></li>
+                            <li class="wm-twitter-color"><a href="#"><i class="wmicon-social4"></i> twitter</a></li>
+                            <li class="wm-googleplus-color"><a href="#"><i class="fa fa-google-plus-square"></i>
+                                    Google+</a></li>
+                        </ul>
+                        <p>Already a member? <a href="#">Sign-in Here!</a></p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="clearfix"></div>
         </div>
-      <div class="clearfix"></div>
-      </div>
     </div>
     <!-- ModalLogin Box -->
 
     <!-- ModalSearch Box -->
     <div class="modal fade" id="ModalSearch" tabindex="-1" role="dialog">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-body">
-            
-            <div class="wm-modallogin-form">
-                <span class="wm-color">Search Your KeyWord</span>
-                <form>
-                    <ul>
-                        <li> <input type="text" value="Keywords..." onblur="if(this.value == '') { this.value ='Keywords...'; }" onfocus="if(this.value =='Keywords...') { this.value = ''; }"> </li>
-                        <li> <input type="submit" value="Search"> </li>
-                    </ul>
-                </form>
-            </div>
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
 
-          </div>
+                    <div class="wm-modallogin-form">
+                        <span class="wm-color">Search Your KeyWord</span>
+                        <form>
+                            <ul>
+                                <li> <input type="text" value="Keywords..."
+                                        onblur="if(this.value == '') { this.value ='Keywords...'; }"
+                                        onfocus="if(this.value =='Keywords...') { this.value = ''; }"> </li>
+                                <li> <input type="submit" value="Search"> </li>
+                            </ul>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+            <div class="clearfix"></div>
         </div>
-      <div class="clearfix"></div>
-      </div>
     </div>
     <!-- ModalSearch Box -->
     <div id="paypal-button" style="margin-left: 64%;">
 
-	<!-- jQuery (necessary for JavaScript plugins) -->
-	<script type="text/javascript" src="script/jquery.js"></script>
-	<script type="text/javascript" src="script/modernizr.js"></script>
-    <script type="text/javascript" src="script/bootstrap.min.js"></script>
-    <script type="text/javascript" src="script/jquery.prettyphoto.js"></script>
-    <script type="text/javascript" src="script/jquery.countdown.min.js"></script>
-    <script type="text/javascript" src="script/fitvideo.js"></script>
-    <script type="text/javascript" src="script/skills.js"></script>
-    <script type="text/javascript" src="script/slick.slider.min.js"></script>
-    <script type="text/javascript" src="script/waypoints-min.js"></script>
-    <script type="text/javascript" src="build/mediaelement-and-player.min.js"></script>
-    <script type="text/javascript" src="script/isotope.min.js"></script>
-    <script type="text/javascript" src="script/jquery.nicescroll.min.js"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
-    <script type="text/javascript" src="script/functions.js"></script>
+        <!-- jQuery (necessary for JavaScript plugins) -->
+        <script type="text/javascript" src="script/jquery.js"></script>
+        <script type="text/javascript" src="script/modernizr.js"></script>
+        <script type="text/javascript" src="script/bootstrap.min.js"></script>
+        <script type="text/javascript" src="script/jquery.prettyphoto.js"></script>
+        <script type="text/javascript" src="script/jquery.countdown.min.js"></script>
+        <script type="text/javascript" src="script/fitvideo.js"></script>
+        <script type="text/javascript" src="script/skills.js"></script>
+        <script type="text/javascript" src="script/slick.slider.min.js"></script>
+        <script type="text/javascript" src="script/waypoints-min.js"></script>
+        <script type="text/javascript" src="build/mediaelement-and-player.min.js"></script>
+        <script type="text/javascript" src="script/isotope.min.js"></script>
+        <script type="text/javascript" src="script/jquery.nicescroll.min.js"></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+        <script type="text/javascript" src="script/functions.js"></script>
 
-        
-    <script>
-        function showChanges(){
-            var selected = [];
-        $('.ifChecked input:checked').each(function() {
-            selected.push($(this).attr('value'));
-        });
-        console.log(selected)
-        }
 
-        //-------------------------------------------------------------------------------------------------------------//
+        <script>
+            function showChanges() {
+                var selected = [];
+                $('.ifChecked input:checked').each(function () {
+                    selected.push($(this).attr('value'));
+                });
+                console.log(selected)
+            }
 
-        if (userEmail == null && localStorage.getItem("email") != null ) {
-            var userEmail = localStorage.getItem("userEmail")
-        }
-        if (userID == null && localStorage.getItem("userID") != null) {
-            var userID = localStorage.getItem("userID")
-        }
-        if (userName == null && localStorage.getItem("userName") != null) {
-            var userName = localStorage.getItem("userName")
-        }
-        if (userType == null && localStorage.getItem("userType") != null) {
-            var userType = localStorage.getItem("userType")
-        }
-        // if (localStorage.getItem("email") == null ){
-        //     window.location = "http://localhost/app/login/";
-        //     Redirect();
-        // }
+            //-------------------------------------------------------------------------------------------------------------//
 
-        //-------------------------------------------------------------------------------------------------------------//
+            if (userEmail == null && localStorage.getItem("email") != null) {
+                var userEmail = localStorage.getItem("userEmail")
+            }
+            if (userID == null && localStorage.getItem("userID") != null) {
+                var userID = localStorage.getItem("userID")
+            }
+            if (userName == null && localStorage.getItem("userName") != null) {
+                var userName = localStorage.getItem("userName")
+            }
+            if (userType == null && localStorage.getItem("userType") != null) {
+                var userType = localStorage.getItem("userType")
+            }
+            // if (localStorage.getItem("email") == null ){
+            //     window.location = "http://localhost/app/login/";
+            //     Redirect();
+            // }
 
-        function loadCourses(){
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
+            //-------------------------------------------------------------------------------------------------------------//
 
-                if (xhttp.readyState == 4 && xhttp.status == 200) {
-                    var item = JSON.parse(xhttp.responseText);
-                    
-                    var itemToAdd = `<tr>`
-                    item['modules'].sort(function(a, b){
-                            if(a['mod_name'] < b['mod_name']) { return -1; }
-                            if(a['mod_name']> b['mod_name']) { return 1; }
+            function loadCourses() {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+
+                    if (xhttp.readyState == 4 && xhttp.status == 200) {
+                        var item = JSON.parse(xhttp.responseText);
+
+                        var itemToAdd = `<tr>`
+                        item['modules'].sort(function (a, b) {
+                            if (a['mod_name'] < b['mod_name']) {
+                                return -1;
+                            }
+                            if (a['mod_name'] > b['mod_name']) {
+                                return 1;
+                            }
                             return 0;
                         })
                         var count = 0;
-                    for(let i = 1; i <= item['modules'].length; i++){
-                        var x = ``;
-                        
-                        if(item['modules'][i-1]['positions_available'] == 1){
-                            x = `style = 'color:red'`
-                        }
-                        else{
-                            x = `style = 'color:#90ee90'`
-                        }        
-                        count+=1;
-                        if(count % 3 == 0){
-                            itemToAdd += `<td><div class="wm-courses-popular-wrap card-columns" style = "display:inline block">
+                        for (let i = 1; i <= item['modules'].length; i++) {
+                            var x = ``;
+
+                            if (item['modules'][i - 1]['positions_available'] == 1) {
+                                x = `style = 'color:red'`
+                            } else {
+                                x = `style = 'color:#90ee90'`
+                            }
+                            count += 1;
+                            if (count % 3 == 0) {
+                                itemToAdd += `<td><div class="wm-courses-popular-wrap card-columns" style = "display:inline block">
                                             <figure> <a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}&imageId=${i}"><img src="extra-images/papular-courses-${i}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
                                                 <figcaption>
                                                     <img src="extra-images/papular-courses-thumb-6.jpg" alt="">
-                                                    <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}&imageId=${i}">${item['modules'][i-1]['professsor_name']}</a></h6>
+                                                    <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}&imageId=${i}">${item['modules'][i-1]['professor_name']}</a></h6>
                                                 </figcaption>
                                             </figure>
                                             <div class="wm-popular-courses-text">
@@ -501,13 +564,12 @@
                                                 
                                             </div>
                                         </div></td></tr><tr>`;
-                        }
-                        else{
-                            itemToAdd += `<td><div class="wm-courses-popular-wrap card-columns" style = "display:inline block">
+                            } else {
+                                itemToAdd += `<td><div class="wm-courses-popular-wrap card-columns" style = "display:inline block">
                                             <figure> <a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}"><img src="extra-images/papular-courses-${i}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
                                                 <figcaption>
                                                     <img src="extra-images/papular-courses-thumb-6.jpg" alt="">
-                                                    <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}&imageId=${i} ">${item['modules'][i-1]['professsor_name']}</a></h6>
+                                                    <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}&imageId=${i} ">${item['modules'][i-1]['professor_name']}</a></h6>
                                                 </figcaption>
                                             </figure>
                                             <div class="wm-popular-courses-text">
@@ -516,101 +578,102 @@
                                                 
                                             </div>
                                         </div></td>`;
-                        }
-                        
+                            }
 
-                            
+
+
+                        }
+                        if (typeof (Storage) != "undefined") {
+                            sessionStorage.setItem("courses", JSON.stringify(item));
+                        }
+
+                        document.getElementById("courseList").innerHTML = itemToAdd;
+
                     }
-                    if(typeof(Storage) != "undefined"){
-                        sessionStorage.setItem("courses", JSON.stringify(item));
-                    }
-                    
-                    document.getElementById("courseList").innerHTML = itemToAdd;
-                    
                 }
+
+                xhttp.open("GET", "http://localhost:5012/get_all", true);
+                xhttp.send();
             }
 
-            xhttp.open("GET", "http://localhost:5012/get_all", true);
-            xhttp.send();
-        }
+            //-------------------------------------------------------------------------------------------------------------//
 
-        //-------------------------------------------------------------------------------------------------------------//
+            function populateSchoolFilter() {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
 
-        function populateSchoolFilter(){
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
+                    if (xhttp.readyState == 4 && xhttp.status == 200) {
+                        var item = JSON.parse(xhttp.responseText);
+                        console.log(item)
+                        var schools = []
 
-                if (xhttp.readyState == 4 && xhttp.status == 200) {
-                    var item = JSON.parse(xhttp.responseText);
-                    console.log(item)
-                    var schools = []
-                    
-                    for (let i = 0; i< item['modules'].length; i++){
-                       
-                        if(!schools.includes(item['modules'][i]['school'])){
-                            schools.push(item['modules'][i]['school']);
+                        for (let i = 0; i < item['modules'].length; i++) {
+
+                            if (!schools.includes(item['modules'][i]['school'])) {
+                                schools.push(item['modules'][i]['school']);
+                            }
                         }
-                    }
-                    
-                    var itemToAdd = `<li class = "ifChecked">
+
+                        var itemToAdd = `<li class = "ifChecked">
                                             <input id="land1" type="checkbox" onclick="filters()" value = "All Courses">
                                             <label for="land1">
                                                 <span></span>
                                                 All Courses
                                             </label>
                                         </li>`
-                    
-                    for(let i = 0; i < schools.length; i++){
-                        itemToAdd += `<li class = "ifChecked">
+
+                        for (let i = 0; i < schools.length; i++) {
+                            itemToAdd += `<li class = "ifChecked">
                                             <input id="land${i+2}" type="checkbox" onclick="filters()" value = "${schools[i]}">
                                             <label for="land${i+2}">
                                                 <span></span>
                                                 ${schools[i]}
                                             </label>
                                         </li>`;
+                        }
+
                     }
-                    
+                    document.getElementById("schoolType").innerHTML = itemToAdd;
                 }
-                document.getElementById("schoolType").innerHTML = itemToAdd;
+                xhttp.open("GET", "http://localhost:5012/get_all", true);
+                xhttp.send();
             }
-            xhttp.open("GET", "http://localhost:5012/get_all", true);
-            xhttp.send();
-        }
 
-        //-------------------------------------------------------------------------------------------------------------//
+            //-------------------------------------------------------------------------------------------------------------//
 
-        function loadAccordingToFilters(schools, levels){
+            function loadAccordingToFilters(schools, levels) {
 
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
 
-                if (xhttp.readyState == 4 && xhttp.status == 200) {
-                    var item = JSON.parse(xhttp.responseText);
-                    
-                    var itemToAdd = ``
-                    if(schools.includes("All Courses") || (schools.length == 0 && levels.length == 0)){
-                        console.log("All courses is present in the array")
-                        loadCourses()
-                        return true;
-                    }
-                    var count = 0;
-                    for(let i = 1; i <= item['modules'].length; i++){
-                        if(levels.length != 0){
-                                if(levels.includes(item['modules'][i-1]['level']) && schools.includes(item['modules'][i-1]['school']) || (schools.length == 0 && levels.includes(item['modules'][i-1]['level'])) ){
+                    if (xhttp.readyState == 4 && xhttp.status == 200) {
+                        var item = JSON.parse(xhttp.responseText);
+
+                        var itemToAdd = ``
+                        if (schools.includes("All Courses") || (schools.length == 0 && levels.length == 0)) {
+                            console.log("All courses is present in the array")
+                            loadCourses()
+                            return true;
+                        }
+                        var count = 0;
+                        for (let i = 1; i <= item['modules'].length; i++) {
+                            if (levels.length != 0) {
+                                if (levels.includes(item['modules'][i - 1]['level']) && schools.includes(item[
+                                        'modules'][i - 1]['school']) || (schools.length == 0 && levels.includes(
+                                        item['modules'][i - 1]['level']))) {
                                     var x = ``;
-                                    if(item['modules'][i-1]['positions_available'] == 1){
+                                    if (item['modules'][i - 1]['positions_available'] == 1) {
                                         x = `style = 'color:red'`
-                                    }
-                                    else{
+                                    } else {
                                         x = `style = 'color:#90ee90'`
-                                    }        
-                                    count+=1;
-                                    if(count % 3 == 0){
+                                    }
+                                    count += 1;
+                                    if (count % 3 == 0) {
                                         itemToAdd += `<td><div class="wm-courses-popular-wrap card-columns" style = "display:inline block">
                                                         <figure> <a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}"><img src="extra-images/papular-courses-${i}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
                                                             <figcaption>
                                                                 <img src="extra-images/papular-courses-thumb-6.jpg" alt="">
-                                                                <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}">${item['modules'][i-1]['professsor_name']}</a></h6>
+                                                                <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}">${item['modules'][i-1]['professor_name']}</a></h6>
                                                             </figcaption>
                                                         </figure>
                                                         <div class="wm-popular-courses-text">
@@ -619,13 +682,12 @@
                                                             
                                                         </div>
                                                     </div></td></tr><tr>`;
-                                    }
-                                    else{
+                                    } else {
                                         itemToAdd += `<td><div class="wm-courses-popular-wrap card-columns" style = "display:inline block">
                                                         <figure> <a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}"><img src="extra-images/papular-courses-${i}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
                                                             <figcaption>
                                                                 <img src="extra-images/papular-courses-thumb-6.jpg" alt="">
-                                                                <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}">${item['modules'][i-1]['professsor_name']}</a></h6>
+                                                                <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}">${item['modules'][i-1]['professor_name']}</a></h6>
                                                             </figcaption>
                                                         </figure>
                                                         <div class="wm-popular-courses-text">
@@ -635,23 +697,21 @@
                                                         </div>
                                                     </div></td>`;
                                     }
-                                    }
-                            }
-                        else if(schools.includes(item['modules'][i-1]['school']) ){
-                            var x = ``;
-                            if(item['modules'][i-1]['positions_available'] == 1){
-                                x = `style = 'color:red'`
-                            }
-                            else{
-                                x = `style = 'color:#90ee90'`
-                            }        
-                            count+=1;
-                            if(count % 3 == 0){
-                                itemToAdd += `<td><div class="wm-courses-popular-wrap card-columns" style = "display:inline block">
+                                }
+                            } else if (schools.includes(item['modules'][i - 1]['school'])) {
+                                var x = ``;
+                                if (item['modules'][i - 1]['positions_available'] == 1) {
+                                    x = `style = 'color:red'`
+                                } else {
+                                    x = `style = 'color:#90ee90'`
+                                }
+                                count += 1;
+                                if (count % 3 == 0) {
+                                    itemToAdd += `<td><div class="wm-courses-popular-wrap card-columns" style = "display:inline block">
                                                 <figure> <a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}"><img src="extra-images/papular-courses-${i}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
                                                     <figcaption>
                                                         <img src="extra-images/papular-courses-thumb-6.jpg" alt="">
-                                                        <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}">${item['modules'][i-1]['professsor_name']}</a></h6>
+                                                        <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}">${item['modules'][i-1]['professor_name']}</a></h6>
                                                     </figcaption>
                                                 </figure>
                                                 <div class="wm-popular-courses-text">
@@ -660,13 +720,12 @@
                                                     
                                                 </div>
                                             </div></td></tr><tr>`;
-                            }
-                            else{
-                                itemToAdd += `<td><div class="wm-courses-popular-wrap card-columns" style = "display:inline block">
+                                } else {
+                                    itemToAdd += `<td><div class="wm-courses-popular-wrap card-columns" style = "display:inline block">
                                                 <figure> <a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}"><img src="extra-images/papular-courses-${i}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
                                                     <figcaption>
                                                         <img src="extra-images/papular-courses-thumb-6.jpg" alt="">
-                                                        <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}">${item['modules'][i-1]['professsor_name']}</a></h6>
+                                                        <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}">${item['modules'][i-1]['professor_name']}</a></h6>
                                                     </figcaption>
                                                 </figure>
                                                 <div class="wm-popular-courses-text">
@@ -675,64 +734,62 @@
                                                     
                                                 </div>
                                             </div></td>`;
+                                }
                             }
-                            }
-                            
-                        
 
-                            
+
+
+
+                        }
+
+                        document.getElementById("courseList").innerHTML = itemToAdd;
+
                     }
-                    
-                    document.getElementById("courseList").innerHTML = itemToAdd;
-                    
                 }
+
+                xhttp.open("GET", "http://localhost:5012/get_all", true);
+                xhttp.send();
             }
 
-            xhttp.open("GET", "http://localhost:5012/get_all", true);
-            xhttp.send();
-        }
+            //-------------------------------------------------------------------------------------------------------------//
 
-        //-------------------------------------------------------------------------------------------------------------//
+            function filters() {
+                var schools = [];
+                var levels = []
+                $('.ifChecked input:checked').each(function () {
+                    let filter = $(this).attr('value');
+                    if (filter == "Introductory" || filter == "Intermediate" || filter == "Advanced") {
+                        levels.push(filter)
+                    } else {
+                        schools.push(filter);
+                    }
+                });
+                loadAccordingToFilters(schools, levels);
+            }
 
-        function filters(){
-            var schools= [];
-            var levels = []
-            $('.ifChecked input:checked').each(function() {
-                let filter = $(this).attr('value');
-                if(filter == "Introductory" || filter == "Intermediate" || filter == "Advanced"){
-                    levels.push(filter)
-                }
-                else{
-                    schools.push(filter);
-                }
-            });
-            loadAccordingToFilters(schools, levels);
-        }
-
-        //-------------------------------------------------------------------------------------------------------------//
-        function filterAccordingToCourseName(){
-            let query = document.getElementById("filterCourseName").value.toLowerCase();
-            var courses = JSON.parse(sessionStorage.getItem("courses"))['modules'];
-            let numberOfCourses = [];
-            var itemToAdd = ``;
-            var count = 0;
-            for (let i = 0; i < courses.length; i ++){
-                let regex = new RegExp(query, "g")
-                if(courses[i]['mod_name'].toLowerCase().match(regex) != null){
-                    var x = ``;
-                        if(courses[i]['positions_available'] == 1){
+            //-------------------------------------------------------------------------------------------------------------//
+            function filterAccordingToCourseName() {
+                let query = document.getElementById("filterCourseName").value.toLowerCase();
+                var courses = JSON.parse(sessionStorage.getItem("courses"))['modules'];
+                let numberOfCourses = [];
+                var itemToAdd = ``;
+                var count = 0;
+                for (let i = 0; i < courses.length; i++) {
+                    let regex = new RegExp(query, "g")
+                    if (courses[i]['mod_name'].toLowerCase().match(regex) != null) {
+                        var x = ``;
+                        if (courses[i]['positions_available'] == 1) {
                             x = `style = 'color:red'`
-                        }
-                        else{
+                        } else {
                             x = `style = 'color:#90ee90'`
-                        }   
-                        count+=1;
-                        if(count % 3 == 0){
+                        }
+                        count += 1;
+                        if (count % 3 == 0) {
                             itemToAdd += `<td><div class="wm-courses-popular-wrap">
                                             <figure> <a href="#"><img src="extra-images/papular-courses-${i+1}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
                                                 <figcaption>
                                                     <img src="extra-images/papular-courses-thumb-6.jpg" alt="">
-                                                    <h6><a href="#">${courses[i]['professsor_name']}</a></h6>
+                                                    <h6><a href="#">${courses[i]['professor_name']}</a></h6>
                                                 </figcaption>
                                             </figure>
                                             <div class="wm-popular-courses-text">
@@ -741,13 +798,12 @@
                                                 
                                             </div>
                                         </div></td></tr><tr>`;
-                        }
-                        else{
+                        } else {
                             itemToAdd += `<td><div class="wm-courses-popular-wrap">
                                             <figure> <a href="#"><img src="extra-images/papular-courses-${i+1}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
                                                 <figcaption>
                                                     <img src="extra-images/papular-courses-thumb-6.jpg" alt="">
-                                                    <h6><a href="#">${courses[i]['professsor_name']}</a></h6>
+                                                    <h6><a href="#">${courses[i]['professor_name']}</a></h6>
                                                 </figcaption>
                                             </figure>
                                             <div class="wm-popular-courses-text">
@@ -757,14 +813,35 @@
                                             </div>
                                         </div></td>`;
                         }
+                    }
+                }
+                document.getElementById("courseList").innerHTML = itemToAdd;
+            }
+            //-------------------------------------------------------------------------------------------------------------//
+            function loadPage() {
+                document.getElementById("welcome").innerHTML = "Hi, " + userID;
+                if (userType == "professor") {
+                    document.getElementById("payment").id = "addOpening"
+                    document.getElementById("addOpening").innerHTML = "Add TA Opening"
+                    document.getElementById("addOpening").href = "add-courses.html"
+                    document.getElementById("welcome").innerHTML = "Hi, " + userID;
+                } else if (userType == "admin") {
+                    var newLi = document.createElement("LI");
+                    var linkNode = document.createElement("A");
+                    linkNode.id = "addOpening";
+                    linkNode.innerHTML = "Add TA Opening";
+                    linkNode.href = "add-courses.html";
+                    newLi.appendChild(linkNode);
+                    console.log(newLi)
+
+                    var topNav = document.getElementById("topNav");
+                    topNav.insertBefore(newLi, document.getElementById("logout"));
                 }
             }
-            document.getElementById("courseList").innerHTML = itemToAdd;
-        }
-      
-    </script>
+        </script>
 
-  </body>
+</body>
 
 <!-- courses-grid21:17  -->
+
 </html>
