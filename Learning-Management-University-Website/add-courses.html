@@ -32,7 +32,7 @@
     <![endif]-->
 </head>
 
-<body onload="loadUserInfo()">
+<body onload="loadPage()">
 
     <!--// Main Wrapper \\-->
     <div class="wm-main-wrapper">
@@ -81,7 +81,7 @@
                                     </button>
                                 </div>
                                 <div class="collapse navbar-collapse" id="navbar-collapse-1">
-                                    <ul class="nav navbar-nav">
+                                    <ul class="nav navbar-nav" id="topNav">
                                         <li class="active">
                                             <a href="index.html">Home</a>
                                         </li>
@@ -101,8 +101,8 @@
                                             <a href="student-payment.html" id="payment">Payment</a>
                                         </li>
 
-                                        <li class="wm-megamenu-li">
-                                            <a href="../login/login.html">Logout</a>
+                                        <li class="wm-megamenu-li" id="logout">
+                                            <a href="logout.html">Logout</a>
                                         </li>
 
                                         <li>
@@ -142,7 +142,7 @@
             </div>
         </div>
         <!--// Mini Header \\-->
-        
+
         <!--// Main Content \\-->
         <div class="wm-main-content mx-auto">
             <h3 style="display:none; text-align:center;" id="message"></h3>
@@ -443,57 +443,49 @@
             validateForm()
         });
 
-        const queryString = window.location.search.substring(1);
 
-        //console.log(queryString);
+        if (userEmail == null && localStorage.getItem("email") != null ) {
+            var userEmail = localStorage.getItem("userEmail");
+        }
+        if (userID == null && localStorage.getItem("userID") != null) {
+            var userID = localStorage.getItem("userID");
+        }
+        if (userName == null && localStorage.getItem("userName") != null) {
+            var userName = localStorage.getItem("userName");
+        }
+        if (userType == null && localStorage.getItem("userType") != null) {
+            var userType = localStorage.getItem("userType");
+        }
+        // if (localStorage.getItem("email") == null ){
+        //     window.location = "http://localhost/app/login/";
+        //     Redirect();
+        // }
 
-        sessionStorage.setItem("email", queryString)
+        //-------------------------------------------------------------------------------------------------------------//
 
-        console.log(sessionStorage.getItem("email"))
-
-        // console.log(sessionStorage.get("schools"))
-        var professorID = '';
-        var professorName = '';
-
-        function loadUserInfo() {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-
-                if (xhttp.readyState == 4 && xhttp.status == 200) {
-                    var item = JSON.parse(xhttp.responseText);
-                    if (item['user_type'] == "professor") {
-                        document.getElementById("payment").id = "addOpening"
-                        document.getElementById("addOpening").innerHTML = "Add TA Opening"
-                        document.getElementById("addOpening").href = "add-courses.html"
-                        professorID = item['user_id']
-                        sessionStorage.setItem("professorID", professorID)
-                        loadProfessorName(professorID)
-                    }
-
-                }
+        function loadPage() {
+            document.getElementById("welcome").innerHTML = "Hi, " + userID;
+            if (userType == "professor") {
+                document.getElementById("payment").id = "addOpening"
+                document.getElementById("addOpening").innerHTML = "Add TA Opening"
+                document.getElementById("addOpening").href = "add-courses.html"
+                document.getElementById("welcome").innerHTML = "Hi, " + userID;
             }
+            else if (userType == "admin") {
+                var newLi = document.createElement("LI");
+                var linkNode = document.createElement("A");
+                linkNode.id = "addOpening";
+                linkNode.innerHTML = "Add TA Opening";
+                linkNode.href = "add-courses.html";
+                newLi.appendChild(linkNode);
+                //console.log(newLi)
 
-            url = "http://localhost:5010/get_account_by_email/" + queryString
-            xhttp.open("GET", url, true);
-            xhttp.send();
+                var topNav = document.getElementById("topNav");
+                topNav.insertBefore(newLi, document.getElementById("logout"));
+            }
         }
 
-        function loadProfessorName(professorID) {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-
-                if (xhttp.readyState == 4 && xhttp.status == 200) {
-                    var item = JSON.parse(xhttp.responseText);
-                    // console.log(item)
-                    professorName = item['professors_name'];
-                    sessionStorage.setItem("professorName", professorName)
-                    document.getElementById("welcome").innerHTML = "Hi, " + professorName;
-                }
-            }
-            url = "http://localhost:5014/get_name_by_id/" + professorID
-            xhttp.open("GET", url, true);
-            xhttp.send();
-        }
+        //-------------------------------------------------------------------------------------------------------------//
 
         function validateForm() {
             var error = false;
@@ -502,30 +494,28 @@
             var course = {}
 
             for (let items of form) {
-                if (items.id == "positions" && isNaN(items.value)){
+                if (items.id == "positions" && isNaN(items.value)) {
                     error = true
                     document.getElementById("positions").value = "";
                     document.getElementById("positions").placeholder = "Please enter a number for positions";
-                }
-                else if (items.value == "") {
+                } else if (items.value == "") {
                     error = true
                     let exist_text = document.getElementById(items.id).placeholder;
                     document.getElementById(items.id).placeholder = "Please enter the " + exist_text;
-                }
-                else{
+                } else {
 
-                    if(items.id != "submit"){
+                    if (items.id != "submit") {
                         course[items.id] = items.value;
-                        if(items.id == "scope"){
+                        if (items.id == "scope") {
                             course[items.id] = items.value;
-                            course["name"] = professorName;
-                            course["id"] = professorID;
+                            course["name"] = userName;
+                            course["id"] = userName;
                         }
                     }
                 }
             }
 
-            if (error != true){
+            if (error != true) {
 
                 var xhttp = new XMLHttpRequest();
                 xhttp.onreadystatechange = function () {
@@ -535,15 +525,14 @@
                         document.getElementById("message").innerHTML = item;
                         document.getElementById("message").style.display = "block";
 
-                        if(item == "Module exists"){
+                        if (item == "Module exists") {
                             document.getElementById("message").style.color = "red";
 
-                        }
-                        else if(item == "Module added"){
+                        } else if (item == "Module added") {
                             document.getElementById("message").style.color = "green";
                             document.getElementById("addCourse").reset();
                         }
-                        
+
                     }
                 }
 
@@ -555,25 +544,6 @@
 
 
 
-        }
-
-
-        function addCourses() {
-            var course = document.getElementById("addCourse")
-            console.log(course)
-            // var xhttp = new XMLHttpRequest();
-            // xhttp.onreadystatechange = function () {
-
-            //     if (xhttp.readyState == 4 && xhttp.status == 200) {
-            //         var item = JSON.parse(xhttp.responseText);
-            //         // console.log(item)
-            //         professorName = item['professors_name'];
-            //         // console.log(professorName);
-            //     }
-            // }
-            // url = "http://localhost:5012/get_name_by_id/" + professorID
-            // xhttp.open("GET", url, true);
-            // xhttp.send();
         }
     </script>
 

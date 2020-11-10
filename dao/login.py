@@ -23,8 +23,6 @@ app.register_blueprint(google_auth.app)
 def index():
     if google_auth.is_logged_in():
         user_info = google_auth.get_user_info()
-        session['email'] = user_info['email']
-        session['given_name'] = user_info['given_name']
         return user_info['email']
     return 'You are not currently logged in.'
 @app.route('/get_all')
@@ -32,7 +30,7 @@ def get_all():
     if google_auth.is_logged_in():
         user_info = google_auth.get_user_info()
         session['email'] = user_info['email']
-        return redirect("http://localhost/Learning-Management-University-Website/add-courses.html?" + str(session['email']), code=302)
+        return redirect("http://localhost/app/Learning-Management-University-Website/index.html?" + str(session['email']), code=302)
     return 'You are not currently logged in.'
 
 
