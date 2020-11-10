@@ -30,7 +30,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body>
+  <body onload="loadStudentInfo()">
 	
     <!--// Main Wrapper \\-->
     <div class="wm-main-wrapper">
@@ -489,6 +489,24 @@
       </div>
     </div>
     <!-- ModalSearch Box -->
+
+    <script>
+        function loadStudentInfo(){
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (xhttp.readyState == 4 && xhttp.status == 200) {
+                    var item = JSON.parse(xhttp.responseText);
+                    // console.log(item);
+                    console.log(item.students[0].student_name);
+                }
+
+                document.getElementById("courseList").innerHTML = itemToAdd;
+            }
+
+            xhttp.open("GET", "http://localhost:5015/get_all", true);
+            xhttp.send();
+        }
+    </script>
 
 	<!-- jQuery (necessary for JavaScript plugins) -->
 	<script type="text/javascript" src="script/jquery.js"></script>
