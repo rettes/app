@@ -37,30 +37,27 @@
         
         <!--// Header \\-->
 		<header id="wm-header" class="wm-header-one">
-
 			<!--// TopStrip \\-->
 			<div class="wm-topstrip">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12">
-							
-							<ul class="wm-adminuser-section">
-								<li>
-									<a>Hi, John Teo Tjia Ern.</a>
-								</li>
-								<li>
-								
-								</li>
-								<li>
-									<a href="#" class="wm-search-btn" data-toggle="modal" data-target="#ModalSearch"><i class="wmicon-search"></i></a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!--// TopStrip \\-->
-
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            
+                            <ul class="wm-adminuser-section">
+                                <li>
+                                    <a>Hi, John Teo Tjia Ern.</a>
+                                </li>
+                                <li>
+                                   
+                                </li>
+                                <li>
+                                    <a href="#" class="wm-search-btn" data-toggle="modal" data-target="#ModalSearch"><i class="wmicon-search"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!--// MainHeader \\-->
             <div class="wm-main-header">
                 <div class="container">
@@ -230,19 +227,7 @@
 										<img src="extra-images/our-courses-author.jpg" alt="">
 										<a class="wm-authorpost" href="#">Shelly T. Forrester</a>
 									</div>
-									<div class="wm-our-courses">
-										<ul>
-											<li>
-												<a href="#"><i class="wmicon-tool2"></i>328 Viewers</a>
-											</li>
-											<li>
-												<a href="#"><i class="wmicon-diploma"></i>Certificate: No</a>
-											</li>
-											<li>
-												<a href="#"><i class="wmicon-symbol"></i>Assesments: Yes</a>
-											</li>
-										</ul>
-									</div>
+									
 								</div>								
 							</div>
 							<div class="wm-courses-reviewes">
@@ -616,6 +601,25 @@
     <script type="text/javascript" src="script/jquery.nicescroll.min.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
     <script type="text/javascript" src="script/functions.js"></script>
+
+	<script>
+		const urlParams = new URLSearchParams(window.location.search);
+		const myParam = urlParams.get('mod_id');
+		var modDetails = ""
+		for(item of JSON.parse(sessionStorage['courses'])['modules']){
+			if(item['mod_id'] == myParam){
+				modDetails = item;
+			}
+		}
+		console.log(modDetails)
+		console.log(urlParams.get('imageId'))
+
+
+		
+
+		
+
+	</script>
 
   </body>
 

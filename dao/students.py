@@ -44,6 +44,14 @@ class Students(db.Model):
 def get_all():
 	return jsonify({"students": [student.json() for student in Students.query.all()]})
 
+@app.route('/get_name_by_id/<string:student_id>')
+def get_name_by_id(student_id):
+    name = Students.query.filter_by(student_id=student_id).first()
+    if name != None:
+        return jsonify(name.json())
+    else:
+        print('error')
+        return jsonify({"message": 'error' })
 
 
 # ! port numbers

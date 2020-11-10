@@ -242,7 +242,7 @@ table {
     width: 100%;
 }
 table > thead > tr > th, table > tbody > tr > th, table > tfoot > tr > th, table > thead > tr > td, table > tbody > tr > td, table > tfoot > tr > td {
-    border: 1px solid #dddddd;
+    border: 0px solid #dddddd;
     line-height: 2.5;
     padding-left: 3px;
     text-align: center;
