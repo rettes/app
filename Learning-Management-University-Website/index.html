@@ -327,7 +327,6 @@
                 //     window.location = "http://localhost/app/login/";
                 //     Redirect();
                 // }
-
                 if (window.location.search.substring().includes("smu.edu.sg")) {
                     window.history.pushState({}, document.title, window.location.pathname);
                 }
@@ -420,6 +419,7 @@
                             var item = JSON.parse(xhttp.responseText);
                             userType = item['user_type'];
                             userID = item['user_id'];
+                            // console.log(userID)
                             localStorage.setItem("userType", userType);
                             localStorage.setItem("userID", userID);
 
@@ -482,7 +482,7 @@
                             sessionStorage.setItem("userName", userName)
                         }
                     }
-                    url = "http://localhost:5014/get_name_by_id/" + userID
+                    url = "http://localhost:5015/get_name_by_id/" + userID
                     xhttp.open("GET", url, true);
                     xhttp.send();
                 }
