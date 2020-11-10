@@ -315,196 +315,180 @@
 
 
     <script>
-        function loadCourses(){
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
 
-            if (xhttp.readyState == 4 && xhttp.status == 200) {
-                var item = JSON.parse(xhttp.responseText);
-                console.log(item);
-                console.log(item.modules[0].professor_name); //professor name 
-                console.log(item.modules[0].professor_id); //professor id
-                console.log(item.modules[0].positions_available); //positions available
+            //load id
+            if (localStorage.getItem("email") == null && window.location.search.substring(1) != "") {
+                var userEmail = window.location.search.substring(1);
+                localStorage.setItem("email", userEmail);
+                window.history.pushState({}, document.title, window.location.pathname);
+                //console.log(userEmail)
+            } else if (userEmail == null && localStorage.getItem("email") != null) {
+                userEmail = localStorage.getItem("email");
+            }
+            // else if (localStorage.getItem("email") == null ){
+            //     window.location = "http://localhost/app/login/";
+            //     Redirect();
+            // }
 
-                var positions_arr = [];
-
-                item.modules.sort((a, b) => (a.positions_available > b.positions_available) ? -1 : 1);
-                console.log(item.modules);
-
+            if (window.location.search.substring().includes("smu.edu.sg")) {
+                window.history.pushState({}, document.title, window.location.pathname);
+            }
 
 
-                //load id
-                if (localStorage.getItem("email") == null && window.location.search.substring(1) != "") {
-                    var userEmail = window.location.search.substring(1);
-                    localStorage.setItem("email", userEmail);
-                    window.history.pushState({}, document.title, window.location.pathname);
-                    //console.log(userEmail)
-                } else if (userEmail == null && localStorage.getItem("email") != null) {
-                    userEmail = localStorage.getItem("email");
-                }
-                // else if (localStorage.getItem("email") == null ){
-                //     window.location = "http://localhost/app/login/";
-                //     Redirect();
-                // }
+            //-------------------------------------------------------------------------------------------------------------//
 
-                if (window.location.search.substring().includes("smu.edu.sg")) {
-                    window.history.pushState({}, document.title, window.location.pathname);
-                }
+            function loadCourses() {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
 
-                //-------------------------------------------------------------------------------------------------------------//
+                    if (xhttp.readyState == 4 && xhttp.status == 200) {
+                        var item = JSON.parse(xhttp.responseText);
+                        console.log(item);
+                        console.log(item.modules[0].professor_name); //professor name
+                        console.log(item.modules[0].professor_id); //professor id
+                        console.log(item.modules[0].positions_available); //positions available
 
-                function loadCourses() {
-                    var xhttp = new XMLHttpRequest();
-                    xhttp.onreadystatechange = function () {
+                        var positions_arr = [];
 
-                        if (xhttp.readyState == 4 && xhttp.status == 200) {
-                            var item = JSON.parse(xhttp.responseText);
-                            console.log(item);
-                            console.log(item.modules[0].professor_name); //professor name
-                            console.log(item.modules[0].professor_id); //professor id
-                            console.log(item.modules[0].positions_available); //positions available
+                        item.modules.sort((a, b) => (a.positions_available > b.positions_available) ? -1 : 1);
+                        console.log(item.modules);
 
-                            var positions_arr = [];
+                        var maxNumber;
+                        var itemToAdd = ``
 
-                            item.modules.sort((a, b) => (a.positions_available > b.positions_available) ? -1 : 1);
-                            console.log(item.modules);
+                        if (item.modules.length <= 4) {
+                            maxNumber = item.modules.length;
+                        } else {
+                            maxNumber = 4;
+                        }
 
-                            var maxNumber;
-                            var itemToAdd = ``
-
-                            if (item.modules.length <= 4) {
-                                maxNumber = item.modules.length;
+                        for (let i = 1; i <= maxNumber; i++) {
+                            var x = ``;
+                            if (item['modules'][i - 1]['positions_available'] == 1) {
+                                x = `style = 'color:red'`
                             } else {
-                                maxNumber = 4;
+                                x = `style = 'color:#90ee90'`
                             }
 
-                            for (let i = 1; i <= maxNumber; i++) {
-                                var x = ``;
-                                if (item['modules'][i - 1]['positions_available'] == 1) {
-                                    x = `style = 'color:red'`
-                                } else {
-                                    x = `style = 'color:#90ee90'`
-                                }
+                            // if (i%4===1) {
+                            //     itemToAdd += `<div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+                            //                     <div class="controls-top">
+                            //                         <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
+                            //                         <a class="btn-floating" href="#multi-item-example" data-slide="next"><i
+                            //                             class="fas fa-chevron-right"></i></a>
+                            //                     </div>
+                            //                     <div class="carousel-item active">`;                                   
+                            // }    
 
-                                // if (i%4===1) {
-                                //     itemToAdd += `<div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
-                                //                     <div class="controls-top">
-                                //                         <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
-                                //                         <a class="btn-floating" href="#multi-item-example" data-slide="next"><i
-                                //                             class="fas fa-chevron-right"></i></a>
-                                //                     </div>
-                                //                     <div class="carousel-item active">`;                                   
-                                // }    
-
-                                itemToAdd += `<li class="col-md-3">
-                                    <div class="wm-courses-popular-wrap">
-                                        <figure> <a href="#"><img src="extra-images/papular-courses-${i}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
-                                            <figcaption>
-                                                <img src="extra-images/papular-courses-thumb-6.jpg" alt="">
-                                                <h6><a href="#">${item['modules'][i-1]['professor_name']}</a></h6>
-                                            </figcaption>
-                                        </figure>
-                                        <div class="wm-popular-courses-text">
-                                            <h6><a href="#">${item['modules'][i-1]['mod_name']}</a></h6>
-                                            <div class="wm-courses-price" style="text-align: center"><span ${x}>${item['modules'][i-1]['positions_available']} position(s) left</span> </div>
-                                            
-                                        </div>
+                            itemToAdd += `<li class="col-md-3">
+                                <div class="wm-courses-popular-wrap">
+                                    <figure> <a href="#"><img src="extra-images/papular-courses-${i}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
+                                        <figcaption>
+                                            <img src="extra-images/papular-courses-thumb-6.jpg" alt="">
+                                            <h6><a href="#">${item['modules'][i-1]['professor_name']}</a></h6>
+                                        </figcaption>
+                                    </figure>
+                                    <div class="wm-popular-courses-text">
+                                        <h6><a href="#">${item['modules'][i-1]['mod_name']}</a></h6>
+                                        <div class="wm-courses-price" style="text-align: center"><span ${x}>${item['modules'][i-1]['positions_available']} position(s) left</span> </div>
+                                        
                                     </div>
-                                </li>`;
+                                </div>
+                            </li>`;
 
-                                // if (i%4===0) {
-                                //     itemToAdd += `</div></div>`;
-                                // }
-
-                            }
-
-                            document.getElementById("courseList").innerHTML = itemToAdd;
+                            // if (i%4===0) {
+                            //     itemToAdd += `</div></div>`;
+                            // }
 
                         }
+
+                        document.getElementById("courseList").innerHTML = itemToAdd;
+
                     }
-
-                    xhttp.open("GET", "http://localhost:5012/get_all", true);
-                    xhttp.send();
                 }
-                var userID = '';
-                var userName = '';
-                var userType = '';
 
-                //-------------------------------------------------------------------------------------------------------------//
+                xhttp.open("GET", "http://localhost:5012/get_all", true);
+                xhttp.send();
+            }
+            var userID = '';
+            var userName = '';
+            var userType = '';
 
-                function loadUserInfo() {
-                    var xhttp = new XMLHttpRequest();
-                    xhttp.onreadystatechange = function () {
-                        if (xhttp.readyState == 4 && xhttp.status == 200) {
-                            var item = JSON.parse(xhttp.responseText);
-                            userType = item['user_type'];
-                            userID = item['user_id'];
-                            localStorage.setItem("userType", userType);
-                            localStorage.setItem("userID", userID);
+            //-------------------------------------------------------------------------------------------------------------//
 
-                            document.getElementById("welcome").innerHTML = "Hi, " + userID;
-                            if (userType == "professor") {
-                                document.getElementById("payment").id = "addOpening";
-                                document.getElementById("addOpening").innerHTML = "Add TA Opening";
-                                document.getElementById("addOpening").href = "add-courses.html";
-                                loadProfessorName(userID);
-                            } else if (userType == "student") {
-                                loadStudentName(userID);
-                            } else if (userType == "admin") {
-                                var newLi = document.createElement("LI");
-                                var linkNode = document.createElement("A");
-                                linkNode.id = "addOpening";
-                                linkNode.innerHTML = "Add TA Opening";
-                                linkNode.href = "add-courses.html";
-                                newLi.appendChild(linkNode);
-                                console.log(newLi)
+            function loadUserInfo() {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (xhttp.readyState == 4 && xhttp.status == 200) {
+                        var item = JSON.parse(xhttp.responseText);
+                        userType = item['user_type'];
+                        userID = item['user_id'];
+                        localStorage.setItem("userType", userType);
+                        localStorage.setItem("userID", userID);
 
-                                var topNav = document.getElementById("topNav");
-                                topNav.insertBefore(newLi, document.getElementById("logout"));
-                            }
+                        document.getElementById("welcome").innerHTML = "Hi, " + userID;
+                        if (userType == "professor") {
+                            document.getElementById("payment").id = "addOpening";
+                            document.getElementById("addOpening").innerHTML = "Add TA Opening";
+                            document.getElementById("addOpening").href = "add-courses.html";
+                            loadProfessorName(userID);
+                        } else if (userType == "student") {
+                            loadStudentName(userID);
+                        } else if (userType == "admin") {
+                            var newLi = document.createElement("LI");
+                            var linkNode = document.createElement("A");
+                            linkNode.id = "addOpening";
+                            linkNode.innerHTML = "Add TA Opening";
+                            linkNode.href = "add-courses.html";
+                            newLi.appendChild(linkNode);
+                            console.log(newLi)
+
+                            var topNav = document.getElementById("topNav");
+                            topNav.insertBefore(newLi, document.getElementById("logout"));
                         }
                     }
-
-                    url = "http://localhost:5010/get_account_by_email/" + userEmail
-                    xhttp.open("GET", url, true);
-                    xhttp.send();
                 }
 
-                //-------------------------------------------------------------------------------------------------------------//
+                url = "http://localhost:5010/get_account_by_email/" + userEmail
+                xhttp.open("GET", url, true);
+                xhttp.send();
+            }
 
-                function loadProfessorName(userID) {
-                    var xhttp = new XMLHttpRequest();
-                    xhttp.onreadystatechange = function () {
+            //-------------------------------------------------------------------------------------------------------------//
 
-                        if (xhttp.readyState == 4 && xhttp.status == 200) {
-                            var item = JSON.parse(xhttp.responseText);
-                            // console.log(item)
-                            userName = item['professor_name'];
-                            sessionStorage.setItem("userName", userName)
-                        }
+            function loadProfessorName(userID) {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+
+                    if (xhttp.readyState == 4 && xhttp.status == 200) {
+                        var item = JSON.parse(xhttp.responseText);
+                        // console.log(item)
+                        userName = item['professor_name'];
+                        sessionStorage.setItem("userName", userName)
                     }
-                    url = "http://localhost:5014/get_name_by_id/" + userID
-                    xhttp.open("GET", url, true);
-                    xhttp.send();
                 }
+                url = "http://localhost:5014/get_name_by_id/" + userID
+                xhttp.open("GET", url, true);
+                xhttp.send();
+            }
 
-                //-------------------------------------------------------------------------------------------------------------//
+            //-------------------------------------------------------------------------------------------------------------//
 
-                function loadStudentName(userID) {
-                    var xhttp = new XMLHttpRequest();
-                    xhttp.onreadystatechange = function () {
+            function loadStudentName(userID) {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
 
-                        if (xhttp.readyState == 4 && xhttp.status == 200) {
-                            var item = JSON.parse(xhttp.responseText);
-                            // console.log(item)
-                            userName = item['student_name'];
-                            sessionStorage.setItem("userName", userName)
-                        }
+                    if (xhttp.readyState == 4 && xhttp.status == 200) {
+                        var item = JSON.parse(xhttp.responseText);
+                        // console.log(item)
+                        userName = item['student_name'];
+                        sessionStorage.setItem("userName", userName)
                     }
-                    url = "http://localhost:5014/get_name_by_id/" + userID
-                    xhttp.open("GET", url, true);
-                    xhttp.send();
                 }
+                url = "http://localhost:5014/get_name_by_id/" + userID
+                xhttp.open("GET", url, true);
+                xhttp.send();
+            }
     </script>
 
             // <!-- jQuery (necessary for JavaScript plugins) -->
