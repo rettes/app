@@ -312,7 +312,7 @@
             if (xhttp.readyState == 4 && xhttp.status == 200) {
                 var item = JSON.parse(xhttp.responseText);
                 console.log(item);
-                console.log(item.modules[0].professsor_name); //professor name (why got triple sss jesus christ)
+                console.log(item.modules[0].professor_name); //professor name 
                 console.log(item.modules[0].professor_id); //professor id
                 console.log(item.modules[0].positions_available); //positions available
 
@@ -355,7 +355,7 @@
                                         <figure> <a href="#"><img src="extra-images/papular-courses-${i}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
                                             <figcaption>
                                                 <img src="extra-images/papular-courses-thumb-6.jpg" alt="">
-                                                <h6><a href="#">${item['modules'][i-1]['professsor_name']}</a></h6>
+                                                <h6><a href="#">${item['modules'][i-1]['professor_name']}</a></h6>
                                             </figcaption>
                                         </figure>
                                         <div class="wm-popular-courses-text">
