@@ -44,6 +44,15 @@ class Payments(db.Model):
 def get_all():
 	return jsonify({"payments": [payment.json() for payment in Payments.query.all()]})
 
+@app.route('/get_payment_by_id/<string:student_id>')
+def get_name_by_id(student_id):
+    payment = Payments.query.filter_by(student_id=student_id).all()
+    if payment != None:
+        return jsonify({"payments": [payment.json() for payment in Payments.query.filter_by(student_id=student_id).all()]})
+    else:
+        print('error')
+        return jsonify({"message": 'error' })
+
 
 
 # ! port numbers
