@@ -565,7 +565,7 @@
                                 itemToAdd += `<td><div class="wm-courses-popular-wrap card-columns" style = "display:inline block">
                                             <figure> <a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}&imageId=${i}"><img src="extra-images/papular-courses-${i}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
                                                 <figcaption>
-                                                    <img src="extra-images/papular-courses-thumb-6.jpg" alt="">
+                                                    <img src = "images/${item['modules'][i-1]['professor_id']}.jpg" style="width: 60px; height: 60px;">
                                                     <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}&imageId=${i}">${item['modules'][i-1]['professor_name']}</a></h6>
                                                 </figcaption>
                                             </figure>
@@ -579,7 +579,7 @@
                                 itemToAdd += `<td><div class="wm-courses-popular-wrap card-columns" style = "display:inline block">
                                             <figure> <a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}"><img src="extra-images/papular-courses-${i}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
                                                 <figcaption>
-                                                    <img src="extra-images/papular-courses-thumb-6.jpg" alt="">
+                                                    <img src = "images/${item['modules'][i-1]['professor_id']}.jpg" style="width: 60px; height: 60px;">
                                                     <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}&imageId=${i} ">${item['modules'][i-1]['professor_name']}</a></h6>
                                                 </figcaption>
                                             </figure>
@@ -682,7 +682,7 @@
                                         itemToAdd += `<td><div class="wm-courses-popular-wrap card-columns" style = "display:inline block">
                                                         <figure> <a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}"><img src="extra-images/papular-courses-${i}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
                                                             <figcaption>
-                                                                <img src="extra-images/papular-courses-thumb-6.jpg" alt="">
+                                                                <img src = "images/${item['modules'][i-1]['professor_id']}.jpg" style="width: 60px; height: 60px;">
                                                                 <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}">${item['modules'][i-1]['professor_name']}</a></h6>
                                                             </figcaption>
                                                         </figure>
@@ -696,7 +696,7 @@
                                         itemToAdd += `<td><div class="wm-courses-popular-wrap card-columns" style = "display:inline block">
                                                         <figure> <a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}"><img src="extra-images/papular-courses-${i}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
                                                             <figcaption>
-                                                                <img src="extra-images/papular-courses-thumb-6.jpg" alt="">
+                                                                <img src = "images/${item['modules'][i-1]['professor_id']}.jpg" style="width: 60px; height: 60px;">
                                                                 <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}">${item['modules'][i-1]['professor_name']}</a></h6>
                                                             </figcaption>
                                                         </figure>
@@ -720,7 +720,7 @@
                                     itemToAdd += `<td><div class="wm-courses-popular-wrap card-columns" style = "display:inline block">
                                                 <figure> <a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}"><img src="extra-images/papular-courses-${i}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
                                                     <figcaption>
-                                                        <img src="extra-images/papular-courses-thumb-6.jpg" alt="">
+                                                        <img src = "images/${item['modules'][i-1]['professor_id']}.jpg" style="width: 60px; height: 60px;">
                                                         <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}">${item['modules'][i-1]['professor_name']}</a></h6>
                                                     </figcaption>
                                                 </figure>
@@ -734,7 +734,7 @@
                                     itemToAdd += `<td><div class="wm-courses-popular-wrap card-columns" style = "display:inline block">
                                                 <figure> <a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}"><img src="extra-images/papular-courses-${i}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
                                                     <figcaption>
-                                                        <img src="extra-images/papular-courses-thumb-6.jpg" alt="">
+                                                        <img src = "images/${item['modules'][i-1]['professor_id']}.jpg" style="width: 60px; height: 60px;">
                                                         <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}">${item['modules'][i-1]['professor_name']}</a></h6>
                                                     </figcaption>
                                                 </figure>
@@ -798,7 +798,7 @@
                             itemToAdd += `<td><div class="wm-courses-popular-wrap">
                                             <figure> <a href="#"><img src="extra-images/papular-courses-${i+1}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
                                                 <figcaption>
-                                                    <img src="extra-images/papular-courses-thumb-6.jpg" alt="">
+                                                    <img src = "images/${item['modules'][i-1]['professor_id']}.jpg" style="width: 60px; height: 60px;">
                                                     <h6><a href="#">${courses[i]['professor_name']}</a></h6>
                                                 </figcaption>
                                             </figure>
@@ -812,7 +812,7 @@
                             itemToAdd += `<td><div class="wm-courses-popular-wrap">
                                             <figure> <a href="#"><img src="extra-images/papular-courses-${i+1}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
                                                 <figcaption>
-                                                    <img src="extra-images/papular-courses-thumb-6.jpg" alt="">
+                                                    <img src = "images/${item['modules'][i-1]['professor_id']}.jpg" style="width: 60px; height: 60px;">
                                                     <h6><a href="#">${courses[i]['professor_name']}</a></h6>
                                                 </figcaption>
                                             </figure>

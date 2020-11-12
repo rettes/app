@@ -296,12 +296,13 @@
                                 //             <div class="item active">`;                                   
                                 // }    
 
-                                itemToAdd += `<li class="col-md-3">
+                                itemToAdd += `
+                                <li class="col-md-3">
                                     <div class="wm-courses-popular-wrap">
                                         <figure> <a href="#"><img src="extra-images/papular-courses-${i}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
                                             <figcaption>
                                                 <div>
-                                                    <img src = "images/${item['modules'][i-1]['professor_id']}.jpg" alt="">
+                                                    <img src = "images/${item['modules'][i-1]['professor_id']}.jpg" style="width: 60px; height: 60px;">
                                                 </div>
                                                 <h6><a href="#">${item['modules'][i-1]['professor_name']}</a></h6>
                                             </figcaption>
