@@ -66,9 +66,9 @@
             <div class="wm-main-header">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-3"><a href="index-2.html" class="wm-logo"><img src="images/smulogo.png"
-                                    width="130px" height="50px"></a></div>
-                        <div class="col-md-9">
+                        <div class="col-md-2"><a href="index-2.html" class="wm-logo"> <img src="images/smulogo.png"
+                                    width="112px" height="50px"></a></div>
+                        <div class="col-md-10">
                             <!--// Navigation \\-->
                             <nav class="navbar navbar-default">
                                 <div class="navbar-header">
@@ -88,7 +88,7 @@
 
                                         <li><a href="#">Course Openings</a>
                                             <ul class="wm-dropdown-menu">
-                                                <li class="active"><a href="courses-grid.html">Courses Grid</a></li>
+                                                <li><a href="courses-grid.html">Courses Grid</a></li>
                                                 <li><a href="courses-detail.html">Courses Detail</a></li>
                                             </ul>
                                         </li>
@@ -101,7 +101,7 @@
                                             <a href="student-payment.html" id="payment">Payment</a>
                                         </li>
 
-                                        <li class="wm-megamenu-li" id="logout">
+                                        <li id="logout">
                                             <a href="logout.html">Logout</a>
                                         </li>
 
@@ -472,15 +472,22 @@
                 document.getElementById("welcome").innerHTML = "Hi, " + userID;
             }
             else if (userType == "admin") {
-                var newLi = document.createElement("LI");
-                var linkNode = document.createElement("A");
+                let newLi = document.createElement("LI");
+                let linkNode = document.createElement("A");
                 linkNode.id = "addOpening";
                 linkNode.innerHTML = "Add TA Opening";
                 linkNode.href = "add-courses.html";
                 newLi.appendChild(linkNode);
-                //console.log(newLi)
-
+                // console.log(newLi)
                 var topNav = document.getElementById("topNav");
+                topNav.insertBefore(newLi, document.getElementById("logout"));
+
+                newLi = document.createElement("LI");
+                linkNode = document.createElement("A");
+                linkNode.id = "taApplications";
+                linkNode.innerHTML = "TA Applications";
+                linkNode.href = "ta-applications.html";
+                newLi.appendChild(linkNode);
                 topNav.insertBefore(newLi, document.getElementById("logout"));
             }
         }

@@ -64,9 +64,9 @@
             <div class="wm-main-header">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-3"><a href="index-2.html" class="wm-logo"> <img src="images/smulogo.png"
+                        <div class="col-md-2"><a href="index-2.html" class="wm-logo"> <img src="images/smulogo.png"
                                     width="112px" height="50px"></a></div>
-                        <div class="col-md-9">
+                        <div class="col-md-10">
                             <!--// Navigation \\-->
                             <nav class="navbar navbar-default">
                                 <div class="navbar-header">
@@ -99,7 +99,7 @@
                                             <a href="student-payment.html" id="payment">Payment</a>
                                         </li>
 
-                                        <li class="wm-megamenu-li" id="logout">
+                                        <li id="logout">
                                             <a href="logout.html">Logout</a>
                                         </li>
                                     </ul>
@@ -307,15 +307,14 @@
                             </div>
                         </div>
 
-					</div>
-				</div>
+                    </div>
+                </div>
             </div>
         </div>
-			<!--// Main Section \\-->
+        <!--// Main Section \\-->
 
 
-    <script>
-
+        <script>
             //load id
             if (localStorage.getItem("email") == null && window.location.search.substring(1) != "") {
                 var userEmail = window.location.search.substring(1);
@@ -435,16 +434,24 @@
                         } else if (userType == "student") {
                             loadStudentName(userID);
                         } else if (userType == "admin") {
-                            var newLi = document.createElement("LI");
-                            var linkNode = document.createElement("A");
+                            let newLi = document.createElement("LI");
+                            let linkNode = document.createElement("A");
                             linkNode.id = "addOpening";
                             linkNode.innerHTML = "Add TA Opening";
                             linkNode.href = "add-courses.html";
                             newLi.appendChild(linkNode);
-                            console.log(newLi)
-
+                            // console.log(newLi)
                             var topNav = document.getElementById("topNav");
                             topNav.insertBefore(newLi, document.getElementById("logout"));
+
+                            newLi = document.createElement("LI");
+                            linkNode = document.createElement("A");
+                            linkNode.id = "taApplications";
+                            linkNode.innerHTML = "TA Applications";
+                            linkNode.href = "ta-applications.html";
+                            newLi.appendChild(linkNode);
+                            topNav.insertBefore(newLi, document.getElementById("logout"));
+
                         }
                     }
                 }
@@ -489,25 +496,25 @@
                 xhttp.open("GET", url, true);
                 xhttp.send();
             }
-    </script>
+        </script>
 
-            // <!-- jQuery (necessary for JavaScript plugins) -->
-            <script type="text/javascript" src="script/jquery.js"></script>
-            <script type="text/javascript" src="script/modernizr.js"></script>
-            <script type="text/javascript" src="script/bootstrap.min.js"></script>
-            <script type="text/javascript" src="script/jquery.prettyphoto.js"></script>
-            <script type="text/javascript" src="script/jquery.countdown.min.js"></script>
-            <script type="text/javascript" src="script/fitvideo.js"></script>
-            <script type="text/javascript" src="script/skills.js"></script>
-            <script type="text/javascript" src="script/slick.slider.min.js"></script>
-            <script type="text/javascript" src="script/waypoints-min.js"></script>
-            <script type="text/javascript" src="build/mediaelement-and-player.min.js"></script>
-            <script type="text/javascript" src="script/isotope.min.js"></script>
-            <script type="text/javascript" src="script/jquery.nicescroll.min.js"></script>
-            <script type="text/javascript" src="script/functions.js"></script>
+        //
+        <!-- jQuery (necessary for JavaScript plugins) -->
+        <script type="text/javascript" src="script/jquery.js"></script>
+        <script type="text/javascript" src="script/modernizr.js"></script>
+        <script type="text/javascript" src="script/bootstrap.min.js"></script>
+        <script type="text/javascript" src="script/jquery.prettyphoto.js"></script>
+        <script type="text/javascript" src="script/jquery.countdown.min.js"></script>
+        <script type="text/javascript" src="script/fitvideo.js"></script>
+        <script type="text/javascript" src="script/skills.js"></script>
+        <script type="text/javascript" src="script/slick.slider.min.js"></script>
+        <script type="text/javascript" src="script/waypoints-min.js"></script>
+        <script type="text/javascript" src="build/mediaelement-and-player.min.js"></script>
+        <script type="text/javascript" src="script/isotope.min.js"></script>
+        <script type="text/javascript" src="script/jquery.nicescroll.min.js"></script>
+        <script type="text/javascript" src="script/functions.js"></script>
 
 
 </body>
 
 </html>
-

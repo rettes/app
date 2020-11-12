@@ -40,12 +40,19 @@ class Applications(db.Model):
     def json(self):
         return {"student_name": self.student_name, "student_id": self.student_id, 
         "application_no": self.application_no, "status": self.status, "mod_id": self.mod_id, 
-        "professsor_name": self.professor_name, "professor_id": self.professor_id}
+        "professor_name": self.professor_name, "professor_id": self.professor_id}
 
 @app.route('/get_all')
 def get_all():
 	return jsonify({"applications": [application.json() for application in Applications.query.all()]})
-
+@app.route('/get_confirmed_applications/')
+def get_confirmed_applications():
+    applications = Applications.query.filter_by(status='2').all()
+    if applications != None:
+        return jsonify({"applications": [application.json() for application in Applications.query.filter_by(status='2').all()]})
+    else:
+        print('error')
+        return jsonify({"message": 'error' })
 
 
 # ! port numbers
