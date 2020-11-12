@@ -30,29 +30,27 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body>
-	
+  <body onload="loadPage()">
+
     <!--// Main Wrapper \\-->
     <div class="wm-main-wrapper">
-        
+
         <!--// Header \\-->
-		<header id="wm-header" class="wm-header-one">
+        <header id="wm-header" class="wm-header-one">
 
             <!--// TopStrip \\-->
             <div class="wm-topstrip">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            
+
                             <ul class="wm-adminuser-section">
                                 <li>
-                                    <a>Hi, John Teo Tjia Ern.</a>
+                                    <a id="welcome">Hi, John Teo Tjia Ern.</a>
                                 </li>
                                 <li>
-                                
-                                </li>
-                                <li>
-                                    <a href="#" class="wm-search-btn" data-toggle="modal" data-target="#ModalSearch"><i class="wmicon-search"></i></a>
+                                    <a href="#" class="wm-search-btn" data-toggle="modal" data-target="#ModalSearch"><i
+                                            class="wmicon-search"></i></a>
                                 </li>
                             </ul>
                         </div>
@@ -65,49 +63,51 @@
             <div class="wm-main-header">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-3"><a href="index-2.html" class="wm-logo"><img src="images/logo-1.png" alt=""></a></div>
+                        <div class="col-md-3"><a href="index-2.html" class="wm-logo"> <img src="images/smulogo.png"
+                                    width="112px" height="50px"></a></div>
                         <div class="col-md-9">
                             <!--// Navigation \\-->
                             <nav class="navbar navbar-default">
                                 <div class="navbar-header">
-                                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="true">
-                                    <span class="sr-only">Toggle navigation</span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                  </button>
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                        data-target="#navbar-collapse-1" aria-expanded="true">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
                                 </div>
                                 <div class="collapse navbar-collapse" id="navbar-collapse-1">
-                                    <ul class="nav navbar-nav">
-                                      <li class="active">
-                                          <a href="index.html">Home</a>
-                                      </li>
-  
-                                      <li><a href="#">Course Openings</a>
-                                          <ul class="wm-dropdown-menu">
-                                              <li><a href="courses-grid.html">Courses Grid</a></li>
-                                              <li><a href="courses-detail.html">Courses Detail</a></li>
-                                          </ul>
-                                      </li>
-  
-                                      <li>
-                                          <a href="student-profile.html">Profile</a>
-                                      </li>
-  
-                                      <li >
-                                          <a href="student-payment.html">Payment</a>
-                                      </li>
-  
-                                      <li class="wm-megamenu-li">
-                                          <a href="../login/login.html">Logout</a>
-                                      </li>
+                                    <ul class="nav navbar-nav" id="topNav">
+                                        <li class="active">
+                                            <a href="index.html">Home</a>
+                                        </li>
+
+                                        <li><a href="#">Course Openings</a>
+                                            <ul class="wm-dropdown-menu">
+                                                <li><a href="courses-grid.html">Courses Grid</a></li>
+                                                <li><a href="courses-detail.html">Courses Detail</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li>
+                                            <a href="student-profile.html">Profile</a>
+                                        </li>
+
+                                        <li>
+                                            <a href="student-payment.html" id="payment">Payment</a>
+                                        </li>
+
+                                        <li class="wm-megamenu-li" id="logout">
+                                            <a href="logout.html">Logout</a>
+                                        </li>
                                     </ul>
-                                  </div>
-                              </nav>
-                          </div>
-                      </div>
-                  </div>
-              </div>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!--// MainHeader \\-->
 
 		</header>
@@ -120,13 +120,13 @@
 			    <div class="row">
 				    <div class="col-md-12">
 				        <div class="wm-mini-title">
-				       		<h1>Student Dashboard</h1> 
+				       		<h1 id="dashboard1">Student Dashboard</h1> 
 				        </div>
 				        <div class="wm-breadcrumb">
 				          	<ul>
-				          	 	<li><a href="index-2.html">Home</a></li>
-				          	 	<li><a href="#">Student Dashboard</a></li>
-				           		<li>My Courses</li>
+				          	 	<li><a href="index.html">Home</a></li>
+				          	 	<li><a href="#" id="dashboard2">Student Dashboard</a></li>
+				           		<li>Payments</li>
 				          	</ul>
 				        </div>      
 				    </div>
@@ -162,7 +162,7 @@
 										<li class="active">
 											<a href="#">
 												<i class="wmicon-book"></i>
-												My Courses
+												Payments
 											</a>
 										</li>
 										<li>
@@ -194,140 +194,21 @@
 							</div>						
 						</aside>
 						<div class="col-md-8">
-							<div class="wm-student-dashboard-courses wm-dashboard-courses">
+							<div class="wm-student-dashboard-courses wm-dashboard-courses" id="paymentList">
 								<div class="wm-plane-title">
-									<h2>My Courses</h2>
-								</div>
+									<h2>Payments</h2>
+                                </div>
 								<div class="wm-article">
-									<ul>
+									<ul >
 										<li class="wm-courses-start wm-student">
-											<span>Course Name</span>
-										</li>
-										<li class="wm-student">
+											<span>Course ID <br><br></span>
+                                        </li>
+                                        <li class="wm-student">
 											<span>Status</span>
 										</li>
 										<li class="wm-student">
-											<span>Rating</span>
-										</li>
-									</ul>									
-								</div>
-								<div class="wm-article">
-									<ul>
-										<li class="wm-courses-start">
-											<div class="wm-statement-started-text">
-												<h6><a href="#">Archaeology and Anthropology</a></h6>
-												<span><a href="#" class="wmicon-tag"></a>$25.99</span>
-												<span><a href="#" class="wmicon-time2"></a><time datetime="2017-02-14">16/05/2016 - 17/06/2016</time></span>
-											</div>
-										</li>										
-										<li>
-											<a class="wm-status-courses wm-paid" href="#">Paid</a>
-										</li>
-										<li>
-											<small>8/10</small>
-										</li>
-									</ul>									
-								</div>
-								<div class="wm-article">
-									<ul>
-										<li class="wm-courses-start">
-											<div class="wm-statement-started-text">
-												<h6><a href="#">Biochemistry (Molecular and Cellular)</a></h6>
-												<span><a href="#" class="wmicon-tag"></a>$34.00</span>
-												<span><a href="#" class="wmicon-time2"></a><time datetime="2017-02-14">9/04/2016 - 10/05/2016</time></span>
-											</div>
-										</li>
-										<li>
-											<a class="wm-status-courses wm-completed" href="#">Completed</a>
-										</li>
-										<li>
-											<small>10/10</small>
-										</li>										
-									</ul>									
-								</div>
-								<div class="wm-article">
-									<ul>
-										<li class="wm-courses-start">
-											<div class="wm-statement-started-text">
-												<h6><a href="#">Mathematics and Statistics</a></h6>
-												<span><a href="#" class="wmicon-tag"></a>$30.50</span>
-												<span><a href="#" class="wmicon-time2"></a><time datetime="2017-02-14">20/06/2016 - 24/07/2016</time></span>
-											</div>
-										</li>
-										<li>
-											<a class="wm-status-courses wm-in-Progress" href="#">In Progress</a>
-										</li>
-										<li>
-											<small>4/10</small>
-										</li>										
-									</ul>									
-								</div>
-								<div class="wm-article">
-									<ul>
-										<li class="wm-courses-start">
-											<div class="wm-statement-started-text">
-												<h6><a href="#">Materials Science</a></h6>
-												<span><a href="#" class="wmicon-tag"></a>Free</span>
-												<span><a href="#" class="wmicon-time2"></a><time datetime="2017-02-14">5/04/2016 - 11/05/2016</time></span>
-											</div>
-										</li>
-										<li>
-											<a class="wm-status-courses wm-expired" href="#">Expired</a>
-										</li>
-										<li>
-											<small>0/10</small>
-										</li>										
-									</ul>									
-								</div>
-								<div class="wm-article">
-									<ul>
-										<li class="wm-courses-start">
-											<div class="wm-statement-started-text">
-												<h6><a href="#">Modern Languages and Linguistics</a></h6>
-												<span><a href="#" class="wmicon-tag"></a>$34.00</span>
-												<span><a href="#" class="wmicon-time2"></a><time datetime="2017-02-14">9/04/2016 - 10/05/2016</time></span>
-											</div>
-										</li>										
-										<li>
-											<a class="wm-status-courses wm-paid" href="#">Paid</a>
-										</li>
-										<li>
-											<small>10/10</small>
-										</li>
-									</ul>									
-								</div>
-								<div class="wm-article">
-									<ul>
-										<li class="wm-courses-start">
-											<div class="wm-statement-started-text">
-												<h6><a href="#">Computer Science and Philosophy</a></h6>
-												<span><a href="#" class="wmicon-tag"></a>$30.50</span>
-												<span><a href="#" class="wmicon-time2"></a><time datetime="2017-02-14">20/06/2016 - 24/07/2016</time></span>
-											</div>
-										</li>
-										<li>
-											<a class="wm-status-courses wm-paid" href="#">Paid</a>
-										</li>
-										<li>
-											<small>8/10</small>
-										</li>										
-									</ul>									
-								</div>
-								<div class="wm-article">
-									<ul>
-										<li class="wm-courses-start">
-											<div class="wm-statement-started-text">
-												<h6><a href="#">Medicines</a></h6>
-												<span><a href="#" class="wmicon-tag"></a>Free</span>
-												<span><a href="#" class="wmicon-time2"></a><time datetime="2017-02-14">5/04/2016 - 11/05/2016</time></span>		
-											</div>
-										</li>
-										<li>
-											<a class="wm-status-courses wm-paid" href="#">Paid</a>
-										</li>
-										<li>
-											<small>7/10</small>
-										</li>										
+											<span>Payment ID</span>
+                                        </li>
 									</ul>									
 								</div>
 							</div>										
@@ -463,9 +344,7 @@
                 <span class="wm-color">or try our socials</span>
                 <ul class="wm-login-social-media">
                     <li><a href="#"><i class="wmicon-social5"></i> Facebook</a></li>
-                    <li class="wm-twitter-color"><a href="#"><i class="wmicon-social4"></i> twitter</a></li>
-                    <li class="wm-googleplus-color"><a href="#"><i class="fa fa-google-plus-square"></i> Google+</a></li>
-                </ul>
+                    <li class="wm-twitter-color"><a href="#"><i class="wmicon-social4"></i> twitter</a></li>                </ul>
                 <p>Not a member yet? <a href="#">Sign-up Now!</a></p>
             </div>
             <div class="wm-modallogin-form wm-register-popup">
@@ -483,7 +362,6 @@
                 <ul class="wm-login-social-media">
                     <li><a href="#"><i class="wmicon-social5"></i> Facebook</a></li>
                     <li class="wm-twitter-color"><a href="#"><i class="wmicon-social4"></i> twitter</a></li>
-                    <li class="wm-googleplus-color"><a href="#"><i class="fa fa-google-plus-square"></i> Google+</a></li>
                 </ul>
                 <p>Already a member? <a href="#">Sign-in Here!</a></p>
             </div>
@@ -517,7 +395,169 @@
       </div>
     </div>
     <!-- ModalSearch Box -->
+    <script>
 
+        if (userEmail == null && localStorage.getItem("email") != null ) {
+            var userEmail = localStorage.getItem("userEmail");
+        }
+        if (userID == null && localStorage.getItem("userID") != null) {
+            var userID = localStorage.getItem("userID");
+        }
+        if (userName == null && localStorage.getItem("userName") != null) {
+            var userName = localStorage.getItem("userName");
+        }
+        if (userType == null && localStorage.getItem("userType") != null) {
+            var userType = localStorage.getItem("userType");
+        }
+        // if (localStorage.getItem("email") == null ){
+        //     window.location = "http://localhost/app/login/";
+        //     Redirect();
+        // }
+
+        //-------------------------------------------------------------------------------------------------------------//
+
+        function loadPage() {
+            document.getElementById("welcome").innerHTML = "Hi, " + userID;
+            if (userType == "professor") {
+                document.getElementById("payment").id = "addOpening"
+                document.getElementById("addOpening").innerHTML = "Add TA Opening"
+                document.getElementById("addOpening").href = "add-courses.html"
+                document.getElementById("welcome").innerHTML = "Hi, " + userID;
+            }
+            else if (userType == "admin") {
+                var newLi = document.createElement("LI");
+                var linkNode = document.createElement("A");
+                linkNode.id = "addOpening";
+                linkNode.innerHTML = "Add TA Opening";
+                linkNode.href = "add-courses.html";
+                newLi.appendChild(linkNode);
+                //console.log(newLi)
+
+                var topNav = document.getElementById("topNav");
+                topNav.insertBefore(newLi, document.getElementById("logout"));
+            }
+        }
+
+        if (userType == "admin"){
+            document.getElementById("dashboard1").innerHTML = "Admin Dashboard";
+            document.getElementById("dashboard2").innerHTML = "Admin Dashboard";
+            loadPayments();
+        }
+        else if (userType == "student"){
+            loadPaymentsById(userID);
+        }
+
+        function loadPayments() {
+
+            var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+
+                    if (xhttp.readyState == 4 && xhttp.status == 200) {
+                        var item = JSON.parse(xhttp.responseText);
+
+                        var toAdd = "";
+                        for (let payment in item["payments"]){
+                            // console.log(payment)
+                            let mod_id = item["payments"][payment]["mod_id"];
+                            let payment_amt = item["payments"][payment]["payment_amt"];
+                            let payment_date = item["payments"][payment]["payment_date"].slice(0,-13);
+                            let payment_label = item["payments"][payment]["payment_details"];
+                            let payment_details = payment_label.charAt(0).toUpperCase() + payment_label.slice(1)
+                            let payment_id = item["payments"][payment]["payment_id"];
+                            let student_id = item["payments"][payment]["student_id"];
+
+                            if (payment_label == "in progress"){
+                                payment_label = "in-Progress"
+                            }
+
+
+                            toAdd += `<div class="wm-article">
+									<ul>
+										<li class="wm-courses-start">
+											<div class="wm-statement-started-text">
+												<h6><a href="#">${mod_id}</a></h6>
+												<span><a href="#" class="wmicon-tag"></a>$${payment_amt}</span>
+                                                <span><a href="#" class="wmicon-time2"></a>${payment_date}</time></span>
+                                                <span><a href="#" class="wmicon-people"></a>Student ID: ${student_id}</span>
+											</div>
+										</li>										
+										<li>
+											<a class="wm-status-courses wm-${payment_label}" href="#">${payment_details}</a>
+										</li>
+                                        <li>
+
+											<h6>${payment_id}</h6>
+                                        </li>
+
+									</ul>									
+								</div>`
+                        }
+
+                        document.getElementById("paymentList").innerHTML += toAdd;
+
+                    }
+                }
+
+                url = "http://localhost:5013/get_all"
+                xhttp.open("GET", url, true);
+                xhttp.send();
+        }
+        function loadPaymentsById(userID) {
+
+            var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+
+                    if (xhttp.readyState == 4 && xhttp.status == 200) {
+                        var item = JSON.parse(xhttp.responseText);
+                        var toAdd = "";
+                        for (let payment in item["payments"]){
+                            // console.log(payment)
+                            let mod_id = item["payments"][payment]["mod_id"];
+                            let payment_amt = item["payments"][payment]["payment_amt"];
+                            let payment_date = item["payments"][payment]["payment_date"].slice(0,-13);
+                            let payment_label = item["payments"][payment]["payment_details"];
+                            let payment_details = payment_label.charAt(0).toUpperCase() + payment_label.slice(1)
+                            let payment_id = item["payments"][payment]["payment_id"];
+
+                            if (payment_label == "in progress"){
+                                payment_label = "in-Progress"
+                            }
+
+
+                            toAdd += `<div class="wm-article">
+									<ul>
+										<li class="wm-courses-start">
+											<div class="wm-statement-started-text">
+												<h6><a href="#">${mod_id}</a></h6>
+												<span><a href="#" class="wmicon-tag"></a>$${payment_amt}</span>
+                                                <span><a href="#" class="wmicon-time2"></a>${payment_date}</time></span>
+											</div>
+										</li>										
+										<li>
+											<a class="wm-status-courses wm-${payment_label}" href="#">${payment_details}</a>
+										</li>
+                                        <li>
+
+											<h6>${payment_id}</h6>
+                                        </li>
+
+									</ul>									
+								</div>`
+                        }
+
+                        document.getElementById("paymentList").innerHTML += toAdd;
+                    }
+
+                }
+                
+            url = "http://localhost:5013/get_payment_by_id/" + userID
+            xhttp.open("GET", url, true);
+            xhttp.send();
+        }
+
+
+
+    </script>
 	<!-- jQuery (necessary for JavaScript plugins) -->
 	<script type="text/javascript" src="script/jquery.js"></script>
 	<script type="text/javascript" src="script/modernizr.js"></script>
@@ -531,8 +571,7 @@
     <script type="text/javascript" src="build/mediaelement-and-player.min.js"></script>
     <script type="text/javascript" src="script/isotope.min.js"></script>
     <script type="text/javascript" src="script/jquery.nicescroll.min.js"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
-    <script type="text/javascript" src="script/functions.js"></script>
+    <!-- <script type="text/javascript" src="script/functions.js"></script> -->
 
   </body>
 
