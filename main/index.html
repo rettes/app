@@ -239,9 +239,10 @@
                 var userEmail = window.location.search.substring(1);
                 localStorage.setItem("email", userEmail);
                 window.history.pushState({}, document.title, window.location.pathname);
-                //console.log(userEmail)
+                console.log(userEmail)
             } else if (userEmail == null && localStorage.getItem("email") != null) {
                 userEmail = localStorage.getItem("email");
+                //console.log(userEmail)
             }
             // else if (localStorage.getItem("email") == null ){
             //     window.location = "http://localhost/app/login/";
@@ -323,6 +324,7 @@
                 xhttp.open("GET", "http://localhost:5012/get_all", true);
                 xhttp.send();
             }
+
             var userID = '';
             var userName = '';
             var userType = '';
@@ -332,83 +334,84 @@
             function loadUserInfo() {
                 var xhttp = new XMLHttpRequest();
                 xhttp.onreadystatechange = function () {
-                        if (xhttp.readyState == 4 && xhttp.status == 200) {
-                            var item = JSON.parse(xhttp.responseText);
-                            userType = item['user_type'];
-                            userID = item['user_id'];
-                            localStorage.setItem("userType", userType);
-                            localStorage.setItem("userID", userID);
+                    if (xhttp.readyState == 4 && xhttp.status == 200) {
+                        var item = JSON.parse(xhttp.responseText);
+                        userType = item['user_type'];
+                        userID = item['user_id'];
+                        localStorage.setItem("userType", userType);
+                        localStorage.setItem("userID", userID);
 
-                            document.getElementById("welcome").innerHTML = "Hi, " + userID;
-                            if (userType == "professor") {
-                                document.getElementById("payment").id = "addOpening";
-                                document.getElementById("addOpening").innerHTML = "Add TA Opening";
-                                document.getElementById("addOpening").href = "add-courses.html";
-                                loadProfessorName(userID);
-                            } else if (userType == "student") {
-                                loadStudentName(userID);
-                            } else if (userType == "admin") {
-                                let newLi = document.createElement("LI");
-                                let linkNode = document.createElement("A");
-                                linkNode.id = "addOpening";
-                                linkNode.innerHTML = "Add TA Opening";
-                                linkNode.href = "add-courses.html";
-                                newLi.appendChild(linkNode);
-                                // console.log(newLi)
-                                var topNav = document.getElementById("topNav");
-                                topNav.insertBefore(newLi, document.getElementById("logout"));
+                        document.getElementById("welcome").innerHTML = "Hi, " + userID;
+                        if (userType == "professor") {
+                            document.getElementById("payment").id = "addOpening";
+                            document.getElementById("addOpening").innerHTML = "Add TA Opening";
+                            document.getElementById("addOpening").href = "add-courses.html";
+                            loadProfessorName(userID);
+                        } else if (userType == "student") {
+                            loadStudentName(userID);
+                        } else if (userType == "admin") {
+                            let newLi = document.createElement("LI");
+                            let linkNode = document.createElement("A");
+                            linkNode.id = "addOpening";
+                            linkNode.innerHTML = "Add TA Opening";
+                            linkNode.href = "add-courses.html";
+                            newLi.appendChild(linkNode);
+                            // console.log(newLi)
+                            var topNav = document.getElementById("topNav");
+                            topNav.insertBefore(newLi, document.getElementById("logout"));
 
-                                newLi = document.createElement("LI");
-                                linkNode = document.createElement("A");
-                                linkNode.id = "taApplications";
-                                linkNode.innerHTML = "TA Applications";
-                                linkNode.href = "ta-applications.html";
-                                newLi.appendChild(linkNode);
-                                topNav.insertBefore(newLi, document.getElementById("logout"));
+                            newLi = document.createElement("LI");
+                            linkNode = document.createElement("A");
+                            linkNode.id = "taApplications";
+                            linkNode.innerHTML = "TA Applications";
+                            linkNode.href = "ta-applications.html";
+                            newLi.appendChild(linkNode);
+                            topNav.insertBefore(newLi, document.getElementById("logout"));
 
-                                xhttp.open("GET", "http://localhost:5012/get_all", true);
-                                xhttp.send();
-                            }
-
-                            //-------------------------------------------------------------------------------------------------------------//
-
-                            function loadProfessorName(userID) {
-                                var xhttp = new XMLHttpRequest();
-                                xhttp.onreadystatechange = function () {
-
-                                    if (xhttp.readyState == 4 && xhttp.status == 200) {
-                                        var item = JSON.parse(xhttp.responseText);
-                                        // console.log(item);
-                                        userName = item['professor_name'];
-                                        sessionStorage.setItem("userName", userName)
-                                    }
-                                }
-                                url = "http://localhost:5014/get_name_by_id/" + userID
-                                xhttp.open("GET", url, true);
-                                xhttp.send();
-                            }
-
-                            //-------------------------------------------------------------------------------------------------------------//
-
-                            function loadStudentName(userID) {
-                                var xhttp = new XMLHttpRequest();
-                                xhttp.onreadystatechange = function () {
-
-                                    if (xhttp.readyState == 4 && xhttp.status == 200) {
-                                        var item = JSON.parse(xhttp.responseText);
-                                        // console.log(item)
-                                        userName = item['student_name'];
-                                        sessionStorage.setItem("userName", userName)
-                                    }
-                                }
-                                url = "http://localhost:5014/get_name_by_id/" + userID
-                                xhttp.open("GET", url, true);
-                                xhttp.send();
-                            }
-                            url = "http://localhost:5014/get_name_by_id/" + userID
-                            xhttp.open("GET", url, true);
-                            xhttp.send();
                         }
+                    }
+                }
+
+                url = "http://localhost:5010/get_account_by_email/" + userEmail
+                xhttp.open("GET", url, true);
+                xhttp.send();
+            }
+
+            //-------------------------------------------------------------------------------------------------------------//
+
+            function loadProfessorName(userID) {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+
+                    if (xhttp.readyState == 4 && xhttp.status == 200) {
+                        var item = JSON.parse(xhttp.responseText);
+                        // console.log(item)
+                        userName = item['professor_name'];
+                        sessionStorage.setItem("userName", userName)
+                    }
+                }
+                url = "http://localhost:5014/get_name_by_id/" + userID
+                xhttp.open("GET", url, true);
+                xhttp.send();
+            }
+
+            //-------------------------------------------------------------------------------------------------------------//
+
+            function loadStudentName(userID) {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+
+                    if (xhttp.readyState == 4 && xhttp.status == 200) {
+                        var item = JSON.parse(xhttp.responseText);
+                        // console.log(item)
+                        userName = item['student_name'];
+                        sessionStorage.setItem("userName", userName)
+                    }
+                }
+                url = "http://localhost:5014/get_name_by_id/" + userID
+                xhttp.open("GET", url, true);
+                xhttp.send();
+            }
         </script>
 
         //
