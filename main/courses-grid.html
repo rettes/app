@@ -145,11 +145,13 @@
                                 <p>Find your course here:</p>
                                 <form>
                                     <ul>
-                                        <li> <input type="text" value="Course Name" id="filterCourseName"
+                                        <li> 
+                                            <input type="text" value="Course Name" id="filterCourseName"
                                                 oninput="filterAccordingToCourseName()"
                                                 onblur="if(this.value == '') { this.value ='Course Name'; }"
                                                 onfocus="if(this.value =='Course Name') { this.value = ''; }"> <i
-                                                class="wmicon-search"></i> </li>
+                                                class="wmicon-search"></i> 
+                                        </li>
                                         <li> <input type="submit" value="Search course"> </li>
                                     </ul>
                                 </form>
@@ -494,6 +496,15 @@
 
 
         <script>
+            //check lines 500-504
+            const urlParams = new URL(document.location).searchParams;
+            const myParam = urlParams.get('mod_id');
+            if (myParam) {
+                loadAccordingToFilters(["School of Business"], []);
+                // hard coded school of biz to see if the code works
+            }
+
+
             function showChanges() {
                 var selected = [];
                 $('.ifChecked input:checked').each(function () {
@@ -554,7 +565,7 @@
                                 itemToAdd += `<td><div class="wm-courses-popular-wrap card-columns" style = "display:inline block">
                                             <figure> <a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}&imageId=${i}"><img src="extra-images/papular-courses-${i}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
                                                 <figcaption>
-                                                    <img src="extra-images/papular-courses-thumb-6.jpg" alt="">
+                                                    <img src = "images/${item['modules'][i-1]['professor_id']}.jpg" style="width: 60px; height: 60px;">
                                                     <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}&imageId=${i}">${item['modules'][i-1]['professor_name']}</a></h6>
                                                 </figcaption>
                                             </figure>
@@ -568,7 +579,7 @@
                                 itemToAdd += `<td><div class="wm-courses-popular-wrap card-columns" style = "display:inline block">
                                             <figure> <a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}"><img src="extra-images/papular-courses-${i}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
                                                 <figcaption>
-                                                    <img src="extra-images/papular-courses-thumb-6.jpg" alt="">
+                                                    <img src = "images/${item['modules'][i-1]['professor_id']}.jpg" style="width: 60px; height: 60px;">
                                                     <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}&imageId=${i} ">${item['modules'][i-1]['professor_name']}</a></h6>
                                                 </figcaption>
                                             </figure>
@@ -642,10 +653,9 @@
             //-------------------------------------------------------------------------------------------------------------//
 
             function loadAccordingToFilters(schools, levels) {
-
+                console.log(schools, levels)
                 var xhttp = new XMLHttpRequest();
                 xhttp.onreadystatechange = function () {
-
                     if (xhttp.readyState == 4 && xhttp.status == 200) {
                         var item = JSON.parse(xhttp.responseText);
 
@@ -672,7 +682,7 @@
                                         itemToAdd += `<td><div class="wm-courses-popular-wrap card-columns" style = "display:inline block">
                                                         <figure> <a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}"><img src="extra-images/papular-courses-${i}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
                                                             <figcaption>
-                                                                <img src="extra-images/papular-courses-thumb-6.jpg" alt="">
+                                                                <img src = "images/${item['modules'][i-1]['professor_id']}.jpg" style="width: 60px; height: 60px;">
                                                                 <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}">${item['modules'][i-1]['professor_name']}</a></h6>
                                                             </figcaption>
                                                         </figure>
@@ -686,7 +696,7 @@
                                         itemToAdd += `<td><div class="wm-courses-popular-wrap card-columns" style = "display:inline block">
                                                         <figure> <a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}"><img src="extra-images/papular-courses-${i}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
                                                             <figcaption>
-                                                                <img src="extra-images/papular-courses-thumb-6.jpg" alt="">
+                                                                <img src = "images/${item['modules'][i-1]['professor_id']}.jpg" style="width: 60px; height: 60px;">
                                                                 <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}">${item['modules'][i-1]['professor_name']}</a></h6>
                                                             </figcaption>
                                                         </figure>
@@ -710,7 +720,7 @@
                                     itemToAdd += `<td><div class="wm-courses-popular-wrap card-columns" style = "display:inline block">
                                                 <figure> <a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}"><img src="extra-images/papular-courses-${i}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
                                                     <figcaption>
-                                                        <img src="extra-images/papular-courses-thumb-6.jpg" alt="">
+                                                        <img src = "images/${item['modules'][i-1]['professor_id']}.jpg" style="width: 60px; height: 60px;">
                                                         <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}">${item['modules'][i-1]['professor_name']}</a></h6>
                                                     </figcaption>
                                                 </figure>
@@ -724,7 +734,7 @@
                                     itemToAdd += `<td><div class="wm-courses-popular-wrap card-columns" style = "display:inline block">
                                                 <figure> <a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}"><img src="extra-images/papular-courses-${i}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
                                                     <figcaption>
-                                                        <img src="extra-images/papular-courses-thumb-6.jpg" alt="">
+                                                        <img src = "images/${item['modules'][i-1]['professor_id']}.jpg" style="width: 60px; height: 60px;">
                                                         <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}">${item['modules'][i-1]['professor_name']}</a></h6>
                                                     </figcaption>
                                                 </figure>
@@ -788,7 +798,7 @@
                             itemToAdd += `<td><div class="wm-courses-popular-wrap">
                                             <figure> <a href="#"><img src="extra-images/papular-courses-${i+1}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
                                                 <figcaption>
-                                                    <img src="extra-images/papular-courses-thumb-6.jpg" alt="">
+                                                    <img src = "images/${item['modules'][i-1]['professor_id']}.jpg" style="width: 60px; height: 60px;">
                                                     <h6><a href="#">${courses[i]['professor_name']}</a></h6>
                                                 </figcaption>
                                             </figure>
@@ -802,7 +812,7 @@
                             itemToAdd += `<td><div class="wm-courses-popular-wrap">
                                             <figure> <a href="#"><img src="extra-images/papular-courses-${i+1}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
                                                 <figcaption>
-                                                    <img src="extra-images/papular-courses-thumb-6.jpg" alt="">
+                                                    <img src = "images/${item['modules'][i-1]['professor_id']}.jpg" style="width: 60px; height: 60px;">
                                                     <h6><a href="#">${courses[i]['professor_name']}</a></h6>
                                                 </figcaption>
                                             </figure>
