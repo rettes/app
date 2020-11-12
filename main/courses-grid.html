@@ -145,11 +145,13 @@
                                 <p>Find your course here:</p>
                                 <form>
                                     <ul>
-                                        <li> <input type="text" value="Course Name" id="filterCourseName"
+                                        <li> 
+                                            <input type="text" value="Course Name" id="filterCourseName"
                                                 oninput="filterAccordingToCourseName()"
                                                 onblur="if(this.value == '') { this.value ='Course Name'; }"
                                                 onfocus="if(this.value =='Course Name') { this.value = ''; }"> <i
-                                                class="wmicon-search"></i> </li>
+                                                class="wmicon-search"></i> 
+                                        </li>
                                         <li> <input type="submit" value="Search course"> </li>
                                     </ul>
                                 </form>
@@ -494,6 +496,15 @@
 
 
         <script>
+            //check lines 500-504
+            const urlParams = new URL(document.location).searchParams;
+            const myParam = urlParams.get('mod_id');
+            if (myParam) {
+                loadAccordingToFilters(["School of Business"], []);
+                // hard coded school of biz to see if the code works
+            }
+
+
             function showChanges() {
                 var selected = [];
                 $('.ifChecked input:checked').each(function () {
@@ -642,10 +653,9 @@
             //-------------------------------------------------------------------------------------------------------------//
 
             function loadAccordingToFilters(schools, levels) {
-
+                console.log(schools, levels)
                 var xhttp = new XMLHttpRequest();
                 xhttp.onreadystatechange = function () {
-
                     if (xhttp.readyState == 4 && xhttp.status == 200) {
                         var item = JSON.parse(xhttp.responseText);
 

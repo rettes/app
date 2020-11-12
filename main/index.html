@@ -125,78 +125,7 @@
                         </div>
                         <div class="wm-courses wm-courses-popular">
                             <ul class="row" id="courseList">
-                                <!-- <li class="col-md-3">
-                                        <div class="wm-courses-popular-wrap">
-                                            <figure> <a href="#"><img src="extra-images/papular-courses-1.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
-                                                <figcaption>
-                                                    <img src="images\lkshar.png" alt="">
-                                                    <h6><a href="#">Shar Lwin Khin</a></h6>
-                                                </figcaption>
-                                            </figure>
-                                            <div class="wm-popular-courses-text">
-                                                <h6><a href="#">Web Application Development II</a></h6>
-                                                <div class="wm-courses-price"> <span>$32</span> </div>
-                                                <ul>
-                                                    <li><a href="#" class="wm-color"><i class="wmicon-social7"></i> 342</a></li>
-                                                    <li><a href="#" class="wm-color"><i class="wmicon-social6"></i> 10</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="col-md-3">
-                                        <div class="wm-courses-popular-wrap">
-                                            <figure> <a href="#"><img src="extra-images/papular-courses-2.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
-                                                <figcaption>
-                                                    <img src="images\rafaelbarros.jpg" alt="">
-                                                    <h6><a href="#">Rafael J. Barros</a></h6>
-                                                </figcaption>
-                                            </figure>
-                                            <div class="wm-popular-courses-text">
-                                                <h6><a href="#">Business Process Analysis & Solutioning</a></h6>
-                                                <div class="wm-courses-price"> <span>Free</span> </div>
-                                                <ul>
-                                                    <li><a href="#" class="wm-color"><i class="wmicon-social7"></i> 438</a></li>
-                                                    <li><a href="#" class="wm-color"><i class="wmicon-social6"></i> 28</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="col-md-3">
-                                        <div class="wm-courses-popular-wrap">
-                                            <figure> <a href="#"><img src="extra-images/papular-courses-3.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
-                                                <figcaption>
-                                                    <img src="images\tracyloh.jpg" alt="">
-                                                    <h6><a href="#">Tracy Loh</a></h6>
-                                                </figcaption>
-                                            </figure>
-                                            <div class="wm-popular-courses-text">
-                                                <h6><a href="#">Management Communications</a></h6>
-                                                <div class="wm-courses-price"> <span>$79</span> </div>
-                                                <ul>
-                                                    <li><a href="#" class="wm-color"><i class="wmicon-social7"></i> 309</a></li>
-                                                    <li><a href="#" class="wm-color"><i class="wmicon-social6"></i> 19</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="col-md-3">
-                                        <div class="wm-courses-popular-wrap">
-                                            <figure> <a href="#"><img src="extra-images/papular-courses-4.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
-                                                <figcaption>
-                                                    <img src="images\yllee.png" alt="">
-                                                    <h6><a href="#">Lee Yeow Leong</a></h6>
-                                                </figcaption>
-                                            </figure>
-                                            <div class="wm-popular-courses-text">
-                                                <h6><a href="#">Object Oriented Programming</a></h6>
-                                                <div class="wm-courses-price"> <span>$50</span> </div>
-                                                <ul>
-                                                    <li><a href="#" class="wm-color"><i class="wmicon-social7"></i> 298</a></li>
-                                                    <li><a href="#" class="wm-color"><i class="wmicon-social6"></i> 11</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li> -->
+                               
                             </ul>
                         </div>
                     </div>
@@ -218,31 +147,20 @@
                             <div class="wm-search-course">
                                 <h3 class="wm-short-title wm-color">Find Your Course</h3>
                                 <p>Fill in the form below to find your course:</p>
-                                <form>
+                                <form action="courses-grid.html" method="get">
                                     <ul>
-                                        <li>
-                                            <div class="wm-radio">
-                                                <div class="wm-radio-partition">
-                                                    <input id="male" type="radio" name="gender" value="male">
-                                                    <label for="male">by ID</label>
-                                                </div>
-                                                <div class="wm-radio-partition">
-                                                    <input id="female" type="radio" name="gender" value="female">
-                                                    <label for="female">by name</label>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li> <input type="text" value="Course Name"
+                                        <!-- check line 153 -->
+                                        <li> <input type="text" value="Course Name" name="mod_id"
                                                 onblur="if(this.value == '') { this.value ='Course Name'; }"
                                                 onfocus="if(this.value =='Course Name') { this.value = ''; }"> <i
                                                 class="wmicon-search"></i> </li>
                                         <li>
                                             <div class="wm-apply-select">
                                                 <select>
-                                                    <option>Category</option>
-                                                    <option>Category</option>
-                                                    <option>Category</option>
-                                                    <option>Category</option>
+                                                    <option>1 position</option>
+                                                    <option>2 positions</option>
+                                                    <option>3 positions</option>
+                                                    <option>4 positions</option>
                                                 </select>
                                             </div>
                                         </li>
@@ -257,7 +175,8 @@
                                     <li>
                                         <div class="wm-box-service-wrap wm-bgcolor">
                                             <i class="wmicon-suitcase"></i>
-                                            <h6><a href="#">Business</a></h6>
+                                            <!-- check line 179 -->
+                                            <h6><a href="courses-grid.html?mod_id=business">Business</a></h6>
                                         </div>
                                     </li>
                                     <li>
@@ -286,8 +205,8 @@
                                     </li>
                                     <li>
                                         <div class="wm-box-service-wrap wm-bgcolor">
-                                            <i class="wmicon-technology3"></i>
-                                            <h6><a href="#">Web Design</a></h6>
+                                            <i class="fa fa-institution"></i>
+                                            <h6><a href="#">Political Science</a></h6>
                                         </div>
                                     </li>
                                     <li>
@@ -311,187 +230,186 @@
 				</div>
             </div>
         </div>
-			<!--// Main Section \\-->
+		<!--// Main Section \\-->
 
 
-    <script>
+        <script>
 
-            //load id
-            if (localStorage.getItem("email") == null && window.location.search.substring(1) != "") {
-                var userEmail = window.location.search.substring(1);
-                localStorage.setItem("email", userEmail);
-                window.history.pushState({}, document.title, window.location.pathname);
-                //console.log(userEmail)
-            } else if (userEmail == null && localStorage.getItem("email") != null) {
-                userEmail = localStorage.getItem("email");
-            }
-            // else if (localStorage.getItem("email") == null ){
-            //     window.location = "http://localhost/app/login/";
-            //     Redirect();
-            // }
+                //load id
+                if (localStorage.getItem("email") == null && window.location.search.substring(1) != "") {
+                    var userEmail = window.location.search.substring(1);
+                    localStorage.setItem("email", userEmail);
+                    window.history.pushState({}, document.title, window.location.pathname);
+                    //console.log(userEmail)
+                } else if (userEmail == null && localStorage.getItem("email") != null) {
+                    userEmail = localStorage.getItem("email");
+                }
+                // else if (localStorage.getItem("email") == null ){
+                //     window.location = "http://localhost/app/login/";
+                //     Redirect();
+                // }
 
-            if (window.location.search.substring().includes("smu.edu.sg")) {
-                window.history.pushState({}, document.title, window.location.pathname);
-            }
+                if (window.location.search.substring().includes("smu.edu.sg")) {
+                    window.history.pushState({}, document.title, window.location.pathname);
+                }
 
 
-            //-------------------------------------------------------------------------------------------------------------//
+                //-------------------------------------------------------------------------------------------------------------//
 
-            function loadCourses() {
-                var xhttp = new XMLHttpRequest();
-                xhttp.onreadystatechange = function () {
+                function loadCourses() {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
 
-                    if (xhttp.readyState == 4 && xhttp.status == 200) {
-                        var item = JSON.parse(xhttp.responseText);
-                        console.log(item);
-                        console.log(item.modules[0].professor_name); //professor name
-                        console.log(item.modules[0].professor_id); //professor id
-                        console.log(item.modules[0].positions_available); //positions available
+                        if (xhttp.readyState == 4 && xhttp.status == 200) {
+                            var item = JSON.parse(xhttp.responseText);
+                            console.log(item);
+                            console.log(item.modules[0].professor_name); //professor name
+                            console.log(item.modules[0].professor_id); //professor id
+                            console.log(item.modules[0].positions_available); //positions available
 
-                        var positions_arr = [];
+                            var positions_arr = [];
 
-                        item.modules.sort((a, b) => (a.positions_available > b.positions_available) ? -1 : 1);
-                        console.log(item.modules);
+                            item.modules.sort((a, b) => (a.positions_available > b.positions_available) ? -1 : 1);
+                            // console.log(item.modules);
 
-                        var maxNumber;
-                        var itemToAdd = ``
+                            var maxNumber;
+                            var itemToAdd = ``;
 
-                        if (item.modules.length <= 4) {
-                            maxNumber = item.modules.length;
-                        } else {
-                            maxNumber = 4;
-                        }
-
-                        for (let i = 1; i <= maxNumber; i++) {
-                            var x = ``;
-                            if (item['modules'][i - 1]['positions_available'] == 1) {
-                                x = `style = 'color:red'`
+                            if (item.modules.length <= 4) {
+                                maxNumber = item.modules.length;
                             } else {
-                                x = `style = 'color:#90ee90'`
+                                maxNumber = 4;
                             }
 
-                            // if (i%4===1) {
-                            //     itemToAdd += `<div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
-                            //                     <div class="controls-top">
-                            //                         <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
-                            //                         <a class="btn-floating" href="#multi-item-example" data-slide="next"><i
-                            //                             class="fas fa-chevron-right"></i></a>
-                            //                     </div>
-                            //                     <div class="carousel-item active">`;                                   
-                            // }    
+                            for (let i = 1; i <= maxNumber; i++) {
+                                var x = ``;
+                                if (item['modules'][i - 1]['positions_available'] == 1) {
+                                    x = `style = 'color:red'`
+                                } else {
+                                    x = `style = 'color:#90ee90'`
+                                }
 
-                            itemToAdd += `<li class="col-md-3">
-                                <div class="wm-courses-popular-wrap">
-                                    <figure> <a href="#"><img src="extra-images/papular-courses-${i}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
-                                        <figcaption>
-                                            <img src="extra-images/papular-courses-thumb-6.jpg" alt="">
-                                            <h6><a href="#">${item['modules'][i-1]['professor_name']}</a></h6>
-                                        </figcaption>
-                                    </figure>
-                                    <div class="wm-popular-courses-text">
-                                        <h6><a href="#">${item['modules'][i-1]['mod_name']}</a></h6>
-                                        <div class="wm-courses-price" style="text-align: center"><span ${x}>${item['modules'][i-1]['positions_available']} position(s) left</span> </div>
-                                        
+                                // if (i%4===1) {
+                                //     itemToAdd += `
+                                //     <div id="carousel" class="carousel slide" data-ride="carousel" data-type="multi" data-interval="2500">
+                                //         <div class="carousel-inner">
+                                //             <div class="item active">`;                                   
+                                // }    
+
+                                itemToAdd += `<li class="col-md-3">
+                                    <div class="wm-courses-popular-wrap">
+                                        <figure> <a href="#"><img src="extra-images/papular-courses-${i}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
+                                            <figcaption>
+                                                <div>
+                                                    <img src = "images/${item['modules'][i-1]['professor_id']}.jpg" alt="">
+                                                </div>
+                                                <h6><a href="#">${item['modules'][i-1]['professor_name']}</a></h6>
+                                            </figcaption>
+                                        </figure>
+                                        <div class="wm-popular-courses-text">
+                                            <h6><a href="#">${item['modules'][i-1]['mod_name']}</a></h6>
+                                            <div class="wm-courses-price" style="text-align: center"><span ${x}>${item['modules'][i-1]['positions_available']} position(s) left</span> </div>
+                                            
+                                        </div>
                                     </div>
-                                </div>
-                            </li>`;
+                                </li>`;
 
-                            // if (i%4===0) {
-                            //     itemToAdd += `</div></div>`;
-                            // }
+                                // if (i%4===0) {
+                                //     itemToAdd += `</div></div></div>`;
+                                // }
+
+                            }
+
+                            document.getElementById("courseList").innerHTML = itemToAdd;
 
                         }
-
-                        document.getElementById("courseList").innerHTML = itemToAdd;
-
                     }
+
+                    xhttp.open("GET", "http://localhost:5012/get_all", true);
+                    xhttp.send();
                 }
+                var userID = '';
+                var userName = '';
+                var userType = '';
 
-                xhttp.open("GET", "http://localhost:5012/get_all", true);
-                xhttp.send();
-            }
-            var userID = '';
-            var userName = '';
-            var userType = '';
+                //-------------------------------------------------------------------------------------------------------------//
 
-            //-------------------------------------------------------------------------------------------------------------//
+                function loadUserInfo() {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+                        if (xhttp.readyState == 4 && xhttp.status == 200) {
+                            var item = JSON.parse(xhttp.responseText);
+                            userType = item['user_type'];
+                            userID = item['user_id'];
+                            localStorage.setItem("userType", userType);
+                            localStorage.setItem("userID", userID);
 
-            function loadUserInfo() {
-                var xhttp = new XMLHttpRequest();
-                xhttp.onreadystatechange = function () {
-                    if (xhttp.readyState == 4 && xhttp.status == 200) {
-                        var item = JSON.parse(xhttp.responseText);
-                        userType = item['user_type'];
-                        userID = item['user_id'];
-                        localStorage.setItem("userType", userType);
-                        localStorage.setItem("userID", userID);
+                            document.getElementById("welcome").innerHTML = "Hi, " + userID;
+                            if (userType == "professor") {
+                                document.getElementById("payment").id = "addOpening";
+                                document.getElementById("addOpening").innerHTML = "Add TA Opening";
+                                document.getElementById("addOpening").href = "add-courses.html";
+                                loadProfessorName(userID);
+                            } else if (userType == "student") {
+                                loadStudentName(userID);
+                            } else if (userType == "admin") {
+                                var newLi = document.createElement("LI");
+                                var linkNode = document.createElement("A");
+                                linkNode.id = "addOpening";
+                                linkNode.innerHTML = "Add TA Opening";
+                                linkNode.href = "add-courses.html";
+                                newLi.appendChild(linkNode);
+                                console.log(newLi)
 
-                        document.getElementById("welcome").innerHTML = "Hi, " + userID;
-                        if (userType == "professor") {
-                            document.getElementById("payment").id = "addOpening";
-                            document.getElementById("addOpening").innerHTML = "Add TA Opening";
-                            document.getElementById("addOpening").href = "add-courses.html";
-                            loadProfessorName(userID);
-                        } else if (userType == "student") {
-                            loadStudentName(userID);
-                        } else if (userType == "admin") {
-                            var newLi = document.createElement("LI");
-                            var linkNode = document.createElement("A");
-                            linkNode.id = "addOpening";
-                            linkNode.innerHTML = "Add TA Opening";
-                            linkNode.href = "add-courses.html";
-                            newLi.appendChild(linkNode);
-                            console.log(newLi)
-
-                            var topNav = document.getElementById("topNav");
-                            topNav.insertBefore(newLi, document.getElementById("logout"));
+                                var topNav = document.getElementById("topNav");
+                                topNav.insertBefore(newLi, document.getElementById("logout"));
+                            }
                         }
                     }
+
+                    url = "http://localhost:5010/get_account_by_email/" + userEmail
+                    xhttp.open("GET", url, true);
+                    xhttp.send();
                 }
 
-                url = "http://localhost:5010/get_account_by_email/" + userEmail
-                xhttp.open("GET", url, true);
-                xhttp.send();
-            }
+                //-------------------------------------------------------------------------------------------------------------//
 
-            //-------------------------------------------------------------------------------------------------------------//
+                function loadProfessorName(userID) {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
 
-            function loadProfessorName(userID) {
-                var xhttp = new XMLHttpRequest();
-                xhttp.onreadystatechange = function () {
-
-                    if (xhttp.readyState == 4 && xhttp.status == 200) {
-                        var item = JSON.parse(xhttp.responseText);
-                        // console.log(item)
-                        userName = item['professor_name'];
-                        sessionStorage.setItem("userName", userName)
+                        if (xhttp.readyState == 4 && xhttp.status == 200) {
+                            var item = JSON.parse(xhttp.responseText);
+                            // console.log(item);
+                            userName = item['professor_name'];
+                            sessionStorage.setItem("userName", userName)
+                        }
                     }
+                    url = "http://localhost:5014/get_name_by_id/" + userID
+                    xhttp.open("GET", url, true);
+                    xhttp.send();
                 }
-                url = "http://localhost:5014/get_name_by_id/" + userID
-                xhttp.open("GET", url, true);
-                xhttp.send();
-            }
 
-            //-------------------------------------------------------------------------------------------------------------//
+                //-------------------------------------------------------------------------------------------------------------//
 
-            function loadStudentName(userID) {
-                var xhttp = new XMLHttpRequest();
-                xhttp.onreadystatechange = function () {
+                function loadStudentName(userID) {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
 
-                    if (xhttp.readyState == 4 && xhttp.status == 200) {
-                        var item = JSON.parse(xhttp.responseText);
-                        // console.log(item)
-                        userName = item['student_name'];
-                        sessionStorage.setItem("userName", userName)
+                        if (xhttp.readyState == 4 && xhttp.status == 200) {
+                            var item = JSON.parse(xhttp.responseText);
+                            // console.log(item)
+                            userName = item['student_name'];
+                            sessionStorage.setItem("userName", userName)
+                        }
                     }
+                    url = "http://localhost:5014/get_name_by_id/" + userID
+                    xhttp.open("GET", url, true);
+                    xhttp.send();
                 }
-                url = "http://localhost:5014/get_name_by_id/" + userID
-                xhttp.open("GET", url, true);
-                xhttp.send();
-            }
-    </script>
+        </script>
 
-            // <!-- jQuery (necessary for JavaScript plugins) -->
+            <!-- jQuery (necessary for JavaScript plugins) -->
             <script type="text/javascript" src="script/jquery.js"></script>
             <script type="text/javascript" src="script/modernizr.js"></script>
             <script type="text/javascript" src="script/bootstrap.min.js"></script>
