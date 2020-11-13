@@ -235,17 +235,16 @@
 
         <script>
             //load id
-            if (sessionStorage.getItem("email") == null && window.location.search.substring().includes("smu.edu.sg")) {
+            if (localStorage.getItem("email") == null && window.location.search.substring().includes("smu.edu.sg")) {
                 var userEmail = window.location.search.substring(1);
-                sessionStorage.setItem("email", userEmail);
+                localStorage.setItem("email", userEmail);
                 window.history.pushState({}, document.title, window.location.pathname);
                 console.log(userEmail)
-            } else if (userEmail == null && sessionStorage.getItem("email") != null) {
-                userEmail = sessionStorage.getItem("email");
+            } else if (userEmail == null && localStorage.getItem("email") != null) {
+                userEmail = localStorage.getItem("email");
                 //console.log(userEmail)
             }
-
-            // else if (sessionStorage.getItem("email") == null ){
+            // else if (localStorage.getItem("email") == null ){
             //     window.location = "http://localhost/app/login/";
             //     Redirect();
             // }
@@ -339,8 +338,8 @@
                         var item = JSON.parse(xhttp.responseText);
                         userType = item['user_type'];
                         userID = item['user_id'];
-                        sessionStorage.setItem("userType", userType);
-                        sessionStorage.setItem("userID", userID);
+                        localStorage.setItem("userType", userType);
+                        localStorage.setItem("userID", userID);
 
                         document.getElementById("welcome").innerHTML = "Hi, " + userID;
                         if (userType == "professor") {
@@ -386,6 +385,7 @@
 
                     if (xhttp.readyState == 4 && xhttp.status == 200) {
                         var item = JSON.parse(xhttp.responseText);
+                        // console.log(item)
                         userName = item['professor_name'];
                         sessionStorage.setItem("userName", userName)
                     }

@@ -163,6 +163,12 @@
                                         <input type="text" id='scope' placeholder="Job scope">
                                     </li>
                                     <li>
+                                        <input type="text" id='professorName' placeholder="Professor Name">
+                                    </li>
+                                    <li>
+                                        <input type="text" id='professorID' placeholder="Professor ID">
+                                    </li>
+                                    <li>
                                         <label class="wm-color" for="schools">Choose a school:</label>
                                         <select name="schools" id="school">
                                             <option value="Centre for English Communication">Centre for English Communication</option>
@@ -177,10 +183,14 @@
                                             <option value="School of Law">School of Law</option>
                                             <option value="School of Social Science">School of Social Science</option>
                                         </select>
-                                        <input type="text" id='school' placeholder="School">
                                     </li>
                                     <li>
-                                        <input type="text" id='level' placeholder="Level">
+                                        <label class="wm-color" for="level">Choose a level:</label>
+                                        <select name="level" id="level">
+                                            <option value="Introductory">Introductory</option>
+                                            <option value="Intermediate">Intermediate</option>
+                                            <option value="Advanced">Advanced</option>
+                                        </select>
                                     </li>
                                     <li>
                                         <input type="text" id='description' placeholder="Module description">
@@ -453,23 +463,22 @@
         });
 
 
-        if (userEmail == null && sessionStorage.getItem("email") != null) {
-            var userEmail = sessionStorage.getItem("userEmail");
+        if (userEmail == null && localStorage.getItem("email") != null) {
+            var userEmail = localStorage.getItem("userEmail");
         }
-        if (userID == null && sessionStorage.getItem("userID") != null) {
-            var userID = sessionStorage.getItem("userID");
+        if (userID == null && localStorage.getItem("userID") != null) {
+            var userID = localStorage.getItem("userID");
         }
-        if (userName == null && sessionStorage.getItem("userName") != null) {
-            var userName = sessionStorage.getItem("userName");
+        if (userName == null && localStorage.getItem("userName") != null) {
+            var userName = localStorage.getItem("userName");
         }
-        if (userType == null && sessionStorage.getItem("userType") != null) {
-            var userType = sessionStorage.getItem("userType");
+        if (userType == null && localStorage.getItem("userType") != null) {
+            var userType = localStorage.getItem("userType");
         }
-        // if (sessionStorage.getItem("email") == null ){
+        // if (localStorage.getItem("email") == null ){
         //     window.location = "http://localhost/app/login/";
         //     Redirect();
         // }
-        console.log(sessionStorage.getItem("userName"))
 
         //-------------------------------------------------------------------------------------------------------------//
 
@@ -480,6 +489,12 @@
                 document.getElementById("addOpening").innerHTML = "Add TA Opening"
                 document.getElementById("addOpening").href = "add-courses.html"
                 document.getElementById("welcome").innerHTML = "Hi, " + userID;
+                document.getElementById("professorName").value = userName;
+                document.getElementById("professorID").value = userID;
+                document.getElementById("professorName").readOnly = true;
+                document.getElementById("professorID").readOnly = true;
+                
+                
             } else if (userType == "admin") {
                 let newLi = document.createElement("LI");
                 let linkNode = document.createElement("A");
@@ -522,12 +537,6 @@
 
                     if (items.id != "submit") {
                         course[items.id] = items.value;
-                        if (items.id == "scope") {
-                            course[items.id] = items.value;
-                            course["name"] = userName;
-                            
-                            course["id"] = userName;
-                        }
                     }
                 }
             }
@@ -548,6 +557,10 @@
                         } else if (item == "Module added") {
                             document.getElementById("message").style.color = "green";
                             document.getElementById("addCourse").reset();
+                            document.getElementById("professorName").value = userName;
+                            document.getElementById("professorID").value = userID;
+                            document.getElementById("professorName").readOnly = true;
+                            document.getElementById("professorID").readOnly = true;
                         }
 
                     }

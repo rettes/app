@@ -24,7 +24,7 @@ USE `ta_listing`;
 --
 DROP TABLE IF EXISTS `account`;
 CREATE TABLE `account` (
-  `USER_ID` varchar(15) NOT NULL,
+  `USER_ID` varchar(20) NOT NULL,
   `HASHED_PASSWORD` varchar(256) NOT NULL,
   `EMAIL` varchar(32) NOT NULL,
   `USER_TYPE` varchar(9) NOT NULL
@@ -71,12 +71,12 @@ INSERT INTO `account` (`USER_ID`, `HASHED_PASSWORD`, `EMAIL`, `USER_TYPE`) VALUE
 DROP TABLE IF EXISTS `applications`;
 CREATE TABLE `applications` (
   `STUDENT_NAME` varchar(30) NOT NULL,
-  `STUDENT_ID` varchar(15) NOT NULL,
+  `STUDENT_ID` varchar(20) NOT NULL,
   `APPLICATION_NO` int(11) NOT NULL,
   `STATUS` tinyint(3) NOT NULL,
-  `MOD_ID` varchar(30) NOT NULL,
-  `PROFESSOR_NAME` varchar(20) NOT NULL,
-  `PROFESSOR_ID` varchar(12) NOT NULL
+  `MOD_ID` varchar(40) NOT NULL,
+  `PROFESSOR_NAME` varchar(30) NOT NULL,
+  `PROFESSOR_ID` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -101,12 +101,12 @@ INSERT INTO `applications` (`STUDENT_NAME`, `STUDENT_ID`, `APPLICATION_NO`, `STA
 
 DROP TABLE IF EXISTS `modules`;
 CREATE TABLE IF NOT EXISTS `modules` (
-  `MOD_ID` varchar(30) NOT NULL,
-  `MOD_NAME` varchar(30) NOT NULL,
+  `MOD_ID` varchar(40) NOT NULL,
+  `MOD_NAME` varchar(99) NOT NULL,
   `POSITIONS_AVAILABLE` int(2) NOT NULL,
   `JOB_SCOPE` varchar(99) NOT NULL,
   `PROFESSOR_NAME` varchar(30) NOT NULL,
-  `PROFESSOR_ID` varchar(12) NOT NULL,
+  `PROFESSOR_ID` varchar(20) NOT NULL,
   `school` varchar(1000) NOT NULL,
   `level` varchar(100) NOT NULL,
   `Description` varchar(10000) NOT NULL,
@@ -154,9 +154,9 @@ CREATE TABLE `payments` (
   `PAYMENT_AMT` int(3) NOT NULL,
   `PAYMENT_DETAILS` varchar(99) NOT NULL,
   `PAYMENT_DATE` datetime NOT NULL,
-  `MOD_ID` varchar(30) NOT NULL,
-  `STUDENT_ID` varchar(15) NOT NULL,
-  `PROFESSOR_ID` varchar(15) NOT NULL
+  `MOD_ID` varchar(40) NOT NULL,
+  `STUDENT_ID` varchar(20) NOT NULL,
+  `PROFESSOR_ID` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -176,7 +176,7 @@ INSERT INTO `payments` (`PAYMENT_ID`, `PAYMENT_AMT`, `PAYMENT_DETAILS`, `PAYMENT
 DROP TABLE IF EXISTS `professors`;
 CREATE TABLE `professors` (
   `PROFESSOR_NAME` varchar(30) NOT NULL,
-  `PROFESSOR_ID` varchar(12) NOT NULL
+  `PROFESSOR_ID` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -215,7 +215,7 @@ INSERT INTO `professors` (`PROFESSOR_NAME`, `PROFESSOR_ID`) VALUES
 DROP TABLE IF EXISTS `students`;
 CREATE TABLE `students` (
   `STUDENT_NAME` varchar(30) NOT NULL,
-  `STUDENT_ID` varchar(12) NOT NULL,
+  `STUDENT_ID` varchar(20) NOT NULL,
   `RESUME` varchar(99) NOT NULL,
   `RATING` float NOT NULL,
   `CURRENT_YEAR` int(11) NOT NULL,
@@ -241,7 +241,7 @@ INSERT INTO `students` (`STUDENT_NAME`, `STUDENT_ID`, `RESUME`, `RATING`, `CURRE
 
 DROP TABLE IF EXISTS `student_experience`;
 CREATE TABLE `student_experience` (
-  `STUDENT_ID` varchar(15) NOT NULL,
+  `STUDENT_ID` varchar(20) NOT NULL,
   `STUDENT_NAME` varchar(30) NOT NULL,
   `EXPERIENCE` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
