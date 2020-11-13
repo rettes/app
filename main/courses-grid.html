@@ -536,11 +536,11 @@
                     if (xhttp.readyState == 4 && xhttp.status == 200) {
                         const urlParams = new URL(document.location).searchParams;
                         const myParam = urlParams.get('mod_id');
+                        // console.log(myParam);
                         if (myParam) {
-                            loadAccordingToFilters(["School of Information Systems"], []);
-                            console.log(sessionStorage)
+                            loadAccordingToFilters(myParam, []);
+                            console.log(sessionStorage);
                             return true;
-                            // hard coded school of biz to see if the code works
                         }
                         var item = JSON.parse(xhttp.responseText);
                         
