@@ -182,13 +182,15 @@
                                     <li>
                                         <div class="wm-box-service-wrap wm-bgcolor">
                                             <i class="wmicon-money"></i>
-                                            <h6><a href="courses-grid.html?mod_id=School of Economics">Economics</a></h6>
+                                            <h6><a href="courses-grid.html?mod_id=School of Economics">Economics</a>
+                                            </h6>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="wm-box-service-wrap wm-bgcolor">
                                             <i class="fa fa-money"></i>
-                                            <h6><a href="courses-grid.html?mod_id=School of Accountancy">Accountings</a></h6>
+                                            <h6><a href="courses-grid.html?mod_id=School of Accountancy">Accountings</a>
+                                            </h6>
                                         </div>
                                     </li>
                                     <li>
@@ -200,25 +202,30 @@
                                     <li>
                                         <div class="wm-box-service-wrap wm-bgcolor">
                                             <i class="fa fa-heartbeat"></i>
-                                            <h6><a href="courses-grid.html?mod_id=School of Social Sciences">Psychology</a></h6>
+                                            <h6><a
+                                                    href="courses-grid.html?mod_id=School of Social Sciences">Psychology</a>
+                                            </h6>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="wm-box-service-wrap wm-bgcolor">
                                             <i class="fa fa-institution"></i>
-                                            <h6><a href="courses-grid.html?mod_id=School of Social Sciences">Political Science</a></h6>
+                                            <h6><a href="courses-grid.html?mod_id=School of Social Sciences">Political
+                                                    Science</a></h6>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="wm-box-service-wrap wm-bgcolor">
                                             <i class="wmicon-web3"></i>
-                                            <h6><a href="courses-grid.html?mod_id=School of Information Systems">Information Systems</a></h6>
+                                            <h6><a href="courses-grid.html?mod_id=School of Information Systems">Information
+                                                    Systems</a></h6>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="wm-box-service-wrap wm-bgcolor">
                                             <i class="wmicon-computer"></i>
-                                            <h6><a href="courses-grid.html?mod_id=School of Information Systems">Cyber Security</a></h6>
+                                            <h6><a href="courses-grid.html?mod_id=School of Information Systems">Cyber
+                                                    Security</a></h6>
                                         </div>
                                     </li>
 
@@ -387,7 +394,7 @@
                         var item = JSON.parse(xhttp.responseText);
                         // console.log(item)
                         userName = item['professor_name'];
-                        sessionStorage.setItem("userName", userName)
+                        localStorage.setItem("userName", userName)
                     }
                 }
                 url = "http://localhost:5014/get_name_by_id/" + userID
@@ -405,7 +412,7 @@
                         var item = JSON.parse(xhttp.responseText);
                         // console.log(item)
                         userName = item['student_name'];
-                        sessionStorage.setItem("userName", userName)
+                        localStorage.setItem("userName", userName)
                     }
                 }
                 url = "http://localhost:5014/get_name_by_id/" + userID
