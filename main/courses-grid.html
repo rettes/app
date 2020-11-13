@@ -515,19 +515,19 @@
 
             //-------------------------------------------------------------------------------------------------------------//
 
-            if (userEmail == null && sessionStorage.getItem("email") != null) {
-                var userEmail = sessionStorage.getItem("userEmail")
+            if (userEmail == null && localStorage.getItem("email") != null) {
+                var userEmail = localStorage.getItem("userEmail")
             }
-            if (userID == null && sessionStorage.getItem("userID") != null) {
-                var userID = sessionStorage.getItem("userID")
+            if (userID == null && localStorage.getItem("userID") != null) {
+                var userID = localStorage.getItem("userID")
             }
-            if (userName == null && sessionStorage.getItem("userName") != null) {
-                var userName = sessionStorage.getItem("userName")
+            if (userName == null && localStorage.getItem("userName") != null) {
+                var userName = localStorage.getItem("userName")
             }
-            if (userType == null && sessionStorage.getItem("userType") != null) {
-                var userType = sessionStorage.getItem("userType")
+            if (userType == null && localStorage.getItem("userType") != null) {
+                var userType = localStorage.getItem("userType")
             }
-            // if (sessionStorage.getItem("email") == null ){
+            // if (localStorage.getItem("email") == null ){
             //     window.location = "http://localhost/app/login/";
             //     Redirect();
             // }
