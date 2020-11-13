@@ -23,6 +23,8 @@
     <link href="css/color-four.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
 
+    
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -30,7 +32,8 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body onload="loadStudentInfo()">
+  <!-- <body onload="loadStudentInfo()"> -->
+  <body onload="getStudent()">
 	
     <!--// Main Wrapper \\-->
     <div class="wm-main-wrapper">
@@ -99,7 +102,7 @@
                             </li>
 
                             <li class="wm-megamenu-li">
-                                <a href="../login/login.html">Logout</a>
+                                <a href="../login/index.html">Logout</a>
                             </li>
                           </ul>
                         </div>
@@ -149,8 +152,8 @@
 										<a href="#"><img src="extra-images/students-setting-1.jpg" alt=""></a>
 									</figure>
 									<div class="wm-student-nav-text">
-										<h6>Kevin Nickols</h6>
-										<a href="#">update image</a>
+										<h6 id='student_name'></h6>
+										<!-- <a id='student_image'>update image</a> -->
 									</div>
 									<ul>
 										<li class="active">
@@ -165,7 +168,7 @@
 												My Courses
 											</a>
 										</li>
-										<li>
+										<!-- <li>
 											<a href="#">
 												<i class="wmicon-favorite"></i>
 												Favorites
@@ -188,7 +191,7 @@
 												<i class="wmicon-arrow"></i>
 												Logout
 											</a>
-										</li>
+										</li> -->
 									</ul>
 								</div>
 							</div>							
@@ -197,24 +200,26 @@
 							<div class="wm-student-profile-info">
 								<div class="wm-student-dashboard-profile">
 									<div class="wm-plane-title">
-										<h2>About Me</h2>									
+                                        <h2>About Me</h2>	
+                                        <h3>TODO: add CRUD to change picture and description?</h3>								
 									</div>
 									<ul class="row">
-										<li class="col-md-4">
+										<li class="col-md-5">
 											<div class="wm-student-profile">
-												<a class=wm-circle-icon href="#"><i class="wmicon-technology4"></i></a>
+                                                <a class=wm-circle-icon href="#"><i class="wmicon-web2"></i></a>
+												
 												<div class="wm-student-profile-text">
-													<span>Phone:</span>
-													<a href="#">(012) 345-6789</a>
+													<span> Email:</span>
+													<a id='email' href="#"></a>
 												</div>
 											</div>
 										</li>
-										<li class="col-md-4">
+										<li class="col-md-3">
 											<div class="wm-student-profile">
-												<a class=wm-circle-icon href="#"><i class="wmicon-web2"></i></a>
+												<a class=wm-circle-icon href="#"><i class="wmicon-web2" aria-hidden="true"></i></a>
 												<div class="wm-student-profile-text">
-													<span>Email:</span>
-													<a href="#">kevin@student.com</a>
+													<span>Year:</span>
+													<a id='current_year'></a>
 												</div>
 											</div>
 										</li>
@@ -222,15 +227,15 @@
 											<div class="wm-student-profile">
 												<a class=wm-circle-icon href="#"><i class="fa fa-graduation-cap"></i></a>
 												<div class="wm-student-profile-text">
-													<span>Tutor:</span>
-													<a href="#">Janet H. Kamerons</a>
+													<span>Faculty:</span>
+													<a id='faculty' href="#"></a>
 												</div>
 											</div>
 										</li>
 									</ul>
-									<p>Becoming a student requires more than a test score. To “be student” requires persistence. And passion. And a desire to give back. It doesn’t matter 	whether you’re the first in your family to attend college or you’re the latest in a long tradition of educational excellence: You stand up and you stand out.</p>								
+									<!-- <p>Becoming a student requires more than a test score. To “be student” requires persistence. And passion. And a desire to give back. It doesn’t matter 	whether you’re the first in your family to attend college or you’re the latest in a long tradition of educational excellence: You stand up and you stand out.</p>								 -->
 								</div>
-								<div class="wm-profile-info">
+								<!-- <div class="wm-profile-info">
 									<div class="wm-title-full">
 										<h5>More Detail Information</h5>
 									</div>
@@ -301,7 +306,7 @@
 											</li>
 										</ul>
 									</div>
-								</div>
+								</div> -->
 							</div>									
 						</div>
 					</div>
@@ -490,11 +495,87 @@
     </div>
     <!-- ModalSearch Box -->
 
-    <script>
+    <!-- <script>
+        function loadStudentInfo(){
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (xhttp.readyState == 4 && xhttp.status == 200) {
+                    var item = JSON.parse(xhttp.responseText);
+                    // console.log(item);
+                    console.log(item.students[0].student_name);
+                }
 
+                document.getElementById("courseList").innerHTML = itemToAdd;
+            }
+
+            xhttp.open("GET", "http://localhost:5015/get_all", true);
+            xhttp.send();
+        }
+    </script> -->
+
+    <!-- !  my javascript code -->
+    <script>
+        function getStudent() {
+            var url_string = window.location.href;
+            var url = new URL(url_string)
+            var student_id = url.searchParams.get("student_id")
+            console.log('student_id: ' + student_id)
+            // Step 1
+            var request = new XMLHttpRequest();
+
+            // Step 2
+            // Register function
+            request.onreadystatechange = function() {
+                // Step 5
+                if( this.readyState == 4 && this.status == 200 ) {
+                    // Response is ready
+                    console.log('success');
+                    var json_obj = JSON.parse(request.responseText);
+                    console.log(json_obj);
+                    renderStudentProfile(json_obj);
+                }
+                // else if( request.readyState == 4 && request.status == 404 ) {
+                //     console.log('Fail to retrieve request')
+                }
+
+            // Step 3
+            var url = `http://localhost:5015/get_student_by_student_id/${student_id}`; 
+
+            // var url = `http://localhost:5001/`; 
+            request.open("GET", url, true); 
+            request.send();
+
+            // request.open("PUT", url, true); 
+            // request.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); 
+            // request.send("email=" + email +"&password="+password); // query parameters
+
+        }
+
+        function renderStudentProfile(json_obj) {
+            var current_year = json_obj.current_year;
+            var faculty = json_obj.faculty;
+            var rating = json_obj.rating;
+            // var resume = json_obj.resume;
+            var student_id = json_obj.student_id;
+            var student_name = json_obj.student_name;
+            var email = student_id + "@smu.edu.sg"
+
+
+            document.getElementById('student_name').innerText = `${student_name}`;
+            // document.getElementById('rating').innerText = `${rating}`;
+            // document.getElementById('student_image').innerText = `${student_name}`;
+            document.getElementById('email').innerText = `${email}`;
+            document.getElementById('faculty').innerText = `${faculty}`;
+            document.getElementById('current_year').innerText = `${current_year}`;
+
+
+
+        }
     </script>
 
-	<!-- jQuery (necessary for JavaScript plugins) -->
+    <!-- jQuery (necessary for JavaScript plugins) -->
+
+
 	<script type="text/javascript" src="script/jquery.js"></script>
 	<script type="text/javascript" src="script/modernizr.js"></script>
     <script type="text/javascript" src="script/bootstrap.min.js"></script>
@@ -510,7 +591,11 @@
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
     <script type="text/javascript" src="script/functions.js"></script>
 
+    
   </body>
+
+
+
 
 <!-- student-dashboard-profile21:55  -->
 </html>
