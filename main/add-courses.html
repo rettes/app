@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Courses Grid</title>
+    <title>Add Courses</title>
 
     <!-- Css Files -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -104,11 +104,6 @@
                                         <li id="logout">
                                             <a href="logout.html">Logout</a>
                                         </li>
-
-                                        <li>
-                                            <a href="#" class="wm-search-btn" data-toggle="modal"
-                                                data-target="#ModalSearch"><i class="wmicon-search"></i></a>
-                                        </li>
                                     </ul>
                                 </div>
                             </nav>
@@ -168,6 +163,20 @@
                                         <input type="text" id='scope' placeholder="Job scope">
                                     </li>
                                     <li>
+                                        <label class="wm-color" for="schools">Choose a school:</label>
+                                        <select name="schools" id="school">
+                                            <option value="Centre for English Communication">Centre for English Communication</option>
+                                            <option value="Office of Core Curriculum Courses">Office of Core Curriculum Courses</option>
+                                            <option value="School of Accountancy">School of Accountancy</option>
+                                            <option value="School of Business">School of Business</option>
+                                            <option value="School of Economics">School of Economics</option>
+                                            <option value="School of Information Systems">School of Information Systems
+                                            </option>
+                                            <option value="School of Computer Science">School of Computer Science
+                                            </option>
+                                            <option value="School of Law">School of Law</option>
+                                            <option value="School of Social Science">School of Social Science</option>
+                                        </select>
                                         <input type="text" id='school' placeholder="School">
                                     </li>
                                     <li>
@@ -444,22 +453,23 @@
         });
 
 
-        if (userEmail == null && localStorage.getItem("email") != null ) {
-            var userEmail = localStorage.getItem("userEmail");
+        if (userEmail == null && sessionStorage.getItem("email") != null) {
+            var userEmail = sessionStorage.getItem("userEmail");
         }
-        if (userID == null && localStorage.getItem("userID") != null) {
-            var userID = localStorage.getItem("userID");
+        if (userID == null && sessionStorage.getItem("userID") != null) {
+            var userID = sessionStorage.getItem("userID");
         }
-        if (userName == null && localStorage.getItem("userName") != null) {
-            var userName = localStorage.getItem("userName");
+        if (userName == null && sessionStorage.getItem("userName") != null) {
+            var userName = sessionStorage.getItem("userName");
         }
-        if (userType == null && localStorage.getItem("userType") != null) {
-            var userType = localStorage.getItem("userType");
+        if (userType == null && sessionStorage.getItem("userType") != null) {
+            var userType = sessionStorage.getItem("userType");
         }
-        // if (localStorage.getItem("email") == null ){
+        // if (sessionStorage.getItem("email") == null ){
         //     window.location = "http://localhost/app/login/";
         //     Redirect();
         // }
+        console.log(sessionStorage.getItem("userName"))
 
         //-------------------------------------------------------------------------------------------------------------//
 
@@ -470,8 +480,7 @@
                 document.getElementById("addOpening").innerHTML = "Add TA Opening"
                 document.getElementById("addOpening").href = "add-courses.html"
                 document.getElementById("welcome").innerHTML = "Hi, " + userID;
-            }
-            else if (userType == "admin") {
+            } else if (userType == "admin") {
                 let newLi = document.createElement("LI");
                 let linkNode = document.createElement("A");
                 linkNode.id = "addOpening";
@@ -516,6 +525,7 @@
                         if (items.id == "scope") {
                             course[items.id] = items.value;
                             course["name"] = userName;
+                            
                             course["id"] = userName;
                         }
                     }
