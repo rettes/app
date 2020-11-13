@@ -152,6 +152,7 @@ DROP TABLE IF EXISTS `payments`;
 CREATE TABLE `payments` (
   `PAYMENT_ID` int(4) NOT NULL,
   `PAYMENT_AMT` int(3) NOT NULL,
+  `PAYMENT_STATUS` varchar(6) NOT NULL,
   `PAYMENT_DETAILS` varchar(99) NOT NULL,
   `PAYMENT_DATE` datetime NOT NULL,
   `MOD_ID` varchar(40) NOT NULL,
@@ -163,9 +164,9 @@ CREATE TABLE `payments` (
 -- Dumping data for table `payments`
 --
 
-INSERT INTO `payments` (`PAYMENT_ID`, `PAYMENT_AMT`, `PAYMENT_DETAILS`, `PAYMENT_DATE`, `MOD_ID`, `STUDENT_ID`, `PROFESSOR_ID`) VALUES
-(1, 500, 'transferred to account number xxxx', '2021-01-04 00:00:00', 'IS442_2019_2_G1', 'mary.2018', 'rajesh'),
-(2, 500, 'transferred to account number xxxx', '2021-01-05 00:00:00', 'IS212_2019_2_G1', 'xiaoli.2018', 'yllee');
+INSERT INTO `payments` (`PAYMENT_ID`, `PAYMENT_AMT`, `PAYMENT_STATUS`, `PAYMENT_DETAILS`, `PAYMENT_DATE`, `MOD_ID`, `STUDENT_ID`, `PROFESSOR_ID`) VALUES
+(1, 500, 'Paid', 'transferred to account number xxxx', '2021-01-04 00:00:00', 'IS442_2019_2_G1', 'mary.2018', 'rajesh'),
+(2, 500, 'Paid', 'transferred to account number xxxx', '2021-01-05 00:00:00', 'IS212_2019_2_G1', 'xiaoli.2018', 'yllee');
 
 -- --------------------------------------------------------
 

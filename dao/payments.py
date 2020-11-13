@@ -17,16 +17,18 @@ class Payments(db.Model):
     __tablename__ = 'payments'
     payment_id = db.Column(db.Integer, primary_key = True, nullable=False)
     payment_amt = db.Column(db.Integer, nullable=False)
+    payment_status = db.Column(db.String(6), nullable=False)
     payment_details = db.Column(db.String(99), nullable=False)
     payment_date = db.Column(db.DateTime, nullable=False)
     mod_id = db.Column(db.String(30), nullable=False)
     student_id = db.Column(db.String(15), nullable=False)
     professor_id = db.Column(db.String(15), nullable=False)
 
-    def __init__(self, payment_id, payment_amt, payment_details , payment_date ,mod_id, student_id, professor_id):
+    def __init__(self, payment_id, payment_amt, payment_status, payment_details , payment_date ,mod_id, student_id, professor_id):
 
         self.payment_id = payment_id
         self.payment_amt = payment_amt
+        self.payment_status = payment_status
         self.payment_details = payment_details
         self.payment_date = payment_date
         self.mod_id = mod_id
@@ -36,8 +38,9 @@ class Payments(db.Model):
     def json(self):
         return {
             "payment_id": self.payment_id , "payment_amt": self.payment_amt, 
-            "payment_details": self.payment_details, "payment_date": self.payment_date, 
-            "mod_id": self.mod_id, "student_id": self.student_id, "professor_id": self.professor_id
+            "payment_status": self.payment_status, "payment_details": self.payment_details, 
+            "payment_date": self.payment_date, "mod_id": self.mod_id, 
+            "student_id": self.student_id, "professor_id": self.professor_id
         }
 
 @app.route('/get_all')
