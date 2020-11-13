@@ -27,9 +27,10 @@ class Modules(db.Model):
     school = db.Column(db.String(1000), nullable=False)
     level = db.Column(db.String(100), nullable=False)
     description = db.Column(db.String(10000), nullable=False)
+    numberOfStudents = db.Column(db.Integer, nullable=False)
+    location = db.Column(db.String(11), nullable=False)
 
-
-    def __init__(self, mod_id, mod_name, positions_available , job_scope ,professor_name, professor_id, school, level, description):
+    def __init__(self, mod_id, mod_name, positions_available , job_scope ,professor_name, professor_id, school, level, description, numberOfStudents, location):
 
         self.mod_id = mod_id
         self.mod_name = mod_name
@@ -40,13 +41,15 @@ class Modules(db.Model):
         self.school = school
         self.level = level
         self.description = description
+        self.numberOfStudents = numberOfStudents
+        self.location = location
 
     def json(self):
         return {
             "mod_id": self.mod_id , "mod_name": self.mod_name, 
             "positions_available": self.positions_available, "job_scope": self.job_scope, 
             "professor_name": self.professor_name, "professor_id": self.professor_id, "school":self.school, "level":self.level,
-            "description": self.description
+            "description": self.description, "numberOfStudents": self.numberOfStudents, "location": self.location
         }
 
 @app.route('/get_all')

@@ -510,17 +510,17 @@
 
             //-------------------------------------------------------------------------------------------------------------//
 
-            if (userEmail == null && sessionStorage.getItem("email") != null) {
-                var userEmail = sessionStorage.getItem("userEmail")
+            if (userEmail == null && localStorage.getItem("email") != null) {
+                var userEmail = localStorage.getItem("userEmail")
             }
-            if (userID == null && sessionStorage.getItem("userID") != null) {
-                var userID = sessionStorage.getItem("userID")
+            if (userID == null && localStorage.getItem("userID") != null) {
+                var userID = localStorage.getItem("userID")
             }
-            if (userName == null && sessionStorage.getItem("userName") != null) {
-                var userName = sessionStorage.getItem("userName")
+            if (userName == null && localStorage.getItem("userName") != null) {
+                var userName = localStorage.getItem("userName")
             }
-            if (userType == null && sessionStorage.getItem("userType") != null) {
-                var userType = sessionStorage.getItem("userType")
+            if (userType == null && localStorage.getItem("userType") != null) {
+                var userType = localStorage.getItem("userType")
             }
             // if (sessionStorage.getItem("email") == null ){
             //     window.location = "http://localhost/app/login/";
@@ -538,7 +538,7 @@
                         const myParam = urlParams.get('mod_id');
                         if (myParam) {
                             loadAccordingToFilters(["School of Information Systems"], []);
-                            console.log(sessionStorage)
+                            console.log(localStorage)
                             return true;
                             // hard coded school of biz to see if the code works
                         }
@@ -580,14 +580,14 @@
                                         </div></td></tr><tr>`;
                             } else {
                                 itemToAdd += `<td><div class="wm-courses-popular-wrap card-columns" style = "display:inline block">
-                                            <figure> <a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}"><img src="extra-images/papular-courses-${i}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
+                                            <figure> <a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}&imageId=${i}"><img src="extra-images/papular-courses-${i}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
                                                 <figcaption>
                                                     <img src = "images/${item['modules'][i-1]['professor_id']}.jpg" style="width: 60px; height: 60px;">
                                                     <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}&imageId=${i} ">${item['modules'][i-1]['professor_name']}</a></h6>
                                                 </figcaption>
                                             </figure>
                                             <div class="wm-popular-courses-text">
-                                                <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}">${item['modules'][i-1]['mod_name']}</a></h6>
+                                                <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}&imageId=${i}">${item['modules'][i-1]['mod_name']}</a></h6>
                                                 <div class="wm-courses-price"><span ${x}>${item['modules'][i-1]['positions_available']} position(s) left</span> </div>
                                                 
                                             </div>
@@ -598,7 +598,7 @@
 
                         }
                         if (typeof (Storage) != "undefined") {
-                            sessionStorage.setItem("courses", JSON.stringify(item));
+                            localStorage.setItem("courses", JSON.stringify(item));
                         }
 
                         document.getElementById("courseList").innerHTML = itemToAdd;
@@ -682,28 +682,28 @@
                                     count += 1;
                                     if (count % 3 == 0) {
                                         itemToAdd += `<td><div class="wm-courses-popular-wrap card-columns" style = "display:inline block">
-                                                        <figure> <a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}"><img src="extra-images/papular-courses-${i}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
+                                                        <figure> <a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}&imageId=${i}"><img src="extra-images/papular-courses-${i}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
                                                             <figcaption>
                                                                 <img src = "images/${item['modules'][i-1]['professor_id']}.jpg" style="width: 60px; height: 60px;">
-                                                                <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}">${item['modules'][i-1]['professor_name']}</a></h6>
+                                                                <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}&imageId=${i}">${item['modules'][i-1]['professor_name']}</a></h6>
                                                             </figcaption>
                                                         </figure>
                                                         <div class="wm-popular-courses-text">
-                                                            <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}">${item['modules'][i-1]['mod_name']}</a></h6>
+                                                            <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}&imageId=${i}">${item['modules'][i-1]['mod_name']}</a></h6>
                                                             <div class="wm-courses-price"><span ${x}>${item['modules'][i-1]['positions_available']} position(s) left</span> </div>
                                                             
                                                         </div>
                                                     </div></td></tr><tr>`;
                                     } else {
                                         itemToAdd += `<td><div class="wm-courses-popular-wrap card-columns" style = "display:inline block">
-                                                        <figure> <a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}"><img src="extra-images/papular-courses-${i}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
+                                                        <figure> <a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}&imageId=${i}"><img src="extra-images/papular-courses-${i}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
                                                             <figcaption>
                                                                 <img src = "images/${item['modules'][i-1]['professor_id']}.jpg" style="width: 60px; height: 60px;">
-                                                                <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}">${item['modules'][i-1]['professor_name']}</a></h6>
+                                                                <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}&imageId=${i}">${item['modules'][i-1]['professor_name']}</a></h6>
                                                             </figcaption>
                                                         </figure>
                                                         <div class="wm-popular-courses-text">
-                                                            <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}">${item['modules'][i-1]['mod_name']}</a></h6>
+                                                            <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}&imageId=${i}">${item['modules'][i-1]['mod_name']}</a></h6>
                                                             <div class="wm-courses-price"><span ${x}>${item['modules'][i-1]['positions_available']} position(s) left</span> </div>
                                                             
                                                         </div>
@@ -720,27 +720,27 @@
                                 count += 1;
                                 if (count % 3 == 0) {
                                     itemToAdd += `<td><div class="wm-courses-popular-wrap card-columns" style = "display:inline block">
-                                                <figure> <a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}"><img src="extra-images/papular-courses-${i}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
+                                                <figure> <a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}&imageId=${i}"><img src="extra-images/papular-courses-${i}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
                                                     <figcaption>
                                                         <img src = "images/${item['modules'][i-1]['professor_id']}.jpg" style="width: 60px; height: 60px;">
-                                                        <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}">${item['modules'][i-1]['professor_name']}</a></h6>
+                                                        <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}&imageId=${i}">${item['modules'][i-1]['professor_name']}</a></h6>
                                                     </figcaption>
                                                 </figure>
                                                 <div class="wm-popular-courses-text">
-                                                    <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}">${item['modules'][i-1]['mod_name']}</a></h6>
+                                                    <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}&imageId=${i}">${item['modules'][i-1]['mod_name']}</a></h6>
                                                     <div class="wm-courses-price"><span ${x}>${item['modules'][i-1]['positions_available']} position(s) left</span> </divcourses
                                                 </div>
                                             </div></td></tr><tr>`;
                                 } else {
                                     itemToAdd += `<td><div class="wm-courses-popular-wrap card-columns" style = "display:inline block">
-                                                <figure> <a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}"><img src="extra-images/papular-courses-${i}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
+                                                <figure> <a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}&imageId=${i}"><img src="extra-images/papular-courses-${i}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
                                                     <figcaption>
                                                         <img src = "images/${item['modules'][i-1]['professor_id']}.jpg" style="width: 60px; height: 60px;">
-                                                        <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}">${item['modules'][i-1]['professor_name']}</a></h6>
+                                                        <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}&imageId=${i}">${item['modules'][i-1]['professor_name']}</a></h6>
                                                     </figcaption>
                                                 </figure>
                                                 <div class="wm-popular-courses-text">
-                                                    <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}">${item['modules'][i-1]['mod_name']}</a></h6>
+                                                    <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}&imageId=${i}">${item['modules'][i-1]['mod_name']}</a></h6>
                                                     <div class="wm-courses-price"><span ${x}>${item['modules'][i-1]['positions_available']} position(s) left</span> </div>
                                                     
                                                 </div>
@@ -781,7 +781,7 @@
             //-------------------------------------------------------------------------------------------------------------//
             function filterAccordingToCourseName() {
                 let query = document.getElementById("filterCourseName").value.toLowerCase();
-                var courses = JSON.parse(sessionStorage.getItem("courses"))['modules'];
+                var courses = JSON.parse(localStorage.getItem("courses"))['modules'];
                 let numberOfCourses = [];
                 var itemToAdd = ``;
                 var count = 0;
@@ -797,28 +797,28 @@
                         count += 1;
                         if (count % 3 == 0) {
                             itemToAdd += `<td><div class="wm-courses-popular-wrap">
-                                            <figure> <a href="#"><img src="extra-images/papular-courses-${i+1}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
+                                            <figure> <a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}&imageId=${i}"><img src="extra-images/papular-courses-${i+1}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
                                                 <figcaption>
                                                     <img src = "images/${courses[i-1]['professor_id']}.jpg" style="width: 60px; height: 60px;">
-                                                    <h6><a href="#">${courses[i]['professor_name']}</a></h6>
+                                                    <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}&imageId=${i}">${courses[i]['professor_name']}</a></h6>
                                                 </figcaption>
                                             </figure>
                                             <div class="wm-popular-courses-text">
-                                                <h6><a href="#">${courses[i]['mod_name']}</a></h6>
+                                                <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}&imageId=${i}">${courses[i]['mod_name']}</a></h6>
                                                 <div class="wm-courses-price"><span ${x}>${courses[i]['positions_available']} position(s) left</span> </div>
                                                 
                                             </div>
                                         </div></td></tr><tr>`;
                         } else {
                             itemToAdd += `<td><div class="wm-courses-popular-wrap">
-                                            <figure> <a href="#"><img src="extra-images/papular-courses-${i+1}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
+                                            <figure> <a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}&imageId=${i}"><img src="extra-images/papular-courses-${i+1}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
                                                 <figcaption>
                                                     <img src = "images/${courses[i-1]['professor_id']}.jpg" style="width: 60px; height: 60px;">
-                                                    <h6><a href="#">${courses[i]['professor_name']}</a></h6>
+                                                    <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}&imageId=${i}">${courses[i]['professor_name']}</a></h6>
                                                 </figcaption>
                                             </figure>
                                             <div class="wm-popular-courses-text">
-                                                <h6><a href="#">${courses[i]['mod_name']}</a></h6>
+                                                <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}&imageId=${i}">${courses[i]['mod_name']}</a></h6>
                                                 <div class="wm-courses-price"><span ${x}>${courses[i]['positions_available']} position(s) left</span> </div>
                                                 
                                             </div>

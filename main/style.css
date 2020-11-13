@@ -7101,7 +7101,6 @@ aside .widget {
 }
 .widget_professor-info,.widget_professor-info figure a,.widget_professor-info figure img {
     float: left;
-    width: 100%;
 }
 .widget_professor-info figure {
     float: left;

@@ -30,7 +30,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body>
+  <body onload = "populate()">
 	
     <!--// Main Wrapper \\-->
     <div class="wm-main-wrapper">
@@ -149,13 +149,12 @@
 									<h4>Course Details</h4>
 								</div>
 								<ul>
-									<li><a href="#"><i class=" wmicon-social7"></i>234 Students</a></li>
-									<li><a href="#"><i class=" wmicon-clock2"></i><time datetime="2017-02-14">Duration: 2hr30mins</time></a></li>
-									<li><a href="#"><i class=" wmicon-book2"></i>14 Lectures</a></li>
-									<li><a href="#"><i class=" wmicon-location"></i>Campus L2</a></li>
-									<li><a href="#">
+									<li><a href="#" id = "numberOfStudents"><i class=" wmicon-social7"></i>234 students</a></li>
+									<li><a href="#"><i class=" wmicon-clock2"></i>Duration: 3hr 15mins</time></a></li>
+									<li><a href="#" id = "location"><i class=" wmicon-location"></i>Campus L2</a></li>
+									<li><a href="#" id = "level">
 										<div class="wm-levelrating">
-											<span class="rating-box" style="width:70%"></span>
+											<span class="rating-box" style="width:100%"></span>
 										</div>
 										Intermediate</a></li>
 									<li><a href="#"><i class=" wmicon-technology"></i>English Language</a></li>
@@ -170,10 +169,10 @@
 									<h2>About Professor</h2>
 								</div>
 								<figure>
-									<a href="#"><img src="extra-images/our-courses-author.jpg" alt=""></a>
+									<img id = "profPic2" src="extra-images/our-courses-author.jpg" alt="" width = "60px" height = "62px"></a>
 								</figure>
 								<div class="wm-Professor-info">
-									<h6><a href="#">Shelly T. Forrester</a></h6>
+									<h6><a id = "profName">Shelly T. Forrester</a></h6>
 									<span>15 yrs. experience</span>
 								</div>
 								<p>Shelly T. accompanied Dr. Stephen Harnish to SC12, an international supercomputing conference in Salt Lake City, Utah. At the conference.</p>
@@ -224,8 +223,8 @@
 								</figure>
 								<div class="wm-blog-author wm-ourcourses">
 									<div class="wm-blogauthor-left">
-										<img src="extra-images/our-courses-author.jpg" alt="">
-										<a class="wm-authorpost" href="#">Shelly T. Forrester</a>
+										<img id = "profPic" src="" alt="" width = "70px">
+										<a class="wm-authorpost" id = "professorName"></a>
 									</div>
 									
 								</div>								
@@ -603,16 +602,51 @@
     <script type="text/javascript" src="script/functions.js"></script>
 
 	<script>
-		const urlParams = new URLSearchParams(window.location.search);
-		const myParam = urlParams.get('mod_id');
-		var modDetails = ""
-		for(item of JSON.parse(sessionStorage['courses'])['modules']){
-			if(item['mod_id'] == myParam){
-				modDetails = item;
+		// Will load when the document body is loaded together.
+		function populate(){
+			const urlParams = new URLSearchParams(window.location.search);
+			const myParam = urlParams.get('mod_id');
+			const imageId = urlParams.get("imageId");
+			console.log(imageId);
+			var modDetails = ""
+			// Retrieving information of the module from localstorage created earlier on.
+			for(item of JSON.parse(localStorage['courses'])['modules']){
+				if(item['mod_id'] == myParam){
+					modDetails = item;
+				}
+
 			}
+			// getting all the elements of the needed changes
+			let studentElement = document.getElementById("numberOfStudents");
+			let locationElement = document.getElementById("location")
+			let levelElement = document.getElementById("level");
+			let profElement = document.getElementById("professorName")
+			let profPic = document.getElementById("profPic");
+			let profPic2 = document.getElementById("profPic2")
+			
+			let count = `100%`;
+
+			// Changing the values of each element
+			if(modDetails.level == "Introductory"){
+				count = `40%`;
+			}
+			else if (modDetails.level == "Intermediate"){
+				count = `80%`;
+			}
+			console.log(count)
+			levelElement.innerHTML = `<div class="wm-levelrating">
+											<span class="rating-box" style="width:${count}"></span>
+										</div>
+										${modDetails.level}`
+			studentElement.innerHTML = `<i class=" wmicon-social7"></i>${modDetails.numberOfStudents} Students attending`;
+			locationElement.innerHTML = `<i class=" wmicon-location"></i>${modDetails.location}`;
+			profElement.innerHTML = modDetails.professor_name
+			profPic.src = `images/${modDetails.professor_id}.jpg`;
+			profPic2.src = `images/${modDetails.professor_id}.jpg`;
+			console.log(modDetails)
+			console.log(urlParams.get('imageId'))
 		}
-		console.log(modDetails)
-		console.log(urlParams.get('imageId'))
+		
 
 
 		
