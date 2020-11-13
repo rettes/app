@@ -497,12 +497,7 @@
 
         <script>
             //check lines 500-504
-            const urlParams = new URL(document.location).searchParams;
-            const myParam = urlParams.get('mod_id');
-            if (myParam) {
-                loadAccordingToFilters(["School of Business"], []);
-                // hard coded school of biz to see if the code works
-            }
+            
 
 
             function showChanges() {
@@ -539,8 +534,16 @@
                 xhttp.onreadystatechange = function () {
 
                     if (xhttp.readyState == 4 && xhttp.status == 200) {
+                        const urlParams = new URL(document.location).searchParams;
+                        const myParam = urlParams.get('mod_id');
+                        if (myParam) {
+                            loadAccordingToFilters(["School of Information Systems"], []);
+                            console.log(sessionStorage)
+                            return true;
+                            // hard coded school of biz to see if the code works
+                        }
                         var item = JSON.parse(xhttp.responseText);
-
+                        
                         var itemToAdd = `<tr>`
                         item['modules'].sort(function (a, b) {
                             if (a['mod_name'] < b['mod_name']) {
@@ -658,7 +661,6 @@
                 xhttp.onreadystatechange = function () {
                     if (xhttp.readyState == 4 && xhttp.status == 200) {
                         var item = JSON.parse(xhttp.responseText);
-
                         var itemToAdd = ``
                         if (schools.includes("All Courses") || (schools.length == 0 && levels.length == 0)) {
                             console.log("All courses is present in the array")
@@ -726,8 +728,7 @@
                                                 </figure>
                                                 <div class="wm-popular-courses-text">
                                                     <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}">${item['modules'][i-1]['mod_name']}</a></h6>
-                                                    <div class="wm-courses-price"><span ${x}>${item['modules'][i-1]['positions_available']} position(s) left</span> </div>
-                                                    
+                                                    <div class="wm-courses-price"><span ${x}>${item['modules'][i-1]['positions_available']} position(s) left</span> </divcourses
                                                 </div>
                                             </div></td></tr><tr>`;
                                 } else {
@@ -751,7 +752,7 @@
 
 
                         }
-
+                        console.log(itemToAdd);
                         document.getElementById("courseList").innerHTML = itemToAdd;
 
                     }
@@ -798,7 +799,7 @@
                             itemToAdd += `<td><div class="wm-courses-popular-wrap">
                                             <figure> <a href="#"><img src="extra-images/papular-courses-${i+1}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
                                                 <figcaption>
-                                                    <img src = "images/${item['modules'][i-1]['professor_id']}.jpg" style="width: 60px; height: 60px;">
+                                                    <img src = "images/${courses[i-1]['professor_id']}.jpg" style="width: 60px; height: 60px;">
                                                     <h6><a href="#">${courses[i]['professor_name']}</a></h6>
                                                 </figcaption>
                                             </figure>
@@ -812,7 +813,7 @@
                             itemToAdd += `<td><div class="wm-courses-popular-wrap">
                                             <figure> <a href="#"><img src="extra-images/papular-courses-${i+1}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
                                                 <figcaption>
-                                                    <img src = "images/${item['modules'][i-1]['professor_id']}.jpg" style="width: 60px; height: 60px;">
+                                                    <img src = "images/${courses[i-1]['professor_id']}.jpg" style="width: 60px; height: 60px;">
                                                     <h6><a href="#">${courses[i]['professor_name']}</a></h6>
                                                 </figcaption>
                                             </figure>
