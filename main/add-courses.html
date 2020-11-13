@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Courses Grid</title>
+    <title>Add Courses</title>
 
     <!-- Css Files -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -104,11 +104,6 @@
                                         <li id="logout">
                                             <a href="logout.html">Logout</a>
                                         </li>
-
-                                        <li>
-                                            <a href="#" class="wm-search-btn" data-toggle="modal"
-                                                data-target="#ModalSearch"><i class="wmicon-search"></i></a>
-                                        </li>
                                     </ul>
                                 </div>
                             </nav>
@@ -168,10 +163,34 @@
                                         <input type="text" id='scope' placeholder="Job scope">
                                     </li>
                                     <li>
-                                        <input type="text" id='school' placeholder="School">
+                                        <input type="text" id='professorName' placeholder="Professor Name">
                                     </li>
                                     <li>
-                                        <input type="text" id='level' placeholder="Level">
+                                        <input type="text" id='professorID' placeholder="Professor ID">
+                                    </li>
+                                    <li>
+                                        <label class="wm-color" for="schools">Choose a school:</label>
+                                        <select name="schools" id="school">
+                                            <option value="Centre for English Communication">Centre for English Communication</option>
+                                            <option value="Office of Core Curriculum Courses">Office of Core Curriculum Courses</option>
+                                            <option value="School of Accountancy">School of Accountancy</option>
+                                            <option value="School of Business">School of Business</option>
+                                            <option value="School of Economics">School of Economics</option>
+                                            <option value="School of Information Systems">School of Information Systems
+                                            </option>
+                                            <option value="School of Computer Science">School of Computer Science
+                                            </option>
+                                            <option value="School of Law">School of Law</option>
+                                            <option value="School of Social Science">School of Social Science</option>
+                                        </select>
+                                    </li>
+                                    <li>
+                                        <label class="wm-color" for="level">Choose a level:</label>
+                                        <select name="level" id="level">
+                                            <option value="Introductory">Introductory</option>
+                                            <option value="Intermediate">Intermediate</option>
+                                            <option value="Advanced">Advanced</option>
+                                        </select>
                                     </li>
                                     <li>
                                         <input type="text" id='description' placeholder="Module description">
@@ -444,7 +463,7 @@
         });
 
 
-        if (userEmail == null && localStorage.getItem("email") != null ) {
+        if (userEmail == null && localStorage.getItem("email") != null) {
             var userEmail = localStorage.getItem("userEmail");
         }
         if (userID == null && localStorage.getItem("userID") != null) {
@@ -470,8 +489,13 @@
                 document.getElementById("addOpening").innerHTML = "Add TA Opening"
                 document.getElementById("addOpening").href = "add-courses.html"
                 document.getElementById("welcome").innerHTML = "Hi, " + userID;
-            }
-            else if (userType == "admin") {
+                document.getElementById("professorName").value = userName;
+                document.getElementById("professorID").value = userID;
+                document.getElementById("professorName").readOnly = true;
+                document.getElementById("professorID").readOnly = true;
+                
+                
+            } else if (userType == "admin") {
                 let newLi = document.createElement("LI");
                 let linkNode = document.createElement("A");
                 linkNode.id = "addOpening";
@@ -513,11 +537,6 @@
 
                     if (items.id != "submit") {
                         course[items.id] = items.value;
-                        if (items.id == "scope") {
-                            course[items.id] = items.value;
-                            course["name"] = userName;
-                            course["id"] = userName;
-                        }
                     }
                 }
             }
@@ -538,6 +557,10 @@
                         } else if (item == "Module added") {
                             document.getElementById("message").style.color = "green";
                             document.getElementById("addCourse").reset();
+                            document.getElementById("professorName").value = userName;
+                            document.getElementById("professorID").value = userID;
+                            document.getElementById("professorName").readOnly = true;
+                            document.getElementById("professorID").readOnly = true;
                         }
 
                     }
