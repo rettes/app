@@ -62,7 +62,7 @@
             <div class="wm-main-header">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-3"><a href="index-2.html" class="wm-logo"><img src="images/logo-1.png" alt=""></a></div>
+                        <div class="col-md-3"><a href="index.html" class="wm-logo"><img src="images/smulogo.png" width="130px" height="50px alt=""></a></div>
                         <div class="col-md-9">
                             <!--// Navigation \\-->
                             <nav class="navbar navbar-default">
@@ -125,9 +125,9 @@
 				        </div>
 				        <div class="wm-breadcrumb">
 				          	<ul>
-				          	 	<li><a href="index-2.html">Home</a></li>
+				          	 	<li><a href="index.html">Home</a></li>
 				          	 	<li><a href="#">Courses</a></li>
-				           		<li>Single Course</li>
+				           		<li>Course details</li>
 				          	</ul>
 				        </div>      
 				    </div>
@@ -149,14 +149,14 @@
 									<h4>Course Details</h4>
 								</div>
 								<ul>
-									<li><a href="#" id = "numberOfStudents"><i class=" wmicon-social7"></i>234 students</a></li>
+									<li><a href="#" id = "numberOfStudents"><i class=" wmicon-social7"></i></a></li>
 									<li><a href="#"><i class=" wmicon-clock2"></i>Duration: 3hr 15mins</time></a></li>
-									<li><a href="#" id = "location"><i class=" wmicon-location"></i>Campus L2</a></li>
+									<li><a href="#" id = "location"><i class=" wmicon-location"></i></a></li>
 									<li><a href="#" id = "level">
 										<div class="wm-levelrating">
 											<span class="rating-box" style="width:100%"></span>
 										</div>
-										Intermediate</a></li>
+										</a></li>
 									<li><a href="#"><i class=" wmicon-technology"></i>English Language</a></li>
 								</ul>
 							</div>
@@ -164,19 +164,17 @@
 							
 							
 							
-							<div class="widget widget_professor-info">
+							<div class="widget" >
 								<div class="wm-widget-title">
 									<h2>About Professor</h2>
 								</div>
 								<figure>
-									<img id = "profPic2" src="extra-images/our-courses-author.jpg" alt="" width = "60px" height = "62px"></a>
+									<img id = "profPic2" src="" alt="" width = "100px" height = "62px"></a>
 								</figure>
 								<div class="wm-Professor-info">
-									<h6><a id = "profName">Shelly T. Forrester</a></h6>
-									<span>15 yrs. experience</span>
+									<h6><a id = "profName" style = "font-weight: bold"></a></h6>
+									<span id = "descriptionOfMod"></span>
 								</div>
-								<p>Shelly T. accompanied Dr. Stephen Harnish to SC12, an international supercomputing conference in Salt Lake City, Utah. At the conference.</p>
-								<a class="wm-read-more" href="#">Read More</a>
 							</div>
 							<div class="widget widget_courses-program">
 								<div class="wm-widget-title">
@@ -184,33 +182,10 @@
 								</div>
 								<ul>
 									<li>
-										<a href="#">Monday</a>
-										<span>9:00am - 10:30am</span>
+										<a href="#">Duration of Course</a>
+										<span id = "startTime"> 9:00am - 10:30am</span>
 									</li>
-									<li>
-										<a href="#">Tuesday</a>
-										<span>9:30am - 10:30am</span>
-									</li>
-									<li>
-										<a href="#">Wednesday</a>
-										<span>8:00am - 9:30am</span>
-									</li>
-									<li>
-										<a href="#">Thursday</a>
-										<span>8:30am - 10:00am</span>
-									</li>
-									<li>
-										<a href="#">Friday</a>
-										<span>10:00am - 11:30am</span>
-									</li>
-									<li>
-										<a href="#">Saturday</a>
-										<span>Closed</span>
-									</li>
-									<li>
-										<a href="#">Sunday</a>
-										<span>Closed</span>
-									</li>
+									
 								</ul>
 							</div>
 							
@@ -230,24 +205,18 @@
 								</div>								
 							</div>
 							<div class="wm-courses-reviewes">
-								<div class="wm-ourcourses-left">
-									<h6>Reviews</h6>
-									<div class="wm-rating">
-										<span class="rating-box" style="width:100%"></span>																				
-									</div>
-									<a href="#">3 Reviews</a>
-								</div>
+								
 								<div class="wm-ourcourses-right">
-									<a class="wm-previous-icon" href="#"><i class="fa fa-angle-left" ></i>previous Course</a>
-									<a class="wm-Next-icon" href="#">Next Course<i class="fa fa-angle-right" ></i></a>
+									<a class="wm-previous-icon" id = 'previousCourse' href=""><i class="fa fa-angle-left" ></i>previous Course</a>
+									<a class="wm-Next-icon"  id = 'nextCourse' href="">Next Course<i class="fa fa-angle-right" ></i></a>
 								</div>
 							</div>
 							<div class="wm-our-course-detail">
-								<div class="wm-title-full">
-									<h2>Advanced Architectural Research</h2>
+								<div class="wm-title-full" >
+									<h2 id = 'courseName'></h2>
 								</div>
-								<p class="wm-text">Architecture and engineering have a history where research and practice go hand in hand, where many great practices have grown as a result of fundamental research and where many research projects arise from ground-breaking design. This is especially true during periods of economic inactivity when recent modes of working are called into question and new modes (sometimes based on rediscovered historical precedent) are established.</p>
-								<p>The programme encourages students to develop advanced and speculative approaches to the design of cities, landscape and territories. It promotes high design values and the integration of new and innovative technologies to address the challenges facing contemporary cities, such as urban growth, climate change, globalisation and social inequality. The programme is designed for students of architecture, landscape architecture, engineering and related disciplines, who wish to enhance their academic, intellectual and professional skills. </p>
+								<p class="wm-text" id = 'courseDescription'></p>
+								<p></p>
 								<div class="wm-course-blockquote-two">
 									<blockquote>Training is everything. The peach was once a bitter almond; cauliflower is nothing but cabbage with an education.</blockquote>
 									<span>- Mark Twain</span>
@@ -432,7 +401,7 @@
                 <div class="container">
                     <div class="row">
                         <aside class="widget widget_contact_info col-md-3">
-                            <a href="index-2.html" class="wm-footer-logo"><img src="images/logo-1.png" alt=""></a>
+                            <a href="index.html" class="wm-footer-logo"><img src="images/logo-1.png" alt=""></a>
                             <ul>
                                 <li><i class="wm-color wmicon-pin"></i> 195 Cooks Mine Road Espanola, NM 87532</li>
                                 <li><i class="wm-color wmicon-phone"></i> +1 505-753-5656 <br> +1 505-753-4437</li>
@@ -607,7 +576,6 @@
 			const urlParams = new URLSearchParams(window.location.search);
 			const myParam = urlParams.get('mod_id');
 			const imageId = urlParams.get("imageId");
-			console.log(imageId);
 			var modDetails = ""
 			// Retrieving information of the module from localstorage created earlier on.
 			for(item of JSON.parse(localStorage['courses'])['modules']){
@@ -628,10 +596,10 @@
 
 			// Changing the values of each element
 			if(modDetails.level == "Introductory"){
-				count = `40%`;
+				count = `30%`;
 			}
 			else if (modDetails.level == "Intermediate"){
-				count = `80%`;
+				count = `60%`;
 			}
 			console.log(count)
 			levelElement.innerHTML = `<div class="wm-levelrating">
@@ -643,6 +611,31 @@
 			profElement.innerHTML = modDetails.professor_name
 			profPic.src = `images/${modDetails.professor_id}.jpg`;
 			profPic2.src = `images/${modDetails.professor_id}.jpg`;
+			document.getElementById("profName").innerHTML = `${modDetails.professor_name}`;
+			document.getElementById("descriptionOfMod").innerHTML = `${modDetails.mod_name}`;
+			document.getElementById("startTime").innerHTML = `${modDetails.start_date.substring(0,16)} - ${modDetails.end_date.substring(0,16)}`
+			document.getElementById("courseName").innerHTML = `${modDetails.mod_name}`;
+			let previousId = JSON.parse(localStorage.courses)['modules'][Number(imageId)-1].mod_id;
+			if(imageId != 1){
+				previousId = JSON.parse(localStorage.courses)['modules'][Number(imageId)-1].mod_id;
+			}
+			let nextId = JSON.parse(localStorage.courses)['modules'][Number(imageId)].mod_id
+			document.getElementById("previousCourse").href = `./courses-detail.html?mod_id=${previousId}&imageId=${Number(imageId)-1}`
+			document.getElementById("nextCourse").href = `./courses-detail.html?mod_id=${nextId}&imageId=${Number(imageId)+1}`
+			
+			var descriptionInTokens = modDetails.description.split("- ")
+			var paragraph = `<ul>`
+
+			for(let i = 0; i < descriptionInTokens.length ; i++){
+				if(i != 0){
+					paragraph += `<li>${descriptionInTokens[i]}</li>`;
+				}
+				else{
+					paragraph += `<p>${descriptionInTokens[i]}</p>`
+				}
+			}
+			paragraph += `</ul>`
+			document.getElementById("courseDescription").innerHTML = `${paragraph}`
 			console.log(modDetails)
 			console.log(urlParams.get('imageId'))
 		}
