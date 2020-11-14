@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Add Courses</title>
+    <title>Add Tenure</title>
 
     <!-- Css Files -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -147,58 +147,17 @@
 
                     <aside class="col-md-8 d-none" style="float:none;margin:auto">
                         <div class="widget wm-search-course ">
-                            <h3 class="wm-short-title wm-color">Add a new TA Opening</h3>
-                            <form id="addCourse">
+                            <h3 class="wm-short-title wm-color">Add a TA Tenure</h3>
+                            <form id="addTenure">
                                 <ul>
                                     <li>
                                         <input type="text" id='modID' placeholder="Mod ID">
                                     </li>
                                     <li>
-                                        <input type="text" id='modName' placeholder="Mod Name">
-                                    </li>
-                                    <li>
-                                        <input type="text" id='positions' placeholder="Positions available">
-                                    </li>
-                                    <li>
-                                        <input type="text" id='scope' placeholder="Job scope">
-                                    </li>
-                                    <li>
-                                        <input type="text" id='professorName' placeholder="Professor Name">
+                                        <input type="text" id='studentName' placeholder="Student Name">
                                     </li>
                                     <li>
                                         <input type="text" id='professorID' placeholder="Professor ID">
-                                    </li>
-                                    <li>
-                                        <label class="wm-color" for="schools">Choose a school:</label>
-                                        <select name="schools" id="school">
-                                            <option value="Centre for English Communication">Centre for English
-                                                Communication</option>
-                                            <option value="Office of Core Curriculum Courses">Office of Core Curriculum
-                                                Courses</option>
-                                            <option value="School of Accountancy">School of Accountancy</option>
-                                            <option value="School of Business">School of Business</option>
-                                            <option value="School of Economics">School of Economics</option>
-                                            <option value="School of Information Systems">School of Information Systems
-                                            </option>
-                                            <option value="School of Computer Science">School of Computer Science
-                                            </option>
-                                            <option value="School of Law">School of Law</option>
-                                            <option value="School of Social Science">School of Social Science</option>
-                                        </select>
-                                    </li>
-                                    <li>
-                                        <label class="wm-color" for="level">Choose a level:</label>
-                                        <select name="level" id="level">
-                                            <option value="Introductory">Introductory</option>
-                                            <option value="Intermediate">Intermediate</option>
-                                            <option value="Advanced">Advanced</option>
-                                        </select>
-                                    </li>
-                                    <li>
-                                        <input type="text" id='description' placeholder="Module description">
-                                    </li>
-                                    <li>
-
                                     </li>
                                     <li> <input type="submit" id='submit' value="Add opening"> </li>
                                 </ul>
@@ -499,34 +458,8 @@
                 document.getElementById("add").innerHTML = item
 
                 document.getElementById("welcome").innerHTML = "Hi, " + userID;
-                document.getElementById("professorName").value = userName;
                 document.getElementById("professorID").value = userID;
-                document.getElementById("professorName").readOnly = true;
                 document.getElementById("professorID").readOnly = true;
-
-                
-                
-
-
-            } else if (userType == "admin") {
-                let newLi = document.createElement("LI");
-                newLi.id = "add"
-                let linkNode = document.createElement("A");
-                linkNode.innerHTML = "TA Openings";
-                linkNode.href = "#";
-                newLi.appendChild(linkNode);
-                var topNav = document.getElementById("topNav");
-                topNav.insertBefore(newLi, document.getElementById("logout"));
-
-                var item = `<ul class="wm-dropdown-menu">
-                    <li><a href="add-courses.html" id="addOpening">Add TA Opening</a></li>
-                    <li class="active" id="taApplications"><a href="ta-applications.html">TA Applications</a></li>
-                </ul>`;
-
-                document.getElementById("add").innerHTML+= item
-                
-                // console.log(newLi)
-
             }
         }
 
@@ -534,23 +467,19 @@
 
         function validateForm() {
             var error = false;
-            var form = document.getElementById("addCourse");
+            var form = document.getElementById("addTenure");
 
-            var course = {}
+            var tenure = {payment_id: "id", payment_amt: "500", payment_status: "Unpaid", payment_details: ".", payment_date: "0000-00-00"}
 
             for (let items of form) {
-                if (items.id == "positions" && isNaN(items.value)) {
-                    error = true
-                    document.getElementById("positions").value = "";
-                    document.getElementById("positions").placeholder = "Please enter a number for positions";
-                } else if (items.value == "") {
+                if (items.value == "") {
                     error = true
                     let exist_text = document.getElementById(items.id).placeholder;
                     document.getElementById(items.id).placeholder = "Please enter the " + exist_text;
                 } else {
 
                     if (items.id != "submit") {
-                        course[items.id] = items.value;
+                        tenure[items.id] = items.value;
                     }
                 }
             }
@@ -565,23 +494,22 @@
                         document.getElementById("message").innerHTML = item;
                         document.getElementById("message").style.display = "block";
 
-                        if (item == "Module exists") {
+                        if (item == "Tenure exists") {
                             document.getElementById("message").style.color = "red";
 
-                        } else if (item == "Module added") {
+                        } else if (item == "Tenure added") {
                             document.getElementById("message").style.color = "green";
-                            document.getElementById("addCourse").reset();
-                            document.getElementById("professorName").value = userName;
+                            document.getElementById("addTenure").reset();
                             document.getElementById("professorID").value = userID;
-                            document.getElementById("professorName").readOnly = true;
                             document.getElementById("professorID").readOnly = true;
                         }
 
                     }
                 }
 
-                let parameter = Object.entries(course).map(([key, val]) => `${key}=${val}`).join('&');
-                url = "http://localhost:5012/add_course/" + parameter
+                let parameter = Object.entries(tenure).map(([key, val]) => `${key}=${val}`).join('&');
+                url = "http://localhost:5013/add_tenure/" + parameter
+                console.log(url);
                 xhttp.open("GET", url, true);
                 xhttp.send();
             }
