@@ -56,6 +56,26 @@ def get_name_by_id(student_id):
         print('error')
         return jsonify({"message": 'error' })
 
+@app.route('/add_tenure/<string:tenure>')
+def add_course(tenure):
+    payment = []
+    details = tenure.split("&")
+    last_id = Payments.query.order_by(Payments.payment_id.desc()).first()
+    new_id = last_id.payment_id + 1
+    for param in details:
+        temp = param.split("=")
+        if temp[1] == "id":
+            payment.append(new_id)
+        else:
+            payment.append(temp[1])
+    try:
+        me = Payments(payment[0], payment[1], payment[2], payment[3], payment[4], payment[5], payment[6], payment[7])
+        db.session.add(me)
+        db.session.commit()
+        return jsonify("Tenure added")
+    except:
+        return jsonify("Tenure exists")
+
 
 
 # ! port numbers
