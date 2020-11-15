@@ -55,6 +55,17 @@ def get_confirmed_applications():
     else:
         print('error')
         return jsonify({"message": 'error' })
+    
+@app.route('/get_pending_applications')
+def get_pending_applications():
+    applications = Applications.query.filter_by(status='1').all()
+    if applications != None:
+        return jsonify({"applications": [application.json() for application in Applications.query.filter_by(status='2').all()]})
+    else:
+        print('error')
+        return jsonify({"message": 'error' })
+
+
 
 
 # ! port numbers
