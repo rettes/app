@@ -1,111 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-  
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Courses Detail</title>
 
-    <!-- Css Files -->
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/font-awesome.css" rel="stylesheet">
-    <link href="css/flaticon.css" rel="stylesheet">
-    <link href="css/slick-slider.css" rel="stylesheet">
-    <link href="css/prettyphoto.css" rel="stylesheet">
-    <link href="build/mediaelementplayer.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
-    <link href="css/color.css" rel="stylesheet">
-    <link href="css/color-two.css" rel="stylesheet">
-    <link href="css/color-three.css" rel="stylesheet">
-    <link href="css/color-four.css" rel="stylesheet">
-    <link href="css/responsive.css" rel="stylesheet">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<title>Courses Detail</title>
+
+	<!-- Css Files -->
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/font-awesome.css" rel="stylesheet">
+	<link href="css/flaticon.css" rel="stylesheet">
+	<link href="css/slick-slider.css" rel="stylesheet">
+	<link href="css/prettyphoto.css" rel="stylesheet">
+	<link href="build/mediaelementplayer.css" rel="stylesheet">
+	<link href="style.css" rel="stylesheet">
+	<link href="css/color.css" rel="stylesheet">
+	<link href="css/color-two.css" rel="stylesheet">
+	<link href="css/color-three.css" rel="stylesheet">
+	<link href="css/color-four.css" rel="stylesheet">
+	<link href="css/responsive.css" rel="stylesheet">
 
 	<style>
-		.picture-logo{
+		.picture-logo {
 			width: 64px;
 			height: 80px;
 		}
 	</style>
-  </head>
-  <body onload = "populate()">
-	
-    <!--// Main Wrapper \\-->
-    <div class="wm-main-wrapper">
-        
-        <!--// Header \\-->
+</head>
+
+<body onload="populate();loadPage()">
+
+	<!--// Main Wrapper \\-->
+	<div class="wm-main-wrapper">
+
+		<!--// Header \\-->
 		<header id="wm-header" class="wm-header-one">
 			<!--// TopStrip \\-->
 			<div class="wm-topstrip">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            
-                            <ul class="wm-adminuser-section">
-                                <li>
-                                    <a>Hi, John Teo Tjia Ern.</a>
-                                </li>
-                                <li>
-                                   
-                                </li>
-                                <li>
-                                    <a href="#" class="wm-search-btn" data-toggle="modal" data-target="#ModalSearch"><i class="wmicon-search"></i></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--// MainHeader \\-->
-            <div class="wm-main-header">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-3"><a href="index.html" class="wm-logo"><img src="images/smulogo.png" width="130px" height="50px alt=""></a></div>
-                        <div class="col-md-9">
-                            <!--// Navigation \\-->
-                            <nav class="navbar navbar-default">
-                                <div class="navbar-header">
-                                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="true">
-                                    <span class="sr-only">Toggle navigation</span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                  </button>
-                                </div>
-								<div class="collapse navbar-collapse" id="navbar-collapse-1">
-									<ul class="nav navbar-nav">
-									  <li>
-										  <a href="index.html">Home</a>
-									  </li>
-  
-									  <li>
-										<a href="courses-grid.html">Course Openings</a>
-									</li>
-  
-									  <li>
-										  <a href="student-profile.html">Profile</a>
-									  </li>
-  
-									  <li >
-										  <a href="student-payment.html">Payment</a>
-									  </li>
-  
-									  <li class="wm-megamenu-li">
-										  <a href="../login/login.html">Logout</a>
-									  </li>
-  
-									  <li>
-										  <a href="#" class="wm-search-btn" data-toggle="modal" data-target="#ModalSearch"><i class="wmicon-search"></i></a>
-									  </li>
-									</ul>
-								  </div>
-							  </nav>
-						  </div>
-					  </div>
-				  </div>
-			  </div>
-            <!--// MainHeader \\-->
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+
+							<ul class="wm-adminuser-section">
+								<li>
+									<a id="welcome">Hi, John Teo Tjia Ern.</a>
+								</li>
+								<li>
+
+								</li>
+								<li>
+									<a href="#" class="wm-search-btn" data-toggle="modal" data-target="#ModalSearch"><i
+											class="wmicon-search"></i></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--// MainHeader \\-->
+			<div class="wm-main-header">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-3"><a href="index.html" class="wm-logo"><img src="images/smulogo.png"
+									width="130px" height="50px alt=""></a></div>
+                        <div class=" col-md-9">
+								<!--// Navigation \\-->
+								<nav class="navbar navbar-default">
+									<div class="navbar-header">
+										<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+											data-target="#navbar-collapse-1" aria-expanded="true">
+											<span class="sr-only">Toggle navigation</span>
+											<span class="icon-bar"></span>
+											<span class="icon-bar"></span>
+											<span class="icon-bar"></span>
+										</button>
+									</div>
+									<div class="collapse navbar-collapse" id="navbar-collapse-1">
+										<ul class="nav navbar-nav" id="topNav">
+											<li>
+												<a href="index.html">Home</a>
+											</li>
+
+											<li>
+												<a href="courses-grid.html">Course Openings</a>
+											</li>
+
+											<li>
+												<a href="student-profile.html">Profile</a>
+											</li>
+
+											<li id="payment">
+												<a href="student-payment.html">Payment</a>
+											</li>
+
+											<li class="wm-megamenu-li" id="logout">
+												<a href="logout.html">Logout</a>
+											</li>
+										</ul>
+									</div>
+								</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--// MainHeader \\-->
 
 		</header>
 		<!--// Header \\-->
@@ -113,24 +113,24 @@
 		<!--// Mini Header \\-->
 		<div class="wm-mini-header">
 			<span class="wm-blue-transparent"></span>
-			 <div class="container">
-			    <div class="row">
-				    <div class="col-md-12">
-				        <div class="wm-mini-title">
-				       		<h1>Our Courses</h1> 
-				        </div>
-				        <div class="wm-breadcrumb">
-				          	<ul>
-				          	 	<li><a href="index.html">Home</a></li>
-				          	 	<li><a href="#">Courses</a></li>
-				           		<li>Course details</li>
-				          	</ul>
-				        </div>      
-				    </div>
-			    </div>
-			</div>    
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="wm-mini-title">
+							<h1>Our Courses</h1>
+						</div>
+						<div class="wm-breadcrumb">
+							<ul>
+								<li><a href="index.html">Home</a></li>
+								<li><a href="#">Courses</a></li>
+								<li>Course details</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-  		<!--// Mini Header \\-->
+		<!--// Mini Header \\-->
 
 		<!--// Main Content \\-->
 		<div class="wm-main-content">
@@ -145,31 +145,31 @@
 									<h4>Course Details</h4>
 								</div>
 								<ul>
-									<li><a href="#" id = "numberOfStudents"><i class=" wmicon-social7"></i></a></li>
+									<li><a href="#" id="numberOfStudents"><i class=" wmicon-social7"></i></a></li>
 									<li><a href="#"><i class=" wmicon-clock2"></i>Duration: 3hr 15mins</time></a></li>
-									<li><a href="#" id = "location"><i class=" wmicon-location"></i></a></li>
-									<li><a href="#" id = "level">
-										<div class="wm-levelrating">
-											<span class="rating-box" style="width:100%"></span>
-										</div>
+									<li><a href="#" id="location"><i class=" wmicon-location"></i></a></li>
+									<li><a href="#" id="level">
+											<div class="wm-levelrating">
+												<span class="rating-box" style="width:100%"></span>
+											</div>
 										</a></li>
 									<li><a href="#"><i class=" wmicon-technology"></i>English Language</a></li>
 								</ul>
 							</div>
-							
-							
-							
-							
-							<div class="widget" >
+
+
+
+
+							<div class="widget">
 								<div class="wm-widget-title">
 									<h2>About Professor</h2>
 								</div>
 								<figure>
-									<img id = "profPic2" src="" alt="" width = "100px" height = "62px"></a>
+									<img id="profPic2" src="" alt="" width="100px" height="62px"></a>
 								</figure>
 								<div class="wm-Professor-info">
-									<h6><a id = "profName" style = "font-weight: bold"></a></h6>
-									<span id = "descriptionOfMod"></span>
+									<h6><a id="profName" style="font-weight: bold"></a></h6>
+									<span id="descriptionOfMod"></span>
 								</div>
 							</div>
 							<div class="widget widget_courses-program">
@@ -179,13 +179,13 @@
 								<ul>
 									<li>
 										<a href="#">Duration of Course</a>
-										<span id = "startTime"> 9:00am - 10:30am</span>
+										<span id="startTime"> 9:00am - 10:30am</span>
 									</li>
-									
+
 								</ul>
 							</div>
-							
-							
+
+
 						</aside>
 						<div class="col-md-9">
 							<div class="wm-blog-single wm-courses">
@@ -194,42 +194,44 @@
 								</figure>
 								<div class="wm-blog-author wm-ourcourses">
 									<div class="wm-blogauthor-left">
-										<img id = "profPic" src="" alt="" width = "70px">
-										<a class="wm-authorpost" id = "professorName"></a>
+										<img id="profPic" src="" alt="" width="70px">
+										<a class="wm-authorpost" id="professorName"></a>
 									</div>
-									
-								</div>								
+
+								</div>
 							</div>
 							<div class="wm-courses-reviewes">
-								
+
 								<div class="wm-ourcourses-right">
-									<a class="wm-previous-icon" id = 'previousCourse' href=""><i class="fa fa-angle-left" ></i>previous Course</a>
-									<a class="wm-Next-icon"  id = 'nextCourse' href="">Next Course<i class="fa fa-angle-right" ></i></a>
+									<a class="wm-previous-icon" id='previousCourse' href=""><i
+											class="fa fa-angle-left"></i>previous Course</a>
+									<a class="wm-Next-icon" id='nextCourse' href="">Next Course<i
+											class="fa fa-angle-right"></i></a>
 								</div>
 							</div>
 							<div class="wm-our-course-detail">
-								<div class="wm-title-full" >
-									<h2 id = 'courseName'></h2>
+								<div class="wm-title-full">
+									<h2 id='courseName'></h2>
 								</div>
-								<p class="wm-text" id = 'courseDescription'></p>
+								<p class="wm-text" id='courseDescription'></p>
 								<p></p>
-															
-								
+
+
 							</div>
-							
-							
+
+
 							<div class="wm-title-full">
 								<h2>Reviews</h2>
 							</div>
-							<div class="wm-courses-rating">								
+							<div class="wm-courses-rating">
 								<div class="wm-average-rating">
 									<span>Average Rating</span>
 									<div class="wm-courses-average-rating">
-										<span id = "averageRating">3.5/5</span>
+										<span id="averageRating">3.5/5</span>
 										<small>based on</small>
-										
+
 										<p id="totalRating">3 ratings</p>
-									</div>									
+									</div>
 								</div>
 								<div class="wm-detailed-rating">
 									<span>Detailed Rating</span>
@@ -238,50 +240,52 @@
 											<li>
 												<span>5 Stars</span>
 												<div class="wm-rating">
-													<span class="wm-rating-box rating" style="width:100%"></span>																				
+													<span class="wm-rating-box rating" style="width:100%"></span>
 												</div>
-												<small id = "rating5">3</small>
+												<small id="rating5">3</small>
 											</li>
 											<li>
 												<span>4 Stars</span>
 												<div class="wm-rating">
-													<span class="wm-rating-box rating" style="width:0%"></span>																				
+													<span class="wm-rating-box rating" style="width:0%"></span>
 												</div>
-												<small id = "rating4">4</small>
+												<small id="rating4">4</small>
 											</li>
 											<li>
 												<span>3 Stars</span>
 												<div class="wm-rating">
-													<span class="wm-rating-box rating" style="width:0%"></span>																				
+													<span class="wm-rating-box rating" style="width:0%"></span>
 												</div>
-												<small id = "rating3">3</small>
+												<small id="rating3">3</small>
 											</li>
 											<li>
 												<span>2 Stars</span>
 												<div class="wm-rating">
-													<span class="wm-rating-box rating" style="width:0%"></span>																				
+													<span class="wm-rating-box rating" style="width:0%"></span>
 												</div>
-												<small id = "rating2">2</small>
+												<small id="rating2">2</small>
 											</li>
 											<li>
 												<span>1 Stars</span>
 												<div class="wm-rating">
-													<span class="wm-rating-box rating" style="width:0%"></span>																				
+													<span class="wm-rating-box rating" style="width:0%"></span>
 												</div>
-												<small id = "rating1">1</small>
+												<small id="rating1">1</small>
 											</li>
 										</ul>
 									</div>
-								</div>														
-							</div>		
-							
+								</div>
+							</div>
+
 							<div class="wm-form">
 								<div class="wm-widgettitle">
 									<h2>Leave <span>Your Review</span></h2>
 								</div>
 								<form>
 									<ul>
-										<li class="wm-full-form"><p>Please rate the module of this Professor responsibly.</p></li>
+										<li class="wm-full-form">
+											<p>Please rate the module of this Professor responsibly.</p>
+										</li>
 										<li>
 											<div class="wm-select-two">
 												<select>
@@ -293,136 +297,187 @@
 												</select>
 											</div>
 										</li>
-										
-	                                    <li class="wm-full-form">
+
+										<li class="wm-full-form">
 											<input type="submit" value="Submit now">
-	                                    </li>
-	                                </ul>
-								</form>                                
-							</div>	
-							
+										</li>
+									</ul>
+								</form>
+							</div>
+
 							<div class="wm-course-blockquote-two">
-								<blockquote>Training is everything. The peach was once a bitter almond; cauliflower is nothing but cabbage with an education.</blockquote>
+								<blockquote>Training is everything. The peach was once a bitter almond; cauliflower is
+									nothing but cabbage with an education.</blockquote>
 								<span>- Mark Twain</span>
-							</div>	
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-
 		</div>
-		
-		<!--Footer-->
-		<footer id="wm-footer" class="wm-footer-one">
 
-            <!--// FooterNewsLatter \\-->
-            <div class="wm-footer-newslatter">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <form>
-                                
-                                <input type="submit" value="Copyrighted by Singapore Management University">
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--// FooterNewsLatter \\-->
+	</div>
 
-            <!--// FooterWidgets \\-->
-            <div class="wm-footer-widget">
-                <div class="container">
-                    <div class="row">
-                        <aside class="widget widget_contact_info col-md-3">
-                            <a href="index.html" class="wm-footer-logo"><img src="images/smulogo.png" alt="" width = "197px" height = "62px"></a>
-                            <ul>
-                                <li><i class="wm-color wmicon-pin"></i> 81 Victoria St, Singapore 188065</li>
-                                <li><i class="wm-color wmicon-phone"></i> Tel: +65 6828 0100
-                                    
-                                    <br> Fax: +65 6828 0101</li>
-                                <li><i class="wm-color wmicon-letter"></i> <a
-                                        href="mailto:enquiry@smu.edu.sg">enquiry@smu.edu.sg</a> <a></a>
-                            </ul>
-                            <div class="wm-footer-icons">
-                                <a href="https://www.facebook.com/sgsmu" class="wmicon-social5"></a>
-                                <a href="https://twitter.com/sgsmu" class="wmicon-social4"></a>
-                                <a href="https://www.linkedin.com/company/singapore-management-university/" class="wmicon-social3"></a>
-                            </div>
-                        </aside>
-                        
-                       
-                        <aside class="widget widget_gallery col-md-3">
-                            <div class="wm-footer-widget-title">
-                                <h5>Some of our Professors</h5>
-                            </div>
-                            <ul class="gallery">
-                                <li><a title="" data-rel="prettyPhoto[gallery1]"
-                                        href="images/aplin.jpg"><img class = "picture-logo"
-                                            src="images/aplin.jpg" alt=""></a></li>
-                                <li><a title="" data-rel="prettyPhoto[gallery1]"
-                                        href="images/benjaminjong.jpg"><img class = "picture-logo"
-                                            src="images/benjaminjong.jpg" alt=""></a></li>
-                                <li><a title="" data-rel="prettyPhoto[gallery1]"
-                                        href="images/bthuynh.jpg"><img class = "picture-logo"
-                                            src="images/bthuynh.jpg" alt=""></a></li>
-                                <li><a title="" data-rel="prettyPhoto[gallery1]"
-                                        href="images/charlescsy.jpg"><img class = "picture-logo"
-                                            src="images/charlescsy.jpg" alt=""></a></li>
-                                <li><a title="" data-rel="prettyPhoto[gallery1]"
-                                        href="images/cposkitt.jpg"><img class = "picture-logo"
-                                            src="images/cposkitt.jpg" alt=""></a></li>
-                                <li><a title="" data-rel="prettyPhoto[gallery1]"
-                                        href="images/davidlo.jpg"><img class = "picture-logo"
-                                            src="images/davidlo.jpg" alt=""></a></li>
-                                <li><a title="" data-rel="prettyPhoto[gallery1]"
-                                        href="images/lkshar.jpg"><img class = "picture-logo"
-                                            src="images/lkshar.jpg" alt=""></a></li>
-                                <li><a title="" data-rel="prettyPhoto[gallery1]"
-                                        href="images/rajesh.jpg"><img class = "picture-logo"
-                                            src="images/rajesh.jpg" alt=""></a></li>
-                                <li><a title="" data-rel="prettyPhoto[gallery1]"
-                                        href="images/rafaelbarros.jpg"><img class = "picture-logo"
-                                            src="images/rafaelbarros.jpg" alt=""></a></li>
-                            </ul>
-                        </aside>
-                    </div>
-                </div>
-            </div>
+	<!--Footer-->
+	<footer id="wm-footer" class="wm-footer-one">
 
-        </footer>
-      <div class="clearfix"></div>
-      </div>
-    </div>
-    <!-- ModalSearch Box -->
+		<!--// FooterNewsLatter \\-->
+		<div class="wm-footer-newslatter">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<form>
+
+							<input type="submit" value="Copyrighted by Singapore Management University">
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--// FooterNewsLatter \\-->
+
+		<!--// FooterWidgets \\-->
+		<div class="wm-footer-widget">
+			<div class="container">
+				<div class="row">
+					<aside class="widget widget_contact_info col-md-3">
+						<a href="index.html" class="wm-footer-logo"><img src="images/smulogo.png" alt="" width="197px"
+								height="62px"></a>
+						<ul>
+							<li><i class="wm-color wmicon-pin"></i> 81 Victoria St, Singapore 188065</li>
+							<li><i class="wm-color wmicon-phone"></i> Tel: +65 6828 0100
+
+								<br> Fax: +65 6828 0101</li>
+							<li><i class="wm-color wmicon-letter"></i> <a
+									href="mailto:enquiry@smu.edu.sg">enquiry@smu.edu.sg</a> <a></a>
+						</ul>
+						<div class="wm-footer-icons">
+							<a href="https://www.facebook.com/sgsmu" class="wmicon-social5"></a>
+							<a href="https://twitter.com/sgsmu" class="wmicon-social4"></a>
+							<a href="https://www.linkedin.com/company/singapore-management-university/"
+								class="wmicon-social3"></a>
+						</div>
+					</aside>
+
+
+					<aside class="widget widget_gallery col-md-3">
+						<div class="wm-footer-widget-title">
+							<h5>Some of our Professors</h5>
+						</div>
+						<ul class="gallery">
+							<li><a title="" data-rel="prettyPhoto[gallery1]" href="images/aplin.jpg"><img
+										class="picture-logo" src="images/aplin.jpg" alt=""></a></li>
+							<li><a title="" data-rel="prettyPhoto[gallery1]" href="images/benjaminjong.jpg"><img
+										class="picture-logo" src="images/benjaminjong.jpg" alt=""></a></li>
+							<li><a title="" data-rel="prettyPhoto[gallery1]" href="images/bthuynh.jpg"><img
+										class="picture-logo" src="images/bthuynh.jpg" alt=""></a></li>
+							<li><a title="" data-rel="prettyPhoto[gallery1]" href="images/charlescsy.jpg"><img
+										class="picture-logo" src="images/charlescsy.jpg" alt=""></a></li>
+							<li><a title="" data-rel="prettyPhoto[gallery1]" href="images/cposkitt.jpg"><img
+										class="picture-logo" src="images/cposkitt.jpg" alt=""></a></li>
+							<li><a title="" data-rel="prettyPhoto[gallery1]" href="images/davidlo.jpg"><img
+										class="picture-logo" src="images/davidlo.jpg" alt=""></a></li>
+							<li><a title="" data-rel="prettyPhoto[gallery1]" href="images/lkshar.jpg"><img
+										class="picture-logo" src="images/lkshar.jpg" alt=""></a></li>
+							<li><a title="" data-rel="prettyPhoto[gallery1]" href="images/rajesh.jpg"><img
+										class="picture-logo" src="images/rajesh.jpg" alt=""></a></li>
+							<li><a title="" data-rel="prettyPhoto[gallery1]" href="images/rafaelbarros.jpg"><img
+										class="picture-logo" src="images/rafaelbarros.jpg" alt=""></a></li>
+						</ul>
+					</aside>
+				</div>
+			</div>
+		</div>
+
+	</footer>
+	<div class="clearfix"></div>
+	</div>
+	</div>
+	<!-- ModalSearch Box -->
 
 	<!-- jQuery (necessary for JavaScript plugins) -->
 	<script type="text/javascript" src="script/jquery.js"></script>
 	<script type="text/javascript" src="script/modernizr.js"></script>
-    <script type="text/javascript" src="script/bootstrap.min.js"></script>
-    <script type="text/javascript" src="script/jquery.prettyphoto.js"></script>
-    <script type="text/javascript" src="script/jquery.countdown.min.js"></script>
-    <script type="text/javascript" src="script/fitvideo.js"></script>
-    <script type="text/javascript" src="script/skills.js"></script>
-    <script type="text/javascript" src="script/slick.slider.min.js"></script>
-    <script type="text/javascript" src="script/waypoints-min.js"></script>
-    <script type="text/javascript" src="build/mediaelement-and-player.min.js"></script>
-    <script type="text/javascript" src="script/isotope.min.js"></script>
-    <script type="text/javascript" src="script/jquery.nicescroll.min.js"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
-    <script type="text/javascript" src="script/functions.js"></script>
+	<script type="text/javascript" src="script/bootstrap.min.js"></script>
+	<script type="text/javascript" src="script/jquery.prettyphoto.js"></script>
+	<script type="text/javascript" src="script/jquery.countdown.min.js"></script>
+	<script type="text/javascript" src="script/fitvideo.js"></script>
+	<script type="text/javascript" src="script/skills.js"></script>
+	<script type="text/javascript" src="script/slick.slider.min.js"></script>
+	<script type="text/javascript" src="script/waypoints-min.js"></script>
+	<script type="text/javascript" src="build/mediaelement-and-player.min.js"></script>
+	<script type="text/javascript" src="script/isotope.min.js"></script>
+	<script type="text/javascript" src="script/jquery.nicescroll.min.js"></script>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+	<script type="text/javascript" src="script/functions.js"></script>
 
 	<script>
 		// Will load when the document body is loaded together.
-		function populate(){
+		//-------------------------------------------------------------------------------------------------------------//
+
+		if (userEmail == null && localStorage.getItem("email") != null) {
+			var userEmail = localStorage.getItem("userEmail");
+		}
+
+		if (userID == null && localStorage.getItem("userID") != null) {
+			var userID = localStorage.getItem("userID");
+		}
+		if (userName == null && localStorage.getItem("userName") != null) {
+			var userName = localStorage.getItem("userName");
+		}
+		if (userType == null && localStorage.getItem("userType") != null) {
+			var userType = localStorage.getItem("userType");
+		}
+		if (localStorage.getItem("email") == null ){
+		    window.location = "http://localhost/app/login/";
+		    Redirect();
+		}
+		
+
+		//-------------------------------------------------------------------------------------------------------------//
+
+		function loadPage() {
+			document.getElementById("welcome").innerHTML = "Hi, " + userID;
+			if (userType == "professor") {
+				document.getElementById("payment").id = "add"
+				var item = `
+                    <a href=# >TA openings</a>
+                    <ul class="wm-dropdown-menu">
+                        <li><a href="add-courses.html" id="addOpening">Add TA Opening</a></li>
+                        <li class="active" id="taTenure"><a href="add-tenure.html">Add TA Tenure</a></li>
+                    </ul>`;
+
+				document.getElementById("add").innerHTML = item
+			} else if (userType == "admin") {
+				let newLi = document.createElement("LI");
+				newLi.id = "add"
+				let linkNode = document.createElement("A");
+				linkNode.innerHTML = "TA Openings";
+				linkNode.href = "#";
+				newLi.appendChild(linkNode);
+				var topNav = document.getElementById("topNav");
+				topNav.insertBefore(newLi, document.getElementById("logout"));
+
+				var item = `<ul class="wm-dropdown-menu">
+                        <li><a href="add-courses.html" id="addOpening">Add TA Opening</a></li>
+                        <li class="active" id="taApplications"><a href="ta-applications.html">TA Applications</a></li>
+                    </ul>`;
+
+				document.getElementById("add").innerHTML += item
+
+			}
+		}
+
+		//-------------------------------------------------------------------------------------------------------------//
+
+		function populate() {
 			const urlParams = new URLSearchParams(window.location.search);
 			const myParam = urlParams.get('mod_id');
 			const imageId = urlParams.get("imageId");
 			var modDetails = ""
 			// Retrieving information of the module from localstorage created earlier on.
-			for(item of JSON.parse(localStorage['courses'])['modules']){
-				if(item['mod_id'] == myParam){
+			for (item of JSON.parse(localStorage['courses'])['modules']) {
+				if (item['mod_id'] == myParam) {
 					modDetails = item;
 				}
 
@@ -434,14 +489,13 @@
 			let profElement = document.getElementById("professorName")
 			let profPic = document.getElementById("profPic");
 			let profPic2 = document.getElementById("profPic2")
-			
+
 			let count = `100%`;
 
 			// Changing the values of each element
-			if(modDetails.level == "Introductory"){
+			if (modDetails.level == "Introductory") {
 				count = `30%`;
-			}
-			else if (modDetails.level == "Intermediate"){
+			} else if (modDetails.level == "Intermediate") {
 				count = `60%`;
 			}
 			console.log(count)
@@ -456,18 +510,22 @@
 			profPic2.src = `images/${modDetails.professor_id}.jpg`;
 			document.getElementById("profName").innerHTML = `${modDetails.professor_name}`;
 			document.getElementById("descriptionOfMod").innerHTML = `${modDetails.mod_name}`;
-			document.getElementById("startTime").innerHTML = `${modDetails.start_date.substring(0,16)} - ${modDetails.end_date.substring(0,16)}`
+			document.getElementById("startTime").innerHTML =
+				`${modDetails.start_date.substring(0,16)} - ${modDetails.end_date.substring(0,16)}`
 			document.getElementById("courseName").innerHTML = `${modDetails.mod_name}`;
-			let previousId = JSON.parse(localStorage.courses)['modules'][Number(imageId)-1].mod_id;
-			if(imageId != 1){
-				previousId = JSON.parse(localStorage.courses)['modules'][Number(imageId)-1].mod_id;
+			let previousId = JSON.parse(localStorage.courses)['modules'][Number(imageId) - 1].mod_id;
+			if (imageId != 1) {
+				previousId = JSON.parse(localStorage.courses)['modules'][Number(imageId) - 1].mod_id;
 			}
 			let nextId = JSON.parse(localStorage.courses)['modules'][Number(imageId)].mod_id
-			document.getElementById("previousCourse").href = `./courses-detail.html?mod_id=${previousId}&imageId=${Number(imageId)-1}`
+			document.getElementById("previousCourse").href =
+				`./courses-detail.html?mod_id=${previousId}&imageId=${Number(imageId)-1}`
 			document.getElementById("nextCourse").href = `./courses-detail.html?mod_id=${nextId}&imageId=${Number(imageId)+1}`
 			// ratings
-			const totalRatings = Number(modDetails.rating1) +Number(modDetails.rating2)+ Number(modDetails.rating3)+ Number(modDetails.rating4)+ Number(modDetails.rating5);
-			const averageRating = (Number(modDetails.rating1) + Number(modDetails.rating2)*2 + Number(modDetails.rating3)*3 + Number(modDetails.rating4)*4 + Number(modDetails.rating5)*5)/ totalRatings
+			const totalRatings = Number(modDetails.rating1) + Number(modDetails.rating2) + Number(modDetails.rating3) +
+				Number(modDetails.rating4) + Number(modDetails.rating5);
+			const averageRating = (Number(modDetails.rating1) + Number(modDetails.rating2) * 2 + Number(modDetails.rating3) *
+				3 + Number(modDetails.rating4) * 4 + Number(modDetails.rating5) * 5) / totalRatings
 			document.getElementById("totalRating").innerHTML = totalRatings + ` total reviews`;
 			document.getElementById("averageRating").innerHTML = averageRating.toFixed(1) + `/5`
 			document.getElementById("rating1").innerHTML = `${modDetails.rating1}`;
@@ -483,20 +541,19 @@
 			const ratingColumn1 = document.getElementsByClassName("rating")[4];
 			ratingColumn5.style.width = `${Number(modDetails.rating5)*100/totalRatings}%`
 			ratingColumn4.style.width = `${Number(modDetails.rating4)*100/totalRatings}%`
-ratingColumn3.style.width = `${Number(modDetails.rating3)*100/totalRatings}%`
-ratingColumn2.style.width = `${Number(modDetails.rating2)*100/totalRatings}%`
-ratingColumn1.style.width = `${Number(modDetails.rating1)*100/totalRatings}%`
-			
+			ratingColumn3.style.width = `${Number(modDetails.rating3)*100/totalRatings}%`
+			ratingColumn2.style.width = `${Number(modDetails.rating2)*100/totalRatings}%`
+			ratingColumn1.style.width = `${Number(modDetails.rating1)*100/totalRatings}%`
+
 
 			// course Description
 			var descriptionInTokens = modDetails.description.split("- ")
 			var paragraph = `<ul>`
 
-			for(let i = 0; i < descriptionInTokens.length ; i++){
-				if(i != 0){
+			for (let i = 0; i < descriptionInTokens.length; i++) {
+				if (i != 0) {
 					paragraph += `<li>${descriptionInTokens[i]}</li>`;
-				}
-				else{
+				} else {
 					paragraph += `<p>${descriptionInTokens[i]}</p>`
 				}
 			}
@@ -505,16 +562,10 @@ ratingColumn1.style.width = `${Number(modDetails.rating1)*100/totalRatings}%`
 			console.log(modDetails)
 			console.log(urlParams.get('imageId'))
 		}
-		
-
-
-		
-
-		
-
 	</script>
 
-  </body>
+</body>
 
 <!-- courses-detail21:28  -->
+
 </html>
