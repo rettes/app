@@ -10,6 +10,8 @@ app.secret_key = "Secret Key"
 # app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+mysqlconnector://root@localhost:3306/ta_listing"
 app.config['SQLALCHEMY_DATABASE_URI'] =  "mysql://b6f4c2bb784eb6:a6d604a2@us-cdbr-east-02.cleardb.com/heroku_bb881c2fc78bb76?reconnect=true"
 
+
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 
