@@ -7,8 +7,8 @@ app.secret_key = "Secret Key"
 
 
 # SqlAlchemy Database Configuration With Mysql
-# app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+mysqlconnector://root@localhost:3306/ta_listing"
-app.config['SQLALCHEMY_DATABASE_URI'] =  "mysql://b6f4c2bb784eb6:a6d604a2@us-cdbr-east-02.cleardb.com/heroku_bb881c2fc78bb76?reconnect=true"
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+mysqlconnector://root:root@localhost:3306/ta_listing"
+# app.config['SQLALCHEMY_DATABASE_URI'] =  "mysql://b6f4c2bb784eb6:a6d604a2@us-cdbr-east-02.cleardb.com/heroku_bb881c2fc78bb76?reconnect=true"
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -55,6 +55,17 @@ def get_confirmed_applications():
     else:
         print('error')
         return jsonify({"message": 'error' })
+    
+@app.route('/get_pending_applications')
+def get_pending_applications():
+    applications = Applications.query.filter_by(status='1').all()
+    if applications != None:
+        return jsonify({"applications": [application.json() for application in Applications.query.filter_by(status='2').all()]})
+    else:
+        print('error')
+        return jsonify({"message": 'error' })
+
+
 
 
 # ! port numbers
