@@ -31,11 +31,17 @@ class Modules(db.Model):
     location = db.Column(db.String(11), nullable=False)
     start_date = db.Column(db.DateTime(), nullable = False)
     end_date = db.Column(db.DateTime(), nullable = False)
+    rating1 = db.Column(db.Integer, nullable=False)
+    rating2 = db.Column(db.Integer, nullable=False)
+    rating3 = db.Column(db.Integer, nullable=False)
+    rating4 = db.Column(db.Integer, nullable=False)
+    rating5 = db.Column(db.Integer, nullable=False)
+
 
 
 
     def __init__(self, mod_id, mod_name, positions_available , job_scope ,professor_name, 
-    professor_id, school, level, description, numberOfStudents, location, start_date, end_date):
+    professor_id, school, level, description, numberOfStudents, location, start_date, end_date, rating1,rating2, rating3, rating4, rating5):
 
         self.mod_id = mod_id
         self.mod_name = mod_name
@@ -49,14 +55,21 @@ class Modules(db.Model):
         self.numberOfStudents = numberOfStudents
         self.location = location
         self.start_date = start_date 
-        self.end_date = end_date 
+        self.end_date = end_date
+        self.rating1 = rating1
+        self.rating2 = rating2
+        self.rating3 = rating3
+        self.rating4= rating4
+        self.rating5 = rating5
+
 
     def json(self):
         return {
             "mod_id": self.mod_id , "mod_name": self.mod_name, 
             "positions_available": self.positions_available, "job_scope": self.job_scope, 
             "professor_name": self.professor_name, "professor_id": self.professor_id, "school":self.school, "level":self.level,
-            "description": self.description, "numberOfStudents": self.numberOfStudents, "location": self.location, "start_date": self.start_date,"end_date": self.end_date
+            "description": self.description, "numberOfStudents": self.numberOfStudents, "location": self.location, "start_date": self.start_date,"end_date": self.end_date,
+            "rating1":self.rating1,"rating2":self.rating2,"rating3":self.rating3,"rating4":self.rating4,"rating5":self.rating5
         }
 
 @app.route('/get_all')
