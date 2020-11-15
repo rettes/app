@@ -6,5 +6,5 @@ virtualenv
 flask_sqlalchemy
 flask_cors
 basehash
-mysql-connector-python
+mysql-connector==2.1.6
 flask_session
