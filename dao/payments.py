@@ -76,7 +76,7 @@ def add_course(tenure):
     except:
         return jsonify("Tenure exists")
 
-@app.route('/update_tenure/<string:tenure>', methods=['POST'])
+@app.route('/update_tenure/<string:tenure>')
 def update_tenure(tenure):
 
     tenure_details = []
@@ -86,7 +86,8 @@ def update_tenure(tenure):
         temp = param.split("=")
         tenure_details.append(temp[1])
 
-    payment = Payments.query.get(payment_id=tenure_details[0]).first()
+    payment = Payments.query.filter_by(payment_id=tenure_details[0]).first()
+
 
     # if payment == null:
     #     return 
@@ -99,7 +100,7 @@ def update_tenure(tenure):
         db.session.commit()
         return jsonify("Payment updated")
     except:
-        return jsonify("Tenure exists")
+        return jsonify("Invalid Payment ID")
 
 
 
