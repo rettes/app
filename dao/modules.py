@@ -7,7 +7,7 @@ app.secret_key = "Secret Key"
 
 
 # SqlAlchemy Database Configuration With Mysql
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+mysqlconnector://root@localhost:3306/ta_listing"
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+mysqlconnector://root:root@localhost:3306/ta_listing"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 
