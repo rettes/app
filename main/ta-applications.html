@@ -43,77 +43,77 @@
 
     <!--// Main Wrapper \\-->
     <div class="wm-main-wrapper">
-        
+
+        <!--// MainHeader \\-->
+        <header id="wm-header" class="wm-header-one">
+            <!--// TopStrip \\-->
+            <div class="wm-topstrip">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <ul class="wm-adminuser-section">
+                                <li>
+                                    <a id="welcome">Hi, John Teo Tjia Ern.</a>
+                                </li>
+                                <li>
+
+                                </li>
+                                <li>
+                                    <a href="#" class="wm-search-btn" data-toggle="modal" data-target="#ModalSearch"><i
+                                            class="wmicon-search"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!--// MainHeader \\-->
-            <header id="wm-header" class="wm-header-one">
-                <!--// TopStrip \\-->
-                <div class="wm-topstrip">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-    
-                                <ul class="wm-adminuser-section">
-                                    <li>
-                                        <a id="welcome">Hi, John Teo Tjia Ern.</a>
-                                    </li>
-                                    <li>
-    
-                                    </li>
-                                    <li>
-                                        <a href="#" class="wm-search-btn" data-toggle="modal" data-target="#ModalSearch"><i
-                                                class="wmicon-search"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--// MainHeader \\-->
-                <div class="wm-main-header">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-3"><a href="index.html" class="wm-logo"><img src="images/smulogo.png"
-                                        width="130px" height="50px alt=""></a></div>
+            <div class="wm-main-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3"><a href="index.html" class="wm-logo"><img src="images/smulogo.png"
+                                    width="130px" height="50px alt=""></a></div>
                             <div class=" col-md-9">
-                                    <!--// Navigation \\-->
-                                    <nav class="navbar navbar-default">
-                                        <div class="navbar-header">
-                                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                                                data-target="#navbar-collapse-1" aria-expanded="true">
-                                                <span class="sr-only">Toggle navigation</span>
-                                                <span class="icon-bar"></span>
-                                                <span class="icon-bar"></span>
-                                                <span class="icon-bar"></span>
-                                            </button>
-                                        </div>
-                                        <div class="collapse navbar-collapse" id="navbar-collapse-1">
-                                            <ul class="nav navbar-nav" id="topNav">
-                                                <li>
-                                                    <a href="index.html">Home</a>
-                                                </li>
-    
-                                                <li>
-                                                    <a href="courses-grid.html">Course Openings</a>
-                                                </li>
-    
-                                                <li>
-                                                    <a href="student-profile.html">Profile</a>
-                                                </li>
-    
-                                                <li id="payment">
-                                                    <a href="student-payment.html">Payment</a>
-                                                </li>
-    
-                                                <li class="wm-megamenu-li" id="logout">
-                                                    <a href="logout.html">Logout</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </nav>
-                            </div>
+                                <!--// Navigation \\-->
+                                <nav class="navbar navbar-default">
+                                    <div class="navbar-header">
+                                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                            data-target="#navbar-collapse-1" aria-expanded="true">
+                                            <span class="sr-only">Toggle navigation</span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                        </button>
+                                    </div>
+                                    <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                                        <ul class="nav navbar-nav" id="topNav">
+                                            <li>
+                                                <a href="index.html">Home</a>
+                                            </li>
+
+                                            <li>
+                                                <a href="courses-grid.html">Course Openings</a>
+                                            </li>
+
+                                            <li>
+                                                <a href="student-profile.html">Profile</a>
+                                            </li>
+
+                                            <li id="payment">
+                                                <a href="student-payment.html">Payment</a>
+                                            </li>
+
+                                            <li class="wm-megamenu-li" id="logout">
+                                                <a href="logout.html">Logout</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </nav>
                         </div>
                     </div>
                 </div>
+            </div>
             <!--// MainHeader \\-->
 
         </header>
@@ -405,10 +405,10 @@
         if (userType == null && localStorage.getItem("userType") != null) {
             var userType = localStorage.getItem("userType");
         }
-        if (localStorage.getItem("email") == null ){
-        //     window.location = "http://localhost/app/login/";
-        //     Redirect();
-        // }
+        if (localStorage.getItem("email") == null) {
+            //     window.location = "http://localhost/app/login/";
+            //     Redirect();
+        }
 
         if (userType != "professor" && userType != "admin") {
             window.location = "http://localhost/app/main/index.html";
