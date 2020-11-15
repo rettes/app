@@ -91,12 +91,8 @@
                                             <a href="index.html">Home</a>
                                         </li>
 
-                                        <li><a href="#">Course Openings</a>
-                                            <ul class="wm-dropdown-menu">
-                                                <li><a href="courses-grid.html">Courses Grid</a></li>
-                                                <li class="active"><a href="courses-detail.html">Courses Detail</a>
-                                                </li>
-                                            </ul>
+                                        <li>
+                                            <a href="courses-grid.html">Course Openings</a>
                                         </li>
 
                                         <li>
@@ -324,10 +320,15 @@
             if (userType == null && localStorage.getItem("userType") != null) {
                 var userType = localStorage.getItem("userType");
             }
-            // if (localStorage.getItem("email") == null ){
-            //     window.location = "http://localhost/app/login/";
-            //     Redirect();
-            // }
+            if (localStorage.getItem("email") == null ){
+                window.location = "http://localhost/app/login/";
+                Redirect();
+            }
+
+            if (userType != "admin" && userType != "student") {
+                window.location = "http://localhost/app/main/index.html";
+                 Redirect();
+            }
             
             //-------------------------------------------------------------------------------------------------------------//
 

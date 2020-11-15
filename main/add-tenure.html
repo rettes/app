@@ -390,11 +390,14 @@
         if (userType == null && localStorage.getItem("userType") != null) {
             var userType = localStorage.getItem("userType");
         }
-        // if (localStorage.getItem("email") == null ){
-        //     window.location = "http://localhost/app/login/";
-        //     Redirect();
-        // }
-
+        if (localStorage.getItem("email") == null ){
+            window.location = "http://localhost/app/login/";
+            Redirect();
+        }
+        if (userType != "professor") {
+            window.location = "http://localhost/app/main/index.html";
+            Redirect();
+        }
         //-------------------------------------------------------------------------------------------------------------//
 
         function loadPage() {
