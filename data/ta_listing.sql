@@ -162,7 +162,8 @@ CREATE TABLE `payments` (
   `PAYMENT_DATE` datetime NOT NULL,
   `MOD_ID` varchar(30) NOT NULL,
   `STUDENT_ID` varchar(15) NOT NULL,
-  `PROFESSOR_ID` varchar(15) NOT NULL
+  `PROFESSOR_ID` varchar(15) NOT NULL,
+  PRIMARY KEY (`PAYMENT_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -281,12 +282,6 @@ ALTER TABLE `applications`
 --
 ALTER TABLE `modules`
   ADD PRIMARY KEY (`MOD_ID`);
-
---
--- Indexes for table `payments`
---
-ALTER TABLE `payments`
-  ADD PRIMARY KEY (`PAYMENT_ID`) USING BTREE;
 
 --
 -- Indexes for table `professors`
