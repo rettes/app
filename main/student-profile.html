@@ -105,7 +105,7 @@
                             </li>
 
                             <li class="wm-megamenu-li">
-                                <a href="../login/index.html">Logout</a>
+                                <a href="logout.html">Logout</a>
                             </li>
                           </ul>
                         </div>
@@ -202,8 +202,7 @@
 							<div class="wm-student-profile-info">
 								<div class="wm-student-dashboard-profile">
 									<div class="wm-plane-title">
-                                        <h2>About Me</h2>	
-                                        <h3>TODO: add CRUD to change picture and description?</h3>								
+                                        <h2>About Me</h2>								
 									</div>
 									<ul class="row">
 										<li class="col-md-5">
@@ -439,6 +438,36 @@
 
         function loadPage() {
             document.getElementById("welcome").innerHTML = "Hi, " + userID;
+            if (userType == "professor") {
+                document.getElementById("payment").id = "add"
+                var item = `
+                        <a href=# >TA openings</a>
+                        <ul class="wm-dropdown-menu">
+                            <li><a href="add-courses.html" id="addOpening">Add TA Opening</a></li>
+                            <li class="active" id="taTenure"><a href="add-tenure.html">Add TA Tenure</a></li>
+                            <li class="active" id="taManage"><a href="manage-applications.html">Manage Applications</a></li>
+                        </ul>`;
+
+                document.getElementById("add").innerHTML = item
+            } else if (userType == "admin") {
+                var newLi = document.createElement("LI");
+                newLi.id = "add"
+                var linkNode = document.createElement("A");
+                linkNode.innerHTML = "TA Openings";
+                linkNode.href = "#";
+                newLi.appendChild(linkNode);
+                var topNav = document.getElementById("topNav");
+                topNav.insertBefore(newLi, document.getElementById("logout"));
+
+                var item = `<ul class="wm-dropdown-menu">
+                            <li><a href="add-courses.html" id="addOpening">Add TA Opening</a></li>
+                            <li class="active" id="taApplications"><a href="ta-applications.html">TA Applications</a></li>
+                        </ul>`;
+
+                document.getElementById("add").innerHTML += item
+
+            }
+
             // if (userType == "professor" || userType == "admin") {
             //     console.log("This is a professor or admin");
             //     document.getElementById('output_table');

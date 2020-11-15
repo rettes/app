@@ -196,9 +196,10 @@
                                     <li>
                                         <div class="wm-box-service-wrap wm-bgcolor">
                                             <a href="courses-grid.html?mod_id=School of Business">
-                                            <i class="wmicon-suitcase"></i>
-                                            <!-- check line 179 -->
-                                            <h6>Business</h6></a>
+                                                <i class="wmicon-suitcase"></i>
+                                                <!-- check line 179 -->
+                                                <h6>Business</h6>
+                                            </a>
                                         </div>
                                     </li>
                                     <li>
@@ -334,7 +335,6 @@
         </footer>
         <div class="clearfix"></div>
         <script>
-            
             //load id
             if (localStorage.getItem("email") == null && window.location.search.substring().includes("smu.edu.sg")) {
                 var userEmail = window.location.search.substring(1);
@@ -454,6 +454,7 @@
                             <ul class="wm-dropdown-menu">
                                 <li><a href="add-courses.html" id="addOpening">Add TA Opening</a></li>
                                 <li class="active" id="taTenure"><a href="add-tenure.html">Add TA Tenure</a></li>
+                                <li class="active" id="taManage"><a href="manage-applications.html">Manage Applications</a></li>
                             </ul>`;
 
                             document.getElementById("add").innerHTML = item
