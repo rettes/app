@@ -183,6 +183,14 @@
 									</li>
 
 								</ul>
+								<div class="wm-courses-reviewes">
+
+									<div class="wm-ourcourses-right">
+										<br>
+										<a class="wm-previous-icon" id='previousCourse' href=""><h1 style = "color:#8A704C">Apply</h1></a>
+										
+									</div>
+								</div>
 							</div>
 
 
@@ -203,6 +211,7 @@
 							<div class="wm-courses-reviewes">
 
 								<div class="wm-ourcourses-right">
+									<a class="wm-previous-icon" id='previousCourse' onclick = "addApplication()" ><h1 style = "color:#8A704C">Apply</h1></a>
 									<a class="wm-previous-icon" id='previousCourse' href=""><i
 											class="fa fa-angle-left"></i>previous Course</a>
 									<a class="wm-Next-icon" id='nextCourse' href="">Next Course<i
@@ -484,6 +493,7 @@
 			for (item of JSON.parse(localStorage['courses'])['modules']) {
 				if (item['mod_id'] == myParam) {
 					modDetails = item;
+					localStorage.setItem("currentModule", JSON.stringify(modDetails));
 				}
 			}
 			// getting all the elements of the needed changes
@@ -639,6 +649,56 @@
 			xhttp.send();
 
 
+		}
+		// self.student_name = student_name
+        // self.student_id = student_id
+        // self.application_no = application_no
+        // self.status = status
+        // self.mod_id = mod_id
+        // self.professor_name = professor_name
+        // self.professor_id = professor_id
+
+		function addApplication(){
+			currentModule = localStorage.getItem("currentModule")
+			console.log(localStorage)
+			studentName = localStorage.getItem("userName");
+			userId = localStorage.getItem("userID")
+			console.log(currentModule)
+			console.log(studentName);
+			// Step 1
+            var request = new XMLHttpRequest();
+
+            // Step 2
+            // Register function
+            request.onreadystatechange = function() {
+                // Step 5
+                if( this.readyState == 4 && this.status == 200 ) {
+                    // Response is ready
+					console.log('successfully sent application');
+					currentModule = JSON.parse(localStorage.getItem("currentModule"))
+					studentName = localStorage.getItem("userName");
+					userId = localStorage.getItem("userID")
+					console.log(currentModule)
+					console.log(studentName);
+					// jsonSent = {"studentName": studentName, "studentID": userID, "status": currentModule}
+					
+                    // var json_obj = JSON.parse(request.responseText);
+                    // console.log(json_obj);
+                    // getApplication(app_no);
+                }
+                // else if( request.readyState == 4 && request.status == 404 ) {
+                //     console.log('Fail to retrieve request')
+                }
+
+            // Step 3
+            var url = `http://localhost:5011/addApplication/` + 'input=' + "";
+
+            request.open("GET", url, true); 
+            request.send();
+
+            // request.open("GET", url, true); 
+            // request.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); 
+            // request.send("email=" + email +"&password="+password); // query parameters
 		}
 	</script>
 

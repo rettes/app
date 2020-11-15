@@ -476,6 +476,7 @@
 
                             document.getElementById("add").innerHTML += item
                         } else if (userType == "student") {
+                            console.log(userID)
                             loadStudentName(userID);
                         }
                     }
@@ -514,6 +515,7 @@
                         var item = JSON.parse(xhttp.responseText);
                         // console.log(item)
                         userName = item['student_name'];
+                        console.log(userName)
                         localStorage.setItem("userName", userName)
                     }
                 }
