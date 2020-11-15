@@ -53,7 +53,7 @@
 
                             <ul class="wm-adminuser-section">
                                 <li>
-                                    <a id="welcome">Hi, John Teo Tjia Ern.</a>
+                                    <a id="welcome">Hi, -.</a>
                                 </li>
                                 <li>
                                     <a href="#" class="wm-search-btn" data-toggle="modal" data-target="#ModalSearch"><i
@@ -333,6 +333,7 @@
         </footer>
         <div class="clearfix"></div>
         <script>
+            
             //load id
             if (localStorage.getItem("email") == null && window.location.search.substring().includes("smu.edu.sg")) {
                 var userEmail = window.location.search.substring(1);
@@ -343,6 +344,8 @@
                 userEmail = localStorage.getItem("email");
                 //console.log(userEmail)
             }
+
+            console.log(userEmail);
             // else if (localStorage.getItem("email") == null ){
             //     window.location = "http://localhost/app/login/";
             //     Redirect();
@@ -440,7 +443,7 @@
                         localStorage.setItem("userType", userType);
                         localStorage.setItem("userID", userID);
 
-                        document.getElementById("welcome").innerHTML = "Hi, " + userID;
+                        document.getElementById("welcome").innerHTML = "Hi, " + userID + ".";
 
                         if (userType == "professor") {
                             document.getElementById("payment").id = "add"

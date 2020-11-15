@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>
+		Login
+	</title>
+
+	<link href="loginstyling.css" rel="stylesheet" id="bootstrap-css">
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+</head>
+
+<body>
+	<div class="login-reg-panel">
+		<div class="register-info-box">
+			<p>
+				Sign in with your SMU user ID or SMU Email address.
+				<br>
+				e.g.
+				<br>
+				Student/Alumni: john.2014@business.smu.edu.sg
+			</p>
+		</div>
+		<div class="white-panel">
+			<div class="login-show">
+				<img src="./img/smulogo.png" width="200" height="100">
+				<h2>STUDENT LOGIN</h2>
+				<input type="text" placeholder="Email" name='email' id='email'>
+				<input type="password" placeholder="Password" name='password' id='password'>
+				<input type="button" value="Login" onclick=verifyPassword()>
+				<input type="button" onclick="location.href='http://localhost:5000/login';" value="Login w Google" />
+				<br>
+				<div id='loginFailed'></div>
+				<!-- <a href="">Forgot password?</a> -->
+			</div>
+		</div>
+	</div>
+	<script>
+		function verifyPassword() {
+			var email = document.getElementById('email').value;
+			var password = document.getElementById('password').value;
+			// console.log(email)
+			// Step 1
+			var request = new XMLHttpRequest();
+
+			// Step 2
+			// Register function
+			request.onreadystatechange = function () {
+				// Step 5
+				if (this.readyState == 4 && this.status == 200) {
+					// Response is ready
+					// console.log('success');
+					var json_obj = JSON.parse(request.responseText);
+					processLogin(json_obj);
+				}
+				// else if( request.readyState == 4 && request.status == 404 ) {
+				//     console.log('Fail to retrieve request')
+			}
+
+			// Step 3
+			var url = `http://localhost:5001/login/email=${email}&password=${password}`;
+
+			// var url = `http://localhost:5001/`; 
+			request.open("GET", url, true);
+			request.send();
+
+			// request.open("PUT", url, true); 
+			// request.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); 
+			// request.send("email=" + email +"&password="+password); // query parameters
+
+		}
+
+		function processLogin(json_obj) {
+			var verify_password = json_obj.verify_password;
+			if (verify_password == true) {
+				console.log('success, password verified');
+				// var parent_folder = location.pathname // location.pathname = /wad2/wad2-project/login/index.html
+				// parent_folder = parent_folder.slice(0, -17) // removes '/index.html' from path to get current folder ie. '/wad2/wad2-project'
+				// console.log(parent_folder);
+
+				window.location.href = "http://localhost/app/main/index.html?" + email.value;
+                Redirect();
+
+			} else {
+				console.log('login failed');
+				document.getElementById('loginFailed').innerHTML =
+					`<div class="alert alert-danger" role="alert">
+				Wrong email or password, please try again!
+			</div>`;
+			}
+
+		}
+	</script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+	</script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+	</script>
+
+</body>
+
+</html>

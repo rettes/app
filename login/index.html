@@ -1,48 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+	<title>Login V16</title>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-	<title>
-		Login
-	</title>
-
-	<link href="loginstyling.css" rel="stylesheet" id="bootstrap-css">
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
 </head>
-
 <body>
-	<div class="login-reg-panel">
-		<div class="register-info-box">
-			<p>
-				Sign in with your SMU user ID or SMU Email address.
-				<br>
-				e.g.
-				<br>
-				Student/Alumni: john.2014@business.smu.edu.sg
-			</p>
-		</div>
-		<div class="white-panel">
-			<div class="login-show">
-				<img src="./img/smulogo.png" width="200" height="100">
-				<h2>STUDENT LOGIN</h2>
-				<input type="text" placeholder="Email" name='email' id='email'>
-				<input type="password" placeholder="Password" name='password' id='password'>
-				<input type="button" value="Login" onclick=verifyPassword()>
-				<input type="button" onclick="location.href='http://localhost:5000/login';" value="Login w Google" />
-				<br>
-				<div id='loginFailed'></div>
-				<!-- <a href="">Forgot password?</a> -->
+	
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('images/smubg.jpg');">
+			<div class="wrap-login100 p-t-30 p-b-50">
+				<span class="login100-form-title p-b-41">
+					Singapore Management University
+					<br>
+					<span style = "color: #8A704C"># BOOK-A-TA</span>
+				</span>
+				
+
+					<div class="wrap-input100 validate-input" data-validate = "Enter username">
+						<input class="input100" type="text" name="username" placeholder="User name">
+						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<input class="input100" type="password" name="pass" placeholder="Password">
+						<span class="focus-input100" data-placeholder="&#xe80f;"></span>
+					</div>
+
+					<div class="container-login100-form-btn m-t-32">
+						<button class="login100-form-btn" onclick = "verifyPassword()">
+							Login
+						</button>
+					</div>
+
+					<div class="container-login100-form-btn m-t-32">
+						<button class="login100-form-btn" onclick = "location.href='http://localhost:5000/login'">
+							Login with Google
+						</button>
+					</div>
+					<div id = 'loginFailed'>
+
+					</div>
+				
 			</div>
 		</div>
 	</div>
+	
+
+	<div id="dropDownSelect1"></div>
+	
 	<script>
 		function verifyPassword() {
+			console.log("hello")
+
 			var email = document.getElementById('email').value;
 			var password = document.getElementById('password').value;
 			// console.log(email)
@@ -84,10 +116,10 @@
 				// parent_folder = parent_folder.slice(0, -17) // removes '/index.html' from path to get current folder ie. '/wad2/wad2-project'
 				// console.log(parent_folder);
 
-				window.location.href = "http://localhost/app/main/index.html?" + email.value;
-                Redirect();
+				location.replace("../main/index.html?" + email.value);
 
 			} else {
+				console.log('login failed');
 				document.getElementById('loginFailed').innerHTML =
 					`<div class="alert alert-danger" role="alert">
 				Wrong email or password, please try again!
@@ -96,16 +128,24 @@
 
 		}
 	</script>
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-	</script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-	</script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
-	</script>
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+	
 
 </body>
-
 </html>
