@@ -22,7 +22,7 @@ USE `heroku_bb881c2fc78bb76`;
 --
 
 CREATE TABLE `account` (
-  `USER_ID` varchar(15) NOT NULL,
+  `USER_ID` varchar(30) NOT NULL,
   `HASHED_PASSWORD` varchar(256) NOT NULL,
   `EMAIL` varchar(32) NOT NULL,
   `USER_TYPE` varchar(9) NOT NULL
@@ -70,12 +70,12 @@ INSERT INTO `account` (`USER_ID`, `HASHED_PASSWORD`, `EMAIL`, `USER_TYPE`) VALUE
 
 CREATE TABLE `applications` (
   `STUDENT_NAME` varchar(30) NOT NULL,
-  `STUDENT_ID` varchar(15) NOT NULL,
+  `STUDENT_ID` varchar(30) NOT NULL,
   `APPLICATION_NO` int(11) NOT NULL,
   `STATUS` tinyint(3) NOT NULL,
   `MOD_ID` varchar(30) NOT NULL,
-  `PROFESSOR_NAME` varchar(20) NOT NULL,
-  `PROFESSOR_ID` varchar(12) NOT NULL
+  `PROFESSOR_NAME` varchar(30) NOT NULL,
+  `PROFESSOR_ID` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -104,7 +104,7 @@ CREATE TABLE `modules` (
   `POSITIONS_AVAILABLE` int(2) NOT NULL,
   `JOB_SCOPE` varchar(99) NOT NULL,
   `PROFESSOR_NAME` varchar(30) NOT NULL,
-  `PROFESSOR_ID` varchar(12) NOT NULL,
+  `PROFESSOR_ID` varchar(30) NOT NULL,
   `school` varchar(1000) NOT NULL,
   `level` varchar(100) NOT NULL,
   `Description` varchar(10000) NOT NULL,
@@ -161,8 +161,8 @@ CREATE TABLE `payments` (
   `PAYMENT_DETAILS` varchar(99) NOT NULL,
   `PAYMENT_DATE` datetime NOT NULL,
   `MOD_ID` varchar(30) NOT NULL,
-  `STUDENT_ID` varchar(15) NOT NULL,
-  `PROFESSOR_ID` varchar(15) NOT NULL
+  `STUDENT_ID` varchar(30) NOT NULL,
+  `PROFESSOR_ID` varchar(30) NOT NULL
   
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -182,7 +182,7 @@ INSERT INTO `payments` (`PAYMENT_ID`, `PAYMENT_AMT`, `payment_status`, `PAYMENT_
 
 CREATE TABLE `professors` (
   `PROFESSOR_NAME` varchar(30) NOT NULL,
-  `PROFESSOR_ID` varchar(12) NOT NULL
+  `PROFESSOR_ID` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -220,7 +220,7 @@ INSERT INTO `professors` (`PROFESSOR_NAME`, `PROFESSOR_ID`) VALUES
 
 CREATE TABLE `students` (
   `STUDENT_NAME` varchar(30) NOT NULL,
-  `STUDENT_ID` varchar(12) NOT NULL,
+  `STUDENT_ID` varchar(30) NOT NULL,
   `RESUME` varchar(99) NOT NULL,
   `RATING` float NOT NULL,
   `CURRENT_YEAR` int(11) NOT NULL,
@@ -246,7 +246,7 @@ INSERT INTO `students` (`STUDENT_NAME`, `STUDENT_ID`, `RESUME`, `RATING`, `CURRE
 --
 
 CREATE TABLE `student_experience` (
-  `STUDENT_ID` varchar(15) NOT NULL,
+  `STUDENT_ID` varchar(30) NOT NULL,
   `STUDENT_NAME` varchar(30) NOT NULL,
   `EXPERIENCE` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
