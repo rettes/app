@@ -8,3 +8,4 @@ flask_cors
 basehash
 mysql-connector==2.1.6
 flask_session
+oauth2client
