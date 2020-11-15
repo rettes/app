@@ -63,13 +63,14 @@ def get_confirmed_applications():
 def get_pending_applications():
     applications = Applications.query.filter_by(status='1').all()
     if applications != None:
-        return jsonify({"applications": [application.json() for application in Applications.query.filter_by(status='2').all()]})
+        return jsonify({"applications": [application.json() for application in Applications.query.filter_by(status='1').all()]})
     else:
         print('error')
         return jsonify({"message": 'error' })
 
 @app.route("/acceptApplication/<string:input>")
 def acceptApplication(input):
+    print(input)
     application_details = []
     details = input.split("&")
 
@@ -77,21 +78,29 @@ def acceptApplication(input):
         temp = param.split("=")
         application_details.append(temp[1])
 
-    application = Applications.query.filter_by(student_id=application_details[0]).first()
+    print(application_details)
+    application = Applications.query.filter_by(application_no=application_details[0]).first()
 
-    if(application_details[1] == 1):
+    if(int(application_details[1]) == 1):
         application.status = 2
-    elif(application_details[1] == 0):
+    elif(int(application_details[1]) == 0):
         application.status = 3
-    body = JSON.stringify({"student_id": application_details[0], "status": application_details[1]})
-    notificationURL = "http://localhost:5100/notification"
-    print("Reaching notification")
-    r= requests.post(notificationURL, json = json.loads(body))
+    body = json.dumps({"application_no": application_details[0], "status": application_details[1]})
+    print(body)
     try:
         db.session.commit()
-        return jsonify("Application updated.")
+        return jsonify("Created application.")
     except:
-        return jsonify("Application got issues.")
+        return jsonify("Unable to create applications.")
+
+@app.route("/getAppById/<string:input>") 
+def getAppById(input):
+    applications = Applications.query.filter_by(application_no=input).first()
+    if applications != None:
+        return jsonify({"application": applications.json()})
+    else:
+        print('error')
+        return jsonify({"message": 'error' })
        
 
 
