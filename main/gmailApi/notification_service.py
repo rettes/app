@@ -69,6 +69,8 @@ def send_email():
 
         http = credentials.authorize(httplib2.Http())
         service = discovery.build('gmail', 'v1', http=http)
+
+        
         customer_name = customerData['name'].upper()
         tutor_name = tutorData["name"].upper()
         if(check == 1):
