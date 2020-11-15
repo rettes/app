@@ -65,6 +65,29 @@ def get_pending_applications():
         print('error')
         return jsonify({"message": 'error' })
 
+@app.route("/acceptApplication/<string:input>")
+def acceptApplication(input):
+    application_details = []
+    details = input.split("&")
+
+    for param in details:
+        temp = param.split("=")
+        application_details.append(temp[1])
+
+    application = Applications.query.filter_by(student_id=tenure_details[0]).first()
+
+    if(application_details[1] == 1):
+        application.status = 2
+    elif(application_details[1] == 0):
+        application.status = 3
+
+    try:
+        db.session.commit()
+        return jsonify("Application updated.")
+    except:
+        return jsonify("Application got issues.")
+       
+
 
 
 
