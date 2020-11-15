@@ -109,6 +109,8 @@ CREATE TABLE `modules` (
   `school` varchar(1000) NOT NULL,
   `level` varchar(100) NOT NULL,
   `Description` varchar(10000) NOT NULL,
+  `numberOfStudents` varchar(11) NOT NULL,
+  `location` int(11) NOT NULL,
   `START_DATE` date NOT NULL,
   `END_DATE` date NOT NULL,
   `numberOfStudents` int(11) NOT NULL,
@@ -156,7 +158,7 @@ INSERT INTO `modules` (`MOD_ID`, `MOD_NAME`, `POSITIONS_AVAILABLE`, `JOB_SCOPE`,
 --
 
 CREATE TABLE `payments` (
-  `PAYMENT_ID` int(4) NOT NULL,
+  `PAYMENT_ID` int(4) NOT NULL AUTO_INCREMENT,
   `PAYMENT_AMT` int(3) NOT NULL,
   `PAYMENT_DETAILS` varchar(99) NOT NULL,
   `PAYMENT_DATE` datetime NOT NULL,
