@@ -37,7 +37,7 @@ a {
 	font-family: Ubuntu-Regular;
 	font-size: 14px;
 	line-height: 1.7;
-	color: #666666;
+	color: white;
 	margin: 0px;
 	transition: all 0.4s;
 	-webkit-transition: all 0.4s;
@@ -63,7 +63,7 @@ p {
 	font-family: Ubuntu-Regular;
 	font-size: 14px;
 	line-height: 1.7;
-	color: #666666;
+	color: white;
 	margin: 0px;
 }
 
@@ -98,15 +98,15 @@ textarea:focus:-moz-placeholder { color:transparent; }
 textarea:focus::-moz-placeholder { color:transparent; }
 textarea:focus:-ms-input-placeholder { color:transparent; }
 
-input::-webkit-input-placeholder { color: #555555;}
-input:-moz-placeholder { color: #555555;}
-input::-moz-placeholder { color: #555555;}
-input:-ms-input-placeholder { color: #555555;}
+input::-webkit-input-placeholder { color: white;}
+input:-moz-placeholder { color: white;}
+input::-moz-placeholder { color: white;}
+input:-ms-input-placeholder { color: white;}
 
-textarea::-webkit-input-placeholder { color: #555555;}
-textarea:-moz-placeholder { color: #555555;}
-textarea::-moz-placeholder { color: #555555;}
-textarea:-ms-input-placeholder { color: #555555;}
+textarea::-webkit-input-placeholder { color: white;}
+textarea:-moz-placeholder { color: white;}
+textarea::-moz-placeholder { color: white;}
+textarea:-ms-input-placeholder { color: white;}
 
 label {
   margin: 0;
@@ -240,7 +240,7 @@ iframe {
 .input100 {
   font-family: Ubuntu-Regular;
   font-size: 20px;
-  color: #555555;
+  color: white;
   line-height: 1.2;
 
   display: block;
@@ -279,7 +279,7 @@ iframe {
   -moz-transition: all 0.4s;
   transition: all 0.4s;
 
-  background: #151C55;
+  background: white;
   background: -webkit-linear-gradient(left, white, #8A704C, #151c55);
   background: -o-linear-gradient(left, white, #8A704C, #151c55);
   background: -moz-linear-gradient(left, white, #8A704C, #151c55);
@@ -311,7 +311,7 @@ iframe {
 
 .input100:focus + .focus-input100::after {
   left: 23px;
-  color: #151C55;
+  color: white;
 }
 
 .input100:focus + .focus-input100::before {
