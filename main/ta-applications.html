@@ -452,7 +452,6 @@
 
                     if (xhttp.readyState == 4 && xhttp.status == 200) {
                         var item = JSON.parse(xhttp.responseText);
-                        console.log(item)
                         var toAdd = "";
                         for (let application in item["applications"]){
                             // console.log(payment)

@@ -24,10 +24,10 @@
     <link href="css/color-four.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
     <style>
-		.picture-logo{
-			width: 64px;
-			height: 80px;
-		}
+        .picture-logo {
+            width: 64px;
+            height: 80px;
+        }
     </style>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -71,43 +71,45 @@
             <div class="wm-main-header">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-3"><a href="index-2.html" class="wm-logo"><img src="images/smulogo.png" width="130px" height="50px alt=""></a></div>
-                        <div class="col-md-9">
+                        <div class="col-md-3"><a href="index-2.html" class="wm-logo"><img src="images/smulogo.png"
+                                    width="130px" height="50px alt="></a></div>
+                        <div class=" col-md-9">
                             <!--// Navigation \\-->
                             <nav class="navbar navbar-default">
                                 <div class="navbar-header">
-                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="true">
-                                    <span class="sr-only">Toggle navigation</span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                </button>
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                        data-target="#navbar-collapse-1" aria-expanded="true">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
                                 </div>
                                 <div class="collapse navbar-collapse" id="navbar-collapse-1">
-                                    <ul class="nav navbar-nav">
-                                    <li>
-                                        <a href="index.html">Home</a>
-                                    </li>
+                                    <ul class="nav navbar-nav" id="topNav">
+                                        <li>
+                                            <a href="index.html">Home</a>
+                                        </li>
 
-                                    <li>
-                                        <a href="courses-grid.html">Course Openings</a>
-                                    </li>
+                                        <li><a href="#">Course Openings</a>
+                                            <ul class="wm-dropdown-menu">
+                                                <li><a href="courses-grid.html">Courses Grid</a></li>
+                                                <li class="active"><a href="courses-detail.html">Courses Detail</a>
+                                                </li>
+                                            </ul>
+                                        </li>
 
-                                    <li>
-                                        <a href="student-profile.html">Profile</a>
-                                    </li>
+                                        <li>
+                                            <a href="student-profile.html">Profile</a>
+                                        </li>
 
-                                    <li >
-                                        <a href="student-payment.html">Payment</a>
-                                    </li>
+                                        <li id="payment">
+                                            <a href="student-payment.html">Payment</a>
+                                        </li>
 
-                                    <li class="wm-megamenu-li">
-                                        <a href="../login/login.html">Logout</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="wm-search-btn" data-toggle="modal" data-target="#ModalSearch"><i class="wmicon-search"></i></a>
-                                    </li>
+                                        <li class="wm-megamenu-li" id="logout">
+                                            <a href="logout.html">Logout</a>
+                                        </li>
                                     </ul>
                                 </div>
                             </nav>
@@ -200,7 +202,9 @@
                                 </div>
                             </div>
                         </aside>
+
                         <div class="col-md-8">
+                            <h1 id="msg"></h1>
                             <div class="wm-student-dashboard-courses wm-dashboard-courses" id="paymentList">
                                 <div class="wm-plane-title">
                                     <h2>Payments</h2>
@@ -218,6 +222,10 @@
                                         </li>
                                     </ul>
                                 </div>
+                            </div>
+                            <br>
+                            <div class="wm-student-dashboard-courses" id="addPayment">
+
                             </div>
                         </div>
                     </div>
@@ -238,7 +246,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <form>
-                                
+
                                 <input type="submit" value="Copyrighted by Singapore Management University">
                             </form>
                         </div>
@@ -252,11 +260,12 @@
                 <div class="container">
                     <div class="row">
                         <aside class="widget widget_contact_info col-md-3">
-                            <a href="index.html" class="wm-footer-logo"><img src="images/smulogo.png" alt="" width = "197px" height = "62px"></a>
+                            <a href="index.html" class="wm-footer-logo"><img src="images/smulogo.png" alt=""
+                                    width="197px" height="62px"></a>
                             <ul>
                                 <li><i class="wm-color wmicon-pin"></i> 81 Victoria St, Singapore 188065</li>
                                 <li><i class="wm-color wmicon-phone"></i> Tel: +65 6828 0100
-                                    
+
                                     <br> Fax: +65 6828 0101</li>
                                 <li><i class="wm-color wmicon-letter"></i> <a
                                         href="mailto:enquiry@smu.edu.sg">enquiry@smu.edu.sg</a> <a></a>
@@ -264,43 +273,35 @@
                             <div class="wm-footer-icons">
                                 <a href="https://www.facebook.com/sgsmu" class="wmicon-social5"></a>
                                 <a href="https://twitter.com/sgsmu" class="wmicon-social4"></a>
-                                <a href="https://www.linkedin.com/company/singapore-management-university/" class="wmicon-social3"></a>
+                                <a href="https://www.linkedin.com/company/singapore-management-university/"
+                                    class="wmicon-social3"></a>
                             </div>
                         </aside>
-                        
-                    
+
+
                         <aside class="widget widget_gallery col-md-3">
                             <div class="wm-footer-widget-title">
                                 <h5>Some of our Professors</h5>
                             </div>
                             <ul class="gallery">
-                                <li><a title="" data-rel="prettyPhoto[gallery1]"
-                                        href="images/aplin.jpg"><img class = "picture-logo"
-                                            src="images/aplin.jpg" alt=""></a></li>
-                                <li><a title="" data-rel="prettyPhoto[gallery1]"
-                                        href="images/benjaminjong.jpg"><img class = "picture-logo"
-                                            src="images/benjaminjong.jpg" alt=""></a></li>
-                                <li><a title="" data-rel="prettyPhoto[gallery1]"
-                                        href="images/bthuynh.jpg"><img class = "picture-logo"
-                                            src="images/bthuynh.jpg" alt=""></a></li>
-                                <li><a title="" data-rel="prettyPhoto[gallery1]"
-                                        href="images/charlescsy.jpg"><img class = "picture-logo"
-                                            src="images/charlescsy.jpg" alt=""></a></li>
-                                <li><a title="" data-rel="prettyPhoto[gallery1]"
-                                        href="images/cposkitt.jpg"><img class = "picture-logo"
-                                            src="images/cposkitt.jpg" alt=""></a></li>
-                                <li><a title="" data-rel="prettyPhoto[gallery1]"
-                                        href="images/davidlo.jpg"><img class = "picture-logo"
-                                            src="images/davidlo.jpg" alt=""></a></li>
-                                <li><a title="" data-rel="prettyPhoto[gallery1]"
-                                        href="images/lkshar.jpg"><img class = "picture-logo"
-                                            src="images/lkshar.jpg" alt=""></a></li>
-                                <li><a title="" data-rel="prettyPhoto[gallery1]"
-                                        href="images/rajesh.jpg"><img class = "picture-logo"
-                                            src="images/rajesh.jpg" alt=""></a></li>
-                                <li><a title="" data-rel="prettyPhoto[gallery1]"
-                                        href="images/rafaelbarros.jpg"><img class = "picture-logo"
-                                            src="images/rafaelbarros.jpg" alt=""></a></li>
+                                <li><a title="" data-rel="prettyPhoto[gallery1]" href="images/aplin.jpg"><img
+                                            class="picture-logo" src="images/aplin.jpg" alt=""></a></li>
+                                <li><a title="" data-rel="prettyPhoto[gallery1]" href="images/benjaminjong.jpg"><img
+                                            class="picture-logo" src="images/benjaminjong.jpg" alt=""></a></li>
+                                <li><a title="" data-rel="prettyPhoto[gallery1]" href="images/bthuynh.jpg"><img
+                                            class="picture-logo" src="images/bthuynh.jpg" alt=""></a></li>
+                                <li><a title="" data-rel="prettyPhoto[gallery1]" href="images/charlescsy.jpg"><img
+                                            class="picture-logo" src="images/charlescsy.jpg" alt=""></a></li>
+                                <li><a title="" data-rel="prettyPhoto[gallery1]" href="images/cposkitt.jpg"><img
+                                            class="picture-logo" src="images/cposkitt.jpg" alt=""></a></li>
+                                <li><a title="" data-rel="prettyPhoto[gallery1]" href="images/davidlo.jpg"><img
+                                            class="picture-logo" src="images/davidlo.jpg" alt=""></a></li>
+                                <li><a title="" data-rel="prettyPhoto[gallery1]" href="images/lkshar.jpg"><img
+                                            class="picture-logo" src="images/lkshar.jpg" alt=""></a></li>
+                                <li><a title="" data-rel="prettyPhoto[gallery1]" href="images/rajesh.jpg"><img
+                                            class="picture-logo" src="images/rajesh.jpg" alt=""></a></li>
+                                <li><a title="" data-rel="prettyPhoto[gallery1]" href="images/rafaelbarros.jpg"><img
+                                            class="picture-logo" src="images/rafaelbarros.jpg" alt=""></a></li>
                             </ul>
                         </aside>
                     </div>
@@ -309,88 +310,102 @@
 
         </footer>
         <div class="clearfix"></div>
-    <!-- ModalSearch Box -->
-    <script>
-        if (userEmail == null && localStorage.getItem("email") != null) {
-            var userEmail = localStorage.getItem("userEmail");
-        }
-        if (userID == null && localStorage.getItem("userID") != null) {
-            var userID = localStorage.getItem("userID");
-        }
-        if (userName == null && localStorage.getItem("userName") != null) {
-            var userName = localStorage.getItem("userName");
-        }
-        if (userType == null && localStorage.getItem("userType") != null) {
-            var userType = localStorage.getItem("userType");
-        }
-        // if (localStorage.getItem("email") == null ){
-        //     window.location = "http://localhost/app/login/";
-        //     Redirect();
-        // }
-
-        //-------------------------------------------------------------------------------------------------------------//
-
-        function loadPage() {
-            document.getElementById("welcome").innerHTML = "Hi, " + userID;
-            if (userType == "professor") {
-                document.getElementById("payment").id = "addOpening"
-                document.getElementById("addOpening").innerHTML = "Add TA Opening"
-                document.getElementById("addOpening").href = "add-courses.html"
-                document.getElementById("welcome").innerHTML = "Hi, " + userID;
-            } else if (userType == "admin") {
-                let newLi = document.createElement("LI");
-                let linkNode = document.createElement("A");
-                linkNode.id = "addOpening";
-                linkNode.innerHTML = "Add TA Opening";
-                linkNode.href = "add-courses.html";
-                newLi.appendChild(linkNode);
-                // console.log(newLi)
-                var topNav = document.getElementById("topNav");
-                topNav.insertBefore(newLi, document.getElementById("logout"));
-
-                newLi = document.createElement("LI");
-                linkNode = document.createElement("A");
-                linkNode.id = "taApplications";
-                linkNode.innerHTML = "TA Applications";
-                linkNode.href = "ta-applications.html";
-                newLi.appendChild(linkNode);
-                topNav.insertBefore(newLi, document.getElementById("logout"));
+        <!-- ModalSearch Box -->
+        <script>
+            if (userEmail == null && localStorage.getItem("email") != null) {
+                var userEmail = localStorage.getItem("userEmail");
             }
-        }
+            if (userID == null && localStorage.getItem("userID") != null) {
+                var userID = localStorage.getItem("userID");
+            }
+            if (userName == null && localStorage.getItem("userName") != null) {
+                var userName = localStorage.getItem("userName");
+            }
+            if (userType == null && localStorage.getItem("userType") != null) {
+                var userType = localStorage.getItem("userType");
+            }
+            // if (localStorage.getItem("email") == null ){
+            //     window.location = "http://localhost/app/login/";
+            //     Redirect();
+            // }
+            
+            //-------------------------------------------------------------------------------------------------------------//
 
-        if (userType == "admin") {
-            document.getElementById("dashboard1").innerHTML = "Admin Dashboard";
-            document.getElementById("dashboard2").innerHTML = "Admin Dashboard";
-            loadPayments();
-        } else if (userType == "student") {
-            loadPaymentsById(userID);
-        }
+            function loadPage() {
+                document.getElementById("welcome").innerHTML = "Hi, " + userID;
+                if (userType == "professor") {
+                    document.getElementById("payment").id = "add"
 
-        function loadPayments() {
+                    var item = `
+                <a href=# >TA openings</a>
+                <ul class="wm-dropdown-menu">
+                    <li><a href="add-courses.html" id="addOpening">Add TA Opening</a></li>
+                    <li class="active" id="taTenure"><a href="add-tenure.html">Add TA Tenure</a></li>
+                </ul>`;
 
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
+                    document.getElementById("add").innerHTML = item
+                } else if (userType == "admin") {
+                    let newLi = document.createElement("LI");
+                    newLi.id = "add"
+                    let linkNode = document.createElement("A");
+                    linkNode.innerHTML = "TA Openings";
+                    linkNode.href = "#";
+                    newLi.appendChild(linkNode);
+                    var topNav = document.getElementById("topNav");
+                    topNav.insertBefore(newLi, document.getElementById("logout"));
 
-                if (xhttp.readyState == 4 && xhttp.status == 200) {
-                    var item = JSON.parse(xhttp.responseText);
+                    var item = `<ul class="wm-dropdown-menu">
+                    <li><a href="add-courses.html" id="addOpening">Add TA Opening</a></li>
+                    <li class="active" id="taApplications"><a href="ta-applications.html">TA Applications</a></li>
+                </ul>`;
 
-                    var toAdd = "";
-                    for (let payment in item["payments"]) {
-                        // console.log(payment)
-                        let mod_id = item["payments"][payment]["mod_id"];
-                        let payment_amt = item["payments"][payment]["payment_amt"];
-                        let payment_date = item["payments"][payment]["payment_date"].slice(0, -13);
-                        let payment_label = item["payments"][payment]["payment_details"];
-                        let payment_details = payment_label.charAt(0).toUpperCase() + payment_label.slice(1)
-                        let payment_id = item["payments"][payment]["payment_id"];
-                        let student_id = item["payments"][payment]["student_id"];
+                    document.getElementById("add").innerHTML += item
+                }
+            }
 
-                        if (payment_label == "in progress") {
-                            payment_label = "in-Progress"
-                        }
+            if (userType == "admin") {
+                document.getElementById("dashboard1").innerHTML = "Admin Dashboard";
+                document.getElementById("dashboard2").innerHTML = "Admin Dashboard";
 
+                loadPayments();
+            } else if (userType == "student") {
+                loadPaymentsById(userID);
+            }
 
-                        toAdd += `<div class="wm-article">
+            function loadPayments() {
+
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+
+                    if (xhttp.readyState == 4 && xhttp.status == 200) {
+                        var item = JSON.parse(xhttp.responseText);
+
+                        var toAdd = "";
+                        for (let payment in item["payments"]) {
+                            // console.log(payment)
+                            let mod_id = item["payments"][payment]["mod_id"];
+                            let payment_amt = item["payments"][payment]["payment_amt"];
+                            let payment_date = ''
+                            if (item["payments"][payment]["payment_date"] != null) {
+                                payment_date = item["payments"][payment]["payment_date"].slice(0, -13);
+                            }
+                            let payment_status = item["payments"][payment]["payment_status"];
+                            let payment_label = payment_status.charAt(0).toLowerCase() + payment_status.slice(1)
+
+                            let payment_id = item["payments"][payment]["payment_id"];
+                            let student_id = item["payments"][payment]["student_id"];
+
+                            let paypal = '';
+                            let space = ''
+                            if (payment_label == "unpaid") {
+                                payment_label = "in-Progress"
+                                paypal =
+                                    `<br><br><div class="paypal-button" id="${payment_id}" style="float: left"></div>`;
+                                space = '<br';
+
+                            }
+
+                            toAdd += `<div class="wm-article payment-details">
 									<ul>
 										<li class="wm-courses-start">
 											<div class="wm-statement-started-text">
@@ -398,52 +413,56 @@
 												<span><a href="#" class="wmicon-tag"></a>$${payment_amt}</span>
                                                 <span><a href="#" class="wmicon-time2"></a>${payment_date}</time></span>
                                                 <span><a href="#" class="wmicon-people"></a>Student ID: ${student_id}</span>
+                                                ${paypal}
 											</div>
 										</li>										
 										<li>
-											<a class="wm-status-courses wm-${payment_label}" href="#">${payment_details}</a>
+											<a class="wm-status-courses wm-${payment_label}" href="#">${payment_status}</a>
+                                            ${space}
 										</li>
                                         <li>
 											<small>${payment_id}</small>
+                                            ${space}
                                         </li>
 
 									</ul>									
 								</div>`
+
+                        }
+                        document.getElementById("paymentList").innerHTML += toAdd;
+                        generateButton()
                     }
 
-                    document.getElementById("paymentList").innerHTML += toAdd;
-
                 }
+
+                url = "http://localhost:5013/get_all"
+                xhttp.open("GET", url, true);
+                xhttp.send();
             }
 
-            url = "http://localhost:5013/get_all"
-            xhttp.open("GET", url, true);
-            xhttp.send();
-        }
+            function loadPaymentsById(userID) {
 
-        function loadPaymentsById(userID) {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
 
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
+                    if (xhttp.readyState == 4 && xhttp.status == 200) {
+                        var item = JSON.parse(xhttp.responseText);
+                        var toAdd = "";
+                        for (let payment in item["payments"]) {
+                            // console.log(payment)
+                            let mod_id = item["payments"][payment]["mod_id"];
+                            let payment_amt = item["payments"][payment]["payment_amt"];
+                            let payment_date = item["payments"][payment]["payment_date"].slice(0, -13);
+                            let payment_status = item["payments"][payment]["payment_status"];
+                            let payment_label = payment_status.charAt(0).toLowerCase() + payment_status.slice(1)
+                            let payment_id = item["payments"][payment]["payment_id"];
 
-                if (xhttp.readyState == 4 && xhttp.status == 200) {
-                    var item = JSON.parse(xhttp.responseText);
-                    var toAdd = "";
-                    for (let payment in item["payments"]) {
-                        // console.log(payment)
-                        let mod_id = item["payments"][payment]["mod_id"];
-                        let payment_amt = item["payments"][payment]["payment_amt"];
-                        let payment_date = item["payments"][payment]["payment_date"].slice(0, -13);
-                        let payment_label = item["payments"][payment]["payment_details"];
-                        let payment_details = payment_label.charAt(0).toUpperCase() + payment_label.slice(1)
-                        let payment_id = item["payments"][payment]["payment_id"];
-
-                        if (payment_label == "in progress") {
-                            payment_label = "in-Progress"
-                        }
+                            if (payment_label == "in progress") {
+                                payment_label = "in-Progress"
+                            }
 
 
-                        toAdd += `<div class="wm-article">
+                            toAdd += `<div class="wm-article">
 									<ul>
 										<li class="wm-courses-start">
 											<div class="wm-statement-started-text">
@@ -453,41 +472,136 @@
 											</div>
 										</li>										
 										<li>
-											<a class="wm-status-courses wm-${payment_label}" href="#">${payment_details}</a>
+											<a class="wm-status-courses wm-${payment_label}" href="#">${payment_status}</a>
 										</li>
                                         <li>
-
 											<h6>${payment_id}</h6>
                                         </li>
 
 									</ul>									
 								</div>`
+                        }
+
+                        document.getElementById("paymentList").innerHTML += toAdd;
+
                     }
 
-                    document.getElementById("paymentList").innerHTML += toAdd;
                 }
 
+                url = "http://localhost:5013/get_payment_by_id/" + userID
+                xhttp.open("GET", url, true);
+                xhttp.send();
             }
 
-            url = "http://localhost:5013/get_payment_by_id/" + userID
-            xhttp.open("GET", url, true);
-            xhttp.send();
-        }
-    </script>
-    <!-- jQuery (necessary for JavaScript plugins) -->
-    <script type="text/javascript" src="script/jquery.js"></script>
-    <script type="text/javascript" src="script/modernizr.js"></script>
-    <script type="text/javascript" src="script/bootstrap.min.js"></script>
-    <script type="text/javascript" src="script/jquery.prettyphoto.js"></script>
-    <script type="text/javascript" src="script/jquery.countdown.min.js"></script>
-    <script type="text/javascript" src="script/fitvideo.js"></script>
-    <script type="text/javascript" src="script/skills.js"></script>
-    <script type="text/javascript" src="script/slick.slider.min.js"></script>
-    <script type="text/javascript" src="script/waypoints-min.js"></script>
-    <script type="text/javascript" src="build/mediaelement-and-player.min.js"></script>
-    <script type="text/javascript" src="script/isotope.min.js"></script>
-    <script type="text/javascript" src="script/jquery.nicescroll.min.js"></script>
-    <!-- <script type="text/javascript" src="script/functions.js"></script> -->
+            function updatePayment(payment_id, payment_details) {
+
+                var today = new Date();
+                var dd = String(today.getDate()).padStart(2, '0');
+                var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+                var yyyy = today.getFullYear();
+                today = yyyy + '-' + mm + '-' + dd;
+
+                var payment_date = today;
+
+                var payment = {
+                    payment_id: payment_id,
+                    payment_details: payment_details,
+                    payment_date: payment_date
+                }
+
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+
+                    if (xhttp.readyState == 4 && xhttp.status == 200) {
+                        var item = JSON.parse(xhttp.responseText);
+
+                        document.getElementById("msg").innerHTML = item
+
+                        if (item == "Payment updated") {
+
+                            document.getElementById("msg").style.color = "green";
+                            document.getElementById("msg").style.textAlign = "center";
+
+                            $(".wm-article.payment-details").remove();
+                            loadPayments();
+
+                        } else {
+                            document.getElementById("msg").style.color = "red";
+                            document.getElementById("msg").style.textAlign = "center";
+                        }
+
+                    }
+                }
+
+                let parameter = Object.entries(payment).map(([key, val]) => `${key}=${val}`).join('&');
+                url = "http://localhost:5013/update_tenure/" + parameter
+                xhttp.open("GET", url, true);
+                xhttp.send();
+
+            }
+        
+        </script>
+        <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+        <script>
+            function generateButton() {
+                $cost = '500';
+                document.querySelectorAll('.paypal-button').forEach(function (selector) {
+                    paypal.Button.render({
+                        // Configure environment
+                        env: 'sandbox',
+                        client: {
+                            sandbox: 'AUeZaD56BGfH4-z8TGcUA2H6Bqgg80VIowCG5WM3qSZAEGBkacCgoMUq5TCPa6BoS0VTqNzTCl6IlEze',
+                            production: 'demo_production_client_id'
+                        },
+                        // Customize button (optional)
+                        locale: 'en_US',
+                        style: {
+                            size: 'small',
+                            color: 'gold',
+                            shape: 'pill',
+                        },
+
+                        // Enable Pay Now checkout flow (optional)
+                        commit: true,
+
+                        // Set up a payment
+                        payment: function (data, actions) {
+                            return actions.payment.create({
+                                transactions: [{
+                                    amount: {
+                                        total: $cost,
+                                        currency: 'SGD'
+                                    }
+                                }]
+                            });
+                        },
+
+                        // Execute the payment
+                        onAuthorize: function (data, actions) {
+                            return actions.payment.execute().then(function () {
+                                // Show a confirmation message to the buyer
+                                window.alert('Thank you for your patronage!');
+                                updatePayment(selector.id, data.paymentID);
+                            });
+                        }
+                    }, selector);
+                });
+            }
+        </script>
+        <!-- jQuery (necessary for JavaScript plugins) -->
+        <script type="text/javascript" src="script/jquery.js"></script>
+        <script type="text/javascript" src="script/modernizr.js"></script>
+        <script type="text/javascript" src="script/bootstrap.min.js"></script>
+        <script type="text/javascript" src="script/jquery.prettyphoto.js"></script>
+        <script type="text/javascript" src="script/jquery.countdown.min.js"></script>
+        <script type="text/javascript" src="script/fitvideo.js"></script>
+        <script type="text/javascript" src="script/skills.js"></script>
+        <script type="text/javascript" src="script/slick.slider.min.js"></script>
+        <script type="text/javascript" src="script/waypoints-min.js"></script>
+        <script type="text/javascript" src="build/mediaelement-and-player.min.js"></script>
+        <script type="text/javascript" src="script/isotope.min.js"></script>
+        <script type="text/javascript" src="script/jquery.nicescroll.min.js"></script>
+        <!-- <script type="text/javascript" src="script/functions.js"></script> -->
 
 </body>
 
