@@ -102,25 +102,35 @@ def getAppById(input):
         print('error')
         return jsonify({"message": 'error' })
 
-# @app.route("/addApplication/<string:input")
-# def addApplication(input):
-#     application = []
-#     details = input.split("&")[1]
-#     # last_id = Applications.query.order_by(Applications.application_no.desc()).first()
-#     # new_id = last_id.application_no + 1
-#     # for param in details:
-#     #     temp = param.split("=")
-#     #     if temp[1] == "id":
-#     #         payment.append(new_id)
-#     #     else:
-#     #         payment.append(temp[1])
-#     try:
-#         me = Payments(payment[0], payment[1], payment[2], payment[3], payment[4], payment[5], payment[6], payment[7])
-#         db.session.add(me)
-#         db.session.commit()
-#         return jsonify("Tenure added")
-#     except:
-#         return jsonify("Tenure exists")
+@app.route("/addApplication/<string:input>")
+def addApplication(input):
+    print(input)
+    details = input.split("=")[1]
+    details = json.loads(details)
+    last_id = Applications.query.order_by(Applications.application_no.desc()).first()
+    new_id = last_id.application_no + 1
+    # for param in details:
+    #     temp = param.split("=")
+    #     if temp[1] == "id":
+    #         payment.append(new_id)
+    #     else:
+    #         payment.append(temp[1]) self.student_name = student_name
+        # self.student_id = student_id
+        # self.application_no = application_no
+        # self.status = status
+        # self.mod_id = mod_id
+        # self.professor_name = professor_name
+        # self.professor_id = professor_id
+    # jsonSent = {"studentName": studentName, "studentID": userID, "status": 1, "mod_id" : currentModule['mod_id'], 
+    # "professor_name": currentModule['professor_name'], "professor_id": currentModule['professor_id']}
+    print(new_id)
+    try:
+        me = Applications(details['studentName'],details['studentID'],new_id, 1, details['mod_id'], details['professor_name'], details['professor_id'])
+        db.session.add(me)
+        db.session.commit()
+        return jsonify("You have sucessfully applied for " + details['mod_id'] + "!")
+    except:
+        return jsonify("You have previously applied for " + details['mod_id'] + ' already!')
 
 
 

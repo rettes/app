@@ -187,7 +187,7 @@
 
 									<div class="wm-ourcourses-right">
 										<br>
-										<a class="wm-previous-icon" id='previousCourse' href=""><h1 style = "color:#8A704C">Apply</h1></a>
+										<a class="wm-previous-icon" id='applyButton' href=""><h1 style = "color:#8A704C">Apply</h1></a>
 										
 									</div>
 								</div>
@@ -451,6 +451,9 @@
 		//-------------------------------------------------------------------------------------------------------------//
 
 		function loadPage() {
+			if(localStorage['userType'] != 'student'){
+				document.getElementById("apply").style.display = `none`
+			}
 			document.getElementById("welcome").innerHTML = "Hi, " + userID;
 			if (userType == "professor") {
 				document.getElementById("payment").id = "add"
@@ -659,12 +662,13 @@
         // self.professor_id = professor_id
 
 		function addApplication(){
-			currentModule = localStorage.getItem("currentModule")
-			console.log(localStorage)
+			currentModule = JSON.parse(localStorage.getItem("currentModule"))
 			studentName = localStorage.getItem("userName");
 			userId = localStorage.getItem("userID")
 			console.log(currentModule)
 			console.log(studentName);
+			jsonSent = {"studentName": studentName, "studentID": userID, "status": 1, "mod_id" : currentModule['mod_id'], "professor_name": currentModule['professor_name'], "professor_id": currentModule['professor_id']}
+			jsonSent = JSON.stringify(jsonSent);
 			// Step 1
             var request = new XMLHttpRequest();
 
@@ -674,15 +678,9 @@
                 // Step 5
                 if( this.readyState == 4 && this.status == 200 ) {
                     // Response is ready
-					console.log('successfully sent application');
-					currentModule = JSON.parse(localStorage.getItem("currentModule"))
-					studentName = localStorage.getItem("userName");
-					userId = localStorage.getItem("userID")
-					console.log(currentModule)
-					console.log(studentName);
-					// jsonSent = {"studentName": studentName, "studentID": userID, "status": currentModule}
 					
-                    // var json_obj = JSON.parse(request.responseText);
+					var json_obj = JSON.parse(request.responseText);
+					alert(json_obj)
                     // console.log(json_obj);
                     // getApplication(app_no);
                 }
@@ -691,7 +689,7 @@
                 }
 
             // Step 3
-            var url = `http://localhost:5011/addApplication/` + 'input=' + "";
+            var url = `http://localhost:5011/addApplication/` + 'input=' + jsonSent;
 
             request.open("GET", url, true); 
             request.send();

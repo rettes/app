@@ -10,7 +10,8 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
-USE `heroku_bb881c2fc78bb76`;
+CREATE DATABASE ta_listing;
+USE `ta_listing`;
 --
 -- Database: `ta_listing`
 --
@@ -220,7 +221,7 @@ INSERT INTO `professors` (`PROFESSOR_NAME`, `PROFESSOR_ID`) VALUES
 
 CREATE TABLE `students` (
   `STUDENT_NAME` varchar(30) NOT NULL,
-  `STUDENT_ID` varchar(12) NOT NULL,
+  `STUDENT_ID` varchar(100) NOT NULL,
   `RESUME` varchar(99) NOT NULL,
   `RATING` float NOT NULL,
   `CURRENT_YEAR` int(11) NOT NULL,
