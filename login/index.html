@@ -84,7 +84,8 @@
 				// parent_folder = parent_folder.slice(0, -17) // removes '/index.html' from path to get current folder ie. '/wad2/wad2-project'
 				// console.log(parent_folder);
 
-				location.replace("../main/index.html?" + email.value);
+				window.location.href = "http://localhost/app/main/index.html?" + email.value;
+                Redirect();
 
 			} else {
 				document.getElementById('loginFailed').innerHTML =
