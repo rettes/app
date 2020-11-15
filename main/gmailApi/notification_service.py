@@ -31,48 +31,51 @@ def get_labels():
         print('Labels:')
         for label in labels:
             print(label['name'])
-
-@app.route("/notification", methods=['POST'])
-def send_email():
+# {id : john.teo.2018 , status: 1/0 , mod_name : ---}
+@app.route("/notification<string:input>")
+def send_email(input):
     #appointment data send over through http invocation
-    info = request.get_json()
-    print(info)
-    messageToCustomer = ""
+    print(input)
+    notification_details = []
+    details = input.split("&")
 
-    # try:
-    #     import argparse
-    #     flags = argparse.ArgumentParser(parents=[tools.argparser]).parse_args()
-    # except ImportError:
-    #     flags = None
+    for param in details:
+        temp = param.split("=")
+        notification_details.append(temp[1])
+    messageToStudent= ""
+
+    try:
+        import argparse
+        flags = argparse.ArgumentParser(parents=[tools.argparser]).parse_args()
+    except ImportError:
+        flags = None
     
-    # import send_email
-    # SCOPES = 'https://mail.google.com/'
-    # CLIENT_SECRET_FILE = 'client_secret.json'
-    # APPLICATION_NAME = 'Gmail API Python Quickstart'
-    # authInst = auth.auth(SCOPES,CLIENT_SECRET_FILE,APPLICATION_NAME)
-    # credentials = authInst.get_credentials()
+    import send_email
+    SCOPES = 'https://mail.google.com/'
+    CLIENT_SECRET_FILE = 'client_secret.json'
+    APPLICATION_NAME = 'Gmail API Python Quickstart'
+    authInst = auth.auth(SCOPES,CLIENT_SECRET_FILE,APPLICATION_NAME)
+    credentials = authInst.get_credentials()
 
-    # http = credentials.authorize(httplib2.Http())
-    # service = discovery.build('gmail', 'v1', http=http)
+    http = credentials.authorize(httplib2.Http())
+    service = discovery.build('gmail', 'v1', http=http)
+
+    # different field declaration to send in the email
+    student_name = notification_details[0]
+    status = ""
+    if(int(notification_details[1]) == 0):
+        status = "Accepted"
+    elif(int(notification_details[1]) == 1):
+        status = "Rejected"
+    mod_name = notification_details[2]
 
 
-    # customer_name = customerData['name'].upper()
-    # tutor_name = tutorData["name"].upper()
-    # if(check == 1):
-    #     messageToCustomer = "Hi " + customer_name +  ", this is a automated confirmation email from TutorLab. "
-    # date = datetime.strptime(str(item['timeslot']), '%Y-%m-%d %H:%M:%S').strftime('%B %d %Y %H:%M')
-    # statement2 = "Hi " + tutor_name + ", this is a confirmation email from TutorLab. \nA customer named " + customerData['name'].upper() + " has hired your services for " + tutorData['subject'] + " at the " + tutorData['level'] +" level. \nPlease take note in your working calender.\nThe date and time for the meetup is at " + str(date) +" PM" +".\nPlease come 10 minutes early to avoid being late for the appointment. Much thanks from TutorLabs."
-    # sendInst = send_email.send_email(service)
-    # message2 = sendInst.create_message_with_attachment('esdproject2@gmail.com',tutorData['tutor_email'],'Done',statement2, 'image.png' )
-    # sendInst.send_message('me',message2)
-    # totalPrice += item['price']
-    # statement = "\n\nYou have hired "+ tutorData['name'].upper() + ".\nYou have paid $" + str(item['price']) + " for this session." + "\nYou have hired his/her services for " + tutorData['subject'] + " at the " + tutorData['level'] +" level. \nPlease take note in your working calender.\nThe date and time for the meetup is at " + str(date) + " PM" + "."
-    # messageToCustomer += statement
-    # print(messageToCustomer)
-    # if(check == len(info)):
-    #     messageToCustomer +="\n\nPlease come 10 minutes early to avoid being late for the appointment.\n\n" + "Total price paid " + str(totalPrice) + ".\nMuch thanks from TutorLabs!"
-    #     message = sendInst.create_message_with_attachment('esdproject2@gmail.com',customerData['customer_email'],'Done',messageToCustomer, 'image.png' )
-    #     sendInst.send_message('me',message)
+
+    messageToStudent = "Hi " + student_name +  ", this is a automated confirmation email from Book-A-Ta. \nYour application for " + mod_name + " has been " + status + ".\n Please do not reply to this email."
+    sendInst = send_email.send_email(service)
+    message2 = sendInst.create_message_with_attachment('chengkg@gmail.com',student_name + "@smu.edu.sg",'Done',messageToStudent, '' )
+    sendInst.send_message('me',message2)
+    
 
 
 
