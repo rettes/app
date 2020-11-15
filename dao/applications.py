@@ -74,7 +74,7 @@ def acceptApplication(input):
         temp = param.split("=")
         application_details.append(temp[1])
 
-    application = Applications.query.filter_by(student_id=tenure_details[0]).first()
+    application = Applications.query.filter_by(student_id=application_details[0]).first()
 
     if(application_details[1] == 1):
         application.status = 2
