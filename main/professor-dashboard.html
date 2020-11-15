@@ -447,7 +447,7 @@
             var userType = localStorage.getItem("userType");
         }
         // if (localStorage.getItem("email") == null ){
-        //     window.location = "http://localhost/app/login/";
+        //     window.location = "http:///app/login/";
         //     Redirect();
         // }
 
@@ -457,11 +457,13 @@
             document.getElementById("welcome").innerHTML = "Hi, " + userID;
             if (userType == "professor" || userType == "admin") {
                 console.log("This is a professor or admin");
+                document.getElementById('output_table');
                 getPendingApplications();
             }
 
             // redirect to home page if its student
             else if (userType == "student") {
+
                 window.location.href = "http://localhost/app/main/index.html";
                 Redirect();
 
@@ -517,7 +519,7 @@
                             <ul class="wm-form-listing" style="list-style-type:none; margin:0px 0px 0px 20px; padding:0px;">
                             <li style='margin:0px'>
                                 <div class="wm-select-checkbox" style='margin: 0px'>
-                                    <input type="checkbox" name="${student_id}" value="${app_no}" id="${student_id}Checkbox" class="pendingCheckbox" onclick='checkboxClicked()'>
+                                    <input type="checkbox" name="${student_id}" value="${student_id}" id="${student_id}Checkbox" class="pendingCheckbox" onclick='checkboxClicked()'>
                                     <label for="${student_id}Checkbox"><span style='margin: 0px;'></span></label>
                                 </div>
                             </li>
@@ -555,154 +557,8 @@
             });
         }
 
-        function acceptApplicants() {
-            checked = [];
-            $('.pendingCheckbox:checked').each(function() {
-                checked.push(this.value);
-            });
-            console.log("selected applicants: " + checked);
-
-            for (sid of checked){
-                console.log(sid);
-                sendAccept(sid);
-            }
-        }
-
-        function sendAccept(sid) {
-            // Step 1
-            var request = new XMLHttpRequest();
-
-            // Step 2
-            // Register function
-            request.onreadystatechange = function() {
-                // Step 5
-                if( this.readyState == 4 && this.status == 200 ) {
-                    // Response is ready
-                    console.log('successfully sent application');
-                    var json_obj = JSON.parse(request.responseText);
-                    console.log(json_obj);
-                }
-                // else if( request.readyState == 4 && request.status == 404 ) {
-                //     console.log('Fail to retrieve request')
-                }
-
-            // Step 3
-            var url = `http://localhost:5011/acceptApplication/` + 'app_id=' +  sid + '&status=' + '1'; 
-
-            request.open("GET", url, true); 
-            request.send();
-
-            // request.open("GET", url, true); 
-            // request.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); 
-            // request.send("email=" + email +"&password="+password); // query parameters
-            
-            location.reload();
-        }
-
-        function rejectApplicants() {
-            checked = [];
-            $('.pendingCheckbox:checked').each(function() {
-                checked.push(this.value);
-            });
-            console.log("selected applicants: " + checked);
-            for (sid of checked){
-                sendReject(sid);
-        }
-
-        function sendReject(sid) {
-            // Step 1
-            var request = new XMLHttpRequest();
-
-            // Step 2
-            // Register function
-            request.onreadystatechange = function() {
-                // Step 5
-                if( this.readyState == 4 && this.status == 200 ) {
-                    // Response is ready
-                    console.log('successfully sent application');
-                    var json_obj = JSON.parse(request.responseText);
-                    console.log(json_obj);
-                    getApplication(app_no);
-                }
-                // else if( request.readyState == 4 && request.status == 404 ) {
-                //     console.log('Fail to retrieve request')
-                }
-
-            // Step 3
-            var url = `http://localhost:5011/acceptApplication/` + 'app_id=' +  sid + '&status=' + '0'; 
-
-            request.open("GET", url, true); 
-            request.send();
-
-            // request.open("GET", url, true); 
-            // request.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); 
-            // request.send("email=" + email +"&password="+password); // query parameters
-            location.reload();
-            
-        }
-
-        function getApplication(app_no) {
-            // Step 1
-            var request = new XMLHttpRequest();
-
-            // Step 2
-            // Register function
-            request.onreadystatechange = function() {
-                // Step 5
-                if( this.readyState == 4 && this.status == 200 ) {
-                    // Response is ready
-                    console.log('successfully retrieved applications from DB');
-                    var json_obj = JSON.parse(request.responseText);
-                    console.log(json_obj);
-                    sendApplication(json_obj);
-                }
-                // else if( request.readyState == 4 && request.status == 404 ) {
-                //     console.log('Fail to retrieve request')
-                }
-
-            // Step 3
-            var url = `http://localhost:5011/getAppById/` + app_no; 
-
-            request.open("GET", url, true); 
-            request.send();
-        }
-
-        function sendApplication(json_obj){
-            var sid = json_obj.applications.student_id;
-            var status = json_obj.applications.status;
-            var mod_id = json_obj.applications.mod_id;
-            // Step 1
-            var request = new XMLHttpRequest();
-
-            // Step 2
-            // Register function
-            request.onreadystatechange = function() {
-                // Step 5
-                if( this.readyState == 4 && this.status == 200 ) {
-                    // Response is ready
-                    console.log('successfully retrieved applications from DB');
-                    var json_obj = JSON.parse(request.responseText);
-                    if (json_obj == null) {
-                        console.log('success');
-                    }
-                }
-                // else if( request.readyState == 4 && request.status == 404 ) {
-                //     console.log('Fail to retrieve request')
-                }
-
-            // Step 3
-            var url = `http://localhost:5100/notification/` + "sid=" + sid + "&status=" + status + "&mod_id" + mod_id; 
-
-            request.open("GET", url, true); 
-            request.send();
-
-        }
-
-    }
-
-    
-
         
+
          
     
 

@@ -47,6 +47,9 @@ def login(my_url):
         email = 0
         password = 0
 
+    print(email)
+    print(password)
+
     r = requests.get("http://localhost:5010/get_account_by_email/" + str(email))
     if r.status_code == 200:
         account = json.loads(r.text)

@@ -32,7 +32,7 @@ def get_labels():
         for label in labels:
             print(label['name'])
 # {id : john.teo.2018 , status: 1/0 , mod_name : ---}
-@app.route("/notification<string:input>")
+@app.route("/notification/<string:input>")
 def send_email(input):
     #appointment data send over through http invocation
     print(input)
@@ -72,6 +72,7 @@ def send_email(input):
 
 
     messageToStudent = "Hi " + student_name +  ", this is a automated confirmation email from Book-A-Ta. \nYour application for " + mod_name + " has been " + status + ".\n Please do not reply to this email."
+    print(messageToStudent)
     sendInst = send_email.send_email(service)
     message2 = sendInst.create_message_with_attachment('chengkg@gmail.com',student_name + "@smu.edu.sg",'Done',messageToStudent, '' )
     sendInst.send_message('me',message2)

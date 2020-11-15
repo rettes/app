@@ -37,15 +37,13 @@
 					<br>
 					<span style = "color: #8A704C"># BOOK-A-TA</span>
 				</span>
-				
-
 					<div class="wrap-input100 validate-input" data-validate = "Enter username">
-						<input class="input100" type="text" name="username" placeholder="User name">
+						<input class="input100" type="text" id='email' name="username" placeholder="User name">
 						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Enter password">
-						<input class="input100" type="password" name="pass" placeholder="Password">
+						<input class="input100" type="password" id='password' name="pass" placeholder="Password">
 						<span class="focus-input100" data-placeholder="&#xe80f;"></span>
 					</div>
 
@@ -63,7 +61,6 @@
 					<div id = 'loginFailed'>
 
 					</div>
-				
 			</div>
 		</div>
 	</div>
@@ -76,8 +73,10 @@
 			console.log("hello")
 
 			var email = document.getElementById('email').value;
+			console.log(email)
 			var password = document.getElementById('password').value;
-			// console.log(email)
+			console.log(password)
+			
 			// Step 1
 			var request = new XMLHttpRequest();
 
@@ -89,6 +88,7 @@
 					// Response is ready
 					// console.log('success');
 					var json_obj = JSON.parse(request.responseText);
+					console.log(json_obj)
 					processLogin(json_obj);
 				}
 				// else if( request.readyState == 4 && request.status == 404 ) {
