@@ -101,7 +101,26 @@ def getAppById(input):
     else:
         print('error')
         return jsonify({"message": 'error' })
-       
+
+# @app.route("/addApplication/<string:input")
+# def addApplication(input):
+#     application = []
+#     details = input.split("&")[1]
+#     # last_id = Applications.query.order_by(Applications.application_no.desc()).first()
+#     # new_id = last_id.application_no + 1
+#     # for param in details:
+#     #     temp = param.split("=")
+#     #     if temp[1] == "id":
+#     #         payment.append(new_id)
+#     #     else:
+#     #         payment.append(temp[1])
+#     try:
+#         me = Payments(payment[0], payment[1], payment[2], payment[3], payment[4], payment[5], payment[6], payment[7])
+#         db.session.add(me)
+#         db.session.commit()
+#         return jsonify("Tenure added")
+#     except:
+#         return jsonify("Tenure exists")
 
 
 
