@@ -2,6 +2,9 @@ from flask import Flask, render_template, request, redirect, url_for, flash, jso
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 
+import json
+import requests
+
 app = Flask(__name__)
 app.secret_key = "Secret Key"
 
@@ -80,7 +83,10 @@ def acceptApplication(input):
         application.status = 2
     elif(application_details[1] == 0):
         application.status = 3
-
+    body = JSON.stringify({"student_id": application_details[0], "status": application_details[1]})
+    notificationURL = "http://localhost:5100/notification"
+    print("Reaching notification")
+    r= requests.post(notificationURL, json = json.loads(body))
     try:
         db.session.commit()
         return jsonify("Application updated.")
