@@ -338,7 +338,7 @@
                 var userEmail = window.location.search.substring(1);
                 localStorage.setItem("email", userEmail);
                 window.history.pushState({}, document.title, window.location.pathname);
-                console.log(userEmail)
+                // console.log(userEmail)
             } else if (userEmail == null && localStorage.getItem("email") != null) {
                 userEmail = localStorage.getItem("email");
                 //console.log(userEmail)
@@ -356,10 +356,10 @@
 
                     if (xhttp.readyState == 4 && xhttp.status == 200) {
                         var item = JSON.parse(xhttp.responseText);
-                        console.log(item);
-                        console.log(item.modules[0].professor_name); //professor name
-                        console.log(item.modules[0].professor_id); //professor id
-                        console.log(item.modules[0].positions_available); //positions available
+                        // console.log(item);
+                        // console.log(item.modules[0].professor_name); //professor name
+                        // console.log(item.modules[0].professor_id); //professor id
+                        // console.log(item.modules[0].positions_available); //positions available
 
                         var positions_arr = [];
 
