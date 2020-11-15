@@ -39,7 +39,7 @@
     <![endif]-->
   </head>
   <!-- <body onload="loadStudentInfo()"> -->
-  <body onload="getStudent()">
+  <body onload="getStudent(); loadPage();">
 	
     <!--// Main Wrapper \\-->
     <div class="wm-main-wrapper">
@@ -55,7 +55,7 @@
                     
                     <ul class="wm-adminuser-section">
                         <li>
-                            <a>Hi, John Teo Tjia Ern.</a>
+                            <a id='welcome'>Hi, </a>
                         </li>
                         <li>
                         
@@ -219,7 +219,7 @@
 										</li>
 										<li class="col-md-3">
 											<div class="wm-student-profile">
-												<a class=wm-circle-icon href="#"><i class="wmicon-web2" aria-hidden="true"></i></a>
+												<a class=wm-circle-icon href="#"><i class="wmicon-clock2" aria-hidden="true"></i></a>
 												<div class="wm-student-profile-text">
 													<span>Year:</span>
 													<a id='current_year'></a>
@@ -421,10 +421,68 @@
 
     <!-- !  my javascript code -->
     <script>
+        if (userEmail == null && localStorage.getItem("email") != null ) {
+            var userEmail = localStorage.getItem("userEmail");
+        }
+        if (userID == null && localStorage.getItem("userID") != null) {
+            var userID = localStorage.getItem("userID");
+        }
+        if (userName == null && localStorage.getItem("userName") != null) {
+            var userName = localStorage.getItem("userName");
+        }
+        if (userType == null && localStorage.getItem("userType") != null) {
+            var userType = localStorage.getItem("userType");
+        }
+        // if (localStorage.getItem("email") == null ){
+        //     window.location = "http://localhost/app/login/";
+        //     Redirect();
+        // }
+
+        function loadPage() {
+            document.getElementById("welcome").innerHTML = "Hi, " + userID;
+            // if (userType == "professor" || userType == "admin") {
+            //     console.log("This is a professor or admin");
+            //     document.getElementById('output_table');
+            //     getPendingApplications();
+            // }
+
+            // redirect to main page or display error 404 if its student
+            // else if (userType == "student") {
+            //     // var newLi = document.createElement("LI");
+            //     // var linkNode = document.createElement("A");
+            //     // linkNode.id = "addOpening";
+            //     // linkNode.innerHTML = "Add TA Opening";
+            //     // linkNode.href = "add-courses.html";
+            //     // newLi.appendChild(linkNode);
+            //     // console.log(newLi)
+
+            //     // var topNav = document.getElementById("topNav");
+            //     // topNav.insertBefore(newLi, document.getElementById("logout"));
+
+            //     // newLi = document.createElement("LI");
+            //     // linkNode = document.createElement("A");
+            //     // linkNode.id = "taApplications";
+            //     // linkNode.innerHTML = "TA Applications";
+            //     // linkNode.href = "ta-applications.html";
+            //     // newLi.appendChild(linkNode);
+            //     // topNav.insertBefore(newLi, document.getElementById("logout"));
+
+            //     window.location.href = "http://localhost/app/login/";
+            //     Redirect();
+
+            // }
+        }
+
+
         function getStudent() {
             var url_string = window.location.href;
             var url = new URL(url_string)
+            // http:localhost/app/main/student-profile.html?student_id=john.2017
+
             var student_id = url.searchParams.get("student_id")
+            if (student_id === null) {
+                student_id = userID;
+            } 
             console.log('student_id: ' + student_id)
             // Step 1
             var request = new XMLHttpRequest();
@@ -445,7 +503,7 @@
                 }
 
             // Step 3
-            var url = `http://localhost:5015/get_student_by_student_id/${student_id}`; 
+            var url = `http://localhost:5015/get_name_by_id/${student_id}`; 
 
             // var url = `http://localhost:5001/`; 
             request.open("GET", url, true); 
