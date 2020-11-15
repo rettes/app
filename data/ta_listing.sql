@@ -10,8 +10,7 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
-CREATE DATABASE IF NOT EXISTS `ta_listing`;
-USE `ta_listing`;
+USE `heroku_bb881c2fc78bb76`;
 --
 -- Database: `ta_listing`
 --

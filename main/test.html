@@ -5,13 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    <div id="paypal-button" style="margin-left: 64%;"><button onclick = "generateButton()">Click here!</button></div>
-
+<body onload = "populateButtons()">
+	<table>
+		<tr>
+			<td id = 'payment1' style="margin-left: 64%;">
+			</td >
+		<tr>
+			<td id = 'payment2' style="margin-left: 64%;">
+			</td>
+		</tr>
+		<tr>
+			<td id = 'payment3' style="margin-left: 64%;">
+			</td>
+		</tr>
+			
+		</tr>
+	</table>
+    
     <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 	<script>
 
-		async function generateButton(cost){
+		function populateButtons(){
+			var buttons = document.getElementsByTagName("tr");
+
+			console.log(buttons.length)
+			for(let i = 0; i < buttons.length; i++){
+				console.log("payment" + (i+1));
+				generateButton(500, "#payment" + (i+1))
+			}
+		}
+		async function generateButton(cost, id){
 			//PayPal API
 			paypal.Button.render({
 				// Configure environment
@@ -51,7 +74,7 @@
 					window.location.replace("index.html");
 				});
 				}
-			}, '#paypal-button');
+			}, id);
         }
     </script>
 </body>
