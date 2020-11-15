@@ -97,6 +97,35 @@ def add_course(course):
         return jsonify("Module exists")
 
 
+@app.route('/update_rating/<string:details>')
+def update_rating(details):
+
+    rating_details = []
+    details = details.split("&")
+
+    
+    for param in details:
+        temp = param.split("=")
+        rating_details.append(temp[1])
+
+    module = Modules.query.filter_by(mod_id=rating_details[0]).first()
+
+    print(module)
+
+    module.rating1 += int(rating_details[1])
+    module.rating2 += int(rating_details[2])
+    module.rating3 += int(rating_details[3])
+    module.rating4 += int(rating_details[4])
+    module.rating5 += int(rating_details[5])
+
+
+    try:
+        db.session.commit()
+        return jsonify("Rating updated")
+    except:
+        return jsonify("Invalid Module")
+
+
 
 # ! port numbers
 # account = 5010

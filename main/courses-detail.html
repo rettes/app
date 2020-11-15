@@ -288,7 +288,7 @@
 										</li>
 										<li>
 											<div class="wm-select-two">
-												<select>
+												<select id="selector">
 													<option>1 &#11088</option>
 													<option>2 &#11088</option>
 													<option>3 &#11088</option>
@@ -299,7 +299,7 @@
 										</li>
 
 										<li class="wm-full-form">
-											<input type="submit" value="Submit now">
+											<input type="submit" value="Submit now" id='submit'>
 										</li>
 									</ul>
 								</form>
@@ -428,12 +428,17 @@
 		if (userType == null && localStorage.getItem("userType") != null) {
 			var userType = localStorage.getItem("userType");
 		}
-		if (localStorage.getItem("email") == null ){
-		    window.location = "http://localhost/app/login/";
-		    Redirect();
+		if (localStorage.getItem("email") == null) {
+			window.location = "http://localhost/app/login/";
+			Redirect();
 		}
-		
 
+		//-------------------------------------------------------------------------------------------------------------//
+
+		document.getElementById("submit").addEventListener("click", function (event) {
+			event.preventDefault();
+			sendRating();
+		});
 		//-------------------------------------------------------------------------------------------------------------//
 
 		function loadPage() {
@@ -480,7 +485,6 @@
 				if (item['mod_id'] == myParam) {
 					modDetails = item;
 				}
-
 			}
 			// getting all the elements of the needed changes
 			let studentElement = document.getElementById("numberOfStudents");
@@ -498,7 +502,7 @@
 			} else if (modDetails.level == "Intermediate") {
 				count = `60%`;
 			}
-			console.log(count)
+			//console.log(count)
 			levelElement.innerHTML = `<div class="wm-levelrating">
 											<span class="rating-box" style="width:${count}"></span>
 										</div>
@@ -559,8 +563,82 @@
 			}
 			paragraph += `</ul>`
 			document.getElementById("courseDescription").innerHTML = `${paragraph}`
-			console.log(modDetails)
-			console.log(urlParams.get('imageId'))
+			//console.log(modDetails)
+			//console.log(urlParams.get('imageId'))
+		}
+
+		function sendRating() {
+			const urlParams = new URLSearchParams(window.location.search);
+			const myParam = urlParams.get('mod_id');
+			var selected = document.getElementById("selector").value.slice(0, 1);
+			var mod_id = myParam;
+
+			var items = JSON.parse(localStorage['courses'])['modules'];
+
+			var index = 0;
+			for (item of JSON.parse(localStorage['courses'])['modules']) {
+				
+				if (item['mod_id'] == myParam) {
+					modDetails = item;
+					break;
+				}
+				index += 1
+			}
+
+			if (selected == 1) {
+				modDetails.rating1 += 1
+				items[index]['rating1'] = modDetails.rating1
+			} else if (selected == 2) {
+				modDetails.rating2 += 1
+				items[index]['rating2'] = modDetails.rating2
+			} else if (selected == 3) {
+				modDetails.rating3 += 1
+				items[index]['rating3'] = modDetails.rating3
+			} else if (selected == 4) {
+				modDetails.rating4 += 1
+				items[index]['rating4'] = modDetails.rating4
+			} else if (selected == 5) {
+				modDetails.rating5 += 1
+				items[index]['rating5'] = modDetails.rating5
+			}
+
+			
+			var ratings = {
+				0: mod_id,
+				1: 0,
+				2: 0,
+				3: 0,
+				4: 0,
+				5: 0,
+			}
+
+			for (rating in ratings) {
+				if (rating == selected) {
+					ratings[rating] = 1
+				}
+			}
+
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function () {
+
+				if (xhttp.readyState == 4 && xhttp.status == 200) {
+					var item = JSON.parse(xhttp.responseText);
+					var new_courses = JSON.stringify({modules: items})
+					localStorage.setItem("courses", new_courses)
+					populate()
+					window.alert('Your review has been added');
+					//console.log(item)
+					
+				}
+			}
+
+			let parameter = Object.entries(ratings).map(([key, val]) => `${key}=${val}`).join('&');
+			url = "http://localhost:5012/update_rating/" + parameter
+			console.log(url)
+			xhttp.open("GET", url, true);
+			xhttp.send();
+
+
 		}
 	</script>
 
