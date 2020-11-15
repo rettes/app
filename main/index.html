@@ -70,7 +70,7 @@
             <div class="wm-main-header">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-3"><a href="index-2.html" class="wm-logo"><img src="images/smulogo.png"
+                        <div class="col-md-3"><a href="index.html" class="wm-logo"><img src="images/smulogo.png"
                                     width="130px" height="50px alt=""></a></div>
                         <div class=" col-md-9">
                                 <!--// Navigation \\-->
@@ -450,7 +450,7 @@
                             document.getElementById("payment").id = "add"
 
                             var item = `
-                            <a href=# >TA openings</a>
+                            <a href=# >Manage</a>
                             <ul class="wm-dropdown-menu">
                                 <li><a href="add-courses.html" id="addOpening">Add TA Opening</a></li>
                                 <li class="active" id="taTenure"><a href="add-tenure.html">Add TA Tenure</a></li>
@@ -463,7 +463,7 @@
                             let newLi = document.createElement("LI");
                             newLi.id = "add"
                             let linkNode = document.createElement("A");
-                            linkNode.innerHTML = "TA Openings";
+                            linkNode.innerHTML = "Manage";
                             linkNode.href = "#";
                             newLi.appendChild(linkNode);
                             var topNav = document.getElementById("topNav");
@@ -517,7 +517,7 @@
                         localStorage.setItem("userName", userName)
                     }
                 }
-                url = "http://localhost:5014/get_name_by_id/" + userID
+                url = "http://localhost:5015/get_name_by_id/" + userID
                 xhttp.open("GET", url, true);
                 xhttp.send();
             }

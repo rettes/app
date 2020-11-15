@@ -74,7 +74,7 @@
     <div class="wm-main-header">
         <div class="container">
             <div class="row">
-                <div class="col-md-3"><a href="index-2.html" class="wm-logo"> <img src="images/smulogo.png" width="112px" height="50px"></a></div>
+                <div class="col-md-3"><a href="index.html" class="wm-logo"> <img src="images/smulogo.png" width="112px" height="50px"></a></div>
                 <div class="col-md-9">
                     <!--// Navigation \\-->
                     <nav class="navbar navbar-default">
@@ -100,7 +100,7 @@
                                 <a href="student-profile.html">Profile</a>
                             </li>
 
-                            <li >
+                            <li id="payment">
                                 <a href="student-payment.html">Payment</a>
                             </li>
 
@@ -441,7 +441,7 @@
             if (userType == "professor") {
                 document.getElementById("payment").id = "add"
                 var item = `
-                        <a href=# >TA openings</a>
+                        <a href=# >Manage</a>
                         <ul class="wm-dropdown-menu">
                             <li><a href="add-courses.html" id="addOpening">Add TA Opening</a></li>
                             <li class="active" id="taTenure"><a href="add-tenure.html">Add TA Tenure</a></li>
@@ -453,7 +453,7 @@
                 var newLi = document.createElement("LI");
                 newLi.id = "add"
                 var linkNode = document.createElement("A");
-                linkNode.innerHTML = "TA Openings";
+                linkNode.innerHTML = "Manage";
                 linkNode.href = "#";
                 newLi.appendChild(linkNode);
                 var topNav = document.getElementById("topNav");
