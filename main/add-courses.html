@@ -380,10 +380,11 @@
                 document.getElementById("payment").id = "add"
 
                 var item = `
-                <a href=# >TA openings</a>
+                <a href=# >Manage</a>
                 <ul class="wm-dropdown-menu">
-                    <li><a href="add-courses.html" id="addOpening">Add TA Opening</a></li>
+                    <li><a href="add-courses.html" id="addOpening">Manage</a></li>
                     <li class="active" id="taTenure"><a href="add-tenure.html">Add TA Tenure</a></li>
+                    <li class="active" id="taManage"><a href="manage-applications.html">Manage Applications</a></li>
                 </ul>`;
 
                 document.getElementById("add").innerHTML = item
@@ -400,7 +401,7 @@
                 let newLi = document.createElement("LI");
                 newLi.id = "add"
                 let linkNode = document.createElement("A");
-                linkNode.innerHTML = "TA Openings";
+                linkNode.innerHTML = "Manage";
                 linkNode.href = "#";
                 newLi.appendChild(linkNode);
                 var topNav = document.getElementById("topNav");
