@@ -165,6 +165,30 @@
                     <div class="row">
 
                         <div class="col-md-4">
+                            <div class="wm-search-course">
+                                <h3 class="wm-short-title wm-color">Find Your Course</h3>
+                                <p>Fill in the form below to find your course:</p>
+                                <form action="courses-grid.html" method="get">
+                                    <ul>
+                                        <!-- check line 153 -->
+                                        <li> <input type="text" value="Course Name" name="mod_id"
+                                                onblur="if(this.value == '') { this.value ='Course Name'; }"
+                                                onfocus="if(this.value =='Course Name') { this.value = ''; }"> <i
+                                                class="wmicon-search"></i> </li>
+                                        <li>
+                                            <div class="wm-apply-select">
+                                                <select>
+                                                    <option>1 position</option>
+                                                    <option>2 positions</option>
+                                                    <option>3 positions</option>
+                                                    <option>4 positions</option>
+                                                </select>
+                                            </div>
+                                        </li>
+                                        <li> <input type="submit" value="Search course"> </li>
+                                    </ul>
+                                </form>
+                            </div>
                         </div>
                         <div class="col-md-8">
                             <div class="wm-service wm-box-service">
@@ -373,16 +397,16 @@
                             itemToAdd += `
                                 <li class="col-md-3">
                                     <div class="wm-courses-popular-wrap">
-                                        <figure> <a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}"><img src="extra-images/papular-courses-${i}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
+                                        <figure> <a href="#"><img src="extra-images/papular-courses-${i}.jpg" alt=""> <span class="wm-popular-hover"> <small>see course</small> </span> </a>
                                             <figcaption>
                                                 <div>
                                                     <img src = "images/${item['modules'][i-1]['professor_id']}.jpg" style="width: 60px; height: 60px;">
                                                 </div>
-                                                <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}">${item['modules'][i-1]['professor_name']}</a></h6>
+                                                <h6><a href="#">${item['modules'][i-1]['professor_name']}</a></h6>
                                             </figcaption>
                                         </figure>
                                         <div class="wm-popular-courses-text">
-                                            <h6><a href="./courses-detail.html?mod_id=${item['modules'][i-1]['mod_id']}">${item['modules'][i-1]['mod_name']}</a></h6>
+                                            <h6><a href="#">${item['modules'][i-1]['mod_name']}</a></h6>
                                             <div class="wm-courses-price" style="text-align: center"><span ${x}>${item['modules'][i-1]['positions_available']} position(s) left</span> </div>
                                             
                                         </div>
