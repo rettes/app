@@ -69,6 +69,10 @@
 	<div id="dropDownSelect1"></div>
 	
 	<script>
+
+		var indexPyURL = 'http://2bcf5b0a0f30.ngrok.io';
+
+
 		function verifyPassword() {
 			console.log("hello")
 
@@ -96,7 +100,7 @@
 			}
 
 			// Step 3
-			var url = `http://localhost:5001/login/email=${email}&password=${password}`;
+			var url = `${indexPyURL}/login/email=${email}&password=${password}`;
 
 			// var url = `http://localhost:5001/`; 
 			request.open("GET", url, true);
@@ -116,7 +120,10 @@
 				// parent_folder = parent_folder.slice(0, -17) // removes '/index.html' from path to get current folder ie. '/wad2/wad2-project'
 				// console.log(parent_folder);
 
-				location.replace("../main/index.html?" + email.value);
+				// location.replace("../main/index.html?" + email.value);
+
+				window.location = '../main/index.html?' + email.value;
+				Redirect();
 
 			} else {
 				console.log('login failed');
