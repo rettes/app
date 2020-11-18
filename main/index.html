@@ -398,7 +398,9 @@
                             // }
 
                         }
-
+                        if (typeof (Storage) != "undefined") {
+                        localStorage.setItem("courses", JSON.stringify(item));
+                    }
                         document.getElementById("courseList").innerHTML = itemToAdd;
 
                     }
