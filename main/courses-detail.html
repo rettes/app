@@ -421,6 +421,9 @@
 	<script type="text/javascript" src="script/functions.js"></script>
 
 	<script>
+
+		var applicationUrl = "http://1bbf7b67e441.ngrok.io"
+		var moduleUrl = "http://a1269e62c956.ngrok.io"
 		// Will load when the document body is loaded together.
 		//-------------------------------------------------------------------------------------------------------------//
 
@@ -438,7 +441,7 @@
 			var userType = localStorage.getItem("userType");
 		}
 		if (localStorage.getItem("email") == null) {
-			window.location = "http://localhost/app/login/";
+			window.location = "../login/index.html";
 			Redirect();
 		}
 
@@ -646,7 +649,9 @@
 			}
 
 			let parameter = Object.entries(ratings).map(([key, val]) => `${key}=${val}`).join('&');
-			url = "http://localhost:5012/update_rating/" + parameter
+			// url = "http://localhost:5012/update_rating/" + parameter
+			url = moduleUrl + "/update_rating/" + parameter
+
 			console.log(url)
 			xhttp.open("GET", url, true);
 			xhttp.send();
@@ -689,7 +694,9 @@
                 }
 
             // Step 3
-            var url = `http://localhost:5011/addApplication/` + 'input=' + jsonSent;
+			// var url = `http://localhost:5011/addApplication/` + 'input=' + jsonSent;
+			var url = applicationUrl + '/addApplication/' + 'input=' + jsonSent;
+
 
             request.open("GET", url, true); 
             request.send();
