@@ -338,6 +338,7 @@
     </div>
 
     <script>
+        var moduleUrl = "http://a1269e62c956.ngrok.io"
         document.getElementById("submit").addEventListener("click", function (event) {
             event.preventDefault()
             validateForm()
@@ -357,11 +358,11 @@
             var userType = localStorage.getItem("userType");
         }
         if (localStorage.getItem("email") == null) {
-            window.location = "http://localhost/app/login/";
+            window.location = "../login/";
             Redirect();
         }
         if (userType != "professor" && userType != "admin") {
-            window.location = "http://localhost/app/main/index.html";
+            window.location = "index.html";
             Redirect();
         }
 
@@ -462,7 +463,10 @@
                 }
 
                 let parameter = Object.entries(course).map(([key, val]) => `${key}=${val}`).join('&');
-                url = "http://localhost:5012/add_course/" + parameter
+                // url = "http://localhost:5012/add_course/" + parameter
+
+                url = moduleUrl + "/add_course/" + parameter
+
                 xhttp.open("GET", url, true);
                 xhttp.send();
             }

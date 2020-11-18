@@ -334,7 +334,7 @@
 
     <script>
         //check lines 500-504
-
+        var moduleUrl = "http://a1269e62c956.ngrok.io/get_all"
 
 
         function showChanges() {
@@ -491,7 +491,9 @@
                 }
             }
 
-            xhttp.open("GET", "http://localhost:5012/get_all", true);
+            // xhttp.open("GET", "http://localhost:5012/get_all", true);
+            xhttp.open("GET", moduleUrl, true);
+
             xhttp.send();
         }
 
@@ -534,7 +536,9 @@
                 }
                 document.getElementById("schoolType").innerHTML = itemToAdd;
             }
-            xhttp.open("GET", "http://localhost:5012/get_all", true);
+            // xhttp.open("GET", "http://localhost:5012/get_all", true);
+            xhttp.open("GET", moduleUrl, true);
+
             xhttp.send();
         }
 
@@ -670,7 +674,9 @@
                 }
             }
 
-            xhttp.open("GET", "http://localhost:5012/get_all", true);
+            // xhttp.open("GET", "http://localhost:5012/get_all", true);
+            xhttp.open("GET", moduleUrl, true);
+
             xhttp.send();
         }
 

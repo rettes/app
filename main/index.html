@@ -311,6 +311,10 @@
         </footer>
         <div class="clearfix"></div>
         <script>
+            var accountUrl = "http://c53044b82b8a.ngrok.io"
+            var moduleUrl = "http://a1269e62c956.ngrok.io/get_all"
+            var professorUrl = "http://bed5f0920678.ngrok.io"
+            var studentUrl = "http://240dd30e69f7.ngrok.io"
             //load id
             if (localStorage.getItem("email") == null && window.location.search.substring().includes("smu.edu.sg")) {
                 var userEmail = window.location.search.substring(1);
@@ -400,7 +404,9 @@
                     }
                 }
 
-                xhttp.open("GET", "http://localhost:5012/get_all", true);
+                // xhttp.open("GET", "http://localhost:5012/get_all", true);
+                xhttp.open("GET", moduleUrl, true);
+
                 xhttp.send();
             }
 
@@ -458,7 +464,9 @@
                     }
                 }
 
-                url = "http://localhost:5010/get_account_by_email/" + userEmail
+                // url = "http://localhost:5010/get_account_by_email/" + userEmail
+                url = accountUrl + "/get_account_by_email/" + userEmail
+
                 xhttp.open("GET", url, true);
                 xhttp.send();
             }
@@ -476,7 +484,9 @@
                         localStorage.setItem("userName", userName)
                     }
                 }
-                url = "http://localhost:5014/get_name_by_id/" + userID
+                // url = "http://localhost:5014/get_name_by_id/" + userID
+                url = professorUrl + "/get_name_by_id/" + userID
+
                 xhttp.open("GET", url, true);
                 xhttp.send();
             }
@@ -495,7 +505,9 @@
                         localStorage.setItem("userName", userName)
                     }
                 }
-                url = "http://localhost:5015/get_name_by_id/" + userID
+                // url = "http://localhost:5015/get_name_by_id/" + userID
+                url = studentUrl + "/get_name_by_id/" + userID
+
                 xhttp.open("GET", url, true);
                 xhttp.send();
             }
