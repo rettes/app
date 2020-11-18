@@ -40,6 +40,6 @@ app <br>
 <br>
 
 ## Student:
-### - username: john.teo.2018@sis.smu.edu.sg
+### - username: john.teo.2018@smu.edu.sg
 ### - password: student
 <br>
