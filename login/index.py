@@ -50,7 +50,9 @@ def login(my_url):
     print(email)
     print(password)
 
-    r = requests.get("http://localhost:5010/get_account_by_email/" + str(email))
+    account_py_url = 'http://c53044b82b8a.ngrok.io'
+
+    r = requests.get(account_py_url + "/get_account_by_email/" + str(email))
     if r.status_code == 200:
         account = json.loads(r.text)
         try: 
