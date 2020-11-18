@@ -443,10 +443,13 @@
         if (userType == null && localStorage.getItem("userType") != null) {
             var userType = localStorage.getItem("userType");
         }
-        // if (localStorage.getItem("email") == null ){
-        //     window.location = "http://localhost/app/login/";
-        //     Redirect();
-        // }
+        if (localStorage.getItem("email") == null ){
+            window.location = "http://../login/";
+            Redirect();
+        }
+
+        var localhost_5011 = 'http://1bbf7b67e441.ngrok.io';
+        
 
         //-------------------------------------------------------------------------------------------------------------//
         
@@ -487,7 +490,7 @@
                 }
             // redirect to home page if its student
             else if (userType == "student") {
-                window.location.href = "http://localhost/app/main/index.html";
+                window.location.href = "http://../main/index.html";
                 Redirect();
 
             }
@@ -516,7 +519,7 @@
                 }
 
             // Step 3
-            var url = `http://localhost:5011/get_pending_applications`; 
+            var url = `${localhost_5011}/get_pending_applications`; 
 
             request.open("GET", url, true); 
             request.send();
@@ -612,7 +615,7 @@
                 }
 
             // Step 3
-            var url = `http://localhost:5011/acceptApplication/` + 'app_id=' +  sid + '&status=' + '1'; 
+            var url = `${localhost_5011}/acceptApplication/` + 'app_id=' +  sid + '&status=' + '1'; 
 
             request.open("GET", url, true); 
             request.send();
@@ -654,7 +657,7 @@
                 }
 
             // Step 3
-            var url = `http://localhost:5011/acceptApplication/` + 'app_id=' +  sid + '&status=' + '0'; 
+            var url = `${localhost_5011}/acceptApplication/` + 'app_id=' +  sid + '&status=' + '0'; 
 
             request.open("GET", url, true); 
             request.send();
@@ -686,7 +689,7 @@
                 }
 
             // Step 3
-            var url = `http://localhost:5011/getAppById/` + app_no; 
+            var url = `${localhost_5011}/getAppById/` + app_no; 
 
             request.open("GET", url, true); 
             request.send();

@@ -271,14 +271,16 @@
                 var userType = localStorage.getItem("userType");
             }
             if (localStorage.getItem("email") == null) {
-                window.location = "http://localhost/app/login/";
+                window.location = "http://../login/";
                 Redirect();
             }
 
             if (userType != "admin" && userType != "student") {
-                window.location = "http://localhost/app/main/index.html";
+                window.location = "http://./index.html";
                 Redirect();
             }
+
+            var localhost_5013 = `http://5652914999a0.ngrok.io`;
 
             //-------------------------------------------------------------------------------------------------------------//
 
@@ -387,7 +389,7 @@
 
                 }
 
-                url = "http://localhost:5013/get_all"
+                url = `http://${localhost_5013}/get_all`
                 xhttp.open("GET", url, true);
                 xhttp.send();
             }
@@ -440,7 +442,7 @@
 
                 }
 
-                url = "http://localhost:5013/get_payment_by_id/" + userID
+                url = `http://${localhost_5013}/get_payment_by_id/` + userID
                 xhttp.open("GET", url, true);
                 xhttp.send();
             }
@@ -486,7 +488,7 @@
                 }
 
                 let parameter = Object.entries(payment).map(([key, val]) => `${key}=${val}`).join('&');
-                url = "http://localhost:5013/update_tenure/" + parameter
+                url = `http://${localhost_5013}/update_tenure/` + parameter
                 xhttp.open("GET", url, true);
                 xhttp.send();
 

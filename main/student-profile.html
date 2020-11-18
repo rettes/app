@@ -436,10 +436,12 @@
             if (userType == null && localStorage.getItem("userType") != null) {
                 var userType = localStorage.getItem("userType");
             }
-            // if (localStorage.getItem("email") == null ){
-            //     window.location = "http://localhost/app/login/";
-            //     Redirect();
-            // }
+            if (localStorage.getItem("email") == null ){
+                window.location = "http://../login/";
+                Redirect();
+            }
+
+            var localhost_5015 = `http://240dd30e69f7.ngrok.io`;
 
             function loadPage() {
                 document.getElementById("welcome").innerHTML = "Hi, " + userID;
@@ -536,7 +538,7 @@
                 }
 
                 // Step 3
-                var url = `http://localhost:5015/get_name_by_id/${student_id}`;
+                var url = `${localhost_5015}/get_name_by_id/${student_id}`;
 
                 // var url = `http://localhost:5001/`; 
                 request.open("GET", url, true);

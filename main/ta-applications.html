@@ -406,14 +406,16 @@
             var userType = localStorage.getItem("userType");
         }
         if (localStorage.getItem("email") == null) {
-            //     window.location = "http://localhost/app/login/";
-            //     Redirect();
+            window.location = "http://../login/";
+            Redirect();
         }
 
         if (userType != "professor" && userType != "admin") {
-            window.location = "http://localhost/app/main/index.html";
+            window.location = "http://./index.html";
             Redirect();
         }
+
+        var localhost_5011 = `http://1bbf7b67e441.ngrok.io`;
         //-------------------------------------------------------------------------------------------------------------//
 
         function loadPage() {
@@ -496,7 +498,7 @@
 
             }
 
-            url = "http://localhost:5011/get_confirmed_applications/"
+            url = `${localhost_5011}/get_confirmed_applications/`;
             xhttp.open("GET", url, true);
             xhttp.send();
         }
