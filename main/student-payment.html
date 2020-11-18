@@ -389,7 +389,7 @@
 
                 }
 
-                url = `http://${localhost_5013}/get_all`
+                url = `${localhost_5013}/get_all`
                 xhttp.open("GET", url, true);
                 xhttp.send();
             }
@@ -442,7 +442,7 @@
 
                 }
 
-                url = `http://${localhost_5013}/get_payment_by_id/` + userID
+                url = `${localhost_5013}/get_payment_by_id/` + userID
                 xhttp.open("GET", url, true);
                 xhttp.send();
             }
@@ -488,7 +488,7 @@
                 }
 
                 let parameter = Object.entries(payment).map(([key, val]) => `${key}=${val}`).join('&');
-                url = `http://${localhost_5013}/update_tenure/` + parameter
+                url = `${localhost_5013}/update_tenure/` + parameter
                 xhttp.open("GET", url, true);
                 xhttp.send();
 
