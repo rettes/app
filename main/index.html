@@ -324,13 +324,13 @@
             } else if (userEmail == null && localStorage.getItem("email") != null) {
                 userEmail = localStorage.getItem("email");
                 //console.log(userEmail)
+            } else if (localStorage.getItem("email") == null ){
+                window.location = "http://../login/";
+                Redirect();
             }
 
-            console.log(userEmail);
-            // else if (localStorage.getItem("email") == null ){
-            //     window.location = "http://localhost/app/login/";
-            //     Redirect();
-            // }
+            // console.log(userEmail);
+            
 
             //-------------------------------------------------------------------------------------------------------------//
 
@@ -438,8 +438,8 @@
                                 <li class="active" id="taTenure"><a href="add-tenure.html">Add TA Tenure</a></li>
                                 <li class="active" id="taManage"><a href="manage-applications.html">Manage Applications</a></li>
                             </ul>`;
-
-                            document.getElementById("add").innerHTML = item
+                            loadProfessorName(userID);
+                            document.getElementById("add").innerHTML = item;
 
                         } else if (userType == "admin") {
                             let newLi = document.createElement("LI");
@@ -481,7 +481,9 @@
                         var item = JSON.parse(xhttp.responseText);
                         // console.log(item)
                         userName = item['professor_name'];
+                        console.log(userName);
                         localStorage.setItem("userName", userName)
+                        console.log(localStorage["userName"]);
                     }
                 }
                 // url = "http://localhost:5014/get_name_by_id/" + userID

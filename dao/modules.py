@@ -89,7 +89,7 @@ def add_course(course):
         module.append(temp[1])
 
     try:
-        me = Modules(module[0], module[1], module[2], module[3], module[4], module[5], module[6], module[7], module[8])
+        me = Modules(module[0], module[1], module[2], module[3], module[4], module[5], module[6], module[7], module[8],'2020-08-17','2020-11-29' , 234, 'SIS SR 2-3', 0, 0, 0, 0, 0)
         db.session.add(me)
         db.session.commit()
         return jsonify("Module added")
