@@ -532,13 +532,14 @@
 
         function renderPage(json_obj) {
             var applications = json_obj.applications;
+            var prof_id = userID;
             var htmlStr = ``;
             for (application of applications) {
                 let app_no = application.application_no;
                 let mod_id = application.mod_id;
                 let student_id = application.student_id;
-                // let student_name = application.student_name;
-                htmlStr += `
+                if (prof_id == application.professor_id) {
+                    htmlStr += `
                     <tr>
                         <td>
                             <div class="wm-form-wrap wm-typography-element" style='height:20px; width:20px; margin: 0px 5px 5px 30%; padding: 0px; border: 0px'>
@@ -562,6 +563,9 @@
                     </tr>
 
                 `;
+                }
+                // let student_name = application.student_name;
+                
             }
             // console.log(htmlStr)
             document.getElementById("renderPendingApps").innerHTML += htmlStr;
