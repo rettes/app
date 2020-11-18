@@ -456,7 +456,35 @@
                 console.log("This is a professor or admin");
                 getPendingApplications();
             }
+            if (userType == "professor") {
+                    document.getElementById("payment").id = "add"
 
+                    var item = `
+                <a href=# >TA openings</a>
+                <ul class="wm-dropdown-menu">
+                    <li><a href="add-courses.html" id="addOpening">Add TA Opening</a></li>
+                    <li class="active" id="taTenure"><a href="add-tenure.html">Add TA Tenure</a></li>
+                    <li class="active" id="taManage"><a href="manage-applications.html">Manage Applications</a></li>
+                </ul>`;
+
+                    document.getElementById("add").innerHTML = item
+                } else if (userType == "admin") {
+                    let newLi = document.createElement("LI");
+                    newLi.id = "add"
+                    let linkNode = document.createElement("A");
+                    linkNode.innerHTML = "TA Openings";
+                    linkNode.href = "#";
+                    newLi.appendChild(linkNode);
+                    var topNav = document.getElementById("topNav");
+                    topNav.insertBefore(newLi, document.getElementById("logout"));
+
+                    var item = `<ul class="wm-dropdown-menu">
+                    <li><a href="add-courses.html" id="addOpening">Add TA Opening</a></li>
+                    <li class="active" id="taApplications"><a href="ta-applications.html">TA Applications</a></li>
+                </ul>`;
+
+                    document.getElementById("add").innerHTML += item
+                }
             // redirect to home page if its student
             else if (userType == "student") {
                 window.location.href = "http://localhost/app/main/index.html";
