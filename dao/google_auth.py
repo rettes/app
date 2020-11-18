@@ -12,8 +12,13 @@ AUTHORIZATION_URL = 'https://accounts.google.com/o/oauth2/v2/auth?access_type=of
 
 AUTHORIZATION_SCOPE ='openid email profile https://www.googleapis.com/auth/drive.file'
 
-AUTH_REDIRECT_URI = 'http://localhost:5000/google/auth'
-BASE_URI ="http://localhost:5000/get_all"
+localhost5000_url = 'http://56d32b498776.ngrok.io'
+
+AUTH_REDIRECT_URI = localhost5000_url + '/google/auth'
+
+
+BASE_URI = localhost5000_url + "/get_all"
+
 CLIENT_ID = '342517456610-fm6190djlcjf6kjihs7blnqc9omb2h3h.apps.googleusercontent.com'
 CLIENT_SECRET = 'Ihy27Hq6JnqtnNfUsBy7lAUV'
 
