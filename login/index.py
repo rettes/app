@@ -50,7 +50,7 @@ def login(my_url):
     print(email)
     print(password)
 
-    account_py_url = 'http://c53044b82b8a.ngrok.io'
+    account_py_url = 'http://localhost:5010';
 
     r = requests.get(account_py_url + "/get_account_by_email/" + str(email))
     if r.status_code == 200:
